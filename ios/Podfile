@@ -21,7 +21,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'demo' do
+abstract_target 'demoCommonPods' do 
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -43,11 +43,6 @@ target 'demo' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'demoTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   post_install do |installer|
     react_native_post_install(
       installer,
@@ -56,5 +51,14 @@ target 'demo' do
       :mac_catalyst_enabled => false
     )
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+  end
+
+  target 'DemoDev' do
+  end
+ 
+  target 'DemoStg' do
+  end
+ 
+  target 'demo' do
   end
 end

@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios --simulator=\"iPhone 14 Pro Max\"",
+    "ios:dev": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"DemoDev\" --simulator=\"iPhone 14 Pro Max\"",
+    "android:staging": "react-native run-android --mode=stagingDebug --appIdSuffix staging",
+    "android:dev": "react-native run-android --mode=developmentDebug --appIdSuffix development",
+    "android:prod": "react-native run-android --mode=productionDebug --appIdSuffix production",
     "lint": "eslint .",
     "start": "react-native start",
     "test": "jest",
@@ -20,6 +23,7 @@
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
     "bignumber.js": "^9.1.1",
+    "crypto-js": "3.1.8",
     "hoist-non-react-statics": "^3.3.2",
     "i18next": "^23.1.0",
     "itty-router": "^4.0.9",
@@ -46,6 +50,7 @@
     "react-redux": "^8.0.7",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
+    "redux-persist-transform-encrypt": "4.0.0",
     "redux-saga": "^1.2.3",
     "rxjs": "^7.8.1",
     "socket.io-client": "^4.6.2"
@@ -80,6 +85,9 @@
     "react-native-svg-transformer": "^1.0.0",
     "react-test-renderer": "18.2.0",
     "typescript": "4.8.4"
+  },
+  "resolutions": {
+    "crypto-js": "3.3.0"
   },
   "jest": {
     "preset": "react-native"

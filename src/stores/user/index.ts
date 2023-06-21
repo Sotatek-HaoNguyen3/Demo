@@ -2,12 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 
 import { loginAsyncAction } from './actions';
 
+import { persistReducerUtil } from 'packages/stores/utils';
+
 const initialState = {
     status: 'ide',
 };
 
 export const userSlice = createSlice({
-    name: 'user',
+    name: 'users',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -24,4 +26,4 @@ export const userSlice = createSlice({
     },
 });
 
-export default userSlice.reducer;
+export default persistReducerUtil('users', userSlice.reducer);

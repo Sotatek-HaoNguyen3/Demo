@@ -68,10 +68,11 @@ buck-out/
 # eslint
 .eslintcache
 
+# react-native-config codegen
+ios/tmp.xcconfig
+
 # ENV
-.env.pibit.development
-.env.pibit.staging
-.env.pibit.production
-.env.monas.development
-.env.monas.staging
-.env.monas.production
+.env.development
+.env.production
+.env.staging
+.env

@@ -1,10 +1,7 @@
-import {  TFunction } from 'i18next';
-import i18n, { LanguageType } from '../packages/localization';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-// import * as RNLocalize from 'react-native-localize';
-import { Appearance } from 'react-native';
 
+import { changeLanguage, ILanguageContext, LanguageType } from 'packages/localization';
 
 // import { ThemeColor } from 'themes/colors';
 // import Storages, { KeyStorage } from 'utils/storages';
@@ -13,22 +10,10 @@ interface Props {
     children: React.ReactElement;
 }
 
-interface ILanguageContext {
-    t: TFunction<'translation'>;
-    language: LanguageType;
-    updateLanguage: (language: string) => void;
-}
-
 // interface IThemeContext {
 //     theme: ThemeColor;
 //     updateTheme: (theme: ThemeColor | null) => void;
 // }
-
-interface ITimeAutoLock {
-    timeAutoLock: number | null;
-    updateTimeAutoLock: (value: number | null) => void;
-    updateUserID: (id: number) => void;
-}
 
 type ISettingContext = ILanguageContext;
 
@@ -36,10 +21,9 @@ const SettingContext = createContext<ISettingContext>({} as ISettingContext);
 
 const SettingProvider = (props: Props) => {
     // eslint-disable-next-line @typescript-eslint/no-shadow
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [language, setLanguage] = useState<LanguageType>(LanguageType.English);
     // const [theme, setTheme] = useState<ThemeColor>(ThemeColor.Light);
-    const [timeAutoLock, setTimeAutoLock] = useState<number | null>(null);
     const [userID, setUserID] = useState<number | null>(null)
 
     const updateUserID = (id: number) => setUserID(id);
@@ -101,9 +85,7 @@ const SettingProvider = (props: Props) => {
 
     const updateLanguage = (value: LanguageType) => {
         setLanguage(value);
-        i18n.changeLanguage(value).then(() => {
-            // Storages.set(KeyStorage.Language, value).catch();
-        });
+        changeLanguage(value);
     };
 
     // const updateTheme = (value: ThemeColor | null) => {
@@ -124,8 +106,7 @@ const SettingProvider = (props: Props) => {
     return (
         <SettingContext.Provider
             value={{
-                t,  language,
-                updateLanguage,
+                t, language, updateLanguage,
             }}
         >
             {props.children}

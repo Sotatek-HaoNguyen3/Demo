@@ -1,23 +1,19 @@
-
 import React from 'react';
-
-import { View } from 'react-native';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import SettingProvider from 'contexts/SettingProvider';
-
+import 'packages/localization';
 import RootStacks from 'stacks';
-import { store } from 'stores';
-
-
+import store, { persistor } from 'stores';
 
 function App() {
     return (
         <SettingProvider>
             <Provider store={store}>
-                <View style={{ flex: 1 }}>
+                <PersistGate loading={null} persistor={persistor}>
                     <RootStacks />
-                </View>
+                </PersistGate>
             </Provider>
         </SettingProvider>
     );

@@ -1,32 +1,22 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { createLogger } from 'redux-logger';
-import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
+import { FLUSH, PAUSE, PERSIST, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
-import counterReducer from './counter/counterSlice';
+import usersReducer from './user';
 
-const PERSISTED_KEYS: string[] = ['user'];
-
-const persistConfig = {
-    key: 'root',
-    storage: AsyncStorage,
-    whitelist: PERSISTED_KEYS,
-    blacklist: ['profile'],
-};
+import rootSaga from 'sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const logger = createLogger();
 
 const rootReducer = combineReducers({
-    counter: counterReducer,
+    users: usersReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
-
 export const store = configureStore({
-    reducer: persistedReducer,
+    reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
@@ -36,6 +26,8 @@ export const store = configureStore({
             .concat(sagaMiddleware)
             .concat(logger),
 });
+
+sagaMiddleware.run(rootSaga);
 
 /**
  * @see https://redux-toolkit.js.org/usage/usage-with-typescript#getting-the-dispatch-type

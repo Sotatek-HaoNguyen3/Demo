@@ -2,6 +2,13 @@ apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
 import com.android.build.OutputFile
+import org.apache.tools.ant.taskdefs.condition.Os
+project.ext.envConfigFiles = [
+    production: ".env.production",
+    development: ".env.development",
+    staging: ".env.staging",
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -92,14 +99,40 @@ android {
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            applicationIdSuffix ".production"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", env.get("APP_NAME")
 
+        }
+        staging {
+            applicationIdSuffix ".staging"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", env.get("APP_NAME")
+            resValue "string", "build_config_package", "com.demo"
+            matchingFallbacks = ['debug', 'release']
+        }
+        development {
+            applicationIdSuffix ".development"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", env.get("APP_NAME")
+            resValue "string", "build_config_package", "com.demo"
+            matchingFallbacks = ['debug', 'release']
+        }
+    }
     namespace "com.demo"
     defaultConfig {
-        applicationId "com.demo"
+        applicationId env.get("ANDROID_APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode Integer.valueOf(env.get("ANDROID_APP_VERSION_CODE"))
+        versionName env.get("ANDROID_APP_VERSION_NAME")
+        resValue "string", "build_config_package", "com.demo"
     }
 
     splits {
@@ -116,6 +149,24 @@ android {
             storePassword 'android'
             keyAlias 'androiddebugkey'
             keyPassword 'android'
+        }
+        development {
+            storeFile file(DEBUG_STORE_FILE)
+            storePassword DEBUG_STORE_PASSWORD
+            keyAlias DEBUG_KEY_ALIAS
+            keyPassword DEBUG_KEY_PASSWORD
+        }
+        staging {
+            storeFile file(STAGING_STORE_FILE)
+            storePassword STAGING_STORE_PASSWORD
+            keyAlias STAGING_KEY_ALIAS
+            keyPassword STAGING_KEY_PASSWORD
+        }
+        product {
+            storeFile file(PRODUCT_STORE_FILE)
+            storePassword PRODUCT_STORE_PASSWORD
+            keyAlias PRODUCT_KEY_ALIAS
+            keyPassword PRODUCT_KEY_PASSWORD
         }
     }
     buildTypes {
@@ -165,6 +216,13 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+    from configurations.implementation
+    into 'libs'
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

@@ -56,7 +56,7 @@ abstract_target 'demoCommonPods' do
   target 'DemoDev' do
   end
  
-  target 'DemoStg' do
+  target 'Staging' do
   end
  
   target 'demo' do

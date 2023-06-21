@@ -14,6 +14,17 @@
 		55596A870524469D9ECB5BE4 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8321ABD9EACC45F8B4019980 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */; };
+		841956162A42A88C001C453E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		841956172A42A88C001C453E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		841956192A42A88C001C453E /* libPods-demoCommonPods-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E27CBC88D9CF8CD590CBFCC /* libPods-demoCommonPods-demo.a */; };
+		8419561B2A42A88C001C453E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8419561C2A42A88C001C453E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		8419561D2A42A88C001C453E /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */; };
+		8419561E2A42A88C001C453E /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
+		8419561F2A42A88C001C453E /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */; };
+		841956202A42A88C001C453E /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
+		841956212A42A88C001C453E /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
+		841956222A42A88C001C453E /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
 		8F169959FB6E42A98A54ABFE /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
 		A53263900F8D428EA2036C10 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */; };
 		BE709D61D27242E2AA5D9653 /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
@@ -41,6 +52,8 @@
 		7E27CBC88D9CF8CD590CBFCC /* libPods-demoCommonPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841956102A415648001C453E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		841956292A42A88C001C453E /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8419562A2A42A88C001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/admin/Code/Company/demo/ios/Info.plist; sourceTree = "<absolute>"; };
 		946F2695FD307AFBC60B345F /* libPods-demoCommonPods-DemoStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		B99AA8AA73A344F54B2C15D8 /* libPods-demoCommonPods-DemoDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +70,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AED7A59E86E333ACB675579 /* libPods-demoCommonPods-demo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841956182A42A88C001C453E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841956192A42A88C001C453E /* libPods-demoCommonPods-demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +148,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				841956112A42A78D001C453E /* Staging */,
 				841956102A415648001C453E /* Config.xcconfig */,
 				13B07FAE1A68108700A75B9A /* demo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -145,8 +167,17 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* demo.app */,
+				841956292A42A88C001C453E /* Staging.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		841956112A42A78D001C453E /* Staging */ = {
+			isa = PBXGroup;
+			children = (
+				8419562A2A42A88C001C453E /* Info.plist */,
+			);
+			path = Staging;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -189,6 +220,28 @@
 			productReference = 13B07F961A680F5B00A75B9A /* demo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		841956122A42A88C001C453E /* Staging */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 841956262A42A88C001C453E /* Build configuration list for PBXNativeTarget "Staging" */;
+			buildPhases = (
+				841956132A42A88C001C453E /* [CP] Check Pods Manifest.lock */,
+				841956142A42A88C001C453E /* Start Packager */,
+				841956152A42A88C001C453E /* Sources */,
+				841956182A42A88C001C453E /* Frameworks */,
+				8419561A2A42A88C001C453E /* Resources */,
+				841956232A42A88C001C453E /* Bundle React Native code and images */,
+				841956242A42A88C001C453E /* [CP] Embed Pods Frameworks */,
+				841956252A42A88C001C453E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Staging;
+			productName = demo;
+			productReference = 841956292A42A88C001C453E /* Staging.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +269,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* Dev */,
+				841956122A42A88C001C453E /* Staging */,
 			);
 		};
 /* End PBXProject section */
@@ -233,6 +287,21 @@
 				BE709D61D27242E2AA5D9653 /* SegoeUI-Bold.ttf in Resources */,
 				8F169959FB6E42A98A54ABFE /* SegoeUI-SemiBold.ttf in Resources */,
 				D9DA292EBAD64E64B46849F9 /* SegoeUI.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8419561A2A42A88C001C453E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8419561B2A42A88C001C453E /* LaunchScreen.storyboard in Resources */,
+				8419561C2A42A88C001C453E /* Images.xcassets in Resources */,
+				8419561D2A42A88C001C453E /* Inter-Bold.ttf in Resources */,
+				8419561E2A42A88C001C453E /* Inter-Regular.ttf in Resources */,
+				8419561F2A42A88C001C453E /* Inter-SemiBold.ttf in Resources */,
+				841956202A42A88C001C453E /* SegoeUI-Bold.ttf in Resources */,
+				841956212A42A88C001C453E /* SegoeUI-SemiBold.ttf in Resources */,
+				841956222A42A88C001C453E /* SegoeUI.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +339,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		841956132A42A88C001C453E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-demoCommonPods-demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		841956142A42A88C001C453E /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		841956232A42A88C001C453E /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		841956242A42A88C001C453E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		841956252A42A88C001C453E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
@@ -339,6 +499,15 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841956152A42A88C001C453E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841956162A42A88C001C453E /* AppDelegate.mm in Sources */,
+				841956172A42A88C001C453E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +705,60 @@
 			};
 			name = Release;
 		};
+		841956272A42A88C001C453E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13707217E8F0559FDE37BBF3 /* Pods-demoCommonPods-demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = Staging/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Staging;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.staging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		841956282A42A88C001C453E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDE36F1C31779AA02278D84 /* Pods-demoCommonPods-demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = Staging/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Staging;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.staging;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,6 +776,15 @@
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
 				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		841956262A42A88C001C453E /* Build configuration list for PBXNativeTarget "Staging" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				841956272A42A88C001C453E /* Debug */,
+				841956282A42A88C001C453E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

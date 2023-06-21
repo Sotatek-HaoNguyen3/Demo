@@ -25,6 +25,17 @@
 		841956202A42A88C001C453E /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
 		841956212A42A88C001C453E /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
 		841956222A42A88C001C453E /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
+		8419562F2A42AA9C001C453E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
+		841956302A42AA9C001C453E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		841956322A42AA9C001C453E /* libPods-demoCommonPods-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E27CBC88D9CF8CD590CBFCC /* libPods-demoCommonPods-demo.a */; };
+		841956342A42AA9C001C453E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		841956352A42AA9C001C453E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		841956362A42AA9C001C453E /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */; };
+		841956372A42AA9C001C453E /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
+		841956382A42AA9C001C453E /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */; };
+		841956392A42AA9C001C453E /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
+		8419563A2A42AA9C001C453E /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
+		8419563B2A42AA9C001C453E /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
 		8F169959FB6E42A98A54ABFE /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
 		A53263900F8D428EA2036C10 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */; };
 		BE709D61D27242E2AA5D9653 /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
@@ -51,9 +62,10 @@
 		7B4FCE4E7C5EC9C8358CC3E4 /* Pods-demoCommonPods-DemoStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoStg.release.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoStg/Pods-demoCommonPods-DemoStg.release.xcconfig"; sourceTree = "<group>"; };
 		7E27CBC88D9CF8CD590CBFCC /* libPods-demoCommonPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		841956102A415648001C453E /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		841956292A42A88C001C453E /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8419562A2A42A88C001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/admin/Code/Company/demo/ios/Info.plist; sourceTree = "<absolute>"; };
+		841956422A42AA9C001C453E /* Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		841956432A42AA9D001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = /Users/admin/Code/Company/demo/ios/Info.plist; sourceTree = "<absolute>"; };
 		946F2695FD307AFBC60B345F /* libPods-demoCommonPods-DemoStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
 		B99AA8AA73A344F54B2C15D8 /* libPods-demoCommonPods-DemoDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +90,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				841956192A42A88C001C453E /* libPods-demoCommonPods-demo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841956312A42AA9C001C453E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841956322A42AA9C001C453E /* libPods-demoCommonPods-demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,8 +168,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				841956112A42A78D001C453E /* Staging */,
-				841956102A415648001C453E /* Config.xcconfig */,
+				841956452A42ACA9001C453E /* ConfigEnv */,
 				13B07FAE1A68108700A75B9A /* demo */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* demoTests */,
@@ -168,6 +187,7 @@
 			children = (
 				13B07F961A680F5B00A75B9A /* demo.app */,
 				841956292A42A88C001C453E /* Staging.app */,
+				841956422A42AA9C001C453E /* Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -177,7 +197,26 @@
 			children = (
 				8419562A2A42A88C001C453E /* Info.plist */,
 			);
-			path = Staging;
+			name = Staging;
+			path = ../Staging;
+			sourceTree = "<group>";
+		};
+		841956442A42AAAA001C453E /* Dev */ = {
+			isa = PBXGroup;
+			children = (
+				841956432A42AA9D001C453E /* Info.plist */,
+			);
+			name = Dev;
+			path = ../Dev;
+			sourceTree = "<group>";
+		};
+		841956452A42ACA9001C453E /* ConfigEnv */ = {
+			isa = PBXGroup;
+			children = (
+				841956112A42A78D001C453E /* Staging */,
+				841956442A42AAAA001C453E /* Dev */,
+			);
+			path = ConfigEnv;
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -198,9 +237,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* Dev */ = {
+		13B07F861A680F5B00A75B9A /* Demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dev" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Demo" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -215,7 +254,7 @@
 			);
 			dependencies = (
 			);
-			name = Dev;
+			name = Demo;
 			productName = demo;
 			productReference = 13B07F961A680F5B00A75B9A /* demo.app */;
 			productType = "com.apple.product-type.application";
@@ -240,6 +279,28 @@
 			name = Staging;
 			productName = demo;
 			productReference = 841956292A42A88C001C453E /* Staging.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8419562B2A42AA9C001C453E /* Dev */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8419563F2A42AA9C001C453E /* Build configuration list for PBXNativeTarget "Dev" */;
+			buildPhases = (
+				8419562C2A42AA9C001C453E /* [CP] Check Pods Manifest.lock */,
+				8419562D2A42AA9C001C453E /* Start Packager */,
+				8419562E2A42AA9C001C453E /* Sources */,
+				841956312A42AA9C001C453E /* Frameworks */,
+				841956332A42AA9C001C453E /* Resources */,
+				8419563C2A42AA9C001C453E /* Bundle React Native code and images */,
+				8419563D2A42AA9C001C453E /* [CP] Embed Pods Frameworks */,
+				8419563E2A42AA9C001C453E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dev;
+			productName = demo;
+			productReference = 841956422A42AA9C001C453E /* Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -268,8 +329,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Dev */,
+				13B07F861A680F5B00A75B9A /* Demo */,
 				841956122A42A88C001C453E /* Staging */,
+				8419562B2A42AA9C001C453E /* Dev */,
 			);
 		};
 /* End PBXProject section */
@@ -302,6 +364,21 @@
 				841956202A42A88C001C453E /* SegoeUI-Bold.ttf in Resources */,
 				841956212A42A88C001C453E /* SegoeUI-SemiBold.ttf in Resources */,
 				841956222A42A88C001C453E /* SegoeUI.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		841956332A42AA9C001C453E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				841956342A42AA9C001C453E /* LaunchScreen.storyboard in Resources */,
+				841956352A42AA9C001C453E /* Images.xcassets in Resources */,
+				841956362A42AA9C001C453E /* Inter-Bold.ttf in Resources */,
+				841956372A42AA9C001C453E /* Inter-Regular.ttf in Resources */,
+				841956382A42AA9C001C453E /* Inter-SemiBold.ttf in Resources */,
+				841956392A42AA9C001C453E /* SegoeUI-Bold.ttf in Resources */,
+				8419563A2A42AA9C001C453E /* SegoeUI-SemiBold.ttf in Resources */,
+				8419563B2A42AA9C001C453E /* SegoeUI.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +509,97 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8419562C2A42AA9C001C453E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-demoCommonPods-demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8419562D2A42AA9C001C453E /* Start Packager */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Start Packager";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8419563C2A42AA9C001C453E /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		8419563D2A42AA9C001C453E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8419563E2A42AA9C001C453E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -511,6 +679,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8419562E2A42AA9C001C453E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8419562F2A42AA9C001C453E /* AppDelegate.mm in Sources */,
+				841956302A42AA9C001C453E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -523,7 +700,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = demo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Dev;
+				INFOPLIST_KEY_CFBundleDisplayName = Demo;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -534,7 +711,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.production;
 				PRODUCT_NAME = demo;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -550,7 +727,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = demo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Dev;
+				INFOPLIST_KEY_CFBundleDisplayName = Demo;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -561,7 +738,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.production;
 				PRODUCT_NAME = demo;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -713,7 +890,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Staging/Info.plist;
+				INFOPLIST_FILE = ConfigEnv/Staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Staging;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -740,7 +917,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Staging/Info.plist;
+				INFOPLIST_FILE = ConfigEnv/Staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Staging;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -759,10 +936,64 @@
 			};
 			name = Release;
 		};
+		841956402A42AA9C001C453E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13707217E8F0559FDE37BBF3 /* Pods-demoCommonPods-demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = ConfigEnv/Dev/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dev;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.development;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		841956412A42AA9C001C453E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCDE36F1C31779AA02278D84 /* Pods-demoCommonPods-demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = ConfigEnv/Dev/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Dev;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.demo.development;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Dev" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -785,6 +1016,15 @@
 			buildConfigurations = (
 				841956272A42A88C001C453E /* Debug */,
 				841956282A42A88C001C453E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		8419563F2A42AA9C001C453E /* Build configuration list for PBXNativeTarget "Dev" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				841956402A42AA9C001C453E /* Debug */,
+				841956412A42AA9C001C453E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

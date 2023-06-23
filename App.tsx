@@ -4,18 +4,26 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import SettingProvider from 'contexts/SettingProvider';
 import 'packages/localization';
+import { BaseProvider, IBaseConfig } from 'packages/core';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
 
+const config: IBaseConfig = {
+    dependencies: {
+        'liner-gradient': require('react-native-linear-gradient').default,
+    },
+};
 function App() {
     return (
-        <SettingProvider>
-            <Provider store={store}>
-                <PersistGate loading={null} persistor={persistor}>
-                    <RootStacks />
-                </PersistGate>
-            </Provider>
-        </SettingProvider>
+        <BaseProvider config={config}>
+            <SettingProvider>
+                <Provider store={store}>
+                    <PersistGate loading={null} persistor={persistor}>
+                        <RootStacks />
+                    </PersistGate>
+                </Provider>
+            </SettingProvider>
+        </BaseProvider>
     );
 }
 

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from 'react'
+import React, { memo } from 'react'
 import {FlatList, FlatListProps, RefreshControlProps} from 'react-native'
 
 interface IProps extends FlatListProps<any> {
@@ -35,4 +35,4 @@ const FlatListView: React.FC<IProps> = ({
   )
 }
 
-export default FlatListView
+export default memo(FlatListView)

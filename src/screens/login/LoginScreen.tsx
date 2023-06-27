@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+import {EmptyListView, FlatListView} from 'packages/components';
+
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
@@ -8,6 +10,12 @@ const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [themeMode, setThemeMode] = useState('light'); // Set the default theme mode
+
+    const renderItem = (item) => {
+        return <Text style={{color: 'black'}}>{item.item.name}</Text>
+      }
+
+      const renderEmpty = () => <EmptyListView />
 
     return (
         <View style={styles.container}>
@@ -28,7 +36,7 @@ const LoginScreen = () => {
                         secureTextEntry
                     />
                 </View>
-
+                <FlatListView data={[]} renderItem={renderItem} listEmpty={renderEmpty}/>
                 <TouchableOpacity>
                     <Text>Login</Text>
                 </TouchableOpacity>

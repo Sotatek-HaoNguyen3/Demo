@@ -12,6 +12,7 @@
     "android:prod": "react-native run-android --mode=productionDebug --appIdSuffix production",
     "xcode": "open ./ios/demo.xcworkspace",
     "lint": "prettier --check .",
+    "format": "prettier --write \"src/**/*.ts\"",
     "start": "react-native start",
     "test": "jest",
     "prepare": "husky install",
@@ -49,7 +50,11 @@
     }
   },
   "lint-staged": {
-    "*": "prettier --write"
+    "*.ts": [
+      "npm run lint",
+      "npm run format",
+      "git add ."
+    ]
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",

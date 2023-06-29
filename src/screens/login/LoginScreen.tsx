@@ -7,7 +7,6 @@ import Sizes from 'themes/sizes';
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-
     return (
         <View style={styles.container}>
             <View style={styles.content}>

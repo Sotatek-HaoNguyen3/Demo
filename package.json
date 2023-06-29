@@ -20,8 +20,9 @@
   },
 
   "lint-staged": {
-    "**/*.ts?(x)": [
-      "eslint -c .eslintrc.js --fix",
+    "*": [
+      "prettier --write",
+      "eslint",
       "git add"
     ]
   },

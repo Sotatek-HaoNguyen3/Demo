@@ -11,11 +11,16 @@
     "android:dev": "react-native run-android --mode=developmentDebug --appIdSuffix development",
     "android:prod": "react-native run-android --mode=productionDebug --appIdSuffix production",
     "xcode": "open ./ios/demo.xcworkspace",
-    "lint": "eslint .",
+    "lint": "prettier --check .",
     "start": "react-native start",
     "test": "jest",
     "prepare": "husky install",
     "precommit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "prettier --write . && git add -A ."
+    }
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",

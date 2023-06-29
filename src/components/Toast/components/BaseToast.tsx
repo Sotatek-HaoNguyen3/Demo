@@ -6,7 +6,6 @@ const WIDTH = 340;
 const BORDER_RADIUS = 6;
 
 export function BaseToast({ text1, text2, onPress, activeOpacity, style, touchableContainerProps, contentContainerStyle, contentContainerProps, text1Style, text1NumberOfLines = 1, text1Props, text2Style, text2NumberOfLines = 1, text2Props, renderLeadingIcon, renderTrailingIcon }) {
-    console.log(text1)
     return (<TouchableOpacity onPress={onPress} activeOpacity={activeOpacity} style={[styles.base, styles.leadingBorder, style]} {...touchableContainerProps}>
       {renderLeadingIcon && renderLeadingIcon()}
       <View  style={[styles.contentContainer, contentContainerStyle]} {...contentContainerProps}>

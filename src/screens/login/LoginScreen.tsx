@@ -3,11 +3,32 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import { Toast } from 'components/Toast/Toast';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [themeMode, setThemeMode] = useState('light'); // Set the default theme mode
+
+    const showToastTop = () => {
+        Toast.show(
+            {
+                text1: 'allo',
+                text2: 'bllo',
+                type: 'base',
+            }
+        )
+    }
+
+    const showToastBottom = () => {
+        Toast.show(
+            {
+                text1: 'allo',
+                type: 'base',
+                position: 'bottom',
+            }
+        )
+    }
 
     return (
         <View style={styles.container}>
@@ -29,8 +50,11 @@ const LoginScreen = () => {
                     />
                 </View>
 
-                <TouchableOpacity>
-                    <Text>Login</Text>
+                <TouchableOpacity onPress={showToastTop} style={styles.btn}>
+                    <Text>Toast base Top</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={showToastBottom}  style={styles.btn}>
+                    <Text>Toast base Bottom</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -47,5 +71,15 @@ const styles = StyleSheet.create({
     },
     content: {
         marginHorizontal: scale(15),
+    },
+    btn:{
+        height: scale(50),
+        width: scale(340),
+        marginTop: scale(40),
+        alignItems: 'center',
+        borderColor:'black',
+        borderWidth: scale(1),
+        justifyContent: 'center',
+        borderRadius: scale(5),
     },
 });

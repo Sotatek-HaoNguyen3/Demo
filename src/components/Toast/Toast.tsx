@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ToastUI } from './ToastUI';
-import { ToastProps } from './types';
+import { ToastHideParams, ToastProps, ToastShowParams } from './types';
 import { useToast } from './useToast';
 
 const ToastRoot = React.forwardRef((props: ToastProps , ref) => {
@@ -81,9 +81,9 @@ function getRef() {
     }
     return activeRef.current;
 }
-Toast.show = (params) => {
+Toast.show = (params: ToastShowParams) => {
     getRef()?.show(params);
 };
-Toast.hide = (params) => {
+Toast.hide = (params: ToastHideParams) => {
     getRef()?.hide(params);
 };

@@ -24,18 +24,6 @@ body:
         4. See error
     validations:
       required: true
-  - type: dropdown
-    attributes:
-      multiple: true
-      label: Browsers
-      description: Select the browsers where the issue can be reproduced (that you know of).
-      options:
-        - "Chrome"
-        - "Firefox"
-        - "Safari"
-        - "Edge"
-        - "Opera"
-        - "Other (add additional context)"
   - type: input
     id: context
     attributes:

@@ -1,54 +1,59 @@
-name: 'Feature Request'
-description: 'Request a feature or enhancement'
-labels: ['v3', 'feature request', 'triage']
+name: 🚀 Feature request
+description: Suggest an idea for this project 💡
+title: "Feature: "
+labels: [👀 needs triage, 💡 feature]
 body:
-  - type: 'markdown'
+  - type: markdown
     attributes:
       value: |
-        Thanks for filing an issue!
-
-        Please search open/closed issues before submitting. Someone might have asked the same thing before!
-
-        ### Help us help you better
-  - type: 'textarea'
-    id: 'description'
+        Thanks for taking the time to fill out this feature request!
+  - type: dropdown
     attributes:
-      label: 'Description'
-      description: 'Describe your request as clearly as possible.'
-      placeholder: "We'll love to know in depth about this feature"
+      multiple: false
+      label: Type of feature
+      description: Select the type of feature request, the lowercase should also be the PR prefix.
+      options:
+        - "🍕 Feature"
+        - "🐛 Fix"
+        - "📝 Documentation"
+        - "🎨 Style"
+        - "🧑‍💻 Refactor"
+        - "🔥 Performance"
+        - "✅ Test"
+        - "🤖 Build"
+        - "🔁 CI"
+        - "📦 Chore"
+        - "⏩ Revert"
     validations:
       required: true
-  - type: 'textarea'
-    id: 'justification'
+  - type: textarea
     attributes:
-      label: 'Problem Statement'
-      description: |
-        Please provide valid reason(s) why this should be a part of NativeBase
-
-        Does this feature meant to solve an existing problem, if so please mention it as well.
-      placeholder: 'Tell us What? Why? and How?'
+      label: Current behavior
+      description: Is your feature request related to a problem? Please describe.
     validations:
       required: true
-  - type: 'textarea'
-    id: 'proposed-solution'
+  - type: textarea
     attributes:
-      label: 'Proposed Solution or API'
-      description: |
-        Please provide code snippets, gists, or links to the ideal design or API.
-      placeholder: "We know whatever you're it is, its awesome"
-    validations:
-      required: true
-  - type: 'textarea'
-    id: 'alternatives'
+      label: Suggested solution
+      description: Describe the solution you'd like.
+  - type: input
+    id: context
     attributes:
-      label: 'Alternatives'
-      description: |
-        What alternative solutions have you considered before making this request?
-      placeholder: 'Please share if you know any alternative solutions as well'
-  - type: 'textarea'
-    id: 'additional-information'
+      label: Additional context
+      description: Add any other context about the problem or helpful links here.
+  - type: checkboxes
+    id: terms
     attributes:
-      label: 'Additional Information'
-      description: |
-        What resources (links, screenshots, etc.) do you have to assist this effort?
-      placeholder: 'Any and every additional information is always welcome'
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://docs.opensauced.pizza/contributing/code-of-conduct/)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contributing Docs
+      description: If you plan on contributing code please read - [Contribution Guide](https://docs.opensauced.pizza/contributing/introduction-to-contributing/)
+      options:
+        - label: I agree to follow this project's Contribution Docs
+          required: false

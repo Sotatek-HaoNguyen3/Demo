@@ -1,4 +1,5 @@
 import { Dimensions, Platform, StatusBar } from 'react-native';
+import { scale } from './scales';
 
 // eslint-disable-next-line complexity
 export const isIphoneX = (): boolean => {
@@ -27,5 +28,28 @@ export const isIphoneX = (): boolean => {
 export const ifIphoneX = (iPhoneXHeight: number, iPhoneNormalHeight: number): number => {
     return isIphoneX() ? iPhoneXHeight : iPhoneNormalHeight;
 }
+
+export const getStatusBarHeight = (safe?: boolean) => {
+    return Platform.select({
+        ios: ifIphoneX(safe ? 44 : 30, 20),
+        android: StatusBar.currentHeight,
+        default: 0,
+    });
+};
+
+export const HitSlop = {
+    default: {
+        top: scale(10),
+        bottom: scale(10),
+        left: scale(10),
+        right: scale(10),
+    },
+    big: {
+        top: scale(20),
+        bottom: scale(20),
+        left: scale(20),
+        right: scale(20),
+    },
+};
 
 export const isNotchAndroid = Platform.OS === 'android' && StatusBar.currentHeight > 24;

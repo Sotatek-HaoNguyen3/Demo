@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import {EmptyListView, FlatListView} from 'packages/components';
+import { EmptyListView, FlatListView } from 'packages/components';
 
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import { globalDrawer } from 'packages/components/Drawer';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [themeMode, setThemeMode] = useState('light'); // Set the default theme mode
-
     const renderItem = (item) => {
-        return <Text style={{color: 'black'}}>{item.item.name}</Text>
-      }
+        return <Text style={{ color: 'black' }}>{item.item.name}</Text>
+    }
 
-      const renderEmpty = () => <EmptyListView />
+    const renderEmpty = () => <EmptyListView />
 
     return (
         <View style={styles.container}>
@@ -25,7 +25,7 @@ const LoginScreen = () => {
                         placeholder='Email'
                         value={email}
                         onChangeText={setEmail}
-                    keyboardType='email-address'
+                        keyboardType='email-address'
                     />
                 </View>
                 <View>
@@ -36,8 +36,8 @@ const LoginScreen = () => {
                         secureTextEntry
                     />
                 </View>
-                <FlatListView data={[]} renderItem={renderItem} listEmpty={renderEmpty}/>
-                <TouchableOpacity>
+                <FlatListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} />
+                <TouchableOpacity onPress={() => {globalDrawer.open()}}>
                     <Text>Login</Text>
                 </TouchableOpacity>
             </View>

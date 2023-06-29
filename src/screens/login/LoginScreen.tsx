@@ -7,7 +7,6 @@ import Sizes from 'themes/sizes';
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [themeMode, setThemeMode] = useState('light'); // Set the default theme mode
 
     return (
         <View style={styles.container}>

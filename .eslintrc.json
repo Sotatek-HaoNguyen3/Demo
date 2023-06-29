@@ -203,6 +203,7 @@
     "prefer-const": "error",
     "@typescript-eslint/prefer-for-of": "error",
     // TODO disabling for now, reevaluate after eslint migration
+    "semi": ["error", "always"],
     // "semi": "off",
     // "@typescript-eslint/semi": "error",
     // "@typescript-eslint/member-delimiter-style": [

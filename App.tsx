@@ -7,6 +7,7 @@ import 'packages/localization';
 import { BaseProvider, IBaseConfig } from 'packages/core';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
+import { commonColors, darkColors, lightColors } from 'themes/colors';
 
 const config: IBaseConfig = {
     dependencies: {
@@ -14,8 +15,13 @@ const config: IBaseConfig = {
     },
 };
 function App() {
+    const colorModes = {
+        commonColors,
+        darkColors,
+        lightColors,
+    };
     return (
-        <BaseProvider config={config}>
+        <BaseProvider config={config} colorModes={colorModes}>
             <SettingProvider>
                 <Provider store={store}>
                     <PersistGate loading={null} persistor={persistor}>

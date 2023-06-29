@@ -7,7 +7,6 @@ export interface StorageManager {
 export interface ColorModeOptions {
   initialColorMode?: ColorMode;
   useSystemColorMode?: boolean;
-  accessibleColors?: boolean;
 }
 
 export type IColorModeProviderProps = {
@@ -17,10 +16,8 @@ export type IColorModeProviderProps = {
 };
 
 export interface IColorModeContextProps {
-  colorMode: ColorMode;
+  mode: ColorMode;
   toggleColorMode: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setColorMode: (value: any) => void;
-  accessibleColors: boolean;
-  setAccessibleColors: (value: boolean) => void;
 }

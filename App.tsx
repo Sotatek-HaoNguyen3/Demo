@@ -7,6 +7,8 @@ import 'packages/localization';
 import { BaseProvider, IBaseConfig } from 'packages/core';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
+import { Toast } from 'components/Toast/Toast';
+
 
 const config: IBaseConfig = {
     dependencies: {
@@ -21,6 +23,7 @@ function App() {
                     <PersistGate loading={null} persistor={persistor}>
                         <RootStacks />
                     </PersistGate>
+                    <Toast />
                 </Provider>
             </SettingProvider>
         </BaseProvider>

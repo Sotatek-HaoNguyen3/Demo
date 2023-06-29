@@ -25,11 +25,11 @@
     }
   },
   "lint-staged": {
-      "*.ts": [
-        "npm run lint",
-        "npm run format",
-        "git add ."
-      ]
+    "*.ts": [
+      "npm run lint",
+      "npm run format",
+      "git add ."
+    ]
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",
@@ -78,6 +78,8 @@
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
     "@react-native-community/eslint-config": "^3.2.0",
     "@tsconfig/react-native": "^2.0.2",
     "@types/itty-router-extras": "^0.4.0",

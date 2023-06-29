@@ -18,6 +18,13 @@
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
+
+  "lint-staged": {
+    "**/*.ts?(x)": [
+      "eslint -c .eslintrc.js --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.18.2",
     "@react-navigation/bottom-tabs": "^6.5.7",

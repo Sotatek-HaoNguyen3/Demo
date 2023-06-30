@@ -6,12 +6,15 @@ const getLayoutValue = (key) => (event) => event?.nativeEvent?.layout?.[key] ?? 
 export function useViewDimensions({ heightOffset = 0, widthOffset = 0 } = {}) {
     const [height, setHeight] = React.useState(0);
     const [width, setWidth] = React.useState(0);
-    const computeViewDimensions = React.useCallback((event) => {
-        const h = getLayoutValue('height')(event);
-        const w = getLayoutValue('width')(event);
-        setHeight(h + heightOffset);
-        setWidth(w + widthOffset);
-    }, [heightOffset, widthOffset]);
+    const computeViewDimensions = React.useCallback(
+        (event) => {
+            const h = getLayoutValue('height')(event);
+            const w = getLayoutValue('width')(event);
+            setHeight(h + heightOffset);
+            setWidth(w + widthOffset);
+        },
+        [heightOffset, widthOffset]
+    );
     return {
         computeViewDimensions,
         height,

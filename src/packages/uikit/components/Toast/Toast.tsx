@@ -4,17 +4,23 @@ import { ToastUI } from './ToastUI';
 import { ToastHideParams, ToastProps, ToastShowParams } from './types';
 import { useToast } from './useToast';
 
-const ToastRoot = React.forwardRef((props: ToastProps , ref) => {
+const ToastRoot = React.forwardRef((props: ToastProps, ref) => {
     const { config, ...defaultOptions } = props;
     const { show, hide, isVisible, options, data } = useToast({
         defaultOptions,
     });
     // This must use useCallback to ensure the ref doesn't get set to null and then a new ref every render.
-    React.useImperativeHandle(ref, React.useCallback(() => ({
-        show,
-        hide,
-    }), [hide, show]));
-    return (<ToastUI isVisible={isVisible} options={options} data={data} hide={hide} show={show} config={config}/>);
+    React.useImperativeHandle(
+        ref,
+        React.useCallback(
+            () => ({
+                show,
+                hide,
+            }),
+            [hide, show]
+        )
+    );
+    return <ToastUI isVisible={isVisible} options={options} data={data} hide={hide} show={show} config={config} />;
 });
 
 let refs = [];
@@ -54,8 +60,8 @@ export const Toast = (props: ToastProps) => {
             removeOldRef(toastRef.current);
         }
     }, []);
-    return <ToastRoot ref={setRef} {...props}/>
-}
+    return <ToastRoot ref={setRef} {...props} />;
+};
 /**
  * Get the active Toast instance `ref`, by priority.
  * The "highest" Toast in the `View` hierarchy has the highest priority.

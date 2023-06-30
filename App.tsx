@@ -5,10 +5,9 @@ import { PersistGate } from 'redux-persist/integration/react';
 import SettingProvider from 'contexts/SettingProvider';
 import 'packages/localization';
 import { BaseProvider, IBaseConfig } from 'packages/core';
+import { Toast } from 'packages/uikit/components';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
-import { Toast } from 'components/Toast/Toast';
-
 
 const config: IBaseConfig = {
     dependencies: {

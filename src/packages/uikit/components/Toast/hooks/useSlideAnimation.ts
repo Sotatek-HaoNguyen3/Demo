@@ -2,7 +2,14 @@ import React from 'react';
 import { Animated, Platform } from 'react-native';
 import { additiveInverseArray } from '../utils/array';
 import { useKeyboard } from './useKeyboard';
-export function translateYOutputRangeFor({ position, height, topOffset, bottomOffset, keyboardHeight, keyboardOffset }) {
+export function translateYOutputRangeFor({
+    position,
+    height,
+    topOffset,
+    bottomOffset,
+    keyboardHeight,
+    keyboardOffset,
+}) {
     const offset = position === 'bottom' ? bottomOffset : topOffset;
     const keyboardAwareOffset = position === 'bottom' ? keyboardHeight + keyboardOffset : 0;
     const range = [-(height * 2), Math.max(offset, keyboardAwareOffset)];
@@ -20,17 +27,21 @@ export function useSlideAnimation({ position, height, topOffset, bottomOffset, k
             friction: 8,
         }).start();
     }, []);
-    const translateY = React.useMemo(() => animatedValue.current.interpolate({
-        inputRange: [0, 1],
-        outputRange: translateYOutputRangeFor({
-            position,
-            height,
-            topOffset,
-            bottomOffset,
-            keyboardHeight,
-            keyboardOffset,
-        }),
-    }), [position, height, topOffset, bottomOffset, keyboardHeight, keyboardOffset]);
+    const translateY = React.useMemo(
+        () =>
+            animatedValue.current.interpolate({
+                inputRange: [0, 1],
+                outputRange: translateYOutputRangeFor({
+                    position,
+                    height,
+                    topOffset,
+                    bottomOffset,
+                    keyboardHeight,
+                    keyboardOffset,
+                }),
+            }),
+        [position, height, topOffset, bottomOffset, keyboardHeight, keyboardOffset]
+    );
     const opacity = animatedValue.current.interpolate({
         inputRange: [0, 0.7, 1],
         outputRange: [0, 1, 1],

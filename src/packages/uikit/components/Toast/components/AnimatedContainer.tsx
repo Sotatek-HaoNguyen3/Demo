@@ -34,7 +34,16 @@ export function animatedValueFor(gesture, position, damping) {
             throw new Error(`Toast position: ${position} not implemented`);
     }
 }
-export function AnimatedContainer({ children, isVisible, position, topOffset, bottomOffset, keyboardOffset, onHide, onRestorePosition = undefined }) {
+export function AnimatedContainer({
+    children,
+    isVisible,
+    position,
+    topOffset,
+    bottomOffset,
+    keyboardOffset,
+    onHide,
+    onRestorePosition = undefined,
+}) {
     const { computeViewDimensions, height } = useViewDimensions();
     const { animatedValue, animate, animationStyles } = useSlideAnimation({
         position,
@@ -49,15 +58,18 @@ export function AnimatedContainer({ children, isVisible, position, topOffset, bo
     }, [animate, onHide]);
     const onRestore = React.useCallback(() => {
         animate(1);
-        if(onRestorePosition){
+        if (onRestorePosition) {
             onRestorePosition();
         }
     }, [animate, onRestorePosition]);
-    const computeNewAnimatedValueForGesture = React.useCallback((gesture) => {
-        const damping = dampingFor(gesture, position);
-        const newAnimatedValue = animatedValueFor(gesture, position, damping);
-        return newAnimatedValue;
-    }, [position]);
+    const computeNewAnimatedValueForGesture = React.useCallback(
+        (gesture) => {
+            const damping = dampingFor(gesture, position);
+            const newAnimatedValue = animatedValueFor(gesture, position, damping);
+            return newAnimatedValue;
+        },
+        [position]
+    );
     const { panResponder } = usePanResponder({
         animatedValue,
         computeNewAnimatedValueForGesture,
@@ -68,15 +80,18 @@ export function AnimatedContainer({ children, isVisible, position, topOffset, bo
         const newAnimationValue = isVisible ? 1 : 0;
         animate(newAnimationValue);
     }, [animate, isVisible]);
-    return (<Animated.View onLayout={computeViewDimensions} style={[styles.base, styles[position], animationStyles]}
-    // This container View is never the target of touch events but its subviews can be.
-    // By doing this, tapping buttons behind the Toast is allowed
-    pointerEvents='box-none' {...panResponder.panHandlers}
-            >
-      {children}
-    </Animated.View>);
+    return (
+        <Animated.View
+            onLayout={computeViewDimensions}
+            style={[styles.base, styles[position], animationStyles]}
+            // This container View is never the target of touch events but its subviews can be.
+            // By doing this, tapping buttons behind the Toast is allowed
+            pointerEvents="box-none"
+            {...panResponder.panHandlers}>
+            {children}
+        </Animated.View>
+    );
 }
-
 
 export const styles = StyleSheet.create({
     base: {

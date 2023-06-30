@@ -169,13 +169,7 @@ export declare type ToastProps = {
     onPress?: () => void;
 };
 
-
-
 export declare function Toast(props: ToastProps): JSX.Element;
-export declare namespace Toast {
-    const show: (params: ToastShowParams) => void;
-    const hide: (params?: void | undefined) => void;
-}
 
 export declare type ToastUIProps = {
     isVisible: boolean;

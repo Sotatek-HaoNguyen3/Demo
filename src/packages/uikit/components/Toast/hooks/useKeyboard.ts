@@ -14,7 +14,7 @@ export function useKeyboard() {
     }, []);
     React.useEffect(() => {
         if (!(Platform.OS === 'ios')) {
-            return () => { };
+            return () => {};
         }
         const didShowListener = Keyboard.addListener('keyboardDidShow', onShow);
         const didHideListener = Keyboard.addListener('keyboardDidHide', onHide);

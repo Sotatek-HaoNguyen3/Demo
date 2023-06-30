@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { scale } from 'themes/scales';
@@ -7,26 +7,15 @@ import Sizes from 'themes/sizes';
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
-    const [themeMode, setThemeMode] = useState('light'); // Set the default theme mode
 
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <View>
-                    <TextInput
-                        placeholder='Email'
-                        value={email}
-                        onChangeText={setEmail}
-                    keyboardType='email-address'
-                    />
+                    <TextInput placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
                 </View>
                 <View>
-                    <TextInput
-                        placeholder='Password'
-                        value={password}
-                        onChangeText={setPassword}
-                        secureTextEntry
-                    />
+                    <TextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
                 </View>
 
                 <TouchableOpacity>

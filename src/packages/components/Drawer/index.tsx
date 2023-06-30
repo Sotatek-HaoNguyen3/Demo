@@ -1,9 +1,17 @@
-import React, { useCallback, useImperativeHandle, useRef, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useImperativeHandle, useRef, useState } from 'react';
+import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
+import { Animation } from 'react-native-animatable';
+
+import Avatar, { AvatarProps } from '../Avatar';
+import Menu from '../Menu';
 import BaseModal from '../Modal';
 
+import { BaseModalProps } from '../Modal/modal';
+
 import { getStatusBarHeight } from 'themes/dimensions';
+import { scale } from 'themes/scales';
+
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const globalDrawerRef = React.createRef<any>()
@@ -21,12 +29,40 @@ export interface DrawerRefType {
     dismiss: () => void;
 }
 
+const dataTest = [
+    {name: 'Home'},
+    {name: 'Setting'},
+    {name: 'Notification'},
+    {name: 'Profile'},
+]
+
 export interface DrawerProps {
-    name?: string;
-    isVisible?: boolean;
+    animationIn?: Animation;
+    animationOut?: Animation;
+    animationTiming?: number;
+    backdropTransitionTiming?: number;
+    backdropOpacity?: number;
+    containerStyle?: StyleProp<ViewStyle>
+    sourceAvatar?: ImageSourcePropType;
+    avatarContainerStyle?: StyleProp<ViewStyle>;
+    avatarProps?: AvatarProps;
+    modalProps?: BaseModalProps;
 }
 
 const Drawer = (props: DrawerProps, ref) => {
+    const {
+        animationIn = 'slideInLeft',
+        animationOut = 'slideOutLeft',
+        animationTiming = 500,
+        backdropTransitionTiming = 500,
+        backdropOpacity = 0.5,
+        containerStyle,
+        sourceAvatar,
+        avatarContainerStyle,
+        avatarProps,
+        modalProps,
+        ...rest
+    } = props
     const drawerRef = useRef(null);
     const [visible, setVisible] = useState<boolean>(false)
 
@@ -52,19 +88,20 @@ const Drawer = (props: DrawerProps, ref) => {
             onBackdropPress={closeDrawer}
             animationIn={'slideInLeft'}
             isVisible={visible}
-            style={styles.container}
+            style={containerStyle || styles.container}
             animationOut={'slideOutLeft'}
             animationInTiming={500}
             animationOutTiming={500}
-            swipeDirection={['left', 'right']}
             backdropTransitionInTiming={500}
             backdropTransitionOutTiming={500}
             backdropOpacity={0.5}
+            {...modalProps}
         >
-            <View>
-                <Text>
-                    Drawer
-                </Text>
+            <View style={styles.contentContainer}>
+                <View style={[styles.avatarContainer, avatarContainerStyle]}>
+                    <Avatar source={sourceAvatar} {...avatarProps} />
+                </View>
+                <Menu data={dataTest}/>
             </View>
         </BaseModal>
     )
@@ -81,5 +118,12 @@ const styles = StyleSheet.create({
         paddingTop: getStatusBarHeight(true),
         justifyContent: 'flex-start',
     },
-    // contentContainer
+    contentContainer: {
+        flex: 1,
+    },
+    avatarContainer: {
+        width: '100%',
+        alignItems: 'center',
+        paddingVertical: scale(30),
+    },
 })

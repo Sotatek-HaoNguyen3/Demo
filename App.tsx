@@ -6,7 +6,9 @@ import SettingProvider from 'contexts/SettingProvider';
 import 'packages/localization';
 import AppBar from 'packages/components/AppBar';
 import Drawer, { globalDrawerRef } from 'packages/components/Drawer';
+import GestureRecognizer from 'packages/components/Drawer/GestureRecognizer';
 import { BaseProvider, IBaseConfig } from 'packages/core';
+import { onSwipeRight } from 'packages/utils/gestureHandle';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
 
@@ -21,9 +23,14 @@ function App() {
             <SettingProvider>
                 <Provider store={store}>
                     <AppBar />
-                    <Drawer ref={globalDrawerRef}/>
+                    <Drawer ref={globalDrawerRef} />
                     <PersistGate loading={null} persistor={persistor}>
-                        <RootStacks />
+                        <GestureRecognizer
+                            onSwipeRight={(state) => onSwipeRight(state)}
+                            style={{ flex: 1 }}
+                        >
+                            <RootStacks />
+                        </GestureRecognizer>
                     </PersistGate>
                 </Provider>
             </SettingProvider>

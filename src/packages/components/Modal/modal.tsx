@@ -99,7 +99,7 @@ const defaultProps = {
   supportedOrientations: ['portrait', 'landscape'] as Orientation[],
 };
 
-export type ModalProps = ViewProps & {
+export type BaseModalProps = ViewProps & {
   children: React.ReactNode;
   onSwipeStart?: (gestureState: PanResponderGestureState) => void;
   onSwipeMove?: (
@@ -123,12 +123,12 @@ export type ModalProps = ViewProps & {
   useNativeDriverForBackdrop?: boolean;
 } & typeof defaultProps;
 
-const extractAnimationFromProps = (props: ModalProps) => ({
+const extractAnimationFromProps = (props: BaseModalProps) => ({
   animationIn: props.animationIn,
   animationOut: props.animationOut,
 });
 
-export class BaseModal extends React.Component<ModalProps, State> {
+export class BaseModal extends React.Component<BaseModalProps, State> {
   static propTypes = {
     animationIn: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     animationInTiming: PropTypes.number,
@@ -183,7 +183,7 @@ export class BaseModal extends React.Component<ModalProps, State> {
   };
 
   public static defaultProps = defaultProps;
-  static getDerivedStateFromProps(nextProps: Readonly<ModalProps>, state: State) {
+  static getDerivedStateFromProps(nextProps: Readonly<BaseModalProps>, state: State) {
     if (!state.isVisible && nextProps.isVisible) {
       return {isVisible: true, showContent: true};
     }
@@ -212,7 +212,7 @@ export class BaseModal extends React.Component<ModalProps, State> {
 
   interactionHandle: OrNull<number> = null;
 
-  constructor(props: ModalProps) {
+  constructor(props: BaseModalProps) {
     super(props);
     const {animationIn, animationOut} = buildAnimations(
       extractAnimationFromProps(props),
@@ -263,7 +263,7 @@ export class BaseModal extends React.Component<ModalProps, State> {
     }
   }
 
-  componentDidUpdate(prevProps: ModalProps) {
+  componentDidUpdate(prevProps: BaseModalProps) {
     // If the animations have been changed then rebuild them to make sure we're
     // using the most up-to-date ones
     if (

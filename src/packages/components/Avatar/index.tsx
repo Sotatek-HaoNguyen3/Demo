@@ -3,7 +3,7 @@ import { Image, ImageSourcePropType, ImageStyle, Pressable, StyleProp, StyleShee
 
 import { scale } from 'themes/scales';
 
-interface AvatarProps {
+export interface AvatarProps {
     source?: ImageSourcePropType;
     imageStyles?: StyleProp<ImageStyle>;
     size?: number;
@@ -15,7 +15,7 @@ const Avatar = (props: AvatarProps) => {
     const { source, imageStyles, size, onPress, isCircle = true } = props
     return (
         <TouchableOpacity disabled={!onPress} onPress={onPress}>
-            {source && (
+            {source ? (
                 <Image
                     style={[{
                         width: scale(size || 80),
@@ -26,6 +26,18 @@ const Avatar = (props: AvatarProps) => {
                     ]}
                     source={source}
                     resizeMode="stretch"
+                />
+            ) : (
+                <View
+                    style={[{
+                        width: scale(size || 80),
+                        height: scale(size || 80),
+                        borderRadius: isCircle ? scale(size / 2 || 40) : 0,
+                        backgroundColor: 'black',
+                        opacity: 0.1,
+                },
+                    imageStyles,
+                ]}
                 />
             )}
         </TouchableOpacity>

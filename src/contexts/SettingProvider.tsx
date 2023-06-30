@@ -24,7 +24,7 @@ const SettingProvider = (props: Props) => {
     const { t } = useTranslation();
     const [language, setLanguage] = useState<LanguageType>(LanguageType.English);
     // const [theme, setTheme] = useState<ThemeColor>(ThemeColor.Light);
-    const [userID, setUserID] = useState<number | null>(null)
+    const [userID, setUserID] = useState<number | null>(null);
 
     const updateUserID = (id: number) => setUserID(id);
 
@@ -106,9 +106,10 @@ const SettingProvider = (props: Props) => {
     return (
         <SettingContext.Provider
             value={{
-                t, language, updateLanguage,
-            }}
-        >
+                t,
+                language,
+                updateLanguage,
+            }}>
             {props.children}
         </SettingContext.Provider>
     );

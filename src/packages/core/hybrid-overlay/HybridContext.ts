@@ -5,8 +5,8 @@ import { IHybridContextProps } from './types';
 const HybridContext = createContext<IHybridContextProps>({
     colorMode: {
         mode: 'light',
-        toggleColorMode: () => { },
-        setColorMode: () => { },
+        toggleColorMode: () => {},
+        setColorMode: () => {},
     },
 });
 

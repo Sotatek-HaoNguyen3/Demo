@@ -14,7 +14,7 @@ export const theme = {
 export type Theme = typeof theme;
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface ICustomTheme{}
+export interface ICustomTheme {}
 
 export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
 

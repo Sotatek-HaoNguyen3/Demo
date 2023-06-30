@@ -1,8 +1,7 @@
 import Axios, { Method } from 'axios';
-import { call} from 'redux-saga/effects';
+import { call } from 'redux-saga/effects';
 
 import ApiUtils, { API_URL, AuthorizationMode } from './utils';
-
 
 const instance = Axios.create({
     baseURL: API_URL,
@@ -10,8 +9,8 @@ const instance = Axios.create({
 });
 
 instance.interceptors.response.use(
-    response => ApiUtils.successHandler(response),
-    error => ApiUtils.errorHandler(error),
+    (response) => ApiUtils.successHandler(response),
+    (error) => ApiUtils.errorHandler(error)
 );
 
 function* processResponse(response) {
@@ -24,7 +23,7 @@ export async function apiRequestGet<ReqType, ResType>(
     url: string,
     params?: ReqType,
     authorizationMode?: AuthorizationMode,
-    customHeaders?: Record<string, unknown>,
+    customHeaders?: Record<string, unknown>
 ): Promise<ResType> {
     const headers = ApiUtils.getHeader(authorizationMode, customHeaders);
     return instance.get(url, { params, headers });
@@ -34,7 +33,7 @@ export async function apiRequestPost<ReqType, ResType>(
     url: string,
     data?: ReqType,
     authorizationMode?: AuthorizationMode,
-    customHeaders?: Record<string, unknown>,
+    customHeaders?: Record<string, unknown>
 ): Promise<ResType> {
     const headers = ApiUtils.getHeader(authorizationMode, customHeaders);
     return instance.post(url, { ...data }, { headers });
@@ -44,7 +43,7 @@ export async function apiRequestDelete<ReqType, ResType>(
     url: string,
     data?: ReqType,
     authorizationMode?: AuthorizationMode,
-    customHeaders?: Record<string, unknown>,
+    customHeaders?: Record<string, unknown>
 ): Promise<ResType> {
     const headers = ApiUtils.getHeader(authorizationMode, customHeaders);
     return instance.delete(url, { data: { ...data }, headers: { ...headers } });
@@ -55,7 +54,7 @@ export async function apiRequest<ReqType, ResType>(
     url?: string,
     data?: ReqType,
     authorizationMode?: AuthorizationMode,
-    customHeaders?: Record<string, unknown>,
+    customHeaders?: Record<string, unknown>
 ): Promise<ResType> {
     const headers = ApiUtils.getHeader(authorizationMode, customHeaders);
     return instance.request({
@@ -68,7 +67,7 @@ export async function apiRequest<ReqType, ResType>(
 
 export function getRequest(url, authorizationMode: AuthorizationMode, params = {}) {
     return function* rest() {
-        const data: object = {...ApiUtils.removeUndefinedField(params)};
+        const data: object = { ...ApiUtils.removeUndefinedField(params) };
 
         const requestConfig = {
             method: 'GET',

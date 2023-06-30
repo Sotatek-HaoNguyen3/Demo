@@ -1,6 +1,6 @@
 export * from './BaseProvider';
 
-export type { IBaseConfig  } from './BaseContext';
+export type { IBaseConfig } from './BaseContext';
 export type {
     ColorMode,
     ColorModeOptions,

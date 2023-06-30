@@ -8,7 +8,7 @@ export const enum AuthorizationMode {
     ACCESS_TOKEN = 1,
 }
 
-export const ACCESS_TOKEN = 'ACCESS_TOKEN'
+export const ACCESS_TOKEN = 'ACCESS_TOKEN';
 
 export const enum ResponseCode {
     SUCCESS = 201,
@@ -20,7 +20,7 @@ export const enum ResponseCode {
 }
 
 const removeUndefinedField = (params: object) => {
-    Object.keys(params).forEach(key => {
+    Object.keys(params).forEach((key) => {
         if (typeof params[key] === 'undefined') {
             delete params[key];
         }
@@ -30,14 +30,14 @@ const removeUndefinedField = (params: object) => {
 
 const convertPayloadToQueryString = (payload: object = {}) => {
     return Object.keys(payload)
-        .map(key => {
+        .map((key) => {
             return encodeURIComponent(key) + '=' + encodeURIComponent(payload[key]);
         })
         .join('&');
 };
 
 const removeField = (params: object, deleteField: string) => {
-    Object.keys(params).forEach(key => {
+    Object.keys(params).forEach((key) => {
         if (key === deleteField) {
             delete params[key];
         }
@@ -82,7 +82,7 @@ function logResponse(response, data) {
             `color: #fff; background: ${'#1C5629'}`,
             `color: #fff; background: ${'transparent'}`,
             `color: #fff; background: ${response.status === 200 ? '#1C5629' : '#AB1010'}`,
-            data,
+            data
         );
     }
 }
@@ -123,7 +123,7 @@ function* checkResponseCode(response) {
 
     if (response.status === 401) {
         // check if login
-        const isLogin = true
+        const isLogin = true;
         if (isLogin) {
             // logout
             setTimeout(() => {
@@ -149,7 +149,7 @@ function getFullUrl(url) {
 function getHeader(
     authorizationMode?: AuthorizationMode,
     customHeaders?: Record<string, unknown>,
-    headerType = 'application/json',
+    headerType = 'application/json'
 ) {
     const header = customHeaders || {};
     if (authorizationMode === AuthorizationMode.ACCESS_TOKEN) {
@@ -173,6 +173,6 @@ const ApiUtils = {
     handleErrorRes,
     successHandler,
     logRequest,
-}
+};
 
 export default ApiUtils;

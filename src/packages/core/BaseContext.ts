@@ -12,7 +12,7 @@ export interface IBaseConfig {
 
 export const defaultConfig: IBaseConfig = {
     // strictMode: 'off';
-}
+};
 
 export const [BaseConfigProvider, useBaseConfig] = createContext<{
     config: IBaseConfig;

@@ -15,7 +15,11 @@ const LoginScreen = () => {
             {
                 text1: 'allo',
                 text2: 'bllo',
-                type: 'base',
+                type: 'success',
+                props: {
+                    text1: 'allll',
+                    text1Style: styles.text1,
+                },
             }
         )
     }
@@ -81,5 +85,8 @@ const styles = StyleSheet.create({
         borderWidth: scale(1),
         justifyContent: 'center',
         borderRadius: scale(5),
+    },
+    text1:{
+        fontSize: scale(30),
     },
 });

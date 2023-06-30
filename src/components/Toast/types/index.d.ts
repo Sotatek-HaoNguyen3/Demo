@@ -2,7 +2,7 @@
 import React from 'react';
 import { StyleProp, TextProps, TextStyle, TouchableOpacityProps, ViewProps, ViewStyle } from 'react-native';
 export declare type ReactChildren = React.ReactNode;
-export declare type ToastType = string;
+export declare type ToastType = 'base' | 'success' | 'error' | 'info';
 export declare type ToastPosition = 'top' | 'bottom';
 export declare type ToastOptions = {
     /**
@@ -62,7 +62,7 @@ export declare type ToastOptions = {
      * Has effect only when there is a custom Toast type (configured via the `config` prop
      * on the Toast instance) that uses the `props` parameter
      */
-    props?: any;
+    props?: BaseToastProps;
 };
 export declare type ToastData = {
     text1?: string;

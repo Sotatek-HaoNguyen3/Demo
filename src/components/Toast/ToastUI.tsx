@@ -2,14 +2,20 @@ import React from 'react';
 
 import { AnimatedContainer } from './components/AnimatedContainer';
 import { BaseToast } from './components/BaseToast';
-import { ToastUIProps } from './types';
+import { BaseToastProps, ToastUIProps } from './types';
+import { SuccessToast } from './components/SuccessToast';
+import { ErrorToast } from './components/ErrorToast';
+import { InfoToast } from './components/InfoToast';
 const defaultToastConfig = {
-    base: (props) => <BaseToast {...props}/>,
+    base: (props: BaseToastProps) => <BaseToast {...props}/>,
+    success: (props: BaseToastProps) => <SuccessToast {...props}/>,
+    error: (props: BaseToastProps) =>  <ErrorToast {...props}/>,
+    info: (props: BaseToastProps) =>  <InfoToast {...props}/>,
 };
 function renderComponent(propsComponent: ToastUIProps) {
-    const { data, options, config, isVisible, show, hide } = propsComponent
+    const { data, options, config } = propsComponent
     const { text1, text2 } = data;
-    const { type, onPress, position, props } = options;
+    const { type, onPress, props } = options;
     const toastConfig = {
         ...defaultToastConfig,
         ...config,
@@ -19,15 +25,10 @@ function renderComponent(propsComponent: ToastUIProps) {
         throw new Error(`Toast type: '${type}' does not exist. You can add it via the 'config' prop on the Toast instance. Learn more: https://github.com/calintamas/react-native-toast-message/blob/master/README.md`);
     }
     return ToastComponent({
-        position,
-        type,
-        isVisible,
         text1,
         text2,
-        show,
-        hide,
         onPress,
-        props,
+        ...props,
     });
 }
 export function ToastUI(props: ToastUIProps) {

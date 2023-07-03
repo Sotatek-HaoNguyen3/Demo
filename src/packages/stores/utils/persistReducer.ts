@@ -9,7 +9,7 @@ export function persistReducerUtil(key: string, reducer: Reducer, whitelist?: st
     const transforms = [
         encryptTransform (
             {
-                secretKey: Config.ENCRYPTION_KEY!,
+                secretKey: Config?.ENCRYPTION_KEY ? Config.ENCRYPTION_KEY! : 'a769504dead7ff32b18d34953510c97972d0ddf4bca6ab66c2818987136d05f5',
                 onError: (_error: Error) => {
                     // TODO
                 },

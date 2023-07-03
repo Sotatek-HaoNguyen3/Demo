@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import { EmptyListView, FlatListView } from 'packages/components';
+import { AppBar, EmptyListView, ListView } from 'packages/components';
 
-import { scale } from 'themes/scales';
-import Sizes from 'themes/sizes';
 import { globalDrawer } from 'packages/components/Drawer';
+import { scale } from 'themes/scales';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
@@ -19,6 +18,7 @@ const LoginScreen = () => {
 
     return (
         <View style={styles.container}>
+            <AppBar title={'Login'} hideLeft/>
             <View style={styles.content}>
                 <View>
                     <TextInput
@@ -36,7 +36,7 @@ const LoginScreen = () => {
                         secureTextEntry
                     />
                 </View>
-                <FlatListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} />
+                <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} />
                 <TouchableOpacity onPress={() => {globalDrawer.open()}}>
                     <Text>Login</Text>
                 </TouchableOpacity>
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
-        paddingTop: Sizes.statusBarHeight,
+
     },
     content: {
         marginHorizontal: scale(15),

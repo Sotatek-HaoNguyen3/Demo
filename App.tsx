@@ -21,18 +21,14 @@ function App() {
     return (
         <BaseProvider config={config}>
             <SettingProvider>
+                <GestureRecognizer onSwipeRight={(state) => onSwipeRight(state)} style={{ flex: 1 }} >
                 <Provider store={store}>
-                    <AppBar />
-                    <Drawer ref={globalDrawerRef} />
+                    <Drawer showAvatar ref={globalDrawerRef} />
                     <PersistGate loading={null} persistor={persistor}>
-                        <GestureRecognizer
-                            onSwipeRight={(state) => onSwipeRight(state)}
-                            style={{ flex: 1 }}
-                        >
-                            <RootStacks />
-                        </GestureRecognizer>
+                        <RootStacks />
                     </PersistGate>
                 </Provider>
+                </GestureRecognizer>
             </SettingProvider>
         </BaseProvider>
     );

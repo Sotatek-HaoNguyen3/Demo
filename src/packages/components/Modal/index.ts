@@ -1,6 +1,6 @@
 import { BaseModal } from './modal';
 
-export type { ModalProps, OnSwipeCompleteParams } from './modal';
+export type { OnSwipeCompleteParams } from './modal';
 export type {
   AnimationEvent,
   Animations,

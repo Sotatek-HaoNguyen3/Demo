@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import MenuItem, { MenuItemProps } from './MenuItem';
-import FlatListView from '../FlatListView';
+import FlatListView from '../ListView';
 
 
 interface MenuProps {

@@ -46,8 +46,8 @@ function isValidSwipe(
 class GestureRecognizer extends Component<GestureRecognizerProps> {
   private swipeConfig: { velocityThreshold: number; directionalOffsetThreshold: number; gestureIsClickThreshold: number; } & GestureRecognizerConfig;
   private _panResponder: PanResponderInstance;
-  constructor(props: GestureRecognizerProps, context) {
-    super(props, context);
+  constructor(props: GestureRecognizerProps) {
+    super(props);
     this.swipeConfig = Object.assign(swipeConfig, props.config);
 
     const responderEnd = this._handlePanResponderEnd.bind(this);

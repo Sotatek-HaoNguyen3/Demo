@@ -22,7 +22,6 @@ interface HeaderProps {
 
 const AppBar = ({
     title,
-    left,
     right,
     onPress,
     style = {},
@@ -30,8 +29,8 @@ const AppBar = ({
     disable = false,
     containerStyle = {},
     hideLeft,
-    iconLeft,
 }: HeaderProps) => {
+    const IconBack = () => <View style={styles.iconBack}/>
     const renderLeft = () => hideLeft ? (
         <View style={styles.leftView} />
     ) : (
@@ -41,7 +40,7 @@ const AppBar = ({
             hitSlop={HitSlop.default}
             disabled={disable}
         >
-            <Text>Back</Text>
+            <IconBack />
         </TouchableOpacity>
     );
 
@@ -106,5 +105,12 @@ const styles = StyleSheet.create({
         height: scale(50),
         marginLeft: scale(8),
         justifyContent: 'center',
+    },
+    iconBack: {
+        height: scale(16),
+        width: scale(16),
+        borderTopWidth: scale(2),
+        borderLeftWidth: scale(2),
+        transform: [{ rotate: '-45deg' }],
     },
 })

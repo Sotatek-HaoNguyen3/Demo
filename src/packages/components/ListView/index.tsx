@@ -10,7 +10,7 @@ interface IProps extends FlatListProps<any> {
   listEmpty?: React.ComponentType<any> | React.ReactElement
 }
 
-const FlatListView: React.FC<IProps> = ({
+const ListView: React.FC<IProps> = ({
   data,
   renderItem,
   onRefresh,
@@ -35,4 +35,4 @@ const FlatListView: React.FC<IProps> = ({
   )
 }
 
-export default memo(FlatListView)
+export default memo(ListView)

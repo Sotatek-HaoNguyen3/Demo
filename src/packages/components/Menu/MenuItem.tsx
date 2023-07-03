@@ -18,6 +18,7 @@ const MenuItem = (props: Props) => {
     const styles = myStyles();
     return (
         <TouchableOpacity style={styles.btn} onPress={props.onPress}>
+            <View style={styles.viewIcon} />
             <View style={styles.viewItem}>
                 <Text style={styles.textItem}>{(item?.name && item.name) || ''}</Text>
             </View>
@@ -41,6 +42,12 @@ const myStyles = () =>
         textItem: {
             color: 'black',
             fontSize: scale(14),
+        },
+        viewIcon: {
+            backgroundColor: 'red',
+            width: scale(10),
+            height: scale(10),
+            marginHorizontal: scale(10),
         },
     });
 

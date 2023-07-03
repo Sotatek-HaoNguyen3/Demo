@@ -1,5 +1,5 @@
-import React, { useImperativeHandle, useRef, useState } from 'react';
-import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import React, { ReactElement, useImperativeHandle, useRef, useState } from 'react';
+import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 
 import { Animation } from 'react-native-animatable';
 
@@ -29,24 +29,22 @@ export interface DrawerRefType {
     dismiss: () => void;
 }
 
-const dataTest = [
-    {name: 'Home'},
-    {name: 'Setting'},
-    {name: 'Notification'},
-    {name: 'Profile'},
-]
-
 export interface DrawerProps {
     animationIn?: Animation;
     animationOut?: Animation;
     animationTiming?: number;
     backdropTransitionTiming?: number;
     backdropOpacity?: number;
-    containerStyle?: StyleProp<ViewStyle>
+    containerStyle?: StyleProp<ViewStyle>;
+    showAvatar?: boolean;
     sourceAvatar?: ImageSourcePropType;
+    contentContainerStyle?: StyleProp<ViewStyle>;
     avatarContainerStyle?: StyleProp<ViewStyle>;
     avatarProps?: AvatarProps;
     modalProps?: BaseModalProps;
+    renderTop?: ReactElement<ViewProps>;
+    renderCenter?: ReactElement<ViewProps>;
+    renderBottom?: ReactElement<ViewProps>;
 }
 
 const Drawer = (props: DrawerProps, ref) => {
@@ -57,10 +55,15 @@ const Drawer = (props: DrawerProps, ref) => {
         backdropTransitionTiming = 500,
         backdropOpacity = 0.5,
         containerStyle,
+        showAvatar,
         sourceAvatar,
+        contentContainerStyle,
         avatarContainerStyle,
         avatarProps,
         modalProps,
+        renderTop,
+        renderCenter,
+        renderBottom,
         ...rest
     } = props
     const drawerRef = useRef(null);
@@ -97,11 +100,15 @@ const Drawer = (props: DrawerProps, ref) => {
             backdropOpacity={0.5}
             {...modalProps}
         >
-            <View style={styles.contentContainer}>
-                <View style={[styles.avatarContainer, avatarContainerStyle]}>
-                    <Avatar source={sourceAvatar} {...avatarProps} />
-                </View>
-                <Menu data={dataTest}/>
+            <View style={[styles.contentContainer, contentContainerStyle]}>
+                {showAvatar &&
+                    <View style={[styles.avatarContainer, avatarContainerStyle]}>
+                        <Avatar source={sourceAvatar} {...avatarProps} />
+                    </View>
+                }
+                {renderTop}
+                {renderCenter}
+                {renderBottom}
             </View>
         </BaseModal>
     )

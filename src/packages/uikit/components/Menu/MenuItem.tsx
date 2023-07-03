@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { scale } from 'themes/scales';
 
 export interface MenuItemProps {
-    name?: string
+    name?: string;
 }
 
 interface Props {
@@ -14,7 +13,7 @@ interface Props {
 }
 
 const MenuItem = (props: Props) => {
-    const {item} = props
+    const { item } = props;
     const styles = myStyles();
     return (
         <TouchableOpacity style={styles.btn} onPress={props.onPress}>

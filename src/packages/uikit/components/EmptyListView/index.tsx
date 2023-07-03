@@ -15,30 +15,26 @@ const EmptyListView: React.FC = (props: EmptyViewProps) => {
 
     return (
         <View style={[styles.emptyView, props?.containerStyles]}>
-            {image && (
-                <Image
-                    source={image}
-                    style={styles.imageView}
-                />
-            )}
-            <Text style={styles.emptyText}>{message ? message :'No Record'}</Text>
+            {image && <Image source={image} style={styles.imageView} />}
+            <Text style={styles.emptyText}>{message ? message : 'No Record'}</Text>
         </View>
     );
 };
 
 export default memo(EmptyListView);
 
-const myStyles = () => StyleSheet.create({
-    emptyView: {
-        alignItems: 'center',
-        paddingVertical: scale(100),
-    },
-    emptyText: {
-        fontSize: scale(14),
-        color: 'rgba(0, 0, 0, 0.5)',
-    },
-    imageView: {
-        width: scale(120),
-        height: scale(120),
-    },
-});
+const myStyles = () =>
+    StyleSheet.create({
+        emptyView: {
+            alignItems: 'center',
+            paddingVertical: scale(100),
+        },
+        emptyText: {
+            fontSize: scale(14),
+            color: 'rgba(0, 0, 0, 0.5)',
+        },
+        imageView: {
+            width: scale(120),
+            height: scale(120),
+        },
+    });

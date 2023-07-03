@@ -5,11 +5,4 @@ import EmptyListView from './EmptyListView';
 import ListView from './ListView';
 import BaseModal from './Modal';
 
-export {
-    ListView,
-    EmptyListView,
-    AppBar,
-    Avatar,
-    Drawer,
-    BaseModal,
-}
+export { ListView, EmptyListView, AppBar, Avatar, Drawer, BaseModal };

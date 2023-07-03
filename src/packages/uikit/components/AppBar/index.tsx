@@ -1,10 +1,18 @@
 import React, { memo, ReactElement } from 'react';
-import { StyleProp, StyleSheet, Text, TextProps, TextStyle, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
-
+import {
+    StyleProp,
+    StyleSheet,
+    Text,
+    TextProps,
+    TextStyle,
+    TouchableOpacity,
+    View,
+    ViewProps,
+    ViewStyle,
+} from 'react-native';
 
 import { getStatusBarHeight, HitSlop } from 'themes/dimensions';
 import { scale } from 'themes/scales';
-
 
 interface HeaderProps {
     title?: string | ReactElement<TextProps>;
@@ -30,19 +38,15 @@ const AppBar = ({
     containerStyle = {},
     hideLeft,
 }: HeaderProps) => {
-    const IconBack = () => <View style={styles.iconBack}/>
-    const renderLeft = () => hideLeft ? (
-        <View style={styles.leftView} />
-    ) : (
-        <TouchableOpacity
-            style={styles.backView}
-            onPress={onPress}
-            hitSlop={HitSlop.default}
-            disabled={disable}
-        >
-            <IconBack />
-        </TouchableOpacity>
-    );
+    const IconBack = () => <View style={styles.iconBack} />;
+    const renderLeft = () =>
+        hideLeft ? (
+            <View style={styles.leftView} />
+        ) : (
+            <TouchableOpacity style={styles.backView} onPress={onPress} hitSlop={HitSlop.default} disabled={disable}>
+                <IconBack />
+            </TouchableOpacity>
+        );
 
     return (
         <View style={[styles.container, containerStyle]}>
@@ -56,8 +60,8 @@ const AppBar = ({
                 <View style={styles.rightView}>{right}</View>
             </View>
         </View>
-    )
-}
+    );
+};
 
 export default memo(AppBar);
 
@@ -113,4 +117,4 @@ const styles = StyleSheet.create({
         borderLeftWidth: scale(2),
         transform: [{ rotate: '-45deg' }],
     },
-})
+});

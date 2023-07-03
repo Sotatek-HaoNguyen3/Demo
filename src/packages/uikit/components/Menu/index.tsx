@@ -4,7 +4,6 @@ import { StyleSheet, View } from 'react-native';
 import MenuItem, { MenuItemProps } from './MenuItem';
 import FlatListView from '../ListView';
 
-
 interface MenuProps {
     data: MenuItemProps[];
 }
@@ -16,15 +15,16 @@ const Menu = (props: MenuProps) => {
 
     return (
         <View style={styles.container}>
-            <FlatListView data={data} renderItem={renderItem}/>
+            <FlatListView data={data} renderItem={renderItem} />
         </View>
     );
 };
 
 export default memo(Menu);
 
-const myStyles = () => StyleSheet.create({
-    container: {
-        backgroundColor: 'red',
-    },
-});
+const myStyles = () =>
+    StyleSheet.create({
+        container: {
+            backgroundColor: 'red',
+        },
+    });

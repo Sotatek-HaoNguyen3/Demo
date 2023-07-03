@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import { AppBar, EmptyListView, ListView } from 'packages/components';
+import { AppBar, EmptyListView, ListView } from 'packages/uikit/components';
 
-import { globalDrawer } from 'packages/components/Drawer';
+import { globalDrawer } from 'packages/uikit/components/Drawer';
 import { scale } from 'themes/scales';
 
 const LoginScreen = () => {

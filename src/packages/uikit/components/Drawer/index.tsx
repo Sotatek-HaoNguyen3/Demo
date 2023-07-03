@@ -1,10 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, { ReactElement, useImperativeHandle, useRef, useState } from 'react';
 import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 
 import { Animation } from 'react-native-animatable';
 
 import Avatar, { AvatarProps } from '../Avatar';
-import Menu from '../Menu';
 import BaseModal from '../Modal';
 
 import { BaseModalProps } from '../Modal/modal';
@@ -12,17 +12,16 @@ import { BaseModalProps } from '../Modal/modal';
 import { getStatusBarHeight } from 'themes/dimensions';
 import { scale } from 'themes/scales';
 
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const globalDrawerRef = React.createRef<any>()
+export const globalDrawerRef = React.createRef<any>();
 export const globalDrawer = {
     open: () => {
-        globalDrawerRef?.current?.open()
+        globalDrawerRef?.current?.open();
     },
     close: () => {
-        globalDrawerRef?.current?.close()
+        globalDrawerRef?.current?.close();
     },
-}
+};
 
 export interface DrawerRefType {
     open: () => void;
@@ -65,25 +64,25 @@ const Drawer = (props: DrawerProps, ref) => {
         renderCenter,
         renderBottom,
         ...rest
-    } = props
+    } = props;
     const drawerRef = useRef(null);
-    const [visible, setVisible] = useState<boolean>(false)
+    const [visible, setVisible] = useState<boolean>(false);
 
     const closeDrawer = () => {
-        drawerRef?.current?.close()
-        setVisible(false)
-    }
+        drawerRef?.current?.close();
+        setVisible(false);
+    };
 
     const openDrawer = () => {
-        setVisible(true)
-    }
+        setVisible(true);
+    };
 
     useImperativeHandle(
         ref,
         (): DrawerRefType => ({
             dismiss: closeDrawer,
             open: openDrawer,
-        }),
+        })
     );
     return (
         <BaseModal
@@ -98,21 +97,20 @@ const Drawer = (props: DrawerProps, ref) => {
             backdropTransitionInTiming={500}
             backdropTransitionOutTiming={500}
             backdropOpacity={0.5}
-            {...modalProps}
-        >
+            {...modalProps}>
             <View style={[styles.contentContainer, contentContainerStyle]}>
-                {showAvatar &&
+                {showAvatar && (
                     <View style={[styles.avatarContainer, avatarContainerStyle]}>
                         <Avatar source={sourceAvatar} {...avatarProps} />
                     </View>
-                }
+                )}
                 {renderTop}
                 {renderCenter}
                 {renderBottom}
             </View>
         </BaseModal>
-    )
-}
+    );
+};
 
 export default React.forwardRef(Drawer);
 
@@ -133,4 +131,4 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: scale(30),
     },
-})
+});

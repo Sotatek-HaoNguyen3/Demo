@@ -105,7 +105,7 @@
     "suppressImplicitAnyIndexErrors": true,
   },
   "exclude": [
-    "node_modules", "jest.config.js", "scripts/react-native-toast-notifications"
+    "node_modules", "jest.config.js"
   ],
   "include": [
     "global.d.ts", "**/*.ts", "**/*.tsx", "index.js", "metro.config.js", "babel.config.js", "Reactotron.js"

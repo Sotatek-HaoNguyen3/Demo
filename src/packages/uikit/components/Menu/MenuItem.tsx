@@ -1,10 +1,11 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { ReactElement } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native';
 
 import { scale } from 'themes/scales';
 
 export interface MenuItemProps {
     name?: string;
+    icon?: ReactElement<ViewProps>;
 }
 
 interface Props {
@@ -17,9 +18,9 @@ const MenuItem = (props: Props) => {
     const styles = myStyles();
     return (
         <TouchableOpacity style={styles.btn} onPress={props.onPress}>
-            <View style={styles.viewIcon} />
+            {item?.icon && <View style={styles.viewIcon} />}
             <View style={styles.viewItem}>
-                <Text style={styles.textItem}>{(item?.name && item.name) || ''}</Text>
+                <Text style={styles.textItem}>{item?.name ? item.name : ''}</Text>
             </View>
         </TouchableOpacity>
     );
@@ -37,15 +38,16 @@ const myStyles = () =>
         viewItem: {
             flex: 1,
             flexDirection: 'row',
+            alignItems: 'center',
         },
         textItem: {
             color: 'black',
             fontSize: scale(14),
         },
         viewIcon: {
-            backgroundColor: 'red',
-            width: scale(10),
-            height: scale(10),
+            backgroundColor: 'gray',
+            width: scale(12),
+            height: scale(12),
             marginHorizontal: scale(10),
         },
     });

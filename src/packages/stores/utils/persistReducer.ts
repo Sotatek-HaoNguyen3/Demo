@@ -15,7 +15,7 @@ export function persistReducerUtil(
     const transforms = [
         encryptTransform(
             {
-                secretKey: Config.ENCRYPTION_KEY!,
+                secretKey: Config?.ENCRYPTION_KEY ? Config.ENCRYPTION_KEY! : '123',
                 onError: (_error: Error) => {
                     // TODO
                 },

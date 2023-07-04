@@ -1,10 +1,11 @@
-/* eslint-disable no-unused-vars */
 import React, { ReactElement, useImperativeHandle, useRef, useState } from 'react';
 import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 
 import { Animation } from 'react-native-animatable';
 
 import Avatar, { AvatarProps } from '../Avatar';
+import Menu from '../Menu';
+import { MenuItemProps } from '../Menu/MenuItem';
 import BaseModal from '../Modal';
 
 import { BaseModalProps } from '../Modal/modal';
@@ -36,14 +37,15 @@ export interface DrawerProps {
     backdropOpacity?: number;
     containerStyle?: StyleProp<ViewStyle>;
     showAvatar?: boolean;
+    showMenu?: boolean;
+    menuData?: MenuItemProps[];
     sourceAvatar?: ImageSourcePropType;
     contentContainerStyle?: StyleProp<ViewStyle>;
     avatarContainerStyle?: StyleProp<ViewStyle>;
+    menuContainerStyle?: StyleProp<ViewStyle>;
     avatarProps?: AvatarProps;
     modalProps?: BaseModalProps;
-    renderTop?: ReactElement<ViewProps>;
-    renderCenter?: ReactElement<ViewProps>;
-    renderBottom?: ReactElement<ViewProps>;
+    customComponent?: ReactElement<ViewProps>;
 }
 
 const Drawer = (props: DrawerProps, ref) => {
@@ -55,15 +57,15 @@ const Drawer = (props: DrawerProps, ref) => {
         backdropOpacity = 0.5,
         containerStyle,
         showAvatar,
+        showMenu = false,
+        menuData = [],
         sourceAvatar,
         contentContainerStyle,
         avatarContainerStyle,
+        menuContainerStyle,
         avatarProps,
         modalProps,
-        renderTop,
-        renderCenter,
-        renderBottom,
-        ...rest
+        customComponent,
     } = props;
     const drawerRef = useRef(null);
     const [visible, setVisible] = useState<boolean>(false);
@@ -88,15 +90,15 @@ const Drawer = (props: DrawerProps, ref) => {
         <BaseModal
             ref={drawerRef}
             onBackdropPress={closeDrawer}
-            animationIn={'slideInLeft'}
+            animationIn={animationIn}
             isVisible={visible}
             style={containerStyle || styles.container}
-            animationOut={'slideOutLeft'}
-            animationInTiming={500}
-            animationOutTiming={500}
-            backdropTransitionInTiming={500}
-            backdropTransitionOutTiming={500}
-            backdropOpacity={0.5}
+            animationOut={animationOut}
+            animationInTiming={animationTiming}
+            animationOutTiming={animationTiming}
+            backdropTransitionInTiming={backdropTransitionTiming}
+            backdropTransitionOutTiming={backdropTransitionTiming}
+            backdropOpacity={backdropOpacity}
             {...modalProps}>
             <View style={[styles.contentContainer, contentContainerStyle]}>
                 {showAvatar && (
@@ -104,9 +106,12 @@ const Drawer = (props: DrawerProps, ref) => {
                         <Avatar source={sourceAvatar} {...avatarProps} />
                     </View>
                 )}
-                {renderTop}
-                {renderCenter}
-                {renderBottom}
+                {showMenu && (
+                    <View style={[styles.menuContainer, menuContainerStyle]}>
+                        <Menu data={menuData} />
+                    </View>
+                )}
+                {customComponent}
             </View>
         </BaseModal>
     );
@@ -130,5 +135,8 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         paddingVertical: scale(30),
+    },
+    menuContainer: {
+        width: '100%',
     },
 });

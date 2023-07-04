@@ -39,7 +39,6 @@ import {
 } from './types';
 import { buildAnimations, initializeAnimations, reversePercentage } from './utils';
 
-// Override default react-native-animatable animations
 initializeAnimations();
 
 export type OnSwipeCompleteParams = {
@@ -240,14 +239,11 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
     }
 
     componentDidUpdate(prevProps: BaseModalProps) {
-        // If the animations have been changed then rebuild them to make sure we're
-        // using the most up-to-date ones
         if (this.props.animationIn !== prevProps.animationIn || this.props.animationOut !== prevProps.animationOut) {
             const { animationIn, animationOut } = buildAnimations(extractAnimationFromProps(this.props));
             this.animationIn = animationIn;
             this.animationOut = animationOut;
         }
-        // If backdrop opacity has been changed then make sure to update it
         if (this.props.backdropOpacity !== prevProps.backdropOpacity && this.backdropRef) {
             this.backdropRef.transitionTo(
                 { opacity: this.props.backdropOpacity },
@@ -321,8 +317,6 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
                 return true;
             },
             onPanResponderMove: (evt, gestureState) => {
-                // Using onStartShouldSetPanResponder we don't have any delta so we don't know
-                // The direction to which the user is swiping until some move have been done
                 if (!this.currentSwipingDirection) {
                     if (gestureState.dx === 0 && gestureState.dy === 0) {
                         return;
@@ -333,7 +327,6 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
                 }
 
                 if (this.isSwipeDirectionAllowed(gestureState)) {
-                    // Dim the background while swiping the modal
                     const newOpacityFactor = 1 - this.calcDistancePercentage(gestureState);
 
                     this.backdropRef &&
@@ -367,7 +360,6 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
                 }
             },
             onPanResponderRelease: (evt, gestureState) => {
-                // Call the onSwipe prop if the threshold has been exceeded on the right direction
                 const accDistance = this.getAccDistancePerDirection(gestureState);
                 if (accDistance > this.props.swipeThreshold && this.isSwipeDirectionAllowed(gestureState)) {
                     if (this.props.onSwipeComplete) {
@@ -380,15 +372,12 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
                         );
                         return;
                     }
-                    // Deprecated. Remove later.
                     if ((this.props as any).onSwipe) {
                         this.inSwipeClosingState = true;
                         (this.props as any).onSwipe();
                         return;
                     }
                 }
-
-                // Reset backdrop opacity and modal position
                 if (this.props.onSwipeCancel) {
                     this.props.onSwipeCancel(gestureState);
                 }
@@ -521,10 +510,6 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
                 this.props.backdropTransitionInTiming
             );
         }
-
-        // This is for resetting the pan position,otherwise the modal gets stuck
-        // at the last released position when you try to open it.
-        // TODO: Could certainly be improved - no idea for the moment.
         if (this.state.isSwipeable) {
             this.state.pan!.setValue({ x: 0, y: 0 });
         }
@@ -637,11 +622,8 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
         );
 
         if (hasCustomBackdrop) {
-            // The user will handle backdrop presses himself
             return backdropWrapper;
         }
-        // If there's no custom backdrop, handle presses with
-        // TouchableWithoutFeedback
         return <TouchableWithoutFeedback onPress={onBackdropPress}>{backdropWrapper}</TouchableWithoutFeedback>;
     };
     render() {
@@ -708,9 +690,6 @@ export class BaseModal extends React.Component<BaseModalProps, State> {
                 {_children}
             </animatable.View>
         );
-
-        // If coverScreen is set to false by the user
-        // we render the modal inside the parent view directly
         if (!coverScreen && this.state.isVisible) {
             return (
                 <View pointerEvents="box-none" style={[styles.backdrop, styles.containerBox]}>

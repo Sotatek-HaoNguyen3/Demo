@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+import Button from 'components/Button';
+import ButtonText from 'components/ButtonText';
+import ImageBase from 'components/Image';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import Switch from 'components/Switch';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [themeMode, setThemeMode] = useState('light'); // Set the default theme mode
+    const [switchValue, setSwitch] = useState<boolean>(true);
 
     return (
         <View style={styles.container}>
@@ -28,10 +33,21 @@ const LoginScreen = () => {
                         secureTextEntry
                     />
                 </View>
-
-                <TouchableOpacity>
-                    <Text>Login</Text>
-                </TouchableOpacity>
+                <Button
+                        // left={renderLeftSelection()}
+                        title={'Login'}
+                        // titleStyles={styles.selectionText}
+                        onPress={() => console.log('Login')}
+                />
+               <ButtonText
+                 title='Register'
+                 onPress={() => console.log('Register')}
+               />
+               {/* <ImageBase/> */}
+               <Switch
+                value={switchValue}
+                onValueChange={() => setSwitch(!switchValue)}
+               />
             </View>
         </View>
     );

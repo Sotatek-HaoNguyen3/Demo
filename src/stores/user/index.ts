@@ -14,15 +14,15 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-        .addCase(loginAsyncAction.pending, (state) => {
-            state.status = 'loading';
-        })
-        .addCase(loginAsyncAction.fulfilled, (state, payload) => {
-            state.status = 'ide';
-        })
-        .addCase(loginAsyncAction.rejected, (state) => {
-            state.status = 'ide';
-        })
+            .addCase(loginAsyncAction.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase(loginAsyncAction.fulfilled, (state) => {
+                state.status = 'ide';
+            })
+            .addCase(loginAsyncAction.rejected, (state) => {
+                state.status = 'ide';
+            });
     },
 });
 

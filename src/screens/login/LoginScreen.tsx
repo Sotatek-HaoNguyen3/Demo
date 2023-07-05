@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+import { HybridContext } from 'packages/core/hybrid-overlay';
+import { useTheme } from 'packages/hooks';
+import { useThemeColors } from 'packages/hooks/useTheme';
 import { Toast } from 'packages/uikit/components';
-
+import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
+    const { colorMode } = useContext(HybridContext);
+    const { toggleColorMode } = colorMode;
 
     const showToastTop = () => {
         Toast.show({
@@ -46,6 +53,9 @@ const LoginScreen = () => {
                 <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
                     <Text>Toast base Bottom</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
+                    <Text>Toggle Color Mode</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -53,26 +63,28 @@ const LoginScreen = () => {
 
 export default LoginScreen;
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        paddingTop: Sizes.statusBarHeight,
-    },
-    content: {
-        marginHorizontal: scale(15),
-    },
-    btn: {
-        height: scale(50),
-        width: scale(340),
-        marginTop: scale(40),
-        alignItems: 'center',
-        borderColor: 'black',
-        borderWidth: scale(1),
-        justifyContent: 'center',
-        borderRadius: scale(5),
-    },
-    text1: {
-        fontSize: scale(30),
-    },
-});
+const myStyles = (themeColors: IColors) => {
+    return StyleSheet.create({
+        container: {
+            flex: 1,
+            paddingTop: Sizes.statusBarHeight,
+            backgroundColor: themeColors.backgroundDisabled,
+        },
+        content: {
+            marginHorizontal: scale(15),
+        },
+        btn: {
+            height: scale(50),
+            width: scale(340),
+            marginTop: scale(40),
+            alignItems: 'center',
+            borderColor: 'black',
+            borderWidth: scale(1),
+            justifyContent: 'center',
+            borderRadius: scale(5),
+        },
+        text1: {
+            fontSize: scale(30),
+        },
+    });
+};

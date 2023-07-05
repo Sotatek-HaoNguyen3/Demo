@@ -2,18 +2,9 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { changeLanguage, ILanguageContext, LanguageType } from 'packages/localization';
-
-// import { ThemeColor } from 'themes/colors';
-// import Storages, { KeyStorage } from 'utils/storages';
-
 interface Props {
     children: React.ReactElement;
 }
-
-// interface IThemeContext {
-//     theme: ThemeColor;
-//     updateTheme: (theme: ThemeColor | null) => void;
-// }
 
 type ISettingContext = ILanguageContext;
 
@@ -23,10 +14,6 @@ const SettingProvider = (props: Props) => {
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const { t } = useTranslation();
     const [language, setLanguage] = useState<LanguageType>(LanguageType.English);
-    // const [theme, setTheme] = useState<ThemeColor>(ThemeColor.Light);
-    const [userID, setUserID] = useState<number | null>(null)
-
-    const updateUserID = (id: number) => setUserID(id);
 
     const findOldLanguage = () => {
         // Storages.get(KeyStorage.Language).then(oldLanguage => {
@@ -106,9 +93,10 @@ const SettingProvider = (props: Props) => {
     return (
         <SettingContext.Provider
             value={{
-                t, language, updateLanguage,
-            }}
-        >
+                t,
+                language,
+                updateLanguage,
+            }}>
             {props.children}
         </SettingContext.Provider>
     );

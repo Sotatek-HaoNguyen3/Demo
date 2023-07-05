@@ -7,4 +7,3 @@ export interface ILanguageContext {
     language: LanguageType;
     updateLanguage: (language: string) => void;
 }
-

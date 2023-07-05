@@ -5,13 +5,20 @@ import { persistReducer } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/es/stateReconciler/autoMergeLevel2';
 import { encryptTransform } from 'redux-persist-transform-encrypt';
 
-export function persistReducerUtil(key: string, reducer: Reducer, whitelist?: string[], sensitiveInfoWhitelist?: string[], version: number = -1): Reducer {
+export function persistReducerUtil(
+    key: string,
+    reducer: Reducer,
+    whitelist?: string[],
+    sensitiveInfoWhitelist?: string[],
+    version: number = -1
+): Reducer {
     const transforms = [
-        encryptTransform (
+        encryptTransform(
             {
                 secretKey: Config.ENCRYPTION_KEY!,
                 onError: (_error: Error) => {
                     // TODO
+                    console.log(_error);
                 },
             },
             {

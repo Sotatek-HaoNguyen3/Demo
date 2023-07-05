@@ -38,7 +38,7 @@ export function useThemeColors(): IColors {
                       ...colors.commonColors,
                       ...colors.lightColors,
                   },
-        [colors]
+        [colors, colorMode]
     );
     if (!colors) {
         throw Error('useThemeColors: `colors` is undefined. Seems you forgot to wrap your app in `<BaseProvider />`');

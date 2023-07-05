@@ -15,7 +15,7 @@ const LoginScreen = () => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
-    const { toggleColorMode, mode } = colorMode;
+    const { toggleColorMode } = colorMode;
 
     const showToastTop = () => {
         Toast.show({
@@ -38,7 +38,7 @@ const LoginScreen = () => {
     };
 
     return (
-        <View style={[styles.container, mode === 'dark' ? { backgroundColor: 'green' } : { backgroundColor: 'blue' }]}>
+        <View style={styles.container}>
             <View style={styles.content}>
                 <View>
                     <TextInput placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
@@ -53,6 +53,9 @@ const LoginScreen = () => {
                 <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
                     <Text>Toast base Bottom</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
+                    <Text>Toggle Color Mode</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -64,8 +67,8 @@ const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: 'white',
             paddingTop: Sizes.statusBarHeight,
+            backgroundColor: themeColors.backgroundDisabled,
         },
         content: {
             marginHorizontal: scale(15),

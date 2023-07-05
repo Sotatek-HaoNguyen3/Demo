@@ -1,24 +1,26 @@
-import { darkColors, lightColors } from './colors';
-
 import { ColorModeOptions } from 'packages/core';
-
+import base from 'packages/uikit/theme/base';
 
 const config: ColorModeOptions = {
     useSystemColorMode: false,
     initialColorMode: 'light',
-    // accessibleColors: false,
-}
+};
 
 export const theme = {
-    colors: {
-        light: lightColors,
-        dark: darkColors,
-    },
+    ...base,
     config,
 };
+
 export type Theme = typeof theme;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export type Colors = typeof theme.colors;
+
 export interface ICustomTheme {}
 
+export interface ICustomColors {}
+
 export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
+
+export interface IColors extends ICustomColors, Omit<Colors, keyof ICustomColors> {}
+
+export * from './types';

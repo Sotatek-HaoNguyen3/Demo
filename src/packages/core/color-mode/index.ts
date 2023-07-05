@@ -5,3 +5,5 @@ export type {
     IColorModeProviderProps,
     StorageManager,
 } from './types';
+
+export { useColorMode } from './hooks';

@@ -5,6 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import SettingProvider from 'contexts/SettingProvider';
 import 'packages/localization';
 import { BaseProvider, IBaseConfig } from 'packages/core';
+import { Toast } from 'packages/uikit/components';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
 
@@ -21,6 +22,7 @@ function App() {
                     <PersistGate loading={null} persistor={persistor}>
                         <RootStacks />
                     </PersistGate>
+                    <Toast />
                 </Provider>
             </SettingProvider>
         </BaseProvider>

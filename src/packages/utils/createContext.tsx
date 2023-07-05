@@ -5,19 +5,14 @@ function createContext<ContextValueType extends object>(rootComponentName: strin
 
     function Provider(props: ContextValueType & { children: React.ReactNode }) {
         const { children, ...providerProps } = props;
-        const value = React.useMemo(
-            () => providerProps,
-            Object.values(providerProps)
-        ) as ContextValueType;
+        const value = React.useMemo(() => providerProps, Object.values(providerProps)) as ContextValueType;
         return <Context.Provider value={value}>{children}</Context.Provider>;
     }
 
     function useContext(consumerName: string) {
         const context = React.useContext(Context);
         if (context === null) {
-            throw new Error(
-                `\`${consumerName}\` must be used within \`${rootComponentName}\``
-            );
+            throw new Error(`\`${consumerName}\` must be used within \`${rootComponentName}\``);
         }
         return context;
     }

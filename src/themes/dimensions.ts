@@ -26,6 +26,6 @@ export const isIphoneX = (): boolean => {
 
 export const ifIphoneX = (iPhoneXHeight: number, iPhoneNormalHeight: number): number => {
     return isIphoneX() ? iPhoneXHeight : iPhoneNormalHeight;
-}
+};
 
 export const isNotchAndroid = Platform.OS === 'android' && StatusBar.currentHeight > 24;

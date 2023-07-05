@@ -4,6 +4,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useTheme } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
+import { Toast } from 'packages/uikit/components';
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
@@ -16,6 +17,26 @@ const LoginScreen = () => {
     const { colorMode } = useContext(HybridContext);
     const { toggleColorMode, mode } = colorMode;
 
+    const showToastTop = () => {
+        Toast.show({
+            text1: 'allo',
+            text2: 'bllo',
+            type: 'success',
+            props: {
+                text1: 'allll',
+                text1Style: styles.text1,
+            },
+        });
+    };
+
+    const showToastBottom = () => {
+        Toast.show({
+            text1: 'allo',
+            type: 'base',
+            position: 'bottom',
+        });
+    };
+
     return (
         <View style={[styles.container, mode === 'dark' ? { backgroundColor: 'green' } : { backgroundColor: 'blue' }]}>
             <View style={styles.content}>
@@ -26,8 +47,11 @@ const LoginScreen = () => {
                     <TextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
                 </View>
 
-                <TouchableOpacity onPress={toggleColorMode}>
-                    <Text>Login</Text>
+                <TouchableOpacity onPress={showToastTop} style={styles.btn}>
+                    <Text>Toast base Top</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
+                    <Text>Toast base Bottom</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -45,7 +69,19 @@ const myStyles = (themeColors: IColors) => {
         },
         content: {
             marginHorizontal: scale(15),
-            backgroundColor: themeColors.transparent,
+        },
+        btn: {
+            height: scale(50),
+            width: scale(340),
+            marginTop: scale(40),
+            alignItems: 'center',
+            borderColor: 'black',
+            borderWidth: scale(1),
+            justifyContent: 'center',
+            borderRadius: scale(5),
+        },
+        text1: {
+            fontSize: scale(30),
         },
     });
 };

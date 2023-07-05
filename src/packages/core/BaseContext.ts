@@ -1,4 +1,4 @@
-import { ITheme, Theme } from 'packages/uikit/theme';
+import { ITheme } from 'packages/uikit/theme';
 import { IColorModes } from 'packages/uikit/theme/types';
 import { createContext } from 'packages/utils/createContext';
 

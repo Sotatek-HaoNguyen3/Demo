@@ -348,4 +348,4 @@ colors.light = colors.warmGray;
 
 export default colors;
 // export type IColors = Leaves<ITheme['colors']>;
-export type IColors = Leaves<typeof colors>;
+export type IBaseColors = Leaves<typeof colors>;

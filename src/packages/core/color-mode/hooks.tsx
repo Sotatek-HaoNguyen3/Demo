@@ -12,7 +12,7 @@ export const useColorMode = (): IColorModeContextProps => {
         colorMode: IColorModeContextProps;
     } = React.useContext<IHybridContextProps>(HybridContext);
     if (colorModeContext === undefined) {
-        throw new Error('useColorMode must be used within a BaseProvider');
+        throw new Error('useColorMode must be used within a NativeBaseProvider');
     }
     return colorModeContext;
 };

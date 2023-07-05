@@ -1,7 +1,7 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-import { LanguageType } from '.';
+import { LanguageType } from './enum';
 
 import en from 'locales/en';
 import ko from 'locales/ko';

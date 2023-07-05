@@ -13,9 +13,14 @@ export const theme = {
 
 export type Theme = typeof theme;
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export type Colors = typeof theme.colors;
+
 export interface ICustomTheme {}
 
+export interface ICustomColors {}
+
 export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
+
+export interface IColors extends ICustomColors, Omit<Colors, keyof ICustomColors> {}
 
 export * from './types';

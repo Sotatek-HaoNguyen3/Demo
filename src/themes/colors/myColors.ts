@@ -23,11 +23,5 @@ const myThemeColors = {
     ...darkColors,
 };
 
-type MyThemeType = typeof myTheme;
-type MyColorsType = typeof myThemeColors;
-
-// NOTE: The module name in package.json
-declare module 'demo-react-native' {
-    interface ICustomTheme extends MyThemeType {}
-    interface ICustomColors extends MyColorsType {}
-}
+export type MyThemeType = typeof myTheme;
+export type MyColorsType = typeof myThemeColors;

@@ -8,7 +8,12 @@ import { BaseProvider, ColorMode, IBaseConfig, StorageManager } from 'packages/c
 import 'packages/localization';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
-import { customColors } from 'themes/colors';
+import { customColors, MyColorsType, MyThemeType } from 'themes/colors';
+// NOTE: The module name in package.json
+declare module 'demo-react-native' {
+    interface ICustomTheme extends MyThemeType {}
+    interface ICustomColors extends MyColorsType {}
+}
 
 const config: IBaseConfig = {
     dependencies: {

@@ -1,17 +1,20 @@
-import React, { useRef } from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import { StyleSheet, TextInput, View } from 'react-native';
+import React, { useMemo, useRef, useState } from 'react';
+import { Controller, ControllerRenderProps, useForm } from 'react-hook-form';
+import { StyleProp, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
 
-import { fieldName, initValue, isAutoFillSupported, isNum } from './utils';
+import { combineCode, fieldName, initValue, isAutoFillSupported, isNum } from './utils';
 
 import { scale } from 'themes/scales';
 
 interface OTPInputProps {
     digit?: number;
     firstFocus?: boolean;
+    submit?: (code: string) => void;
+    containerStyle?: StyleProp<ViewStyle>;
+    inputStyle?: StyleProp<ViewStyle>;
 }
 const OTPInput = (props: OTPInputProps) => {
-    const { digit = 6, firstFocus = true } = props;
+    const { digit = 6, firstFocus = true, submit, containerStyle, inputStyle } = props;
     const otpArr = Array.from(Array(digit).keys());
     const initialValue = initValue(otpArr);
     const inputOtpRef = useRef([]);
@@ -19,8 +22,9 @@ const OTPInput = (props: OTPInputProps) => {
         mode: 'all',
         defaultValues: initialValue,
     });
+    const [otpCode, setOtpCode] = useState('');
 
-    const autoFocus = (idx: number, isNext = true) => {
+    const autoFocus = async (idx: number, isNext = true) => {
         if (isNext) {
             const nextInput = idx + 1;
             if (nextInput < digit) {
@@ -34,11 +38,18 @@ const OTPInput = (props: OTPInputProps) => {
         }
     };
 
-    const handleChangeOTP = (value, idx, onChange) => {
+    const handleChangeOTP = async (value: string, idx: number, onChange) => {
         if (isNum(value)) {
-            onChange(value);
-            autoFocus(idx);
+            await onChange(value);
+            await autoFocus(idx);
+            await handleCombineCode();
         }
+    };
+
+    const handleCombineCode = async () => {
+        const values = getValues();
+        const code = combineCode(values);
+        setOtpCode(code);
     };
 
     const handleKeyPress = (event: object, idx: number) => {
@@ -48,39 +59,49 @@ const OTPInput = (props: OTPInputProps) => {
         }
     };
 
+    useMemo(() => {
+        if (otpCode.length === 6) {
+            submit(otpCode);
+        }
+    }, [otpCode]);
+
+    const renderInput = (field: ControllerRenderProps, idx: number) => {
+        const { value, onChange, onBlur } = field;
+        return (
+            <TextInput
+                {...register(fieldName(idx))}
+                ref={(ref) => (inputOtpRef.current[idx] = ref)}
+                onBlur={onBlur}
+                onChangeText={(e) => {
+                    handleChangeOTP(e, idx, onChange);
+                }}
+                onKeyPress={({ nativeEvent }) => {
+                    handleKeyPress(nativeEvent, idx);
+                }}
+                onFocus={() => {
+                    setValue(fieldName(idx), '');
+                }}
+                autoFocus={firstFocus ? idx === 0 : false}
+                keyboardType="number-pad"
+                value={value}
+                style={[styles.input, inputStyle]}
+                autoCapitalize={'none'}
+                autoComplete="off"
+                maxLength={1}
+                textContentType={isAutoFillSupported ? 'oneTimeCode' : 'none'}
+            />
+        );
+    };
+
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, containerStyle]}>
             {otpArr.map((_, index) => (
                 <Controller
                     name={fieldName(index)}
                     key={index}
                     control={control}
                     render={({ field }) => {
-                        const { value, onChange, onBlur } = field;
-                        return (
-                            <TextInput
-                                {...register(fieldName(index))}
-                                ref={(ref) => (inputOtpRef.current[index] = ref)}
-                                onBlur={onBlur}
-                                onChangeText={(e) => {
-                                    handleChangeOTP(e, index, onChange);
-                                }}
-                                onKeyPress={({ nativeEvent }) => {
-                                    handleKeyPress(nativeEvent, index);
-                                }}
-                                onFocus={() => {
-                                    setValue(fieldName(index), '');
-                                }}
-                                autoFocus={firstFocus ? index === 0 : false}
-                                keyboardType="number-pad"
-                                value={value}
-                                style={styles.input}
-                                autoCapitalize={'none'}
-                                autoComplete="off"
-                                maxLength={1}
-                                textContentType={isAutoFillSupported ? 'oneTimeCode' : 'none'}
-                            />
-                        );
+                        return renderInput(field, index);
                     }}
                 />
             ))}

@@ -28,6 +28,10 @@ const LoginScreen = () => {
         }, 1000);
     };
 
+    const handleSubmitOtp = (code: string) => {
+        // console.log(code);
+    };
+
     const showToastTop = () => {
         Toast.show({
             text1: 'allo',
@@ -73,7 +77,7 @@ const LoginScreen = () => {
                 <TouchableOpacity onPress={() => getApi()}>
                     <Text>Loading</Text>
                 </TouchableOpacity>
-                <OTPInput />
+                <OTPInput submit={handleSubmitOtp} />
                 <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} />
             </View>
         </View>

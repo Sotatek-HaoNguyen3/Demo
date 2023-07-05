@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
-import { useTheme } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { Toast } from 'packages/uikit/components';
+import { EmptyListView, ListView, OTPInput, Toast } from 'packages/uikit/components';
+import { globalDrawer } from 'packages/uikit/components/Drawer';
 import { globalLoading } from 'packages/uikit/components/Loading';
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
+import Sizes from 'themes/sizes';
 
 const LoginScreen = () => {
     const [email, setEmail] = useState<string>('');
@@ -16,6 +17,16 @@ const LoginScreen = () => {
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
     const { toggleColorMode } = colorMode;
+    const renderItem = (item) => {
+        return <Text style={{ color: 'black' }}>{item.item.name}</Text>;
+    };
+    const renderEmpty = () => <EmptyListView />;
+    const getApi = () => {
+        globalLoading.show();
+        setTimeout(() => {
+            globalLoading.hide();
+        }, 1000);
+    };
 
     const showToastTop = () => {
         Toast.show({
@@ -56,6 +67,14 @@ const LoginScreen = () => {
                 <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
                     <Text>Toggle Color Mode</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => globalDrawer.open()}>
+                    <Text>Drawer</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => getApi()}>
+                    <Text>Loading</Text>
+                </TouchableOpacity>
+                <OTPInput />
+                <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} />
             </View>
         </View>
     );

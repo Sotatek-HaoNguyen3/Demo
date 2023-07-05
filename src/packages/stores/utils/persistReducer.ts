@@ -18,6 +18,7 @@ export function persistReducerUtil(
                 secretKey: Config?.ENCRYPTION_KEY ? Config.ENCRYPTION_KEY! : '123',
                 onError: (_error: Error) => {
                     // TODO
+                    console.log(_error);
                 },
             },
             {

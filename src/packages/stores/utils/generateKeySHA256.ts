@@ -6,6 +6,4 @@ const generateKeySHA256 = () => {
     return CryptoJS.SHA256(KEY).toString();
 };
 
-export {
-    generateKeySHA256,
-};
+export { generateKeySHA256 };

@@ -27,7 +27,7 @@ export const isIphoneX = (): boolean => {
 
 export const ifIphoneX = (iPhoneXHeight: number, iPhoneNormalHeight: number): number => {
     return isIphoneX() ? iPhoneXHeight : iPhoneNormalHeight;
-}
+};
 
 export const getStatusBarHeight = (safe?: boolean) => {
     return Platform.select({

@@ -9,12 +9,32 @@
             "jsx": true
         }
     },
-    "plugins": ["@typescript-eslint/eslint-plugin", "eslint-plugin-import", "eslint-plugin-react"],
+    "plugins": ["@typescript-eslint/eslint-plugin", "eslint-plugin-import", "eslint-plugin-react", "prettier"],
     "settings": {
         "import/resolver": "eslint-import-resolver-typescript",
         "react": { "version": "detect" }
     },
     "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "bracketSameLine": true,
+                "printWidth": 120,
+                "tabWidth": 4,
+                "trailingComma": "es5",
+                "arrowParens": "always",
+                "bracketSpacing": true,
+                "embeddedLanguageFormatting": "auto",
+                "insertPragma": false,
+                "jsxSingleQuote": false,
+                "proseWrap": "preserve",
+                "quoteProps": "as-needed",
+                "vueIndentScriptAndStyle": false,
+                "singleQuote": true,
+                "semi": true,
+                "useTabs": false
+            }
+        ],
         //#region eslint
         "complexity": ["error", 10],
         "eqeqeq": "error",
@@ -163,7 +183,6 @@
         "no-debugger": "error",
         "constructor-super": "error",
         "no-empty": "error",
-        "@typescript-eslint/no-empty-interface": "error",
         "no-eval": "error",
         "@typescript-eslint/no-misused-new": "error",
         "@typescript-eslint/triple-slash-reference": [
@@ -203,7 +222,6 @@
         "prefer-const": "error",
         "@typescript-eslint/prefer-for-of": "error",
         "semi": ["error", "always"],
-        "no-unused-vars": ["error", { "vars": "all" }],
         // TODO disabling for now, reevaluate after eslint migration
         // "semi": "off",
         // "@typescript-eslint/semi": "error",

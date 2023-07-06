@@ -2,7 +2,6 @@ import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
-import { useTheme } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Toast } from 'packages/uikit/components';
 import { IColors } from 'packages/uikit/theme';

@@ -1,5 +1,13 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import React, { useContext, useState } from 'react';
+import { useForm } from 'react-hook-form';
+
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+import { loginDataForm } from './src/const';
+import loginSchema from './src/schema';
+
+import { FormInput } from 'components';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useTheme } from 'packages/hooks';
@@ -10,8 +18,20 @@ import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
 const LoginScreen = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const {
+        control,
+        formState: { errors },
+        handleSubmit,
+        register,
+    } = useForm({
+        mode: 'all',
+        defaultValues: { email: '', password: '' },
+        resolver: yupResolver(loginSchema),
+    });
+
+    const onSubmit = async (data) => {
+        console.log(data);
+    };
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
@@ -40,13 +60,28 @@ const LoginScreen = () => {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <View>
-                    <TextInput placeholder="Email" value={email} onChangeText={setEmail} keyboardType="email-address" />
-                </View>
-                <View>
-                    <TextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry />
+                <View style={styles.formRegister}>
+                    <FormInput
+                        control={control}
+                        name={loginDataForm[0].name}
+                        error={errors[`${loginDataForm[0].name}`]}
+                        placeholder={loginDataForm[0].name}
+                        label={loginDataForm[0].label}
+                        register={register}
+                    />
+                    <FormInput
+                        control={control}
+                        name={loginDataForm[1].name}
+                        error={errors[`${loginDataForm[1].name}`]}
+                        placeholder={loginDataForm[1].name}
+                        label={loginDataForm[1].label}
+                        register={register}
+                    />
                 </View>
 
+                <TouchableOpacity onPress={handleSubmit(onSubmit)}>
+                    <Text>Login</Text>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={showToastTop} style={styles.btn}>
                     <Text>Toast base Top</Text>
                 </TouchableOpacity>
@@ -85,6 +120,10 @@ const myStyles = (themeColors: IColors) => {
         },
         text1: {
             fontSize: scale(30),
+        },
+        formRegister: {
+            height: scale(200),
+            justifyContent: 'space-around',
         },
     });
 };

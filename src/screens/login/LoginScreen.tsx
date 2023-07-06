@@ -12,11 +12,12 @@ import { FormInput } from 'components';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { EmptyListView, ListView, OTPInput, Toast } from 'packages/uikit/components';
-import { globalDrawer } from 'packages/uikit/components/Drawer';
-import { globalLoading } from 'packages/uikit/components/Loading';
+
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import { globalDrawer } from 'packages/uikit/components/Drawer';
+import { globalLoading } from 'packages/uikit/components/Loading';
 
 const LoginScreen = () => {
     const {

@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from 'react';
+import React, { memo } from 'react';
 import { Animated, View } from 'react-native';
 
 import type { ISkeletonProps } from './type';
@@ -58,4 +58,4 @@ const Skeleton = (props: ISkeletonProps) => {
     );
 };
 
-export default memo(forwardRef(Skeleton));
+export default memo(Skeleton);

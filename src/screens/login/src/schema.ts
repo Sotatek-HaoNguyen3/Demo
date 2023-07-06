@@ -1,5 +1,6 @@
-import { NO_WHITE_SPACE, VALID_EMAIL, VALID_PASSWORD } from 'utils/validate';
 import * as yup from 'yup';
+
+import { NO_WHITE_SPACE, VALID_EMAIL, VALID_PASSWORD } from 'utils/validate';
 
 const loginSchema = yup.object({
     email: yup

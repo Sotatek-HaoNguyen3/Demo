@@ -113,7 +113,7 @@ const LoginScreen = () => {
                     <Text>Loading</Text>
                 </TouchableOpacity>
                 <OTPInput submit={handleSubmitOtp} />
-                <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} />
+                {/* <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} /> */}
             </View>
         </View>
     );

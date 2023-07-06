@@ -3,7 +3,8 @@ import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewProps, ViewStyle 
 
 import { Animation } from 'react-native-animatable';
 
-import Avatar, { AvatarProps } from '../Avatar';
+import Avatar from '../Avatar';
+import { AvatarProps } from '../Avatar/Avatar';
 import Menu from '../Menu';
 import { MenuItemProps } from '../Menu/MenuItem';
 import BaseModal from '../Modal';

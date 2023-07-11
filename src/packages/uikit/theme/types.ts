@@ -1,8 +1,8 @@
-export interface IThemeColors {
+export interface IField {
     [key: string]: string;
 }
 export interface IColorModes {
-    commonColors: IThemeColors;
-    lightColors: IThemeColors;
-    darkColors: IThemeColors;
+    commonColors: IField;
+    lightColors: IField;
+    darkColors: IField;
 }

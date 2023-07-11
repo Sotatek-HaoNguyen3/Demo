@@ -1,1 +1,4 @@
-export { default as Toast } from './Toast';
+import BaseModal from './Modal';
+import Toast from './Toast';
+
+export { Toast, BaseModal };

@@ -2,7 +2,6 @@ import { useContext, useMemo } from 'react';
 
 import { useBaseConfig } from 'packages/core/BaseContext';
 import { HybridContext } from 'packages/core/hybrid-overlay';
-import { IColors } from 'packages/uikit/theme';
 
 export function useTheme() {
     const theme = useBaseConfig('useTheme').theme;
@@ -21,7 +20,7 @@ export function useConfig() {
     return configs;
 }
 
-export function useThemeColors(): IColors {
+export function useThemeColors() {
     const theme = useBaseConfig('useThemeColors').theme;
     const colors = theme.colors;
     const { colorMode } = useContext(HybridContext);
@@ -30,12 +29,10 @@ export function useThemeColors(): IColors {
             colorMode.mode === 'dark'
                 ? {
                       ...colors,
-                      ...colors.commonColors,
                       ...colors.darkColors,
                   }
                 : {
                       ...colors,
-                      ...colors.commonColors,
                       ...colors.lightColors,
                   },
         [colors, colorMode]

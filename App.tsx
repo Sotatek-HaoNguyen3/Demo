@@ -1,3 +1,4 @@
+import 'packages/localization';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import React from 'react';
 import { Provider } from 'react-redux';
@@ -5,7 +6,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import SettingProvider from 'contexts/SettingProvider';
 import { BaseProvider, ColorMode, IBaseConfig, StorageManager } from 'packages/core';
-import 'packages/localization';
+import { extendTheme } from 'packages/core/extendTheme';
+import { theme as defaultTheme } from 'packages/uikit';
 import { Drawer, Loading, Toast } from 'packages/uikit/components';
 import { globalDrawerRef } from 'packages/uikit/components/Drawer';
 import GestureRecognizer from 'packages/uikit/components/Drawer/GestureRecognizer';
@@ -13,7 +15,38 @@ import { globalLoadingRef } from 'packages/uikit/components/Loading';
 import { onSwipeRight } from 'packages/utils/gestureHandle';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
-import { customColors, MyColorsType, MyThemeType } from 'themes/colors';
+import { myColors, MyColorsType } from 'themes/colors';
+
+const myTheme = extendTheme({
+    colors: myColors,
+    fontConfig: {
+        Roboto: {
+            100: 'Roboto-Light',
+            200: 'Roboto-Light',
+            300: 'Roboto-Light',
+            400: {
+                normal: 'Roboto-Regular',
+                italic: 'Roboto-Italic',
+            },
+            500: 'Roboto-Medium',
+            600: 'Roboto-Medium',
+            700: {
+                normal: 'Roboto-Bold',
+                italic: 'Roboto-BoldItalic',
+            },
+            800: 'Roboto-Bold',
+            900: 'Roboto-Black',
+        },
+    },
+    fonts: {
+        ...defaultTheme.fonts,
+        heading: 'Roboto',
+        body: 'Roboto',
+        mana: 'Roboto',
+    },
+});
+
+type MyThemeType = typeof myTheme;
 // NOTE: The module name in package.json
 declare module 'demo-react-native' {
     interface ICustomTheme extends MyThemeType {}
@@ -48,7 +81,7 @@ const colorModeManager: StorageManager = {
 
 function App() {
     return (
-        <BaseProvider config={config} colorModes={customColors} colorModeManager={colorModeManager}>
+        <BaseProvider config={config} colorModeManager={colorModeManager} theme={myTheme}>
             <SettingProvider>
                 <GestureRecognizer onSwipeRight={(state) => onSwipeRight(state)} style={{ flex: 1 }}>
                     <Provider store={store}>

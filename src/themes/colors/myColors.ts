@@ -1,5 +1,8 @@
+import { commonColors } from './commonColors';
+import { darkColors } from './darkColors';
+import { lightColors } from './lightColors';
+
 import { theme as baseTheme } from 'packages/uikit/theme';
-import { commonColors, darkColors, lightColors } from 'themes/colors';
 
 export const customColors = {
     commonColors,

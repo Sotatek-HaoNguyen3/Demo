@@ -10,7 +10,6 @@ import loginSchema from './src/schema';
 import { FormInput } from 'components';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
-import { useTheme } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Toast } from 'packages/uikit/components';
 import { IColors } from 'packages/uikit/theme';

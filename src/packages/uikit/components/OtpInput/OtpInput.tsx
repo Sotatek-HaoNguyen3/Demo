@@ -1,3 +1,4 @@
+import Clipboard from '@react-native-clipboard/clipboard';
 import React, { useMemo, useRef, useState } from 'react';
 import { Controller, ControllerRenderProps, useForm } from 'react-hook-form';
 import { StyleProp, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
@@ -39,6 +40,10 @@ const OTPInput = (props: OTPInputProps) => {
     };
 
     const handleChangeOTP = async (value: string, idx: number, onChange) => {
+        console.log('value', value);
+        const copiedContent = await Clipboard.getString();
+        console.log('copiedContent', copiedContent);
+
         if (isNum(value)) {
             await onChange(value);
             await autoFocus(idx);
@@ -87,7 +92,7 @@ const OTPInput = (props: OTPInputProps) => {
                 style={[styles.input, inputStyle]}
                 autoCapitalize={'none'}
                 autoComplete="off"
-                maxLength={1}
+                maxLength={idx === 0 ? digit : 1}
                 textContentType={isAutoFillSupported ? 'oneTimeCode' : 'none'}
             />
         );

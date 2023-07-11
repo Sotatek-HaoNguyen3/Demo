@@ -23,6 +23,7 @@ interface HeaderProps {
     style?: StyleProp<ViewStyle>;
     titleStyle?: StyleProp<TextStyle>;
     containerStyle?: StyleProp<ViewStyle>;
+    rightContainerStyle?: StyleProp<ViewStyle>;
     showLeft?: boolean;
     hideLeft?: boolean;
     iconLeft?: ReactElement;
@@ -36,6 +37,7 @@ const AppBar = ({
     titleStyle = {},
     disable = false,
     containerStyle = {},
+    rightContainerStyle,
     hideLeft,
 }: HeaderProps) => {
     const IconBack = () => <View style={styles.iconBack} />;
@@ -57,7 +59,7 @@ const AppBar = ({
                     {title ? <Text style={[styles.title, titleStyle]}>{title}</Text> : null}
                 </View>
 
-                <View style={styles.rightView}>{right}</View>
+                <View style={[styles.rightView, rightContainerStyle]}>{right}</View>
             </View>
         </View>
     );

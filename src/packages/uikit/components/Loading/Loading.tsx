@@ -1,8 +1,10 @@
 import React, { useImperativeHandle, useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 import { MaterialIndicator } from '../Indicators';
+import { IndicatorProps } from '../Indicators/indicator/BaseIndicator';
 import BaseModal from '../Modal';
+import { BaseModalProps } from '../Modal/modal';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const globalLoadingRef = React.createRef<any>();
@@ -16,11 +18,28 @@ export const globalLoading = {
     },
 };
 
-export interface Props {
-    name?: string;
+export interface ILoadingProps {
+    color: string;
+    size: number;
+    backgroundStyle: StyleProp<ViewStyle>;
+    animationIn: string;
+    animationOut: string;
+    modalProps: BaseModalProps;
+    indicatorProps: IndicatorProps;
+    animationDuration: number;
 }
 
-const Loading = React.forwardRef((props, ref) => {
+const Loading = React.forwardRef((props: ILoadingProps & BaseModalProps, ref) => {
+    const {
+        color = 'white',
+        size = 50,
+        animationDuration = 4000,
+        backgroundStyle,
+        animationIn = 'fadeIn',
+        animationOut = 'fadeOut',
+        modalProps,
+        indicatorProps,
+    } = props;
     const loadingRef = useRef(null);
     const [visible, setVisible] = useState<boolean>(false);
 
@@ -38,9 +57,19 @@ const Loading = React.forwardRef((props, ref) => {
     };
 
     return (
-        <BaseModal ref={loadingRef} animationOut={'fadeOut'} animationIn={'fadeIn'} isVisible={visible}>
-            <View style={styles.loadingBg}>
-                <MaterialIndicator color={'white'} size={50} animationDuration={4000} />
+        <BaseModal
+            {...modalProps}
+            ref={loadingRef}
+            animationOut={animationOut}
+            animationIn={animationIn}
+            isVisible={visible}>
+            <View style={[styles.loadingBg, backgroundStyle]}>
+                <MaterialIndicator
+                    {...indicatorProps}
+                    color={color}
+                    size={size}
+                    animationDuration={animationDuration}
+                />
             </View>
         </BaseModal>
     );

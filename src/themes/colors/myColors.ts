@@ -1,20 +1,13 @@
-import { theme as baseTheme } from 'packages/uikit/theme';
-import { commonColors, darkColors, lightColors } from 'themes/colors';
+import { commonColors } from './commonColors';
+import { darkColors } from './darkColors';
+import { lightColors } from './lightColors';
 
-export const customColors = {
-    commonColors,
+import { theme as baseTheme } from 'packages/uikit/theme';
+
+export const myColors = {
+    ...commonColors,
     darkColors,
     lightColors,
-};
-
-const myColors = {
-    ...baseTheme.colors,
-    ...customColors,
-};
-
-const myTheme = {
-    ...baseTheme,
-    colors: myColors,
 };
 
 const myThemeColors = {
@@ -23,5 +16,5 @@ const myThemeColors = {
     ...darkColors,
 };
 
-export type MyThemeType = typeof myTheme;
+export type MyThemeType = typeof myColors;
 export type MyColorsType = typeof myThemeColors;

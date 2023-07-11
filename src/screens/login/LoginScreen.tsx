@@ -4,12 +4,13 @@ import { StyleSheet, View } from 'react-native';
 
 import { loginDataForm } from './src/const';
 
+import loginSchema from './src/schema';
+
 import { FormInput, Input } from 'components';
 import Text from 'components/base/Text';
 import Button from 'components/Button';
 import ButtonText from 'components/ButtonText';
 import { HybridContext } from 'packages/core/hybrid-overlay';
-import { useTheme } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Toast } from 'packages/uikit/components';
 import { IColors } from 'packages/uikit/theme';
@@ -19,10 +20,20 @@ import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
 const LoginScreen = () => {
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-    const [emailStyle, setEmailStyle] = useState<boolean>(false);
-    const [passwordStyle, setPasswordStyle] = useState<boolean>(false);
+    const {
+        control,
+        formState: { errors },
+        handleSubmit,
+        register,
+    } = useForm({
+        mode: 'all',
+        defaultValues: { email: '', password: '' },
+        resolver: yupResolver(loginSchema),
+    });
+
+    const onSubmit = async (data) => {
+        console.log(data);
+    };
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
@@ -47,24 +58,6 @@ const LoginScreen = () => {
             position: 'bottom',
         });
     };
-    const {
-        control,
-        formState: { errors },
-        handleSubmit,
-        register,
-    } = useForm({
-        mode: 'all',
-        defaultValues: { email: '', password: '' },
-        // resolver: yupResolver(loginSchema),
-    });
-
-    const onSubmit = async (data) => {
-        console.log(data);
-    };
-
-    const onFocus = () => {
-        setEmailStyle(true);
-    };
 
     return (
         <View style={styles.container}>
@@ -84,7 +77,6 @@ const LoginScreen = () => {
                         styleInput={styles.input}
                         styleTextInput={styles.textInput}
                         labelTextStyle={styles.labelInput}
-                        onFocus={() => onFocus()}
                     />
                     <FormInput
                         control={control}

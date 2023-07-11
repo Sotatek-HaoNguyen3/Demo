@@ -11,7 +11,7 @@ export const theme = {
     config,
 };
 
-export type Theme = typeof theme;
+export type Theme = typeof theme & { fontConfig: unknown };
 
 export type Colors = typeof theme.colors;
 

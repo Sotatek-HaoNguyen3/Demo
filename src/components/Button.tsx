@@ -68,12 +68,12 @@ export default Button;
 const myStyles = () =>
     StyleSheet.create({
         container: {
+            // flex: 1,
             flexDirection: 'row',
-            paddingHorizontal: scale(15),
+            paddingHorizontal: scale(4),
             alignItems: 'center',
-            backgroundColor: 'bisque',
-            width: scale(100),
-            height: scale(42),
+            backgroundColor: '#f9b245',
+            height: scale(48),
             borderRadius: scale(16),
         },
         viewLeft: {
@@ -85,7 +85,7 @@ const myStyles = () =>
         },
         textCenter: {
             ...Fonts.segoe400,
-            fontSize: scale(15),
+            fontSize: scale(16),
             textAlign: 'center',
             // color: Colors[theme].textColor,
         },

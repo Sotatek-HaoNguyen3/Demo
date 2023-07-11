@@ -48,8 +48,8 @@ const myStyles = () =>
     StyleSheet.create({
         container: {
             flexDirection: 'row',
-            height: scale(60),
-            paddingHorizontal: scale(15),
+            // height: scale(60),
+            // paddingHorizontal: scale(15),
             alignItems: 'center',
         },
         viewCenter: {

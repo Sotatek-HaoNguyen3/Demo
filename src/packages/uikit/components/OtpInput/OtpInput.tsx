@@ -19,7 +19,7 @@ const OTPInput = (props: OTPInputProps) => {
     const otpArr = Array.from(Array(digit).keys());
     const initialValue = initValue(otpArr);
     const inputOtpRef = useRef([]);
-    const { control, register, getValues, setValue } = useForm({
+    const { control, register, getValues, setValue, reset } = useForm({
         mode: 'all',
         defaultValues: initialValue,
     });
@@ -39,12 +39,30 @@ const OTPInput = (props: OTPInputProps) => {
         }
     };
 
-    const handleChangeOTP = async (value: string, idx: number, onChange) => {
-        console.log('value', value);
-        const copiedContent = await Clipboard.getString();
-        console.log('copiedContent', copiedContent);
+    const handlePaste = (pasteValue: string) => {
+        reset();
+        const valueArray = pasteValue.split('');
+        valueArray.map(async (val, index) => {
+            setValue(fieldName(index), val);
+            await autoFocus(digit - 1);
+            await handleCombineCode();
+        });
+    };
 
-        if (isNum(value)) {
+    const clearInput = async (idx: number) => {
+        const isHasValue = !!getValues(fieldName(idx));
+        if (isHasValue) {
+            setValue(fieldName(idx), '');
+        }
+    };
+
+    const handleChangeOTP = async (value: string, idx: number, onChange) => {
+        const copiedContent = await Clipboard.getString();
+        console.log(value, copiedContent, getValues(fieldName(idx)));
+        if (!!copiedContent && value.includes(copiedContent) && value.length === digit) {
+            return handlePaste(copiedContent);
+        }
+        if (isNum(value) && value.length === 1) {
             await onChange(value);
             await autoFocus(idx);
             await handleCombineCode();
@@ -65,7 +83,7 @@ const OTPInput = (props: OTPInputProps) => {
     };
 
     useMemo(() => {
-        if (otpCode.length === 6) {
+        if (otpCode.length === digit) {
             submit(otpCode);
         }
     }, [otpCode]);

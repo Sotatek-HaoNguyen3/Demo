@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -13,11 +13,13 @@ import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { EmptyListView, ListView, OTPInput, Toast } from 'packages/uikit/components';
 
+import CheckBox from 'packages/uikit/components/CheckBox';
+import { globalDrawer } from 'packages/uikit/components/Drawer';
+import { globalLoading } from 'packages/uikit/components/Loading';
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
-import { globalDrawer } from 'packages/uikit/components/Drawer';
-import { globalLoading } from 'packages/uikit/components/Loading';
+import { RadioGroup } from 'packages/uikit/components/RadioButton';
 
 const LoginScreen = () => {
     const {
@@ -38,6 +40,8 @@ const LoginScreen = () => {
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
     const { toggleColorMode } = colorMode;
+    const [selectedId, setSelectedId] = useState<string>();
+
     const renderItem = (item) => {
         return <Text style={{ color: 'black' }}>{item.item.name}</Text>;
     };
@@ -72,6 +76,22 @@ const LoginScreen = () => {
             position: 'bottom',
         });
     };
+
+    const radioButtons = useMemo(
+        () => [
+            {
+                id: '1', // acts as primary key, should be unique and non-empty string
+                label: 'Option 1',
+                value: 'option1',
+            },
+            {
+                id: '2',
+                label: 'Option 2',
+                value: 'option2',
+            },
+        ],
+        []
+    );
 
     return (
         <View style={styles.container}>
@@ -114,6 +134,8 @@ const LoginScreen = () => {
                     <Text>Loading</Text>
                 </TouchableOpacity>
                 <OTPInput submit={handleSubmitOtp} />
+                <CheckBox onPress={(isChecked: boolean) => {}} />
+                <RadioGroup radioButtons={radioButtons} onPress={(id) => setSelectedId(id)} selectedId={selectedId} />
                 {/* <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} /> */}
             </View>
         </View>

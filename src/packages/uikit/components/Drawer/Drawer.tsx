@@ -13,8 +13,8 @@ import { BaseModalProps } from '../Modal/modal';
 
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit/theme';
-import { getStatusBarHeight } from 'themes/dimensions';
 import { scale } from 'themes/scales';
+import Sizes from 'themes/sizes';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const globalDrawerRef = React.createRef<any>();
@@ -131,7 +131,7 @@ const myStyles = (themeColors: IColors) => {
             flex: 1,
             width: '60%',
             margin: 0,
-            paddingTop: getStatusBarHeight(true),
+            paddingTop: Sizes.statusBarHeight,
             justifyContent: 'flex-start',
         },
         contentContainer: {

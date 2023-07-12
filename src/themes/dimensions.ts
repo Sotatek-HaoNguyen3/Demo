@@ -29,14 +29,6 @@ export const ifIphoneX = (iPhoneXHeight: number, iPhoneNormalHeight: number): nu
     return isIphoneX() ? iPhoneXHeight : iPhoneNormalHeight;
 };
 
-export const getStatusBarHeight = (safe?: boolean) => {
-    return Platform.select({
-        ios: ifIphoneX(safe ? 44 : 30, 20),
-        android: StatusBar.currentHeight,
-        default: 0,
-    });
-};
-
 export const HitSlop = {
     default: {
         top: scale(10),

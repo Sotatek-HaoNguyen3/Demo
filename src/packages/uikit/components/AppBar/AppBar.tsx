@@ -14,7 +14,7 @@ import {
 import { useThemeColors } from 'packages/hooks/useTheme';
 
 import { IColors } from 'packages/uikit/theme';
-import { getStatusBarHeight, HitSlop } from 'themes/dimensions';
+import { HitSlop } from 'themes/dimensions';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 

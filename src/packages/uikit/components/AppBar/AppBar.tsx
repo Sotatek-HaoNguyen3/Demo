@@ -11,8 +11,12 @@ import {
     ViewStyle,
 } from 'react-native';
 
+import { useThemeColors } from 'packages/hooks/useTheme';
+
+import { IColors } from 'packages/uikit/theme';
 import { getStatusBarHeight, HitSlop } from 'themes/dimensions';
 import { scale } from 'themes/scales';
+import Sizes from 'themes/sizes';
 
 interface HeaderProps {
     title?: string | ReactElement<TextProps>;
@@ -40,6 +44,8 @@ const AppBar = ({
     rightContainerStyle,
     hideLeft,
 }: HeaderProps) => {
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
     const IconBack = () => <View style={styles.iconBack} />;
     const renderLeft = () =>
         hideLeft ? (
@@ -67,56 +73,57 @@ const AppBar = ({
 
 export default memo(AppBar);
 
-const styles = StyleSheet.create({
-    container: {
-        paddingTop: getStatusBarHeight(true),
-        width: '100%',
-        backgroundColor: 'white',
-    },
-    viewHeader: {
-        height: scale(50),
-        paddingHorizontal: scale(15),
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    centerView: {
-        flex: 1,
-        justifyContent: 'center',
-        paddingHorizontal: scale(10),
-    },
-    backView: {
-        width: scale(50),
-        justifyContent: 'center',
-    },
-    leftView: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: scale(50),
-        height: scale(50),
-    },
-    rightView: {
-        minWidth: scale(50),
-        height: scale(50),
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'row',
-    },
-    title: {
-        textAlign: 'center',
-        fontSize: scale(16),
-        color: '#111827',
-    },
-    btnBack: {
-        width: scale(50),
-        height: scale(50),
-        marginLeft: scale(8),
-        justifyContent: 'center',
-    },
-    iconBack: {
-        height: scale(16),
-        width: scale(16),
-        borderTopWidth: scale(2),
-        borderLeftWidth: scale(2),
-        transform: [{ rotate: '-45deg' }],
-    },
-});
+const myStyles = (themeColors: IColors) => {
+    return StyleSheet.create({
+        container: {
+            paddingTop: Sizes.statusBarHeight,
+            width: '100%',
+            backgroundColor: themeColors.white,
+        },
+        viewHeader: {
+            height: scale(50),
+            paddingHorizontal: scale(15),
+            flexDirection: 'row',
+            alignItems: 'center',
+        },
+        centerView: {
+            flex: 1,
+            justifyContent: 'center',
+            paddingHorizontal: scale(10),
+        },
+        backView: {
+            width: scale(50),
+            justifyContent: 'center',
+        },
+        leftView: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: scale(50),
+            height: scale(50),
+        },
+        rightView: {
+            minWidth: scale(50),
+            height: scale(50),
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+        },
+        title: {
+            textAlign: 'center',
+            fontSize: scale(16),
+        },
+        btnBack: {
+            width: scale(50),
+            height: scale(50),
+            marginLeft: scale(8),
+            justifyContent: 'center',
+        },
+        iconBack: {
+            height: scale(16),
+            width: scale(16),
+            borderTopWidth: scale(2),
+            borderLeftWidth: scale(2),
+            transform: [{ rotate: '-45deg' }],
+        },
+    });
+};

@@ -4,15 +4,18 @@ import { Animated, Image, Pressable, Text, View } from 'react-native';
 import styles, { _textStyle } from './CheckBox.style';
 import { ICheckboxProps } from './types';
 
+import { useThemeColors } from 'packages/hooks/useTheme';
+
 const DEFAULT_CHECK_IMG = require('./check.png');
 
 const CheckBox = (props: ICheckboxProps) => {
+    const colors = useThemeColors();
     const {
         size = 25,
         text,
-        fillColor = '#4186F4',
+        fillColor = colors.black,
         isChecked,
-        unfillColor = 'transparent',
+        unfillColor = colors.transparent,
         disableText = false,
         useNativeDriver = true,
         disableBuiltInState = false,

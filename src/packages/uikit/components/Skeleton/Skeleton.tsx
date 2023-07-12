@@ -3,10 +3,13 @@ import { Animated, View } from 'react-native';
 
 import type { ISkeletonProps } from './type';
 
+import { useThemeColors } from 'packages/hooks/useTheme';
+
 const Skeleton = (props: ISkeletonProps) => {
+    const colors = useThemeColors();
     const {
-        startColor = '#c3c5c7',
-        endColor = 'transparent',
+        startColor = colors.gray1,
+        endColor = colors.transparent,
         fadeDuration = 0.1,
         speed = 1,
         h = 40,

@@ -5,6 +5,8 @@ import { MaterialIndicator } from '../Indicators';
 import { IndicatorProps } from '../Indicators/indicator/BaseIndicator';
 import BaseModal from '../Modal';
 import { BaseModalProps } from '../Modal/modal';
+import { useThemeColors } from 'packages/hooks/useTheme';
+import { IColors } from 'packages/uikit/theme';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const globalLoadingRef = React.createRef<any>();
@@ -30,8 +32,10 @@ export interface ILoadingProps {
 }
 
 const Loading = React.forwardRef((props: ILoadingProps & BaseModalProps, ref) => {
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
     const {
-        color = 'white',
+        color = colors.white,
         size = 50,
         animationDuration = 4000,
         backgroundStyle,
@@ -77,11 +81,12 @@ const Loading = React.forwardRef((props: ILoadingProps & BaseModalProps, ref) =>
 
 export default Loading;
 
-const styles = StyleSheet.create({
-    loadingBg: {
-        flex: 1,
-        backgroundColor: 'transparent',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
+const myStyles = (themeColors: IColors) =>
+    StyleSheet.create({
+        loadingBg: {
+            flex: 1,
+            backgroundColor: themeColors.transparent,
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+    });

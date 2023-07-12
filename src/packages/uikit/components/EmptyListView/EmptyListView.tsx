@@ -1,29 +1,46 @@
 import React, { memo } from 'react';
-import { Image, ImageSourcePropType, StyleSheet, Text, View, ViewStyle } from 'react-native';
+
+import {
+    Image,
+    ImageSourcePropType,
+    ImageStyle,
+    StyleProp,
+    StyleSheet,
+    Text,
+    TextStyle,
+    View,
+    ViewStyle,
+} from 'react-native';
+
+import { useThemeColors } from 'packages/hooks/useTheme';
+import { IColors } from 'packages/uikit/theme';
 
 import { scale } from 'themes/scales';
 
 interface EmptyViewProps {
     message?: string;
-    containerStyles?: ViewStyle;
+    containerStyles?: StyleProp<ViewStyle>;
     image?: ImageSourcePropType;
+    imageStyle?: StyleProp<ImageStyle>;
+    textStyle?: StyleProp<TextStyle>;
 }
 
 const EmptyListView: React.FC = (props: EmptyViewProps) => {
-    const styles = myStyles();
-    const { image, message } = props;
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
+    const { image, message, containerStyles, imageStyle, textStyle } = props;
 
     return (
-        <View style={[styles.emptyView, props?.containerStyles]}>
-            {image && <Image source={image} style={styles.imageView} />}
-            <Text style={styles.emptyText}>{message ? message : 'No Record'}</Text>
+        <View style={[styles.emptyView, containerStyles]}>
+            {image && <Image source={image} style={[styles.imageView, imageStyle]} />}
+            <Text style={[styles.emptyText, textStyle]}>{message ? message : 'No Record'}</Text>
         </View>
     );
 };
 
 export default memo(EmptyListView);
 
-const myStyles = () =>
+const myStyles = (themeColors: IColors) =>
     StyleSheet.create({
         emptyView: {
             alignItems: 'center',
@@ -31,7 +48,7 @@ const myStyles = () =>
         },
         emptyText: {
             fontSize: scale(14),
-            color: 'rgba(0, 0, 0, 0.5)',
+            color: themeColors.blackOpacity50,
         },
         imageView: {
             width: scale(120),

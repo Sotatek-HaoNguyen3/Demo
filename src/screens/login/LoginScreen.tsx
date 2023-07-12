@@ -151,7 +151,7 @@ const myStyles = (themeColors: IColors) => {
         btn: {
             height: scale(50),
             width: scale(340),
-            marginTop: scale(40),
+            marginTop: scale(10),
             alignItems: 'center',
             borderColor: 'black',
             borderWidth: scale(1),

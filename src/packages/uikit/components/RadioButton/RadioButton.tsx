@@ -3,11 +3,14 @@ import { Animated, PixelRatio, Pressable, StyleProp, StyleSheet, Text, View, Vie
 
 import { RadioButtonProps } from './types';
 
+import { useThemeColors } from 'packages/hooks/useTheme';
+
 const RadioButton = (props: RadioButtonProps) => {
+    const colors = useThemeColors();
     const {
         borderColor,
         borderSize = 2,
-        color = '#4186F4',
+        color = colors.black,
         containerStyle,
         description,
         descriptionStyle,

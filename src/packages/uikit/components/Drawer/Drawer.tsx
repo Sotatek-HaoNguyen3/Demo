@@ -11,6 +11,8 @@ import BaseModal from '../Modal';
 
 import { BaseModalProps } from '../Modal/modal';
 
+import { useThemeColors } from 'packages/hooks/useTheme';
+import { IColors } from 'packages/uikit/theme';
 import { getStatusBarHeight } from 'themes/dimensions';
 import { scale } from 'themes/scales';
 
@@ -50,6 +52,8 @@ export interface DrawerProps {
 }
 
 const Drawer = (props: DrawerProps, ref) => {
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
     const {
         animationIn = 'slideInLeft',
         animationOut = 'slideOutLeft',
@@ -120,24 +124,26 @@ const Drawer = (props: DrawerProps, ref) => {
 
 export default React.forwardRef(Drawer);
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'white',
-        flex: 1,
-        width: '60%',
-        margin: 0,
-        paddingTop: getStatusBarHeight(true),
-        justifyContent: 'flex-start',
-    },
-    contentContainer: {
-        flex: 1,
-    },
-    avatarContainer: {
-        width: '100%',
-        alignItems: 'center',
-        paddingVertical: scale(30),
-    },
-    menuContainer: {
-        width: '100%',
-    },
-});
+const myStyles = (themeColors: IColors) => {
+    return StyleSheet.create({
+        container: {
+            backgroundColor: themeColors.white,
+            flex: 1,
+            width: '60%',
+            margin: 0,
+            paddingTop: getStatusBarHeight(true),
+            justifyContent: 'flex-start',
+        },
+        contentContainer: {
+            flex: 1,
+        },
+        avatarContainer: {
+            width: '100%',
+            alignItems: 'center',
+            paddingVertical: scale(30),
+        },
+        menuContainer: {
+            width: '100%',
+        },
+    });
+};

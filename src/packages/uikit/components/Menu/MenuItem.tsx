@@ -1,5 +1,9 @@
 import React, { ReactElement } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ViewProps } from 'react-native';
+
+import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
+
+import { useThemeColors } from 'packages/hooks/useTheme';
+import { IColors } from 'packages/uikit/theme';
 
 import { scale } from 'themes/scales';
 
@@ -11,26 +15,30 @@ export interface MenuItemProps {
 interface Props {
     onPress?: () => void;
     item?: MenuItemProps;
+    containerStyle?: StyleProp<ViewStyle>;
+    iconStyle?: StyleProp<ViewStyle>;
+    textStyle?: StyleProp<TextStyle>;
 }
 
 const MenuItem = (props: Props) => {
-    const { item } = props;
-    const styles = myStyles();
+    const { item, containerStyle, iconStyle, textStyle } = props;
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
     return (
-        <TouchableOpacity style={styles.btn} onPress={props.onPress}>
-            {item?.icon && <View style={styles.viewIcon} />}
+        <TouchableOpacity style={[styles.btn, containerStyle]} onPress={props.onPress}>
+            {item?.icon && <View style={[styles.viewIcon, iconStyle]}> {item.icon} </View>}
             <View style={styles.viewItem}>
-                <Text style={styles.textItem}>{item?.name ? item.name : ''}</Text>
+                <Text style={[styles.textItem, textStyle]}>{item?.name ? item.name : ''}</Text>
             </View>
         </TouchableOpacity>
     );
 };
 
-const myStyles = () =>
+const myStyles = (themeColors: IColors) =>
     StyleSheet.create({
         btn: {
             flexDirection: 'row',
-            backgroundColor: 'white',
+            backgroundColor: themeColors.white,
             alignItems: 'center',
             paddingHorizontal: scale(20),
             paddingVertical: scale(8),
@@ -41,11 +49,9 @@ const myStyles = () =>
             alignItems: 'center',
         },
         textItem: {
-            color: 'black',
             fontSize: scale(14),
         },
         viewIcon: {
-            backgroundColor: 'gray',
             width: scale(12),
             height: scale(12),
             marginHorizontal: scale(10),

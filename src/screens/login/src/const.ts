@@ -1,6 +1,6 @@
 const loginFieldName = {
-    email: 'email',
-    password: 'password',
+    email: 'Email',
+    password: 'Password',
 };
 
 const loginDataForm = [

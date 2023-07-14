@@ -1,29 +1,30 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { loginDataForm } from './src/const';
+
 import loginSchema from './src/schema';
 
 import { FormInput } from 'components';
-
-import { HybridContext } from 'packages/core/hybrid-overlay';
+import Text from 'components/base/Text';
+import Button from 'components/Button';
+import ButtonText from 'components/ButtonText';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { CheckBox, EmptyListView, ListView, OTPInput, RadioGroup, Toast } from 'packages/uikit/components';
 
-import { globalDrawer } from 'packages/uikit/components/Drawer';
-import { globalLoading } from 'packages/uikit/components/Loading';
 import { IColors } from 'packages/uikit/theme';
+// import colors from 'packages/uikit/theme/base/colors';
+import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
 const LoginScreen = () => {
+    const navigation = useNavigation();
     const {
         control,
         formState: { errors },
-        handleSubmit,
         register,
     } = useForm({
         mode: 'all',
@@ -31,65 +32,20 @@ const LoginScreen = () => {
         resolver: yupResolver(loginSchema),
     });
 
-    const onSubmit = async (data) => {
-        console.log(data);
+    const onSubmit = async () => {
+        console.log('data');
+        navigation.navigate('Home');
     };
     const colors = useThemeColors();
     const styles = myStyles(colors);
-    const { colorMode } = useContext(HybridContext);
-    const { toggleColorMode } = colorMode;
-    const [selectedId, setSelectedId] = useState<string>();
-    const renderItem = (item) => {
-        return <Text style={{ color: 'black' }}>{item.item.name}</Text>;
-    };
-    const renderEmpty = () => <EmptyListView />;
-    const getApi = () => {
-        globalLoading.show();
-        setTimeout(() => {
-            globalLoading.hide();
-        }, 1000);
-    };
-
-    const handleSubmitOtp = (code: string) => {
-        // console.log(code);
-    };
-
-    const showToastTop = () => {
-        Toast.show({
-            text1: 'allo',
-            text2: 'bllo',
-            type: 'success',
-            props: {
-                text1: 'allll',
-                text1Style: styles.text1,
-            },
-        });
-    };
-
-    const showToastBottom = () => {
-        Toast.show({
-            text1: 'allo',
-            type: 'base',
-            position: 'bottom',
-        });
-    };
-
-    const radioButtons = [
-        {
-            id: '1', // acts as primary key, should be unique and non-empty string
-            label: 'Option 1',
-            value: 'option1',
-        },
-        {
-            id: '2',
-            label: 'Option 2',
-            value: 'option2',
-        },
-    ];
 
     return (
         <View style={styles.container}>
             <View style={styles.content}>
+                <View>
+                    <Text style={styles.login}>Login</Text>
+                    <Text style={styles.subTitle}>Please sign in to continue</Text>
+                </View>
                 <View style={styles.formRegister}>
                     <FormInput
                         control={control}
@@ -98,6 +54,9 @@ const LoginScreen = () => {
                         placeholder={loginDataForm[0].name}
                         label={loginDataForm[0].label}
                         register={register}
+                        styleInput={styles.input}
+                        styleTextInput={styles.textInput}
+                        labelTextStyle={styles.labelInput}
                     />
                     <FormInput
                         control={control}
@@ -106,31 +65,23 @@ const LoginScreen = () => {
                         placeholder={loginDataForm[1].name}
                         label={loginDataForm[1].label}
                         register={register}
+                        styleInput={styles.input}
+                        styleTextInput={styles.textInput}
+                        labelTextStyle={styles.labelInput}
                     />
+                    <View style={{ alignItems: 'flex-end' }}>
+                        <Button
+                            title="LOGIN"
+                            onPress={onSubmit}
+                            containerStyles={styles.loginBtn}
+                            titleStyles={styles.titleButton}
+                        />
+                    </View>
                 </View>
-
-                <TouchableOpacity onPress={handleSubmit(onSubmit)}>
-                    <Text>Login</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={showToastTop} style={styles.btn}>
-                    <Text>Toast base Top</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
-                    <Text>Toast base Bottom</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
-                    <Text>Toggle Color Mode</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => globalDrawer.open()}>
-                    <Text>Drawer</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => getApi()}>
-                    <Text>Loading</Text>
-                </TouchableOpacity>
-                <OTPInput submit={handleSubmitOtp} />
-                <CheckBox onPress={(isChecked: boolean) => {}} />
-                <RadioGroup radioButtons={radioButtons} onPress={(id) => setSelectedId(id)} selectedId={selectedId} />
-                {/* <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} /> */}
+            </View>
+            <View style={styles.bottomSignUp}>
+                <Text>Don't have an account?</Text>
+                <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => console.log('Sign Up')} />
             </View>
         </View>
     );
@@ -143,10 +94,11 @@ const myStyles = (themeColors: IColors) => {
         container: {
             flex: 1,
             paddingTop: Sizes.statusBarHeight,
-            backgroundColor: themeColors.backgroundDisabled,
+            backgroundColor: 'white',
         },
         content: {
-            marginHorizontal: scale(15),
+            marginTop: scale(100),
+            marginHorizontal: scale(16),
         },
         btn: {
             height: scale(50),
@@ -161,9 +113,65 @@ const myStyles = (themeColors: IColors) => {
         text1: {
             fontSize: scale(30),
         },
+        login: {
+            ...Fonts.segoe700,
+            fontSize: scale(32),
+        },
+        subTitle: {
+            ...Fonts.segoe700,
+            fontSize: scale(16),
+            color: 'gray',
+            marginTop: scale(4),
+            marginBottom: scale(40),
+        },
         formRegister: {
-            height: scale(200),
             justifyContent: 'space-around',
+        },
+        input: {
+            backgroundColor: 'white',
+            borderRadius: scale(4),
+            borderWidth: 0.2,
+            borderColor: '#d4d4d8',
+            height: scale(48),
+            marginBottom: scale(20),
+            paddingHorizontal: scale(8),
+            paddingVertical: scale(4),
+            shadowColor: '#171717',
+            shadowOffset: { width: 6, height: 8 },
+            shadowOpacity: 0.2,
+            shadowRadius: 3,
+        },
+        textInput: {
+            fontWeight: '600',
+            fontSize: 16,
+        },
+        labelInput: {
+            color: 'gray',
+            fontSize: 15,
+            fontWeight: '800',
+        },
+        titleButton: {
+            ...Fonts.segoe700,
+            color: themeColors.white,
+        },
+        loginBtn: {
+            marginTop: scale(20),
+            width: scale(120),
+            borderRadius: scale(40),
+            alignContent: 'flex-end',
+        },
+        bottomSignUp: {
+            position: 'absolute',
+            bottom: scale(20),
+            justifyContent: 'center',
+            alignSelf: 'center',
+            flexDirection: 'row',
+        },
+        signUp: {
+            ...Fonts.segoe700,
+            color: '#f9b245',
+            bottom: scale(4),
+            marginLeft: scale(4),
         },
     });
 };

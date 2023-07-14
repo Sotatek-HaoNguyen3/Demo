@@ -28,13 +28,12 @@ interface HeaderProps {
     titleStyle?: StyleProp<TextStyle>;
     containerStyle?: StyleProp<ViewStyle>;
     rightContainerStyle?: StyleProp<ViewStyle>;
-    showLeft?: boolean;
     hideLeft?: boolean;
-    iconLeft?: ReactElement;
 }
 
 const AppBar = ({
     title,
+    left,
     right,
     onPress,
     style = {},
@@ -47,14 +46,23 @@ const AppBar = ({
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const IconBack = () => <View style={styles.iconBack} />;
-    const renderLeft = () =>
-        hideLeft ? (
-            <View style={styles.leftView} />
-        ) : (
-            <TouchableOpacity style={styles.backView} onPress={onPress} hitSlop={HitSlop.default} disabled={disable}>
-                <IconBack />
-            </TouchableOpacity>
-        );
+    const renderLeft = () => {
+        if (hideLeft) {
+            return <View style={styles.leftView} />;
+        } else {
+            return left ? (
+                <>{left}</>
+            ) : (
+                <TouchableOpacity
+                    style={styles.backView}
+                    onPress={onPress}
+                    hitSlop={HitSlop.default}
+                    disabled={disable}>
+                    <IconBack />
+                </TouchableOpacity>
+            );
+        }
+    };
 
     return (
         <View style={[styles.container, containerStyle]}>

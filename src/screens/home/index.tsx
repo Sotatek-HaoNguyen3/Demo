@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
@@ -8,10 +8,12 @@ import { useThemeColors } from 'packages/hooks/useTheme';
 import { AppBar, CheckBox, EmptyListView, IColors, ListView, OTPInput, Toast } from 'packages/uikit';
 import { globalDrawer } from 'packages/uikit/components/Drawer';
 import { globalLoading } from 'packages/uikit/components/Loading';
+import { AnimatedCircularProgress, ProgressBar } from 'packages/uikit/components/Progress';
 import RadioButtonsGroup from 'packages/uikit/components/RadioButton';
 
 import Skeleton from 'packages/uikit/components/Skeleton';
 import { scale } from 'themes/scales';
+import Sizes from 'themes/sizes';
 
 const Home = () => {
     const navigation = useNavigation();
@@ -20,6 +22,8 @@ const Home = () => {
     const { colorMode } = useContext(HybridContext);
     const { toggleColorMode } = colorMode;
     const [selectedId, setSelectedId] = useState<string>();
+    const [progress, setProgress] = useState<number>(50);
+
     const renderItem = (item) => {
         return <Text style={{ color: 'black' }}>{item.item.name}</Text>;
     };
@@ -95,6 +99,19 @@ const Home = () => {
                 />
                 {/* <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} /> */}
                 <Skeleton />
+                <ProgressBar height={scale(4)} progress={progress / 100} width={Sizes.scrWidth - scale(16 * 2)} />
+                <AnimatedCircularProgress
+                    size={50}
+                    width={8}
+                    backgroundWidth={5}
+                    fill={progress}
+                    tintColor="rgba(0, 122, 255, 1)"
+                    tintColorSecondary="rgba(0, 122, 255, 1)"
+                    backgroundColor="#3d5875"
+                    arcSweepAngle={360}
+                    rotation={180}
+                    lineCap="round"
+                />
             </View>
         </View>
     );
@@ -106,7 +123,7 @@ const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({
         container: {
             flex: 1,
-            backgroundColor: themeColors.white,
+            backgroundColor: themeColors.backgroundAlt,
         },
         content: {
             marginHorizontal: scale(16),

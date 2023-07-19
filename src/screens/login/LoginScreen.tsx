@@ -11,10 +11,11 @@ import { FormInput } from 'components';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { Toast } from 'packages/uikit/components';
+import { Switch, Toast } from 'packages/uikit/components';
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import DarkModeSwitch from 'packages/uikit/components/Switch/DarkModeSwitch';
 
 const LoginScreen = () => {
     const {
@@ -30,6 +31,12 @@ const LoginScreen = () => {
 
     const onSubmit = async (data) => {
         console.log(data);
+    };
+    const [isOn, setIsOn] = useState(false);
+
+    const onChange = () => {
+        console.log('change');
+        setIsOn((d) => !d);
     };
     const colors = useThemeColors();
     const styles = myStyles(colors);
@@ -90,6 +97,15 @@ const LoginScreen = () => {
                 <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
                     <Text>Toggle Color Mode</Text>
                 </TouchableOpacity>
+
+                {/* <Switch /> */}
+                <View
+                    style={{
+                        flexDirection: 'row',
+                    }}>
+                    <Text>Toggle</Text>
+                    <DarkModeSwitch onChange={onChange} value={isOn} size={50} />
+                </View>
             </View>
         </View>
     );

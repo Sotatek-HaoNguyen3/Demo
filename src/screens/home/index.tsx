@@ -12,6 +12,7 @@ import { AnimatedCircularProgress, ProgressBar } from 'packages/uikit/components
 import RadioButtonsGroup from 'packages/uikit/components/RadioButton';
 
 import Skeleton from 'packages/uikit/components/Skeleton';
+import DarkModeSwitch from 'packages/uikit/components/Switch/DarkModeSwitch';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
@@ -20,7 +21,7 @@ const Home = () => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
-    const { toggleColorMode } = colorMode;
+    const { toggleColorMode, mode } = colorMode;
     const [selectedId, setSelectedId] = useState<string>();
     const [progress, setProgress] = useState<number>(50);
 
@@ -84,15 +85,22 @@ const Home = () => {
                 <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
                     <Text style={styles.text}>Toast base Bottom</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
-                    <Text style={styles.text}>Toggle Color Mode</Text>
-                </TouchableOpacity>
                 <TouchableOpacity onPress={() => globalDrawer.open()} style={styles.btn}>
                     <Text style={styles.text}>Drawer</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => getApi()} style={styles.btn}>
                     <Text style={styles.text}>Loading</Text>
                 </TouchableOpacity>
+                <DarkModeSwitch
+                    trackColor={{
+                        active: colors.backgroundDisabled,
+                        inActive: colors.backgroundDisabled,
+                    }}
+                    thumbColor={colors.secondary}
+                    onChange={toggleColorMode}
+                    value={mode === 'dark'}
+                    size={50}
+                />
                 <OTPInput inputStyle={styles.otp} submit={handleSubmitOtp} />
                 <CheckBox fillColor={colors.secondary} onPress={(isChecked: boolean) => {}} />
                 <RadioButtonsGroup
@@ -136,6 +144,7 @@ const myStyles = (themeColors: IColors) => {
         },
         content: {
             marginHorizontal: scale(16),
+            alignItems: 'center',
         },
         btn: {
             height: scale(50),

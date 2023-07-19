@@ -10,6 +10,7 @@ import OTPInput from './OtpInput';
 import RadioGroup from './RadioButton';
 import SearchBar from './SearchBar';
 import Toast from './Toast';
+export { default as Switch } from './Switch';
 
 export {
     ListView,

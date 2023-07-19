@@ -1,52 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactElement, ReactNode } from 'react';
-import { Animated, StyleProp, ViewStyle } from 'react-native';
+import React, { ReactNode } from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import { Linecap } from 'react-native-svg';
-
-export type IArcProps = {
-    startAngle: number;
-    endAngle: number;
-    radius: number;
-    offset?: { top: number; left: number };
-    strokeCap?: Linecap;
-    strokeWidth?: number;
-    direction?: 'clockwise' | 'counter-clockwise';
-};
-
-export type ICircleProps = {
-    radius: number;
-    offset?: { top: number; left: number };
-    strokeWidth?: number;
-    direction?: 'clockwise' | 'counter-clockwise';
-};
-
-export type ISectorProps = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    angle: any;
-    radius: number;
-    offset?: { top: number; left: number };
-};
-
-export type IAnimationProps = {
-    animated?: boolean;
-    direction?: 'clockwise' | 'counter-clockwise';
-    indeterminate?: boolean;
-    indeterminateAnimationDuration?: number;
-    progress?: number;
-};
-
-export type IProgressPieProps = {
-    animated?: boolean;
-    borderColor?: string;
-    borderWidth?: number;
-    color?: string;
-    children?: ReactNode;
-    progress: number;
-    rotation?: Animated.Value;
-    size?: number;
-    style?: StyleProp<ViewStyle>;
-    unfilledColor?: string;
-};
 
 export type IProgressBarProps = {
     animated?: boolean;

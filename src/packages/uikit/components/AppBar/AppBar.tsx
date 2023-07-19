@@ -86,7 +86,7 @@ const myStyles = (themeColors: IColors) => {
         container: {
             paddingTop: Sizes.statusBarHeight,
             width: '100%',
-            backgroundColor: themeColors.white,
+            backgroundColor: themeColors.backgroundAlt,
         },
         viewHeader: {
             height: scale(50),
@@ -132,6 +132,7 @@ const myStyles = (themeColors: IColors) => {
             borderTopWidth: scale(2),
             borderLeftWidth: scale(2),
             transform: [{ rotate: '-45deg' }],
+            borderColor: themeColors.secondary,
         },
     });
 };

@@ -8,6 +8,20 @@ import Loading from './Loading';
 import BaseModal from './Modal';
 import OTPInput from './OtpInput';
 import RadioGroup from './RadioButton';
+import SearchBar from './SearchBar';
 import Toast from './Toast';
 
-export { ListView, EmptyListView, AppBar, Avatar, Drawer, BaseModal, Loading, Toast, OTPInput, CheckBox, RadioGroup };
+export {
+    ListView,
+    EmptyListView,
+    AppBar,
+    Avatar,
+    Drawer,
+    BaseModal,
+    Loading,
+    Toast,
+    OTPInput,
+    CheckBox,
+    RadioGroup,
+    SearchBar,
+};

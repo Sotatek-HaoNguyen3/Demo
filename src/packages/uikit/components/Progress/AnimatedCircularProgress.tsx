@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/member-ordering */
 /* eslint-disable @typescript-eslint/explicit-member-accessibility */
-import PropTypes from 'prop-types';
 import React from 'react';
 import { Animated, Easing } from 'react-native';
 
@@ -16,6 +14,14 @@ export default class AnimatedCircularProgress extends React.PureComponent<
     IProgressCircleProps & IProgressAnimatedCircleProps,
     State
 > {
+    static defaultProps = {
+        duration: 500,
+        easing: Easing.out(Easing.ease),
+        prefill: 0,
+        useNativeDriver: false,
+        delay: 0,
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -25,13 +31,6 @@ export default class AnimatedCircularProgress extends React.PureComponent<
             this.state.fillAnimation.addListener(({ value }) => props.onFillChange(value));
         }
     }
-    static defaultProps = {
-        duration: 500,
-        easing: Easing.out(Easing.ease),
-        prefill: 0,
-        useNativeDriver: false,
-        delay: 0,
-    };
 
     componentDidMount() {
         this.animate();

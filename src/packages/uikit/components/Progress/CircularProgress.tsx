@@ -70,7 +70,7 @@ export default class CircularProgress extends React.PureComponent<IProgressCircl
         );
         const circlePath = this.circlePath(sizeWithPadding, sizeWithPadding, radius, 0, currentFillAngle);
         const coordinate = this.polarToCartesian(sizeWithPadding, sizeWithPadding, radius, currentFillAngle);
-        const cap = this.props.renderCap ? this.props.renderCap({ center: coordinate }) : null;
+        const cap = renderCap ? renderCap({ center: coordinate }) : null;
 
         const offset = size - maxWidthCircle * 2;
 

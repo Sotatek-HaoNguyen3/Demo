@@ -57,6 +57,7 @@ const LoginScreen = () => {
                         styleInput={styles.input}
                         styleTextInput={styles.textInput}
                         labelTextStyle={styles.labelInput}
+                        placeholderTextColor={colors.secondary80}
                     />
                     <FormInput
                         control={control}
@@ -68,6 +69,7 @@ const LoginScreen = () => {
                         styleInput={styles.input}
                         styleTextInput={styles.textInput}
                         labelTextStyle={styles.labelInput}
+                        placeholderTextColor={colors.secondary80}
                     />
                     <View style={{ alignItems: 'flex-end' }}>
                         <Button
@@ -94,7 +96,7 @@ const myStyles = (themeColors: IColors) => {
         container: {
             flex: 1,
             paddingTop: Sizes.statusBarHeight,
-            backgroundColor: 'white',
+            backgroundColor: themeColors.backgroundAlt,
         },
         content: {
             marginTop: scale(100),
@@ -116,11 +118,12 @@ const myStyles = (themeColors: IColors) => {
         login: {
             ...Fonts.segoe700,
             fontSize: scale(32),
+            color: themeColors.secondary,
         },
         subTitle: {
             ...Fonts.segoe700,
             fontSize: scale(16),
-            color: 'gray',
+            color: themeColors.secondary80,
             marginTop: scale(4),
             marginBottom: scale(40),
         },
@@ -128,27 +131,28 @@ const myStyles = (themeColors: IColors) => {
             justifyContent: 'space-around',
         },
         input: {
-            backgroundColor: 'white',
+            backgroundColor: themeColors.backgroundAlt,
             borderRadius: scale(4),
-            borderWidth: 0.2,
-            borderColor: '#d4d4d8',
+            borderWidth: 1,
+            borderColor: themeColors.cardBorder,
             height: scale(48),
             marginBottom: scale(20),
             paddingHorizontal: scale(8),
             paddingVertical: scale(4),
             shadowColor: '#171717',
             shadowOffset: { width: 6, height: 8 },
-            shadowOpacity: 0.2,
+            shadowOpacity: 0.3,
             shadowRadius: 3,
         },
         textInput: {
             fontWeight: '600',
             fontSize: 16,
+            color: themeColors.secondary,
         },
         labelInput: {
-            color: 'gray',
             fontSize: 15,
             fontWeight: '800',
+            color: themeColors.secondary,
         },
         titleButton: {
             ...Fonts.segoe700,
@@ -159,6 +163,7 @@ const myStyles = (themeColors: IColors) => {
             width: scale(120),
             borderRadius: scale(40),
             alignContent: 'flex-end',
+            backgroundColor: themeColors.secondary,
         },
         bottomSignUp: {
             position: 'absolute',
@@ -169,7 +174,7 @@ const myStyles = (themeColors: IColors) => {
         },
         signUp: {
             ...Fonts.segoe700,
-            color: '#f9b245',
+            color: themeColors.secondary,
             bottom: scale(4),
             marginLeft: scale(4),
         },

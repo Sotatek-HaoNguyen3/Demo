@@ -5,7 +5,7 @@ import RadioButton from './RadioButton';
 import { RadioGroupProps } from './types';
 
 const RadioGroup = (props: RadioGroupProps) => {
-    const { containerStyle, layout = 'column', onPress, radioButtons, selectedId, testID } = props;
+    const { containerStyle, layout = 'column', onPress, radioButtons, selectedId, testID, color } = props;
     function handlePress(id: string) {
         if (id !== selectedId && onPress) {
             onPress(id);
@@ -20,6 +20,7 @@ const RadioGroup = (props: RadioGroupProps) => {
                     key={button.id}
                     selected={button.id === selectedId}
                     onPress={() => handlePress(button.id)}
+                    color={color}
                 />
             ))}
         </View>

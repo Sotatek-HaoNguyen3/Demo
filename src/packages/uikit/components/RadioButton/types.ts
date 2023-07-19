@@ -34,4 +34,5 @@ export type RadioGroupProps = {
     radioButtons: RadioButtonProps[];
     selectedId?: string;
     testID?: string;
+    color?: string;
 };

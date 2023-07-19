@@ -127,7 +127,7 @@ export default React.forwardRef(Drawer);
 const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({
         container: {
-            backgroundColor: themeColors.white,
+            backgroundColor: themeColors.backgroundAlt,
             flex: 1,
             width: '60%',
             margin: 0,

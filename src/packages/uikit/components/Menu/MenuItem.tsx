@@ -38,7 +38,7 @@ const myStyles = (themeColors: IColors) =>
     StyleSheet.create({
         btn: {
             flexDirection: 'row',
-            backgroundColor: themeColors.white,
+            backgroundColor: themeColors.backgroundAlt,
             alignItems: 'center',
             paddingHorizontal: scale(20),
             paddingVertical: scale(8),

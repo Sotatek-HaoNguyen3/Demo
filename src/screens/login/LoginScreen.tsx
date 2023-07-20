@@ -1,20 +1,29 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { FlatList, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { loginDataForm } from './src/const';
 import loginSchema from './src/schema';
 
 import { FormInput } from 'components';
 
+import BottomTestSheet from 'components/sheet/TestBottomSheet';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Toast } from 'packages/uikit/components';
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import BottomSheetInput, { BottomSheetInputRefType } from 'components/sheet/BottomSheetInput';
+
+const test = [
+    { title: 'allo 1', subTitle: 'haha 1', id: 1 },
+    { title: 'allo 2', subTitle: 'haha 2', id: 2 },
+    { title: 'allo 3', subTitle: 'haha 3', id: 3 },
+    { title: 'allo 4', subTitle: 'haha 4', id: 4 },
+];
 
 const LoginScreen = () => {
     const {
@@ -28,10 +37,27 @@ const LoginScreen = () => {
         resolver: yupResolver(loginSchema),
     });
 
+    const [dataTest, setDataTest] = useState(test);
+
     const onSubmit = async (data) => {
         console.log(data);
     };
     const colors = useThemeColors();
+
+    const bottomSheetRef = useRef<BottomSheetInputRefType>(null);
+
+    const showBottomSheet = () => {
+        if (bottomSheetRef) {
+            bottomSheetRef.current?.open();
+        }
+    };
+
+    const dismissBottomSheet = () => {
+        if (bottomSheetRef) {
+            bottomSheetRef.current?.close();
+        }
+    };
+
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
     const { toggleColorMode } = colorMode;
@@ -55,6 +81,13 @@ const LoginScreen = () => {
             position: 'bottom',
         });
     };
+
+    const renderTestItem = ({ item }) => (
+        <View style={styles.itemView}>
+            <Text style={{ color: 'black' }}>{item?.title}</Text>
+            <Text>{item?.subTitle}</Text>
+        </View>
+    );
 
     return (
         <View style={styles.container}>
@@ -90,7 +123,18 @@ const LoginScreen = () => {
                 <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
                     <Text>Toggle Color Mode</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={showBottomSheet} style={styles.btn}>
+                    <Text>Toast bottomSheet</Text>
+                </TouchableOpacity>
             </View>
+            <BottomSheetInput ref={bottomSheetRef}>
+                <FlatList
+                    data={dataTest}
+                    renderItem={renderTestItem}
+                    keyExtractor={(e) => `${e.id}`}
+                    style={styles.flatList}
+                />
+            </BottomSheetInput>
         </View>
     );
 };
@@ -123,6 +167,19 @@ const myStyles = (themeColors: IColors) => {
         formRegister: {
             height: scale(200),
             justifyContent: 'space-around',
+        },
+        viewContent: {
+            height: scale(100),
+            width: '100%',
+            backgroundColor: themeColors.white,
+        },
+        flatList: {
+            height: scale(200),
+            width: '100%',
+            backgroundColor: themeColors.white,
+        },
+        itemView: {
+            height: scale(100),
         },
     });
 };

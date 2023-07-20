@@ -33,7 +33,6 @@ const LoginScreen = () => {
     });
 
     const onSubmit = async () => {
-        console.log('data');
         navigation.navigate('Home');
     };
     const colors = useThemeColors();
@@ -83,7 +82,7 @@ const LoginScreen = () => {
             </View>
             <View style={styles.bottomSignUp}>
                 <Text>Don't have an account?</Text>
-                <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => console.log('Sign Up')} />
+                <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => {}} />
             </View>
         </View>
     );

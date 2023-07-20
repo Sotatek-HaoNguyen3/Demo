@@ -1,5 +1,6 @@
 import AppBar from './AppBar';
 import Avatar from './Avatar';
+import BottomSheetInput from './BottomSheet';
 import CheckBox from './CheckBox';
 import Drawer from './Drawer';
 import EmptyListView from './EmptyListView';
@@ -25,4 +26,5 @@ export {
     CheckBox,
     RadioGroup,
     SearchBar,
+    BottomSheetInput,
 };

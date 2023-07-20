@@ -1,11 +1,22 @@
 import { useNavigation } from '@react-navigation/native';
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { AppBar, CheckBox, EmptyListView, IColors, ListView, OTPInput, SearchBar, Toast } from 'packages/uikit';
+import {
+    AppBar,
+    BottomSheetInput,
+    CheckBox,
+    EmptyListView,
+    IColors,
+    ListView,
+    OTPInput,
+    SearchBar,
+    Toast,
+} from 'packages/uikit';
+import { BottomSheetInputRefType } from 'packages/uikit/components/BottomSheet/BottomSheetInput';
 import { globalDrawer } from 'packages/uikit/components/Drawer';
 import { globalLoading } from 'packages/uikit/components/Loading';
 import { AnimatedCircularProgress, ProgressBar } from 'packages/uikit/components/Progress';
@@ -16,6 +27,13 @@ import DarkModeSwitch from 'packages/uikit/components/Switch/DarkModeSwitch';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
+const test = [
+    { title: 'allo 1', subTitle: 'haha 1', id: 1 },
+    { title: 'allo 2', subTitle: 'haha 2', id: 2 },
+    { title: 'allo 3', subTitle: 'haha 3', id: 3 },
+    { title: 'allo 4', subTitle: 'haha 4', id: 4 },
+];
+
 const Home = () => {
     const navigation = useNavigation();
     const colors = useThemeColors();
@@ -24,6 +42,7 @@ const Home = () => {
     const { toggleColorMode, mode } = colorMode;
     const [selectedId, setSelectedId] = useState<string>();
     const [progress, setProgress] = useState<number>(0);
+    const [dataTest, setDataTest] = useState(test);
 
     const handleProgress = () => {
         const random = Math.floor(Math.random() * 10) * 10;
@@ -80,6 +99,27 @@ const Home = () => {
         },
     ];
 
+    const bottomSheetRef = useRef<BottomSheetInputRefType>(null);
+
+    const showBottomSheet = () => {
+        if (bottomSheetRef) {
+            bottomSheetRef.current?.open();
+        }
+    };
+
+    const dismissBottomSheet = () => {
+        if (bottomSheetRef) {
+            bottomSheetRef.current?.close();
+        }
+    };
+
+    const renderTestItem = ({ item }) => (
+        <View style={styles.itemView}>
+            <Text style={{ color: 'black' }}>{item?.title}</Text>
+            <Text>{item?.subTitle}</Text>
+        </View>
+    );
+
     return (
         <View style={styles.container}>
             <AppBar titleStyle={styles.text} title={'Home'} onPress={() => navigation.goBack()} />
@@ -90,6 +130,9 @@ const Home = () => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
                     <Text style={styles.text}>Toast base Bottom</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={showBottomSheet} style={styles.btn}>
+                    <Text style={styles.text}>BottomSheet</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => globalDrawer.open()} style={styles.btn}>
                     <Text style={styles.text}>Drawer</Text>
@@ -118,7 +161,6 @@ const Home = () => {
                     selectedId={selectedId}
                     color={colors.secondary}
                 />
-                {/* <ListView data={[]} renderItem={renderItem} listEmpty={renderEmpty} /> */}
                 {/* <Skeleton /> */}
                 <ProgressBar
                     color={colors.secondary}
@@ -139,6 +181,9 @@ const Home = () => {
                     lineCap="butt"
                 />
             </View>
+            <BottomSheetInput ref={bottomSheetRef}>
+                <ListView listEmpty={renderEmpty} data={[]} renderItem={renderTestItem} style={styles.flatList} />
+            </BottomSheetInput>
         </View>
     );
 };
@@ -156,7 +201,7 @@ const myStyles = (themeColors: IColors) => {
             alignItems: 'center',
         },
         btn: {
-            height: scale(50),
+            height: scale(40),
             width: scale(340),
             marginTop: scale(20),
             alignItems: 'center',
@@ -174,6 +219,19 @@ const myStyles = (themeColors: IColors) => {
         otp: {
             color: themeColors.secondary,
             borderBottomColor: themeColors.secondary,
+        },
+        viewContent: {
+            height: scale(100),
+            width: '100%',
+            backgroundColor: themeColors.white,
+        },
+        flatList: {
+            height: scale(200),
+            width: '100%',
+            backgroundColor: themeColors.backgroundAlt,
+        },
+        itemView: {
+            height: scale(100),
         },
     });
 };

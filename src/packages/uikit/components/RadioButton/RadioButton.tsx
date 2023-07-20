@@ -4,6 +4,7 @@ import { Animated, PixelRatio, Pressable, StyleProp, StyleSheet, Text, View, Vie
 import { RadioButtonProps } from './types';
 
 import { useThemeColors } from 'packages/hooks/useTheme';
+import { scale } from 'themes/scales';
 
 const RadioButton = (props: RadioButtonProps) => {
     const colors = useThemeColors();
@@ -120,8 +121,8 @@ export default RadioButton;
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        marginHorizontal: 10,
-        marginVertical: 5,
+        marginHorizontal: scale(10),
+        marginVertical: scale(5),
     },
     border: {
         justifyContent: 'center',

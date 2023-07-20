@@ -1,10 +1,11 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { scale } from 'themes/scales';
 
 export const _iconContainer = (size: number, checked: boolean, fillColor: string, unfillColor: string): ViewStyle => {
     return {
         width: size,
         height: size,
-        borderRadius: size / 2,
+        borderRadius: scale(size / 2),
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: checked ? fillColor : unfillColor,
@@ -13,7 +14,7 @@ export const _iconContainer = (size: number, checked: boolean, fillColor: string
 
 export const _textStyle = (checked: boolean): TextStyle => {
     return {
-        fontSize: 16,
+        fontSize: scale(16),
         color: '#757575',
         textDecorationLine: checked ? 'line-through' : 'none',
     };
@@ -26,11 +27,11 @@ export default StyleSheet.create<any>({
         flexDirection: 'row',
     },
     iconImageStyle: {
-        width: 10,
-        height: 10,
+        width: scale(10),
+        height: scale(10),
     },
     textContainer: {
-        marginLeft: 16,
+        marginLeft: scale(16),
     },
     iconContainer: (size: number, checked: boolean, fillColor: string, unfillColor: string, radius: number) => ({
         width: size,
@@ -43,7 +44,7 @@ export default StyleSheet.create<any>({
     innerIconContainer: (size: number, fillColor: string, radius: number) => ({
         width: size,
         height: size,
-        borderWidth: 1,
+        borderWidth: scale(1),
         borderColor: fillColor,
         borderRadius: radius,
         alignItems: 'center',

@@ -23,7 +23,12 @@ const Home = () => {
     const { colorMode } = useContext(HybridContext);
     const { toggleColorMode, mode } = colorMode;
     const [selectedId, setSelectedId] = useState<string>();
-    const [progress, setProgress] = useState<number>(50);
+    const [progress, setProgress] = useState<number>(0);
+
+    const handleProgress = () => {
+        const random = Math.floor(Math.random() * 10) * 10;
+        setProgress(random);
+    };
 
     const renderItem = (item) => {
         return <Text style={{ color: 'black' }}>{item.item.name}</Text>;
@@ -74,6 +79,7 @@ const Home = () => {
             labelStyle: styles.text,
         },
     ];
+
     return (
         <View style={styles.container}>
             <AppBar titleStyle={styles.text} title={'Home'} onPress={() => navigation.goBack()} />
@@ -90,6 +96,9 @@ const Home = () => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => getApi()} style={styles.btn}>
                     <Text style={styles.text}>Loading</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => handleProgress()} style={styles.btn}>
+                    <Text style={styles.text}>Progress</Text>
                 </TouchableOpacity>
                 <DarkModeSwitch
                     trackColor={{

@@ -9,6 +9,7 @@ import loginSchema from './src/schema';
 
 import { FormInput } from 'components';
 
+import { enableBiometric, loginWithBiometric } from 'packages/biometrics';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Toast } from 'packages/uikit/components';
@@ -89,6 +90,20 @@ const LoginScreen = () => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={toggleColorMode} style={styles.btn}>
                     <Text>Toggle Color Mode</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => {
+                        enableBiometric('admin', '12345678');
+                    }}
+                    style={styles.btn}>
+                    <Text>Enable biometric</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => {
+                        loginWithBiometric();
+                    }}
+                    style={styles.btn}>
+                    <Text>Login biometric</Text>
                 </TouchableOpacity>
             </View>
         </View>

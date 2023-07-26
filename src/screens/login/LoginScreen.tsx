@@ -2,7 +2,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
+
+import { PERMISSIONS } from 'react-native-permissions';
+import { checkPermission } from 'utils/permission';
 
 import { loginDataForm } from './src/const';
 
@@ -33,8 +36,15 @@ const LoginScreen = () => {
     });
 
     const onSubmit = async () => {
-        navigation.navigate('Home');
+        navigation.navigate('ScanQRScreen');
     };
+
+    const onGoToCamera = () => {
+        const permission = Platform.OS === 'android' ? PERMISSIONS.ANDROID.CAMERA : PERMISSIONS.IOS.CAMERA;
+        checkPermission(permission, goToScanQR, 'permissionCamera').catch();
+    };
+
+    const goToScanQR = () => navigation.navigate('ScanQRScreen');
     const colors = useThemeColors();
     const styles = myStyles(colors);
 

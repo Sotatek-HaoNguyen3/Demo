@@ -59,7 +59,7 @@
         "react-native-tab-view": "^3.5.1",
         "react-native-toast-notifications": "^3.3.1",
         "react-native-user-agent": "^2.3.1",
-        "react-native-vision-camera": "^2.15.4",
+        "react-native-vision-camera": "git+https://github.com/Sotatek-HuyNguyen12/react-native-vision-camera.git",
         "react-native-webview": "^12.2.0",
         "react-redux": "^8.0.7",
         "redux-logger": "^3.0.6",
@@ -68,6 +68,7 @@
         "redux-saga": "^1.2.3",
         "rxjs": "^7.8.1",
         "socket.io-client": "^4.6.2",
+        "vision-camera-code-scanner": "^0.2.0",
         "yup": "^1.2.0"
     },
     "devDependencies": {

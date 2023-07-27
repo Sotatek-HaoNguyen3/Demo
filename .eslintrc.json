@@ -62,7 +62,7 @@
         //#endregion
 
         //#region plugin
-        "@typescript-eslint/no-explicit-any": "error",
+        // "@typescript-eslint/no-explicit-any": "error",
         "import/no-deprecated": "warn",
         // "import/no-extraneous-dependencies": [
         //   "error",

@@ -8,10 +8,7 @@ module.exports = {
                 extensions: ['.ts', '.tsx', '.js', 'jsx', '.ios.js', '.android.js'],
             },
         ],
-        'react-native-reanimated/plugin',
-        {
-            globals: ['__scanCodes'],
-        },
+        ['react-native-reanimated/plugin', { globals: ['__scanCodes', '__decode'] }],
     ],
     env: {
         production: {

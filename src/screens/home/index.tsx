@@ -25,7 +25,7 @@ import Skeleton from 'packages/uikit/components/Skeleton';
 import DarkModeSwitch from 'packages/uikit/components/Switch/DarkModeSwitch';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
-import { goBack } from 'utils/navigationUtils';
+import { goBack, navigate } from 'utils/navigationUtils';
 
 const test = [
     { title: 'allo 1', subTitle: 'haha 1', id: 1 },
@@ -120,11 +120,12 @@ const Home = () => {
     );
 
     return (
-        <ScrollView>
-            <SafeAreaView style={styles.container}>
-                <AppBar titleStyle={styles.text} title={'Home'} onPress={() => goBack()} />
+        <SafeAreaView style={styles.container}>
+            <AppBar titleStyle={styles.text} title={'Home'} onPress={() => goBack()} />
+            <ScrollView>
                 <View style={styles.content}>
                     <SearchBar handleSearch={(value) => console.log(value)} />
+                    <OTPInput inputStyle={styles.otp} submit={handleSubmitOtp} />
                     <TouchableOpacity onPress={showToastTop} style={styles.btn}>
                         <Text style={styles.text}>Toast base Top</Text>
                     </TouchableOpacity>
@@ -143,6 +144,9 @@ const Home = () => {
                     <TouchableOpacity onPress={() => handleProgress()} style={styles.btn}>
                         <Text style={styles.text}>Progress</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigate('Scanner')} style={styles.btn}>
+                        <Text style={styles.text}>Scanner</Text>
+                    </TouchableOpacity>
                     <DarkModeSwitch
                         trackColor={{
                             active: colors.backgroundDisabled,
@@ -153,13 +157,13 @@ const Home = () => {
                         value={mode === 'dark'}
                         size={50}
                     />
-                    <OTPInput inputStyle={styles.otp} submit={handleSubmitOtp} />
                     <CheckBox fillColor={colors.secondary} onPress={(isChecked: boolean) => {}} />
                     <RadioButtonsGroup
                         radioButtons={radioButtons}
                         onPress={(id) => setSelectedId(id)}
                         selectedId={selectedId}
                         color={colors.secondary}
+                        layout="row"
                     />
                     {/* <Skeleton /> */}
                     <ProgressBar
@@ -181,11 +185,11 @@ const Home = () => {
                         lineCap="butt"
                     />
                 </View>
-                <BottomSheetInput ref={bottomSheetRef}>
-                    <ListView listEmpty={renderEmpty} data={[]} renderItem={renderTestItem} style={styles.flatList} />
-                </BottomSheetInput>
-            </SafeAreaView>
-        </ScrollView>
+            </ScrollView>
+            <BottomSheetInput ref={bottomSheetRef}>
+                <ListView listEmpty={renderEmpty} data={[]} renderItem={renderTestItem} style={styles.flatList} />
+            </BottomSheetInput>
+        </SafeAreaView>
     );
 };
 

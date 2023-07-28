@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "android": "react-native run-android",
-        "ios:dev": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"Dev\" --simulator=\"iPhone 14 Pro Max\"",
+        "ios:dev": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"Dev\" --simulator=\"iPhone 14 Pro\"",
         "ios:stg": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"Staging\" --simulator=\"iPhone 14 Pro Max\"",
         "ios:prod": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"Demo\" --simulator=\"iPhone 14 Pro Max\"",
         "android:staging": "react-native run-android --mode=stagingDebug --appIdSuffix staging",
@@ -21,6 +21,7 @@
         "precommit": "lint-staged"
     },
     "dependencies": {
+        "@alessiocancian/react-native-actionsheet": "^3.2.0",
         "@hookform/resolvers": "^3.1.1",
         "@react-native-async-storage/async-storage": "^1.18.2",
         "@react-native-clipboard/clipboard": "^1.11.2",
@@ -69,6 +70,7 @@
         "rxjs": "^7.8.1",
         "socket.io-client": "^4.6.2",
         "vision-camera-code-scanner": "^0.2.0",
+        "vision-camera-dynamsoft-barcode-reader": "^0.6.0",
         "yup": "^1.2.0"
     },
     "devDependencies": {

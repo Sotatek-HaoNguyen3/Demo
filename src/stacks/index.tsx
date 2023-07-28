@@ -14,6 +14,8 @@ function RootStacks() {
             <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Login" component={Screens.Login} />
                 <Stack.Screen name="Home" component={Screens.Home} />
+                <Stack.Screen name="Scanner" component={Screens.Scanner} />
+                <Stack.Screen name="Infor" component={Screens.Infor} />
             </Stack.Navigator>
         </NavigationContainer>
     );

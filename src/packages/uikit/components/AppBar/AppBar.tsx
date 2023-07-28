@@ -29,6 +29,7 @@ interface HeaderProps {
     containerStyle?: StyleProp<ViewStyle>;
     rightContainerStyle?: StyleProp<ViewStyle>;
     hideLeft?: boolean;
+    isPadding?: boolean;
 }
 
 const AppBar = ({
@@ -42,6 +43,7 @@ const AppBar = ({
     containerStyle = {},
     rightContainerStyle,
     hideLeft,
+    isPadding = false,
 }: HeaderProps) => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
@@ -65,7 +67,7 @@ const AppBar = ({
     };
 
     return (
-        <View style={[styles.container, containerStyle]}>
+        <View style={[styles.container, containerStyle, { paddingTop: isPadding ? Sizes.statusBarHeight : 0 }]}>
             <View style={[styles.viewHeader, style]}>
                 {renderLeft()}
 
@@ -84,7 +86,6 @@ export default memo(AppBar);
 const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({
         container: {
-            paddingTop: Sizes.statusBarHeight,
             width: '100%',
             backgroundColor: themeColors.backgroundAlt,
         },

@@ -93,7 +93,7 @@ const defaultProps = {
 };
 
 export type BaseModalProps = ViewProps & {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     onSwipeStart?: (gestureState: PanResponderGestureState) => void;
     onSwipeMove?: (percentageShown: number, gestureState: PanResponderGestureState) => void;
     onSwipeComplete?: (params: OnSwipeCompleteParams, gestureState: PanResponderGestureState) => void;

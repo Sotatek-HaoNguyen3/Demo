@@ -15,7 +15,7 @@ interface OTPInputProps {
     inputStyle?: StyleProp<ViewStyle>;
 }
 const OTPInput = (props: OTPInputProps) => {
-    const { digit = 6, firstFocus = true, submit, containerStyle, inputStyle } = props;
+    const { digit = 6, firstFocus = false, submit, containerStyle, inputStyle } = props;
     const otpArr = Array.from(Array(digit).keys());
     const initialValue = initValue(otpArr);
     const inputOtpRef = useRef([]);

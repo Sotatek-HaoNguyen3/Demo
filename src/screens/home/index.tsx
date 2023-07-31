@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
@@ -120,72 +120,77 @@ const Home = () => {
     );
 
     return (
-        <ScrollView>
-            <SafeAreaView style={styles.container}>
-                <AppBar titleStyle={styles.text} title={'Home'} onPress={() => goBack()} />
-                <View style={styles.content}>
-                    <SearchBar handleSearch={(value) => console.log(value)} />
-                    <TouchableOpacity onPress={showToastTop} style={styles.btn}>
-                        <Text style={styles.text}>Toast base Top</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
-                        <Text style={styles.text}>Toast base Bottom</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={showBottomSheet} style={styles.btn}>
-                        <Text style={styles.text}>BottomSheet</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => globalDrawer.open()} style={styles.btn}>
-                        <Text style={styles.text}>Drawer</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => getApi()} style={styles.btn}>
-                        <Text style={styles.text}>Loading</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => handleProgress()} style={styles.btn}>
-                        <Text style={styles.text}>Progress</Text>
-                    </TouchableOpacity>
-                    <DarkModeSwitch
-                        trackColor={{
-                            active: colors.backgroundDisabled,
-                            inActive: colors.backgroundDisabled,
-                        }}
-                        thumbColor={colors.secondary}
-                        onChange={toggleColorMode}
-                        value={mode === 'dark'}
-                        size={50}
-                    />
-                    <OTPInput inputStyle={styles.otp} submit={handleSubmitOtp} />
-                    <CheckBox fillColor={colors.secondary} onPress={(isChecked: boolean) => {}} />
-                    <RadioButtonsGroup
-                        radioButtons={radioButtons}
-                        onPress={(id) => setSelectedId(id)}
-                        selectedId={selectedId}
-                        color={colors.secondary}
-                    />
-                    {/* <Skeleton /> */}
-                    <ProgressBar
-                        color={colors.secondary}
-                        height={scale(4)}
-                        progress={progress / 100}
-                        width={Sizes.scrWidth - scale(16 * 2)}
-                        borderColor={colors.secondary80}
-                    />
-                    <AnimatedCircularProgress
-                        size={50}
-                        width={8}
-                        backgroundWidth={5}
-                        fill={progress}
-                        tintColor={colors.secondary}
-                        backgroundColor={colors.textSubtle}
-                        arcSweepAngle={360}
-                        rotation={180}
-                        lineCap="butt"
-                    />
-                </View>
-                <BottomSheetInput ref={bottomSheetRef}>
-                    <ListView listEmpty={renderEmpty} data={[]} renderItem={renderTestItem} style={styles.flatList} />
-                </BottomSheetInput>
-            </SafeAreaView>
-        </ScrollView>
+        <View style={styles.container}>
+            <AppBar titleStyle={styles.text} title={'Home'} onPress={() => goBack()} />
+            <KeyboardAvoidingView
+                style={{ flex: 1 }}
+                behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+                keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}>
+                <ScrollView style={{ flex: 1 }}>
+                    <View style={styles.content}>
+                        <SearchBar handleSearch={(value) => console.log(value)} />
+                        <TouchableOpacity onPress={showToastTop} style={styles.btn}>
+                            <Text style={styles.text}>Toast base Top</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={showToastBottom} style={styles.btn}>
+                            <Text style={styles.text}>Toast base Bottom</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={showBottomSheet} style={styles.btn}>
+                            <Text style={styles.text}>BottomSheet</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => globalDrawer.open()} style={styles.btn}>
+                            <Text style={styles.text}>Drawer</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => getApi()} style={styles.btn}>
+                            <Text style={styles.text}>Loading</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => handleProgress()} style={styles.btn}>
+                            <Text style={styles.text}>Progress</Text>
+                        </TouchableOpacity>
+                        <DarkModeSwitch
+                            trackColor={{
+                                active: colors.backgroundDisabled,
+                                inActive: colors.backgroundDisabled,
+                            }}
+                            thumbColor={colors.secondary}
+                            onChange={toggleColorMode}
+                            value={mode === 'dark'}
+                            size={50}
+                        />
+                        <OTPInput inputStyle={styles.otp} submit={handleSubmitOtp} />
+                        <CheckBox fillColor={colors.secondary} onPress={(isChecked: boolean) => {}} />
+                        <RadioButtonsGroup
+                            radioButtons={radioButtons}
+                            onPress={(id) => setSelectedId(id)}
+                            selectedId={selectedId}
+                            color={colors.secondary}
+                        />
+                        {/* <Skeleton /> */}
+                        <ProgressBar
+                            color={colors.secondary}
+                            height={scale(4)}
+                            progress={progress / 100}
+                            width={Sizes.scrWidth - scale(16 * 2)}
+                            borderColor={colors.secondary80}
+                        />
+                        <AnimatedCircularProgress
+                            size={50}
+                            width={8}
+                            backgroundWidth={5}
+                            fill={progress}
+                            tintColor={colors.secondary}
+                            backgroundColor={colors.textSubtle}
+                            arcSweepAngle={360}
+                            rotation={180}
+                            lineCap="butt"
+                        />
+                    </View>
+                </ScrollView>
+            </KeyboardAvoidingView>
+            <BottomSheetInput ref={bottomSheetRef}>
+                <ListView listEmpty={renderEmpty} data={[]} renderItem={renderTestItem} style={styles.flatList} />
+            </BottomSheetInput>
+        </View>
     );
 };
 

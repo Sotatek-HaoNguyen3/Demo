@@ -1,7 +1,7 @@
 import Clipboard from '@react-native-clipboard/clipboard';
 import React, { useMemo, useRef, useState } from 'react';
 import { Controller, ControllerRenderProps, useForm } from 'react-hook-form';
-import { StyleProp, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleProp, StyleSheet, TextInput, View, ViewStyle } from 'react-native';
 
 import { combineCode, fieldName, initValue, isAutoFillSupported, isNum } from './utils';
 
@@ -40,13 +40,13 @@ const OTPInput = (props: OTPInputProps) => {
     };
 
     const handleChangeOTP = async (value: string, idx: number, onChange) => {
-        console.log('value', value);
-        const copiedContent = await Clipboard.getString();
-        console.log('copiedContent', copiedContent);
+        // console.log('value', value);
+        // const copiedContent = await Clipboard.getString();
+        // console.log('copiedContent', copiedContent);
 
         if (isNum(value)) {
-            await onChange(value);
             await autoFocus(idx);
+            await onChange(value);
             await handleCombineCode();
         }
     };
@@ -99,7 +99,10 @@ const OTPInput = (props: OTPInputProps) => {
     };
 
     return (
-        <View style={[styles.container, containerStyle]}>
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 0}
+            style={[styles.container, containerStyle]}>
             {otpArr.map((_, index) => (
                 <Controller
                     name={fieldName(index)}
@@ -110,7 +113,7 @@ const OTPInput = (props: OTPInputProps) => {
                     }}
                 />
             ))}
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 
@@ -121,7 +124,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         flexDirection: 'row',
         width: '100%',
-        height: scale(100),
     },
     input: {
         borderBottomWidth: scale(1),

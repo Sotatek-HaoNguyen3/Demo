@@ -83,16 +83,16 @@ function App() {
     return (
         <BaseProvider config={config} colorModeManager={colorModeManager} theme={myTheme}>
             <SettingProvider>
-                <GestureRecognizer onSwipeRight={(state) => onSwipeRight(state)} style={{ flex: 1 }}>
-                    <Provider store={store}>
-                        <Drawer showMenu showAvatar ref={globalDrawerRef} menuData={MENU_TEST} />
-                        <PersistGate loading={null} persistor={persistor}>
-                            <RootStacks />
-                        </PersistGate>
-                        <Loading ref={globalLoadingRef} />
-                        <Toast />
-                    </Provider>
-                </GestureRecognizer>
+                {/* <GestureRecognizer onSwipeRight={(state) => onSwipeRight(state)} style={{ flex: 1 }}> */}
+                <Provider store={store}>
+                    <Drawer showMenu showAvatar ref={globalDrawerRef} menuData={MENU_TEST} />
+                    <PersistGate loading={null} persistor={persistor}>
+                        <RootStacks />
+                    </PersistGate>
+                    <Loading ref={globalLoadingRef} />
+                    <Toast />
+                </Provider>
+                {/* </GestureRecognizer> */}
             </SettingProvider>
         </BaseProvider>
     );

@@ -7,6 +7,7 @@ import BaseModal from '../Modal';
 import { BaseModalProps } from '../Modal/modal';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit/theme';
+import { Animation, CustomAnimation } from 'react-native-animatable';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const globalLoadingRef = React.createRef<any>();
@@ -21,17 +22,17 @@ export const globalLoading = {
 };
 
 export interface ILoadingProps {
-    color: string;
-    size: number;
-    backgroundStyle: StyleProp<ViewStyle>;
-    animationIn: string;
-    animationOut: string;
-    modalProps: BaseModalProps;
-    indicatorProps: IndicatorProps;
-    animationDuration: number;
+    color?: string;
+    size?: number;
+    backgroundStyle?: StyleProp<ViewStyle>;
+    animationIn?: Animation | CustomAnimation;
+    animationOut?: Animation | CustomAnimation;
+    modalProps?: BaseModalProps;
+    indicatorProps?: IndicatorProps;
+    animationDuration?: number;
 }
 
-const Loading = React.forwardRef((props: ILoadingProps & BaseModalProps, ref) => {
+const Loading = React.forwardRef((props: ILoadingProps, ref) => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const {

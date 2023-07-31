@@ -1,5 +1,4 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Platform, StyleSheet, View } from 'react-native';
@@ -22,9 +21,9 @@ import { IColors } from 'packages/uikit/theme';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import { navigate } from 'utils/navigationUtils';
 
 const LoginScreen = () => {
-    const navigation = useNavigation();
     const {
         control,
         formState: { errors },
@@ -36,7 +35,7 @@ const LoginScreen = () => {
     });
 
     const onSubmit = async () => {
-        navigation.navigate('ScanQRScreen');
+        navigate('ScanQRScreen');
     };
 
     const onGoToCamera = () => {
@@ -44,7 +43,7 @@ const LoginScreen = () => {
         checkPermission(permission, goToScanQR, 'permissionCamera').catch();
     };
 
-    const goToScanQR = () => navigation.navigate('ScanQRScreen');
+    const goToScanQR = () => navigate('ScanQRScreen');
     const colors = useThemeColors();
     const styles = myStyles(colors);
 

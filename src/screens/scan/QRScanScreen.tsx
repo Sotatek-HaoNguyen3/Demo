@@ -17,6 +17,7 @@ import Sizes from 'themes/sizes';
 import Fonts from 'themes/fonts';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit/theme';
+import { RootParamList } from 'stacks/types';
 
 const SCREEN_HEIGHT = Sizes.scrHeight;
 const SCREEN_WIDTH = Sizes.scrWidth;
@@ -25,12 +26,12 @@ const topMargin = (SCREEN_HEIGHT - 150) / 2 - SCAN_SIZE / 2;
 const leftMargin = SCREEN_WIDTH / 2 - SCAN_SIZE / 2;
 const ANIMATED_DURATION = 1000;
 
-// interface ScanQRRouteProps {
-//     route: RouteProp<RootNavigatorParamList, 'ScanQR'>;
-// }
+interface ScanQRRouteProps {
+    route: RouteProp<RootParamList, 'ScanQRScreen'>;
+}
 
-const ScanQRScreen = (props) => {
-    // const { onSuccess } = props.route.params;
+const ScanQRScreen = (props: ScanQRRouteProps) => {
+    const { onSuccess } = props.route.params;
     const color = useThemeColors();
     const styles = myStyles(color);
 
@@ -53,7 +54,7 @@ const ScanQRScreen = (props) => {
 
     const onReadQRSuccess = (res) => {
         if (res.type === RNCamera.Constants.BarCodeType.qr) {
-            console.log(res);
+            onSuccess(res);
         }
     };
 

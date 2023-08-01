@@ -3,9 +3,6 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Platform, StyleSheet, View } from 'react-native';
 
-import { PERMISSIONS } from 'react-native-permissions';
-import { checkPermission } from 'utils/permission';
-
 import { loginDataForm } from './src/const';
 
 import loginSchema from './src/schema';
@@ -21,9 +18,24 @@ import { IColors } from 'packages/uikit/theme';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
-import { navigate } from 'utils/navigationUtils';
+import { goBack, navigate } from 'utils/navigationUtils';
+
+import { PERMISSIONS } from 'react-native-permissions';
+import { checkPermission } from 'utils/permission';
 
 const LoginScreen = () => {
+    const onGoToCamera = () => {
+        const permission = Platform.OS === 'android' ? PERMISSIONS.ANDROID.CAMERA : PERMISSIONS.IOS.CAMERA;
+        checkPermission(permission, goToScanQR, 'permissionCamera').catch();
+    };
+
+    const scanSuccess = (res: string) => {
+        console.log(res);
+        goBack();
+    };
+
+    const goToScanQR = () => navigate('ScanQRScreen', { onSuccess: scanSuccess });
+
     const {
         control,
         formState: { errors },
@@ -38,12 +50,6 @@ const LoginScreen = () => {
         navigate('ScanQRScreen');
     };
 
-    const onGoToCamera = () => {
-        const permission = Platform.OS === 'android' ? PERMISSIONS.ANDROID.CAMERA : PERMISSIONS.IOS.CAMERA;
-        checkPermission(permission, goToScanQR, 'permissionCamera').catch();
-    };
-
-    const goToScanQR = () => navigate('ScanQRScreen');
     const colors = useThemeColors();
     const styles = myStyles(colors);
 
@@ -82,7 +88,7 @@ const LoginScreen = () => {
                     <View style={{ alignItems: 'flex-end' }}>
                         <Button
                             title="LOGIN"
-                            onPress={onSubmit}
+                            onPress={onGoToCamera}
                             containerStyles={styles.loginBtn}
                             titleStyles={styles.titleButton}
                         />

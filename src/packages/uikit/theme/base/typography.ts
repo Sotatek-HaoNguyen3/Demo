@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const typography = {
     letterSpacings: {
         xs: '-0.05em',
@@ -5,19 +6,19 @@ const typography = {
         md: 0,
         lg: '0.025em',
         xl: '0.05em',
-        _2xl: '0.1em',
+        '2xl': '0.1em',
     },
     lineHeights: {
-        _2xs: '1em',
+        '2xs': '1em',
         xs: '1.125em',
         sm: '1.25em',
         md: '1.375em',
         lg: '1.5em',
         xl: '1.75em',
-        _2xl: '2em',
-        _3xl: '2.5em',
-        _4xl: '3em',
-        _5xl: '4em',
+        '2xl': '2em',
+        '3xl': '2.5em',
+        '4xl': '3em',
+        '5xl': '4em',
     },
     fontConfig: {
         //   Roboto: {
@@ -115,20 +116,20 @@ const typography = {
         mono: undefined,
     },
     fontSizes: {
-        _2xs: 10,
+        '2xs': 10,
         xs: 12,
         sm: 14,
         md: 16,
         lg: 18,
         xl: 20,
-        _2xl: 24,
-        _3xl: 30,
-        _4xl: 36,
-        _5xl: 48,
-        _6xl: 60,
-        _7xl: 72,
-        _8xl: 96,
-        _9xl: 128,
+        '2xl': 24,
+        '3xl': 30,
+        '4xl': 36,
+        '5xl': 48,
+        '6xl': 60,
+        '7xl': 72,
+        '8xl': 96,
+        '9xl': 128,
     },
 };
 

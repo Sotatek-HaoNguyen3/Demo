@@ -2,6 +2,8 @@
 import React, { useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { StyleProp, StyleSheet, Text, TextInput, TextInputProps, TextStyle, View, ViewStyle } from 'react-native';
+
+import { scale } from 'themes/scales';
 interface FormInputProps {
     name: string;
     control: any;
@@ -61,7 +63,7 @@ const FormInput: React.FC<FormInputProps> = ({
 
     const borderStyle = {
         borderColor: renderBorderColor(),
-        borderWidth: 1,
+        // borderWidth: 1,
     };
 
     const renderInput = ({ field }) => {
@@ -117,6 +119,7 @@ const myStyles = StyleSheet.create({
         borderBottomWidth: 0.2,
         flexDirection: 'row',
         paddingVertical: 1,
+        marginTop: scale(4),
     },
     input: {
         height: 40,

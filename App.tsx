@@ -8,7 +8,11 @@ import SettingProvider from 'contexts/SettingProvider';
 import { BaseProvider, ColorMode, IBaseConfig, StorageManager } from 'packages/core';
 import { extendTheme } from 'packages/core/extendTheme';
 import { theme as defaultTheme } from 'packages/uikit';
-import { Toast } from 'packages/uikit/components';
+import { Drawer, Loading, Toast } from 'packages/uikit/components';
+import { globalDrawerRef } from 'packages/uikit/components/Drawer';
+import GestureRecognizer from 'packages/uikit/components/Drawer/GestureRecognizer';
+import { globalLoadingRef } from 'packages/uikit/components/Loading';
+import { onSwipeRight } from 'packages/utils/gestureHandle';
 import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
 import { myColors, MyColorsType } from 'themes/colors';
@@ -54,6 +58,7 @@ const config: IBaseConfig = {
         'liner-gradient': require('react-native-linear-gradient').default,
     },
 };
+const MENU_TEST = [{ name: 'Home' }, { name: 'Profile' }, { name: 'Notification' }, { name: 'Setting' }];
 
 // TODO: need wrap logic to file
 const colorModeManager: StorageManager = {
@@ -78,12 +83,16 @@ function App() {
     return (
         <BaseProvider config={config} colorModeManager={colorModeManager} theme={myTheme}>
             <SettingProvider>
+                {/* <GestureRecognizer onSwipeRight={(state) => onSwipeRight(state)} style={{ flex: 1 }}> */}
                 <Provider store={store}>
+                    <Drawer showMenu showAvatar ref={globalDrawerRef} menuData={MENU_TEST} />
                     <PersistGate loading={null} persistor={persistor}>
                         <RootStacks />
                     </PersistGate>
+                    <Loading ref={globalLoadingRef} />
                     <Toast />
                 </Provider>
+                {/* </GestureRecognizer> */}
             </SettingProvider>
         </BaseProvider>
     );

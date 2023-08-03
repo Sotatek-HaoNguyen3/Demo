@@ -4,17 +4,12 @@ import { useForm } from 'react-hook-form';
 import { StyleSheet, View } from 'react-native';
 
 import { loginDataForm } from './src/const';
-
 import loginSchema from './src/schema';
 
-import { FormInput } from 'components';
-import Text from 'components/base/Text';
-import Button from 'components/Button';
-import ButtonText from 'components/ButtonText';
+import Text from 'packages/uikit/components/Text';
 import { useThemeColors } from 'packages/hooks/useTheme';
-
+import { Button, ButtonText, FormInput } from 'packages/uikit';
 import { IColors } from 'packages/uikit/theme';
-// import colors from 'packages/uikit/theme/base/colors';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';

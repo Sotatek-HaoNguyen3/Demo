@@ -10,7 +10,6 @@ interface ImageProps {
 }
 
 const ImageBase = (props: ImageProps) => {
-    // const { theme } = useSetting()
     const { source, imageStyles, size } = props;
     const [isImageError, setIsImageError] = useState<boolean>(false);
 

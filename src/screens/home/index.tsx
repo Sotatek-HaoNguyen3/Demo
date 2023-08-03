@@ -22,7 +22,7 @@ import { AnimatedCircularProgress, ProgressBar } from 'packages/uikit/components
 import RadioButtonsGroup from 'packages/uikit/components/RadioButton';
 
 import Skeleton from 'packages/uikit/components/Skeleton';
-import DarkModeSwitch from 'packages/uikit/components/Switch/DarkModeSwitch';
+import Switch from 'packages/uikit/components/Switch';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { goBack } from 'utils/navigationUtils';
@@ -147,7 +147,7 @@ const Home = () => {
                         <TouchableOpacity onPress={() => handleProgress()} style={styles.btn}>
                             <Text style={styles.text}>Progress</Text>
                         </TouchableOpacity>
-                        <DarkModeSwitch
+                        <Switch
                             trackColor={{
                                 active: colors.backgroundDisabled,
                                 inActive: colors.backgroundDisabled,

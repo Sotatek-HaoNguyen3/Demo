@@ -28,3 +28,8 @@ export {
     SearchBar,
     BottomSheetInput,
 };
+
+export * from './Button';
+export { default as Image } from './Image';
+export * from './Input';
+export { default as Text } from './Text';

@@ -1,6 +1,5 @@
 import React, { ReactElement, useImperativeHandle, useRef, useState } from 'react';
 import { ImageSourcePropType, StyleProp, StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
-
 import { Animation } from 'react-native-animatable';
 
 import Avatar from '../Avatar';
@@ -8,7 +7,6 @@ import { AvatarProps } from '../Avatar/Avatar';
 import Menu from '../Menu';
 import { MenuItemProps } from '../Menu/MenuItem';
 import BaseModal from '../Modal';
-
 import { BaseModalProps } from '../Modal/modal';
 
 import { useThemeColors } from 'packages/hooks/useTheme';
@@ -48,7 +46,7 @@ export interface DrawerProps {
     menuContainerStyle?: StyleProp<ViewStyle>;
     avatarProps?: AvatarProps;
     modalProps?: BaseModalProps;
-    customComponent?: ReactElement<ViewProps>;
+    children?: ReactElement<ViewProps>;
 }
 
 const Drawer = (props: DrawerProps, ref) => {
@@ -70,7 +68,7 @@ const Drawer = (props: DrawerProps, ref) => {
         menuContainerStyle,
         avatarProps,
         modalProps,
-        customComponent,
+        children,
     } = props;
     const drawerRef = useRef(null);
     const [visible, setVisible] = useState<boolean>(false);
@@ -116,7 +114,7 @@ const Drawer = (props: DrawerProps, ref) => {
                         <Menu data={menuData} />
                     </View>
                 )}
-                {customComponent}
+                {children}
             </View>
         </BaseModal>
     );

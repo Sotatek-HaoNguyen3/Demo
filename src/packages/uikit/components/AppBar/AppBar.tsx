@@ -41,18 +41,15 @@ const AppBar = ({
     disable = false,
     containerStyle = {},
     rightContainerStyle,
-    hideLeft,
 }: HeaderProps) => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const IconBack = () => <View style={styles.iconBack} />;
     const renderLeft = () => {
-        if (hideLeft) {
-            return <View style={styles.leftView} />;
+        if (left) {
+            return left;
         } else {
-            return left ? (
-                <>{left}</>
-            ) : (
+            return (
                 <TouchableOpacity
                     style={styles.backView}
                     onPress={onPress}

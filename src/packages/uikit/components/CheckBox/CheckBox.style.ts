@@ -1,4 +1,5 @@
 import { StyleSheet, TextStyle, ViewStyle } from 'react-native';
+
 import { scale } from 'themes/scales';
 
 export const _iconContainer = (size: number, checked: boolean, fillColor: string, unfillColor: string): ViewStyle => {

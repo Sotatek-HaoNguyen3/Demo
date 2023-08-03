@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View } from 'react-native';
 
-// import Svgs from 'assets/svgs';
-// import { Text, TouchableOpacity } from 'components/base';
 import Fonts from 'themes/fonts';
 
 import { scale } from 'themes/scales';
@@ -18,7 +16,6 @@ interface ButtonTextProps {
 }
 
 const ButtonText = (props: ButtonTextProps) => {
-    // const { theme } = useSetting();
     const styles = myStyles();
     const { title, subTitle, disabled, titleStyles, subTitleStyles, onPress, enableLineBottom } = props;
 

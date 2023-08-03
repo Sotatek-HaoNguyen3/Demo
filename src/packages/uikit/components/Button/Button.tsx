@@ -1,10 +1,7 @@
 import React from 'react';
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewStyle } from 'react-native';
 
-// import Svgs from 'assets/svgs';
-// import { Text, TouchableOpacity } from 'components/base';
 import Fonts from 'themes/fonts';
-
 import { scale } from 'themes/scales';
 
 interface ButtonProps {
@@ -22,7 +19,6 @@ interface ButtonProps {
 }
 
 const Button = (props: ButtonProps) => {
-    // const { theme } = useSetting();
     const styles = myStyles();
     const {
         title,
@@ -52,12 +48,7 @@ const Button = (props: ButtonProps) => {
                         <View style={[styles.viewLeft, subTitleCustomStyles]}>{subTitleCustom}</View>
                     ) : null}
                 </View>
-                {right ? (
-                    <View style={styles.viewRight}>{right}</View>
-                ) : (
-                    <View />
-                    // <Svgs.IcForward width={scales(14)} height={scales(23)} color={Colors.gray} />
-                )}
+                {right ? <View style={styles.viewRight}>{right}</View> : <View />}
             </TouchableOpacity>
         </>
     );

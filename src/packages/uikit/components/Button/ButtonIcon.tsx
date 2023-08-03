@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
 
-// import Svgs from 'assets/svgs';
-// import { Text, TouchableOpacity } from 'components/base';
 import Fonts from 'themes/fonts';
 
 import { scale } from 'themes/scales';
@@ -16,7 +14,6 @@ interface ButtonIconProps {
 }
 
 const ButtonIcon: React.FC<ButtonIconProps> = (props) => {
-    // const { theme } = useSetting();
     const styles = myStyles();
     const { text, icon, onPress, containerStyle, labelStyle } = props;
 
@@ -44,7 +41,6 @@ const myStyles = () =>
             ...Fonts.segoe400,
             fontSize: scale(10),
             marginTop: scale(2),
-            // color: Colors[theme].textColorOpacity80,
             textAlign: 'center',
         },
     });

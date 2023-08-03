@@ -2,6 +2,7 @@
 import React, { useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { StyleProp, StyleSheet, Text, TextInput, TextInputProps, TextStyle, View, ViewStyle } from 'react-native';
+
 import { scale } from 'themes/scales';
 interface FormInputProps {
     name: string;

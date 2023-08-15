@@ -27,7 +27,7 @@ const LoginScreen = () => {
     });
 
     const onSubmit = async () => {
-        navigate('Home');
+        navigate('Main');
     };
     const colors = useThemeColors();
     const styles = myStyles(colors);

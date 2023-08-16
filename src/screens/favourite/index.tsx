@@ -1,16 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const SettingScreen = () => {
+const FavouriteScreen = () => {
     const styles = Styles();
     return (
         <View style={styles.container}>
-            <Text>Setting</Text>
+            <Text>Favourite</Text>
         </View>
     );
 };
 
-export default SettingScreen;
+export default FavouriteScreen;
 
 const Styles = () => {
     return StyleSheet.create({

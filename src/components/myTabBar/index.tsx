@@ -23,7 +23,7 @@ const MyTabBar = (props: BottomTabBarProps) => {
                     }
                 };
                 const IconTab = Svgs[`Ic${route.name}${isFocused && route.name !== 'Post' ? 'Active' : ''}`];
-                const sizeIcon = scale(22);
+                const sizeIcon = scale(19);
                 return route.name !== 'Post' ? (
                     <TouchableOpacity key={index.toString()} style={styles.btnTab} onPress={onPress}>
                         <IconTab width={scale(sizeIcon)} height={scale(sizeIcon)} />
@@ -44,7 +44,7 @@ const myStyles = (themeColors: IColors) =>
             flexDirection: 'row',
             height: Sizes.bottomSpace + scale(60),
             paddingBottom: Sizes.bottomSpace,
-            backgroundColor: themeColors.background,
+            backgroundColor: themeColors.backgroundAlt,
             shadowColor: '#000000',
             shadowOffset: { width: 0, height: 0 },
             shadowOpacity: 0.2,

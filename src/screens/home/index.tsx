@@ -205,6 +205,7 @@ const myStyles = (themeColors: IColors) => {
         content: {
             marginHorizontal: scale(16),
             alignItems: 'center',
+            marginBottom: scale(40),
         },
         btn: {
             height: scale(40),

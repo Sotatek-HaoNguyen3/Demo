@@ -1,19 +1,23 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+
+import LinearGradient from 'react-native-linear-gradient';
 
 import { loginDataForm } from './src/const';
 import loginSchema from './src/schema';
 
-import Text from 'packages/uikit/components/Text';
+import Images from 'assets/images';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Button, ButtonText, FormInput } from 'packages/uikit';
+import Text from 'packages/uikit/components/Text';
 import { IColors } from 'packages/uikit/theme';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
+import { HybridContext } from 'packages/core/hybrid-overlay';
 
 const LoginScreen = () => {
     const {
@@ -31,40 +35,36 @@ const LoginScreen = () => {
     };
     const colors = useThemeColors();
     const styles = myStyles(colors);
+    const { colorMode } = useContext(HybridContext);
+    const { mode } = colorMode;
+    const fadeImage = mode === 'dark' ? Images.BACKGROUND_FADE_DARK : Images.BACKGROUND_FADE;
 
     return (
-        <View style={styles.container}>
-            <View style={styles.content}>
-                <View>
-                    <Text style={styles.login}>Login</Text>
-                    <Text style={styles.subTitle}>Please sign in to continue</Text>
-                </View>
-                <View style={styles.formRegister}>
-                    <FormInput
-                        control={control}
-                        name={loginDataForm[0].name}
-                        error={errors[`${loginDataForm[0].name}`]}
-                        placeholder={loginDataForm[0].name}
-                        label={loginDataForm[0].label}
-                        register={register}
-                        styleInput={styles.input}
-                        styleTextInput={styles.textInput}
-                        labelTextStyle={styles.labelInput}
-                        placeholderTextColor={colors.secondary80}
-                    />
-                    <FormInput
-                        control={control}
-                        name={loginDataForm[1].name}
-                        error={errors[`${loginDataForm[1].name}`]}
-                        placeholder={loginDataForm[1].name}
-                        label={loginDataForm[1].label}
-                        register={register}
-                        styleInput={styles.input}
-                        styleTextInput={styles.textInput}
-                        labelTextStyle={styles.labelInput}
-                        placeholderTextColor={colors.secondary80}
-                    />
-                    <View style={{ alignItems: 'flex-end' }}>
+        <ImageBackground style={styles.background} source={Images.BACKGROUND}>
+            <View style={styles.container}>
+                <ImageBackground style={styles.backgroundFade} source={fadeImage} />
+                <View style={styles.content}>
+                    <View>
+                        <Text style={styles.login}>Login</Text>
+                        <Text style={styles.subTitle}>Please sign in to continue</Text>
+                    </View>
+                    <View style={styles.formRegister}>
+                        {loginDataForm.map((data, index) => {
+                            return (
+                                <FormInput
+                                    key={`input_${index}`}
+                                    control={control}
+                                    name={data.name}
+                                    error={errors[`${data.name}`]}
+                                    placeholder={data.name}
+                                    register={register}
+                                    styleInput={styles.input}
+                                    styleTextInput={styles.textInput}
+                                    labelTextStyle={styles.labelInput}
+                                    placeholderTextColor={colors.secondary80}
+                                />
+                            );
+                        })}
                         <Button
                             title="LOGIN"
                             onPress={onSubmit}
@@ -73,12 +73,12 @@ const LoginScreen = () => {
                         />
                     </View>
                 </View>
+                <View style={styles.bottomSignUp}>
+                    <Text>Don't have an account?</Text>
+                    <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => {}} />
+                </View>
             </View>
-            <View style={styles.bottomSignUp}>
-                <Text>Don't have an account?</Text>
-                <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => {}} />
-            </View>
-        </View>
+        </ImageBackground>
     );
 };
 
@@ -86,14 +86,27 @@ export default LoginScreen;
 
 const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({
+        background: {
+            flex: 1,
+            justifyContent: 'flex-end',
+        },
+        backgroundFade: {
+            flex: 1,
+            position: 'absolute',
+            height: scale(1000),
+            width: scale(800),
+            left: -scale(200),
+            top: scale(130),
+        },
         container: {
             flex: 1,
-            paddingTop: Sizes.statusBarHeight,
-            backgroundColor: themeColors.backgroundAlt,
+            // backgroundColor: themeColors.backgroundAlt,
         },
         content: {
-            marginTop: scale(100),
-            marginHorizontal: scale(16),
+            position: 'absolute',
+            width: Sizes.scrWidth,
+            top: scale(231),
+            paddingHorizontal: scale(16),
         },
         btn: {
             height: scale(50),
@@ -111,14 +124,14 @@ const myStyles = (themeColors: IColors) => {
         login: {
             ...Fonts.segoe700,
             fontSize: scale(32),
-            color: themeColors.secondary,
+            color: themeColors.blackOpacity80,
         },
         subTitle: {
-            ...Fonts.segoe700,
+            ...Fonts.segoe600,
             fontSize: scale(16),
-            color: themeColors.secondary80,
+            color: themeColors.blackOpacity50,
             marginTop: scale(4),
-            marginBottom: scale(40),
+            marginBottom: scale(15),
         },
         formRegister: {
             justifyContent: 'space-around',
@@ -129,7 +142,7 @@ const myStyles = (themeColors: IColors) => {
             borderWidth: 1,
             borderColor: themeColors.cardBorder,
             height: scale(48),
-            marginBottom: scale(20),
+            marginTop: scale(20),
             paddingHorizontal: scale(8),
             paddingVertical: scale(4),
             shadowColor: '#171717',
@@ -152,11 +165,10 @@ const myStyles = (themeColors: IColors) => {
             color: themeColors.white,
         },
         loginBtn: {
-            marginTop: scale(20),
-            width: scale(120),
-            borderRadius: scale(40),
-            alignContent: 'flex-end',
-            backgroundColor: themeColors.secondary,
+            marginTop: scale(33),
+            borderRadius: scale(8),
+            backgroundColor: themeColors.main,
+            height: scale(49),
         },
         bottomSignUp: {
             position: 'absolute',

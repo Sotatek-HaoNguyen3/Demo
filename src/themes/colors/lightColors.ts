@@ -1,4 +1,5 @@
 export const lightColors = {
+    main: '#9A6AFF',
     secondary: '#7645D9',
     secondary80: '#7645D980',
     background: '#FFFFFF',

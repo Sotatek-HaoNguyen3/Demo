@@ -120,12 +120,13 @@ const myStyles = (themeColors: IColors) => {
             fontSize: scale(30),
         },
         login: {
-            ...Fonts.segoe700,
+            ...Fonts.poppins700,
+            fontWeight: '700',
             fontSize: scale(32),
             color: themeColors.blackOpacity80,
         },
         subTitle: {
-            ...Fonts.segoe600,
+            ...Fonts.poppins700,
             fontSize: scale(16),
             color: themeColors.blackOpacity50,
             marginTop: scale(4),
@@ -159,7 +160,7 @@ const myStyles = (themeColors: IColors) => {
             color: themeColors.secondary,
         },
         titleButton: {
-            ...Fonts.segoe700,
+            ...Fonts.poppins700,
             color: themeColors.white,
         },
         loginBtn: {
@@ -176,7 +177,7 @@ const myStyles = (themeColors: IColors) => {
             flexDirection: 'row',
         },
         signUp: {
-            ...Fonts.segoe700,
+            ...Fonts.poppins700,
             color: themeColors.secondary,
             bottom: scale(4),
             marginLeft: scale(4),

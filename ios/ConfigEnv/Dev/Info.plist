@@ -45,6 +45,10 @@
 		<string>SegoeUI-Bold.ttf</string>
 		<string>SegoeUI-SemiBold.ttf</string>
 		<string>SegoeUI.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+		<string>Poppins-Regular.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-Thin.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen.storyboard</string>

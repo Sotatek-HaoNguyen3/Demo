@@ -38,7 +38,7 @@ const myStyles = () =>
             height: scale(30),
         },
         text: {
-            ...Fonts.segoe400,
+            ...Fonts.poppins400,
             fontSize: scale(10),
             marginTop: scale(2),
             textAlign: 'center',

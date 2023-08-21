@@ -54,13 +54,13 @@ const myStyles = () =>
             justifyContent: 'center',
         },
         textCenter: {
-            ...Fonts.segoe400,
+            ...Fonts.poppins400,
             fontSize: scale(15),
             textAlign: 'center',
             // color: Colors[theme].textColor,
         },
         subTextCenter: {
-            ...Fonts.segoe400,
+            ...Fonts.poppins400,
             fontSize: scale(12),
             // color: Colors[theme].textColor,
         },

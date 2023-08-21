@@ -14,6 +14,22 @@
             "sha1": "431007da316de60d85174aeec9b8389b5c73e7d6"
         },
         {
+            "path": "src/assets/fonts/Poppins-Bold.ttf",
+            "sha1": "875cf0cecd647bcf22e79d633d868c1b1ec98dfa"
+        },
+        {
+            "path": "src/assets/fonts/Poppins-Regular.ttf",
+            "sha1": "fdd3002e7d814ee47c1c1b8487c72c6bbb3a2d00"
+        },
+        {
+            "path": "src/assets/fonts/Poppins-SemiBold.ttf",
+            "sha1": "8a4ace9392d06bcb7f8ea2f5169b07e4c383a90d"
+        },
+        {
+            "path": "src/assets/fonts/Poppins-Thin.ttf",
+            "sha1": "09ba4dcd5509c8085bf88c665dcc51cbdfced27b"
+        },
+        {
             "path": "src/assets/fonts/SegoeUI-Bold.ttf",
             "sha1": "89708991c43f7e77e01aa4c0b45ef2d73f7cedd7"
         },

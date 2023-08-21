@@ -10,6 +10,16 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		16A4552E50554E38B7716078 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */; };
+		244849CB2A931227003A6C83 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */; };
+		244849CC2A93122A003A6C83 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */; };
+		244849CD2A93122E003A6C83 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */; };
+		244849CE2A931232003A6C83 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
+		244849CF2A931237003A6C83 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */; };
+		244849D02A93123B003A6C83 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */; };
+		244849D12A93123E003A6C83 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */; };
+		244849D22A931241003A6C83 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
+		2722CE39F46642628EC482EE /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
 		55596A870524469D9ECB5BE4 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
 		7885CEAA53DE21CC8A2FCD9E /* libPods-App-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3351A31CA32BCF99E81BF46 /* libPods-App-Demo.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -36,15 +46,18 @@
 		8419563B2A42AA9C001C453E /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
 		8F169959FB6E42A98A54ABFE /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
 		A53263900F8D428EA2036C10 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */; };
+		BB2A7560D4CE4A32BDA60958 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */; };
 		BE709D61D27242E2AA5D9653 /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
 		C820B418A03FCC5095CA7779 /* libPods-App-Dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F756A8C58A526BE7434FC1D /* libPods-App-Dev.a */; };
 		D9DA292EBAD64E64B46849F9 /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
 		ED9DD5A9EEA206198210A698 /* libPods-App-Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1512B98380009333BF2383AD /* libPods-App-Staging.a */; };
+		F819E9D891A54B02942A3B3D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = demoTests.m; sourceTree = "<group>"; };
+		09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SegoeUI.ttf; path = ../src/assets/fonts/SegoeUI.ttf; sourceTree = "<group>"; };
 		13707217E8F0559FDE37BBF3 /* Pods-demoCommonPods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-demo.debug.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +76,8 @@
 		4F3A6C453534637FDACB3D6A /* Pods-App-Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Staging.release.xcconfig"; path = "Target Support Files/Pods-App-Staging/Pods-App-Staging.release.xcconfig"; sourceTree = "<group>"; };
 		56715A8389FD20DF8123C546 /* Pods-demoCommonPods-DemoDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoDev.debug.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoDev/Pods-demoCommonPods-DemoDev.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
+		5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
 		7B4FCE4E7C5EC9C8358CC3E4 /* Pods-demoCommonPods-DemoStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoStg.release.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoStg/Pods-demoCommonPods-DemoStg.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		841956292A42A88C001C453E /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +87,7 @@
 		9374C447BF40EF4859EF7DB0 /* Pods-App-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Demo.release.xcconfig"; path = "Target Support Files/Pods-App-Demo/Pods-App-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		946F2695FD307AFBC60B345F /* libPods-demoCommonPods-DemoStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A29A25332487D285D9AF03C /* Pods-App-Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Dev.release.xcconfig"; path = "Target Support Files/Pods-App-Dev/Pods-App-Dev.release.xcconfig"; sourceTree = "<group>"; };
+		AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		B3351A31CA32BCF99E81BF46 /* libPods-App-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B54234FEB7929AAA5106BCB7 /* Pods-App-Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Staging.debug.xcconfig"; path = "Target Support Files/Pods-App-Staging/Pods-App-Staging.debug.xcconfig"; sourceTree = "<group>"; };
 		B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -164,6 +180,10 @@
 				1929603E993047159575B486 /* SegoeUI-Bold.ttf */,
 				328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */,
 				0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */,
+				5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */,
+				09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */,
+				AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */,
+				799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -365,6 +385,10 @@
 				BE709D61D27242E2AA5D9653 /* SegoeUI-Bold.ttf in Resources */,
 				8F169959FB6E42A98A54ABFE /* SegoeUI-SemiBold.ttf in Resources */,
 				D9DA292EBAD64E64B46849F9 /* SegoeUI.ttf in Resources */,
+				BB2A7560D4CE4A32BDA60958 /* Poppins-Bold.ttf in Resources */,
+				F819E9D891A54B02942A3B3D /* Poppins-Regular.ttf in Resources */,
+				16A4552E50554E38B7716078 /* Poppins-SemiBold.ttf in Resources */,
+				2722CE39F46642628EC482EE /* Poppins-Thin.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +396,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244849D22A931241003A6C83 /* Poppins-Thin.ttf in Resources */,
+				244849D12A93123E003A6C83 /* Poppins-SemiBold.ttf in Resources */,
+				244849D02A93123B003A6C83 /* Poppins-Regular.ttf in Resources */,
+				244849CF2A931237003A6C83 /* Poppins-Bold.ttf in Resources */,
 				8419561B2A42A88C001C453E /* LaunchScreen.storyboard in Resources */,
 				8419561C2A42A88C001C453E /* Images.xcassets in Resources */,
 				8419561D2A42A88C001C453E /* Inter-Bold.ttf in Resources */,
@@ -387,6 +415,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244849CE2A931232003A6C83 /* Poppins-Thin.ttf in Resources */,
+				244849CD2A93122E003A6C83 /* Poppins-SemiBold.ttf in Resources */,
+				244849CC2A93122A003A6C83 /* Poppins-Regular.ttf in Resources */,
+				244849CB2A931227003A6C83 /* Poppins-Bold.ttf in Resources */,
 				841956342A42AA9C001C453E /* LaunchScreen.storyboard in Resources */,
 				841956352A42AA9C001C453E /* Images.xcassets in Resources */,
 				841956362A42AA9C001C453E /* Inter-Bold.ttf in Resources */,
@@ -714,6 +746,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KXJUN9HR33;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = demo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Demo;
@@ -742,6 +775,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KXJUN9HR33;
 				INFOPLIST_FILE = demo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Demo;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -905,6 +939,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KXJUN9HR33;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ConfigEnv/Staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Staging;
@@ -933,6 +968,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KXJUN9HR33;
 				INFOPLIST_FILE = ConfigEnv/Staging/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Staging;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -959,6 +995,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KXJUN9HR33;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ConfigEnv/Dev/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Dev;
@@ -987,6 +1024,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = KXJUN9HR33;
 				INFOPLIST_FILE = ConfigEnv/Dev/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Dev;
 				LD_RUNPATH_SEARCH_PATHS = (

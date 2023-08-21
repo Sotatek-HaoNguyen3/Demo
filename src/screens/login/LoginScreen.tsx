@@ -3,12 +3,11 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { ImageBackground, StyleSheet, View } from 'react-native';
 
-import LinearGradient from 'react-native-linear-gradient';
-
 import { loginDataForm } from './src/const';
 import loginSchema from './src/schema';
 
 import Images from 'assets/images';
+import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Button, ButtonText, FormInput } from 'packages/uikit';
 import Text from 'packages/uikit/components/Text';
@@ -17,7 +16,6 @@ import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
-import { HybridContext } from 'packages/core/hybrid-overlay';
 
 const LoginScreen = () => {
     const {

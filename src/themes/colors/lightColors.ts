@@ -1,7 +1,8 @@
 export const lightColors = {
+    main: '#9A6AFF',
     secondary: '#7645D9',
     secondary80: '#7645D980',
-    background: '#FAF9FA',
+    background: '#FFFFFF',
     backgroundDisabled: '#E9EAEB',
     backgroundAlt: '#FFFFFF',
     backgroundAlt2: 'rgba(255, 255, 255, 0.7)',

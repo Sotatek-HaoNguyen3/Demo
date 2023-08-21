@@ -22,3 +22,5 @@
 | [Biometric]           | `Done`                | `Hung`                |
 | [QRcode]              | `Done`                | `Hieu`                |
 
+## Bottom Tab
+![Simulator Screenshot - iPhone 14 Pro Max - 2023-08-16 at 17 19 04](https://github.com/Sotatek-HaoNguyen3/Demo/assets/130327884/bc5dcb95-b456-449c-b5bf-b1505374c11f)

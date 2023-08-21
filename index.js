@@ -33,11 +33,12 @@ LogBox.ignoreLogs([
     'Non-serializable values were found in the navigation state',
     'DEPRECATION WARNING',
     'Reanimated 2',
-    "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+    '[react-native-gesture-handler]',
     'Require cycle:',
     'ViewPropTypes will be removed from React Native',
     'Error evaluating injectedJavaScript:',
     'You must be registered for remote messages before calling getToken',
+    'LogBox.js:148 Remote debugger is in a background tab which may cause apps to perform slowly',
 ]);
 
 AppRegistry.registerComponent(appName, () => App);

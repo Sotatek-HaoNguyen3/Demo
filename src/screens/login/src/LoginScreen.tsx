@@ -1,15 +1,16 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ImageBackground, StyleSheet, View } from 'react-native';
+import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { loginDataForm } from './src/const';
-import loginSchema from './src/schema';
+import { loginDataForm, loginFieldName } from './const';
+import loginSchema from './schema';
 
 import Images from 'assets/images';
+import Svgs from 'assets/svgs';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { Button, ButtonText, FormInput } from 'packages/uikit';
+import { Button, ButtonText, CheckBox, FormInput } from 'packages/uikit';
 import Text from 'packages/uikit/components/Text';
 import { IColors } from 'packages/uikit/theme';
 import Fonts from 'themes/fonts';
@@ -22,6 +23,7 @@ const LoginScreen = () => {
         control,
         formState: { errors },
         register,
+        getValues,
     } = useForm({
         mode: 'all',
         defaultValues: { email: '', password: '' },
@@ -36,6 +38,43 @@ const LoginScreen = () => {
     const { colorMode } = useContext(HybridContext);
     const { mode } = colorMode;
     const fadeImage = mode === 'dark' ? Images.BACKGROUND_FADE_DARK : Images.BACKGROUND_FADE;
+    const [hidePassword, setHidePassword] = useState<boolean>(true);
+    const [isCheck, setIsCheck] = useState<boolean>(false);
+    const isPassword = (name: string) => {
+        return name === loginFieldName.password;
+    };
+
+    const handleHidePassword = () => {
+        setHidePassword(!hidePassword);
+    };
+
+    const renderLeftInput = (icon: string) => {
+        const Icon = Svgs[`${icon}`];
+        return (
+            <View style={styles.leftIcon}>
+                <Icon width={scale(16)} height={scale(16)} />
+            </View>
+        );
+    };
+
+    const renderRightInput = (name) => {
+        const Icon = Svgs[isPassword(name) ? `Ic${hidePassword ? 'EyeHide' : 'Eye'}` : `IcCheck`];
+        const sizeIcon = isPassword(name) ? (hidePassword ? 20 : 17) : 16;
+        const padding = hidePassword || !isPassword(name) ? 0 : scale(2);
+        return (
+            <TouchableOpacity
+                disabled={name !== loginFieldName.password}
+                onPress={handleHidePassword}
+                style={[styles.rightIcon, { paddingRight: padding }]}>
+                <Icon width={scale(sizeIcon)} height={scale(sizeIcon)} />
+            </TouchableOpacity>
+        );
+    };
+
+    const renderCheckboxIcon = () => {
+        const Icon = Svgs[`IcTick`];
+        return isCheck ? <Icon width={scale(12)} height={scale(12)} /> : null;
+    };
 
     return (
         <ImageBackground style={styles.background} source={Images.BACKGROUND}>
@@ -58,8 +97,10 @@ const LoginScreen = () => {
                                     register={register}
                                     styleInput={styles.input}
                                     styleTextInput={styles.textInput}
-                                    labelTextStyle={styles.labelInput}
-                                    placeholderTextColor={colors.secondary80}
+                                    placeholderTextColor={colors.label}
+                                    leftComponent={renderLeftInput(data.icon)}
+                                    secure={isPassword(data.name) ? hidePassword : false}
+                                    rightComponent={renderRightInput(data.name)}
                                 />
                             );
                         })}
@@ -68,6 +109,18 @@ const LoginScreen = () => {
                             onPress={onSubmit}
                             containerStyles={styles.loginBtn}
                             titleStyles={styles.titleButton}
+                        />
+                        <CheckBox
+                            iconComponent={renderCheckboxIcon()}
+                            fillColor={colors.main}
+                            onPress={(isChecked: boolean) => {
+                                setIsCheck(isChecked);
+                            }}
+                            radius={scale(3)}
+                            size={scale(16)}
+                            text="Remember me"
+                            textContainerStyle={styles.checkBoxTextContainer}
+                            textStyle={styles.checkBoxText}
                         />
                     </View>
                 </View>
@@ -91,14 +144,13 @@ const myStyles = (themeColors: IColors) => {
         backgroundFade: {
             flex: 1,
             position: 'absolute',
-            height: scale(1000),
-            width: scale(800),
-            left: -scale(200),
-            top: scale(130),
+            height: scale(1100),
+            width: scale(900),
+            left: -scale(220),
+            top: scale(100),
         },
         container: {
             flex: 1,
-            // backgroundColor: themeColors.backgroundAlt,
         },
         content: {
             position: 'absolute',
@@ -137,27 +189,23 @@ const myStyles = (themeColors: IColors) => {
         },
         input: {
             backgroundColor: themeColors.backgroundAlt,
-            borderRadius: scale(4),
-            borderWidth: 1,
-            borderColor: themeColors.cardBorder,
+            borderRadius: scale(8),
+            borderWidth: scale(1),
+            borderColor: themeColors.blackOpacity10,
             height: scale(48),
             marginTop: scale(20),
-            paddingHorizontal: scale(8),
-            paddingVertical: scale(4),
-            shadowColor: '#171717',
-            shadowOffset: { width: 6, height: 8 },
-            shadowOpacity: 0.3,
-            shadowRadius: 3,
+            paddingHorizontal: scale(10),
+            alignItems: 'center',
         },
         textInput: {
-            fontWeight: '600',
-            fontSize: 16,
-            color: themeColors.secondary,
+            fontWeight: '400',
+            fontSize: scale(12),
+            ...Fonts.poppins400,
         },
         labelInput: {
-            fontSize: 15,
-            fontWeight: '800',
-            color: themeColors.secondary,
+            fontSize: 10,
+            color: themeColors.label,
+            ...Fonts.poppins400,
         },
         titleButton: {
             ...Fonts.poppins700,
@@ -168,6 +216,7 @@ const myStyles = (themeColors: IColors) => {
             borderRadius: scale(8),
             backgroundColor: themeColors.main,
             height: scale(49),
+            marginBottom: scale(24),
         },
         bottomSignUp: {
             position: 'absolute',
@@ -181,6 +230,23 @@ const myStyles = (themeColors: IColors) => {
             color: themeColors.secondary,
             bottom: scale(4),
             marginLeft: scale(4),
+        },
+        leftIcon: {
+            marginRight: scale(8),
+        },
+        rightIcon: {
+            width: scale(20),
+            alignItems: 'center',
+        },
+        checkBoxTextContainer: {
+            marginLeft: scale(4),
+        },
+        checkBoxText: {
+            fontWeight: '400',
+            fontSize: scale(12),
+            ...Fonts.poppins100,
+            color: themeColors.subText,
+            textDecorationLine: 'none',
         },
     });
 };

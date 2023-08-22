@@ -20,4 +20,6 @@ export const darkColors = {
     textDisabled: '#666171',
     textSubtle: '#B8ADD2',
     disabled: '#524B63',
+    label: '#C4C4C4',
+    subText: '#FFFFFF',
 };

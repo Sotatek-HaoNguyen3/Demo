@@ -26,4 +26,5 @@ export const commonColors = {
     warning33: '#ED4B9E33',
     blackOpacity80: 'rgba(0, 0, 0, 0.8)',
     blackOpacity50: 'rgba(0, 0, 0, 0.5)',
+    blackOpacity10: 'rgba(0, 0, 0, 0.15)',
 };

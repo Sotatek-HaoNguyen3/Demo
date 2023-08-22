@@ -29,8 +29,12 @@ const MyTabBar = (props: BottomTabBarProps) => {
                         <IconTab width={scale(sizeIcon)} height={scale(sizeIcon)} />
                     </TouchableOpacity>
                 ) : (
-                    <TouchableOpacity key={index.toString()} style={styles.btnMiddleTab} onPress={onPress}>
-                        <IconTab width={scale(110)} height={scale(110)} />
+                    <TouchableOpacity
+                        activeOpacity={0.98}
+                        key={index.toString()}
+                        style={styles.btnMiddleTab}
+                        onPress={onPress}>
+                        <IconTab width={scale(100)} height={scale(100)} />
                     </TouchableOpacity>
                 );
             })}
@@ -42,7 +46,7 @@ const myStyles = (themeColors: IColors) =>
     StyleSheet.create({
         container: {
             flexDirection: 'row',
-            height: Sizes.bottomSpace + scale(60),
+            height: Sizes.bottomSpace + scale(50),
             paddingBottom: Sizes.bottomSpace,
             backgroundColor: themeColors.backgroundAlt,
             shadowColor: '#000000',
@@ -65,7 +69,7 @@ const myStyles = (themeColors: IColors) =>
         btnMiddleTab: {
             alignItems: 'center',
             justifyContent: 'center',
-            top: -35,
+            top: -scale(35),
             width: Sizes.bottomSpace + scale(80),
             height: Sizes.bottomSpace + scale(80),
         },

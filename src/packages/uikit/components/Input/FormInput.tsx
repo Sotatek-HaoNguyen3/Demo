@@ -26,7 +26,7 @@ interface FormInputProps {
     errorTextStyle?: StyleProp<TextStyle>;
 }
 
-const FormInput: React.FC<FormInputProps> = ({
+const FormInput: React.FC<FormInputProps & TextInputProps> = ({
     name,
     control,
     error,

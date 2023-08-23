@@ -14,6 +14,8 @@ function RootStacks() {
         <NavigationContainer ref={navigationRef}>
             <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }}>
                 <Stack.Screen name="Login" component={Screens.LoginScreen} />
+                <Stack.Screen name="Register" component={Screens.RegisterScreen} />
+                <Stack.Screen name="Intro" component={Screens.IntroScreen} />
                 <Stack.Screen name="Main" component={BottomTab} />
             </Stack.Navigator>
         </NavigationContainer>

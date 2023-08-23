@@ -10,6 +10,7 @@ import BaseModal from './Modal';
 import OTPInput from './OtpInput';
 import RadioGroup from './RadioButton';
 import SearchBar from './SearchBar';
+import Slider from './Slider';
 import Toast from './Toast';
 export { default as Switch } from './Switch';
 
@@ -27,6 +28,7 @@ export {
     RadioGroup,
     SearchBar,
     BottomSheetInput,
+    Slider,
 };
 
 export * from './Button';

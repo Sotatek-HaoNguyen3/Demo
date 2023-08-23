@@ -1,5 +1,5 @@
 export const darkColors = {
-    main: '  #7645D9',
+    main: '#7645D9',
     secondary: '#9A6AFF',
     secondary80: '#9A6AFF80',
     background: '#393948',

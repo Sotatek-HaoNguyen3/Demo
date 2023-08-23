@@ -1,9 +1,13 @@
+import IcBookmark from './auth/bookmark.svg';
 import IcCheck from './auth/check.svg';
 import IcEmail from './auth/email.svg';
 import IcEye from './auth/eye.svg';
 import IcEyeHide from './auth/eye_hide.svg';
+import IcHeadphone from './auth/headphone.svg';
 import IcLock from './auth/lock.svg';
 import IcTick from './auth/tick.svg';
+import IcUsername from './auth/user.svg';
+import IcZoom from './auth/zoom.svg';
 import IcFavourite from './tabs/heart.svg';
 import IcFavouriteActive from './tabs/heart_active.svg';
 import IcHome from './tabs/home.svg';
@@ -30,6 +34,10 @@ const Svgs = {
     IcEyeHide,
     IcCheck,
     IcTick,
+    IcUsername,
+    IcBookmark,
+    IcZoom,
+    IcHeadphone,
 };
 
 export default Svgs;

@@ -3,14 +3,14 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { loginDataForm, loginFieldName } from './constant';
+import { registerDataForm, registerFieldName } from './constant';
 import loginSchema from './schema';
 
 import Images from 'assets/images';
 import Svgs from 'assets/svgs';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { Button, ButtonText, CheckBox, FormInput } from 'packages/uikit';
+import { Button, ButtonText, FormInput } from 'packages/uikit';
 import Text from 'packages/uikit/components/Text';
 import { IColors } from 'packages/uikit/theme';
 import Fonts from 'themes/fonts';
@@ -18,7 +18,7 @@ import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
 
-const LoginScreen = () => {
+const RegisterScreen = () => {
     const {
         control,
         formState: { errors },
@@ -31,7 +31,7 @@ const LoginScreen = () => {
     });
 
     const onSubmit = async () => {
-        navigate('Intro');
+        navigate('Main');
     };
     const colors = useThemeColors();
     const styles = myStyles(colors);
@@ -39,13 +39,18 @@ const LoginScreen = () => {
     const { mode } = colorMode;
     const fadeImage = mode === 'dark' ? Images.BACKGROUND_FADE_DARK : Images.BACKGROUND_FADE;
     const [hidePassword, setHidePassword] = useState<boolean>(true);
-    const [isCheck, setIsCheck] = useState<boolean>(false);
+    const [hideRePassword, setHideRePassword] = useState<boolean>(true);
+
     const isPassword = (name: string) => {
-        return name === loginFieldName.password;
+        return name.includes(registerFieldName.password);
     };
 
-    const handleHidePassword = () => {
-        setHidePassword(!hidePassword);
+    const handleHidePassword = (isConfirm = false) => {
+        if (isConfirm) {
+            setHideRePassword(!hideRePassword);
+        } else {
+            setHidePassword(!hidePassword);
+        }
     };
 
     const renderLeftInput = (icon: string) => {
@@ -57,23 +62,32 @@ const LoginScreen = () => {
         );
     };
 
+    const handleSecure = (name: string) => {
+        const isPass = isPassword(name);
+        if (isPass) {
+            if (name === registerFieldName.password) {
+                return hidePassword;
+            }
+            if (name === registerFieldName.confirmPassword) {
+                return hideRePassword;
+            }
+        } else {
+            return false;
+        }
+    };
+
     const renderRightInput = (name) => {
-        const Icon = Svgs[isPassword(name) ? `Ic${hidePassword ? 'EyeHide' : 'Eye'}` : `IcCheck`];
-        const sizeIcon = isPassword(name) ? (hidePassword ? 20 : 17) : 16;
-        const padding = hidePassword || !isPassword(name) ? 0 : scale(2);
+        const Icon = Svgs[isPassword(name) ? `Ic${handleSecure(name) ? 'EyeHide' : 'Eye'}` : `IcCheck`];
+        const sizeIcon = isPassword(name) ? (handleSecure(name) ? 20 : 17) : 16;
+        const padding = handleSecure(name) || !isPassword(name) ? 0 : scale(2);
         return (
             <TouchableOpacity
-                disabled={name !== loginFieldName.password}
-                onPress={handleHidePassword}
+                disabled={!isPassword(name)}
+                onPress={() => handleHidePassword(name !== registerFieldName.password)}
                 style={[styles.rightIcon, { paddingRight: padding }]}>
                 <Icon width={scale(sizeIcon)} height={scale(sizeIcon)} />
             </TouchableOpacity>
         );
-    };
-
-    const renderCheckboxIcon = () => {
-        const Icon = Svgs[`IcTick`];
-        return isCheck ? <Icon width={scale(12)} height={scale(12)} /> : null;
     };
 
     return (
@@ -83,57 +97,45 @@ const LoginScreen = () => {
                 <View style={styles.content}>
                     <View>
                         <Text style={styles.welcome}>Welcome!</Text>
-                        <Text style={styles.subTitle}>Sign in to continue</Text>
+                        <Text style={styles.subTitle}>Sign up to continue</Text>
                     </View>
                     <View style={styles.formRegister}>
-                        {loginDataForm.map((data, index) => {
+                        {registerDataForm.map((data, index) => {
                             return (
                                 <FormInput
                                     key={`input_${index}`}
                                     control={control}
                                     name={data.name}
                                     error={errors[`${data.name}`]}
-                                    placeholder={data.name}
+                                    placeholder={data.placeholder}
                                     register={register}
                                     styleInput={styles.input}
                                     styleTextInput={styles.textInput}
                                     placeholderTextColor={colors.label}
                                     leftComponent={renderLeftInput(data.icon)}
-                                    secure={isPassword(data.name) ? hidePassword : false}
+                                    secure={handleSecure(data.name)}
                                     rightComponent={renderRightInput(data.name)}
                                 />
                             );
                         })}
                         <Button
-                            title="Sign in"
+                            title="Sign up"
                             onPress={onSubmit}
                             containerStyles={styles.loginBtn}
                             titleStyles={styles.titleButton}
                         />
-                        <CheckBox
-                            iconComponent={renderCheckboxIcon()}
-                            fillColor={colors.main}
-                            onPress={(isChecked: boolean) => {
-                                setIsCheck(isChecked);
-                            }}
-                            radius={scale(3)}
-                            size={scale(16)}
-                            text="Remember me"
-                            textContainerStyle={styles.checkBoxTextContainer}
-                            textStyle={styles.checkBoxText}
-                        />
                     </View>
                 </View>
                 <View style={styles.bottomSignUp}>
-                    <Text style={styles.dontHaveAccount}>Don't have an account?</Text>
-                    <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => navigate('Register')} />
+                    <Text style={styles.dontHaveAccount}>Already have an account?</Text>
+                    <ButtonText title="Sign in" titleStyles={styles.signUp} onPress={() => navigate('Login')} />
                 </View>
             </View>
         </ImageBackground>
     );
 };
 
-export default LoginScreen;
+export default RegisterScreen;
 
 const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({

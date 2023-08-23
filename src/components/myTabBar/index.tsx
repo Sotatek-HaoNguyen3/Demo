@@ -47,7 +47,7 @@ const myStyles = (themeColors: IColors) =>
         container: {
             flexDirection: 'row',
             height: Sizes.bottomSpace + scale(50),
-            paddingBottom: Sizes.bottomSpace,
+            paddingBottom: Sizes.bottomSpace !== 0 ? Sizes.bottomSpace : scale(10),
             backgroundColor: themeColors.backgroundAlt,
             shadowColor: '#000000',
             shadowOffset: { width: 0, height: 0 },

@@ -4,5 +4,6 @@ export type RootParamList = {
     Login: undefined;
     Register: undefined;
     Intro: undefined;
+    Post: undefined;
     Main: { screen?: string };
 };

@@ -8,6 +8,7 @@ import loginSchema from './schema';
 
 import Images from 'assets/images';
 import Svgs from 'assets/svgs';
+import { useSetting } from 'contexts/SettingProvider';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Button, ButtonText, CheckBox, FormInput } from 'packages/uikit';
@@ -23,7 +24,6 @@ const LoginScreen = () => {
         control,
         formState: { errors },
         register,
-        getValues,
     } = useForm({
         mode: 'all',
         defaultValues: { email: '', password: '' },
@@ -33,6 +33,7 @@ const LoginScreen = () => {
     const onSubmit = async () => {
         navigate('Intro');
     };
+    const { t } = useSetting();
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
@@ -82,8 +83,8 @@ const LoginScreen = () => {
                 <ImageBackground style={styles.backgroundFade} source={fadeImage} />
                 <View style={styles.content}>
                     <View>
-                        <Text style={styles.welcome}>Welcome!</Text>
-                        <Text style={styles.subTitle}>Sign in to continue</Text>
+                        <Text style={styles.welcome}>{t('auth.welcome')}</Text>
+                        <Text style={styles.subTitle}>{t('auth.welcomeSignIn')}</Text>
                     </View>
                     <View style={styles.formRegister}>
                         {loginDataForm.map((data, index) => {
@@ -93,7 +94,7 @@ const LoginScreen = () => {
                                     control={control}
                                     name={data.name}
                                     error={errors[`${data.name}`]}
-                                    placeholder={data.name}
+                                    placeholder={t('auth.' + data.placeholder.toLowerCase())}
                                     register={register}
                                     styleInput={styles.input}
                                     styleTextInput={styles.textInput}
@@ -105,7 +106,7 @@ const LoginScreen = () => {
                             );
                         })}
                         <Button
-                            title="Sign in"
+                            title={t('auth.signIn')}
                             onPress={onSubmit}
                             containerStyles={styles.loginBtn}
                             titleStyles={styles.titleButton}
@@ -118,15 +119,19 @@ const LoginScreen = () => {
                             }}
                             radius={scale(3)}
                             size={scale(16)}
-                            text="Remember me"
+                            text={t('auth.rememberMe')}
                             textContainerStyle={styles.checkBoxTextContainer}
                             textStyle={styles.checkBoxText}
                         />
                     </View>
                 </View>
                 <View style={styles.bottomSignUp}>
-                    <Text style={styles.dontHaveAccount}>Don't have an account?</Text>
-                    <ButtonText title="Sign up" titleStyles={styles.signUp} onPress={() => navigate('Register')} />
+                    <Text style={styles.dontHaveAccount}>{t('auth.dontHaveAccount')}</Text>
+                    <ButtonText
+                        title={t('auth.signUp')}
+                        titleStyles={styles.signUp}
+                        onPress={() => navigate('Register')}
+                    />
                 </View>
             </View>
         </ImageBackground>
@@ -201,6 +206,7 @@ const myStyles = (themeColors: IColors) => {
         textInput: {
             fontWeight: '400',
             fontSize: scale(12),
+            height: '100%',
             ...Fonts.poppins400,
         },
         labelInput: {
@@ -254,7 +260,7 @@ const myStyles = (themeColors: IColors) => {
         checkBoxText: {
             fontWeight: '400',
             fontSize: scale(12),
-            ...Fonts.poppins100,
+            ...Fonts.poppins400,
             color: themeColors.subText,
             textDecorationLine: 'none',
         },

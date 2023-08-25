@@ -27,7 +27,7 @@ const registerDataForm = [
     {
         name: registerFieldName.confirmPassword,
         type: 'input-text',
-        placeholder: 'Confirm Password',
+        placeholder: 'confirmPassword',
         icon: 'IcLock',
     },
 ];

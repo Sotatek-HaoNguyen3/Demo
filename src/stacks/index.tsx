@@ -17,6 +17,7 @@ function RootStacks() {
                 <Stack.Screen name="Register" component={Screens.RegisterScreen} />
                 <Stack.Screen name="Intro" component={Screens.IntroScreen} />
                 <Stack.Screen name="Main" component={BottomTab} />
+                <Stack.Screen name="Post" component={Screens.PostScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

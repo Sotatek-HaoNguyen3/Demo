@@ -116,9 +116,7 @@ export default FormInput;
 const myStyles = StyleSheet.create({
     inputContainer: {
         width: '100%',
-        borderBottomWidth: 0.2,
         flexDirection: 'row',
-        paddingVertical: 1,
         marginTop: scale(4),
     },
     input: {
@@ -133,7 +131,7 @@ const myStyles = StyleSheet.create({
         flex: 1,
         height: 44,
         fontSize: 14,
-        alignItems: 'center',
+        justifyContent: 'center',
     },
     lableText: {},
     errorText: {},

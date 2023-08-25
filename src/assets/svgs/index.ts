@@ -8,6 +8,11 @@ import IcLock from './auth/lock.svg';
 import IcTick from './auth/tick.svg';
 import IcUsername from './auth/user.svg';
 import IcZoom from './auth/zoom.svg';
+import IcBack from './common/back_btn.svg';
+import IcArrowDown from './common/chevron-down.svg';
+import IcArrowUp from './common/chevron-up.svg';
+import IcPublic from './common/earth.svg';
+import IcPrivate from './common/private.svg';
 import IcFavourite from './tabs/heart.svg';
 import IcFavouriteActive from './tabs/heart_active.svg';
 import IcHome from './tabs/home.svg';
@@ -38,6 +43,11 @@ const Svgs = {
     IcBookmark,
     IcZoom,
     IcHeadphone,
+    IcBack,
+    IcPublic,
+    IcPrivate,
+    IcArrowDown,
+    IcArrowUp,
 };
 
 export default Svgs;

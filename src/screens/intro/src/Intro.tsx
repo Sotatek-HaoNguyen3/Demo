@@ -32,23 +32,20 @@ const IntroScreen = (props) => {
 
     const slideList = [
         {
-            title: 'Explore',
-            messageText:
-                'Our innovative platform combines the power of social interaction with comprehensive language lessons, creating a dynamic and immersive learning experience.',
+            title: t('intro.titleIntro1'),
+            messageText: t('intro.massageIntro1'),
             imgMain: 'IcHeadphone',
             nextAction: null,
         },
         {
-            title: 'Share',
-            messageText:
-                'We believe that knowledge grows when shared, and learning English becomes an enriching communal endeavor.',
+            title: t('intro.titleIntro2'),
+            messageText: t('intro.massageIntro2'),
             imgMain: 'IcBookmark',
             nextAction: null,
         },
         {
-            title: 'Search',
-            messageText:
-                'With a plethora of resources at your fingertips, you can explore, and find the answers you seek to bolster your English proficiency.',
+            title: t('intro.titleIntro3'),
+            messageText: t('intro.massageIntro3'),
             imgMain: 'IcZoom',
             nextAction: handleLogin,
         },
@@ -79,12 +76,12 @@ const IntroScreen = (props) => {
             {!isFinish && (
                 <View style={styles.skipView}>
                     <TouchableOpacity style={styles.skipBtn} onPress={() => navigate('Main')}>
-                        <Text style={styles.skipText}>Skip</Text>
+                        <Text style={styles.skipText}>{t('intro.skip')}</Text>
                     </TouchableOpacity>
                 </View>
             )}
             <Button
-                title={`${isFinish ? 'Done' : 'Next'}`}
+                title={`${isFinish ? t('intro.done') : t('intro.next')}`}
                 onPress={() => {
                     if (isFinish) {
                         navigate('Main');
@@ -123,8 +120,8 @@ const myStyles = (themeColors: IColors) => {
         },
         skipBtn: {},
         skipText: {
-            ...Fonts.poppins100,
-            fontWeight: '500',
+            ...Fonts.poppins400,
+            fontWeight: '400',
             fontSize: scale(12),
             color: themeColors.white,
         },

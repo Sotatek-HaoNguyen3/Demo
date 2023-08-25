@@ -8,6 +8,7 @@ import loginSchema from './schema';
 
 import Images from 'assets/images';
 import Svgs from 'assets/svgs';
+import { useSetting } from 'contexts/SettingProvider';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Button, ButtonText, FormInput } from 'packages/uikit';
@@ -33,6 +34,7 @@ const RegisterScreen = () => {
     const onSubmit = async () => {
         navigate('Main');
     };
+    const { t } = useSetting();
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const { colorMode } = useContext(HybridContext);
@@ -96,8 +98,8 @@ const RegisterScreen = () => {
                 <ImageBackground style={styles.backgroundFade} source={fadeImage} />
                 <View style={styles.content}>
                     <View>
-                        <Text style={styles.welcome}>Welcome!</Text>
-                        <Text style={styles.subTitle}>Sign up to continue</Text>
+                        <Text style={styles.welcome}>{t('auth.welcome')}</Text>
+                        <Text style={styles.subTitle}>{t('auth.welcomeSignUp')}</Text>
                     </View>
                     <View style={styles.formRegister}>
                         {registerDataForm.map((data, index) => {
@@ -107,7 +109,7 @@ const RegisterScreen = () => {
                                     control={control}
                                     name={data.name}
                                     error={errors[`${data.name}`]}
-                                    placeholder={data.placeholder}
+                                    placeholder={t('auth.' + data.placeholder.toLowerCase())}
                                     register={register}
                                     styleInput={styles.input}
                                     styleTextInput={styles.textInput}
@@ -119,7 +121,7 @@ const RegisterScreen = () => {
                             );
                         })}
                         <Button
-                            title="Sign up"
+                            title={t('auth.signUp')}
                             onPress={onSubmit}
                             containerStyles={styles.loginBtn}
                             titleStyles={styles.titleButton}
@@ -127,8 +129,12 @@ const RegisterScreen = () => {
                     </View>
                 </View>
                 <View style={styles.bottomSignUp}>
-                    <Text style={styles.dontHaveAccount}>Already have an account?</Text>
-                    <ButtonText title="Sign in" titleStyles={styles.signUp} onPress={() => navigate('Login')} />
+                    <Text style={styles.dontHaveAccount}>{t('auth.haveAccount')}</Text>
+                    <ButtonText
+                        title={t('auth.signIn')}
+                        titleStyles={styles.signUp}
+                        onPress={() => navigate('Login')}
+                    />
                 </View>
             </View>
         </ImageBackground>

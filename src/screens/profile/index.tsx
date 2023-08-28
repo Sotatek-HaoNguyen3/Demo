@@ -1,8 +1,12 @@
+import { useThemeColors } from 'packages/hooks/useTheme';
+import { IColors } from 'packages/uikit';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const ProfileScreen = () => {
-    const styles = Styles();
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
+
     return (
         <View style={styles.container}>
             <Text>Profile</Text>
@@ -12,7 +16,7 @@ const ProfileScreen = () => {
 
 export default ProfileScreen;
 
-const Styles = () => {
+const myStyles = (themeColors: IColors) => {
     return StyleSheet.create({
         container: {
             flex: 1,

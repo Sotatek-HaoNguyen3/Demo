@@ -13,6 +13,7 @@ import IcArrowDown from './common/chevron-down.svg';
 import IcArrowUp from './common/chevron-up.svg';
 import IcPublic from './common/earth.svg';
 import IcPrivate from './common/private.svg';
+import IcStar from './star.svg';
 import IcFavourite from './tabs/heart.svg';
 import IcFavouriteActive from './tabs/heart_active.svg';
 import IcHome from './tabs/home.svg';
@@ -33,6 +34,7 @@ const Svgs = {
     IcFavouriteActive,
     IcProfile,
     IcProfileActive,
+    IcStar,
     IcEmail,
     IcLock,
     IcEye,

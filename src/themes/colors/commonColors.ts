@@ -11,6 +11,7 @@ export const commonColors = {
     gray5: '#BEBEBE',
     gray6: '#EBEBEB',
     gray7: '#E2E2E2',
+    gray8: '#C4C4C4',
     d3d3d3: '#D3D3D3',
     failure: '#ED4B9E',
     failure33: '#ED4B9E33',

@@ -6,6 +6,7 @@ const Images = {
     BACKGROUND_FADE_DARK: require('./bg_fade_dark.png'),
     INTRO: require('./intro.png'),
     INTRO_BACKGROUND: require('./intro_background.png'),
+    RECOMMENDED: require('./recommended.png'),
 };
 
 export default Images;

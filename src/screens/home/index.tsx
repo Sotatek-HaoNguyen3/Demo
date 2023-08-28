@@ -44,8 +44,7 @@ const Home = () => {
     const [dataTest, setDataTest] = useState(test);
 
     const handleProgress = () => {
-        const random = Math.floor(Math.random() * 10) * 10;
-        setProgress(random);
+        setProgress((prevState) => (prevState = prevState + 10));
     };
 
     const renderItem = (item) => {

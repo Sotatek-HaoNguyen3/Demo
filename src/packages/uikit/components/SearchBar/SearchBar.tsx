@@ -8,6 +8,7 @@ import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors, theme } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
 import { useDebounce } from 'packages/hooks';
+import Text from '../Text';
 
 const SearchBar = (props: ISearchBarProps & TextInputProps) => {
     const colors = useThemeColors();
@@ -57,7 +58,7 @@ const SearchBar = (props: ISearchBarProps & TextInputProps) => {
             }
             return (
                 <TouchableOpacity style={styles.closeContainer} onPress={() => setValue('')}>
-                    <Image style={[styles.iconClose, rightStyle]} source={require('./close.png')} />
+                    <Text>Cancel</Text>
                 </TouchableOpacity>
             );
         }
@@ -65,15 +66,17 @@ const SearchBar = (props: ISearchBarProps & TextInputProps) => {
 
     return (
         <View style={[styles.viewInput, containerStyle]}>
-            {renderLeft()}
-            <TextInput
-                style={[styles.inputStyle, inputStyle]}
-                placeholder={placeholder}
-                value={value}
-                onChangeText={setValue}
-                placeholderTextColor={placeholderTextColor}
-                {...rest}
-            />
+            <View style={styles.content}>
+                {renderLeft()}
+                <TextInput
+                    style={[styles.inputStyle, inputStyle]}
+                    placeholder={placeholder}
+                    value={value}
+                    onChangeText={setValue}
+                    placeholderTextColor={placeholderTextColor}
+                    {...rest}
+                />
+            </View>
             {renderRight()}
         </View>
     );
@@ -91,10 +94,6 @@ const myStyles = (themeColors: IColors) =>
         viewInput: {
             flexDirection: 'row',
             alignItems: 'center',
-            height: scale(48),
-            paddingHorizontal: scale(17.5),
-            backgroundColor: themeColors.backgroundDisabled,
-            borderRadius: scale(4),
             marginTop: scale(20),
         },
         inputStyle: {
@@ -106,7 +105,6 @@ const myStyles = (themeColors: IColors) =>
             height: scale(48),
         },
         closeContainer: {
-            backgroundColor: themeColors.backgroundAlt,
             padding: scale(4),
             borderRadius: scale(10),
             ...theme.shadows[2],
@@ -115,5 +113,15 @@ const myStyles = (themeColors: IColors) =>
             height: scale(12),
             width: scale(12),
             tintColor: themeColors.secondary,
+        },
+        content: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            height: scale(40),
+            width: scale(288),
+            paddingHorizontal: scale(17.5),
+            borderWidth: scale(1),
+            borderRadius: scale(40),
+            borderColor: themeColors.gray8,
         },
     });

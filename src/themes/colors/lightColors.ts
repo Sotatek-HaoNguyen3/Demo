@@ -19,4 +19,6 @@ export const lightColors = {
     textDisabled: '#BDC2C4',
     textSubtle: '#7A6EAA',
     disabled: '#E9EAEB',
+    gray9: '#979797',
+    gray10: '#878787',
 };

@@ -13,6 +13,10 @@ import IcArrowDown from './common/chevron-down.svg';
 import IcArrowUp from './common/chevron-up.svg';
 import IcPublic from './common/earth.svg';
 import IcPrivate from './common/private.svg';
+import IcCamera from './post/camera.svg';
+import IcImageLibrary from './post/image_lib.svg';
+import IcQuiz from './post/quiz.svg';
+import IcVideo from './post/video.svg';
 import IcStar from './star.svg';
 import IcFavourite from './tabs/heart.svg';
 import IcFavouriteActive from './tabs/heart_active.svg';
@@ -50,6 +54,10 @@ const Svgs = {
     IcPrivate,
     IcArrowDown,
     IcArrowUp,
+    IcCamera,
+    IcImageLibrary,
+    IcQuiz,
+    IcVideo,
 };
 
 export default Svgs;

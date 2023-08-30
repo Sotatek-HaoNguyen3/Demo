@@ -1,10 +1,22 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { ReactNode, useMemo, useRef, useState } from 'react';
 
-import { FlatList, Modal, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+    FlatList,
+    KeyboardAvoidingView,
+    Modal,
+    Platform,
+    StyleSheet,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    View,
+} from 'react-native';
+
+import { POST_OPTION } from './constant';
 
 import Svgs from 'assets/svgs';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { AppBar, Avatar, BaseModal, IColors } from 'packages/uikit';
+import { AppBar, Avatar, Button, IColors } from 'packages/uikit';
 
 import { HitSlop } from 'themes/dimensions';
 import Fonts from 'themes/fonts';
@@ -28,6 +40,7 @@ const PostScreen = () => {
         const Icon = Svgs[`Ic${visible ? 'ArrowUp' : 'ArrowDown'}`];
         return Icon;
     }, [visible]);
+
     const renderHeader = () => {
         const IconBack = Svgs[`IcBack`];
         return (
@@ -89,32 +102,56 @@ const PostScreen = () => {
             </Modal>
         );
     };
+
+    const renderPostOption = () => {
+        return POST_OPTION.map((item) => {
+            const Icon = Svgs[item.icon];
+            return (
+                <TouchableOpacity style={styles.dropdownIcon}>
+                    <Icon width={scale(25)} height={scale(25)} />
+                </TouchableOpacity>
+            );
+        });
+    };
     return (
-        <View style={styles.container}>
-            <AppBar style={styles.headerView} left={renderHeader()} />
-            <View style={styles.content}>
-                <View style={styles.userInfor}>
-                    <Avatar size={scale(50)} />
-                    <View style={styles.rightInfo}>
-                        <Text style={styles.nameText}>Maxwell Kim</Text>
-                        <TouchableOpacity ref={dropdownButtonRef} style={styles.postMode} onPress={toggleDropdown}>
-                            <IconMode width={scale(16)} height={scale(16)} />
-                            <Text style={styles.textMode}>{isPrivate ? 'Private' : 'Public'}</Text>
-                            <IconArrow width={scale(16)} height={scale(16)} />
-                            {renderDropDown()}
-                        </TouchableOpacity>
+        <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
+            <View style={styles.container}>
+                <AppBar style={styles.headerView} left={renderHeader()} />
+                <View style={styles.content}>
+                    <View style={styles.userInfor}>
+                        <Avatar size={scale(50)} />
+                        <View style={styles.rightInfo}>
+                            <Text style={styles.nameText}>Maxwell Kim</Text>
+                            <TouchableOpacity ref={dropdownButtonRef} style={styles.postMode} onPress={toggleDropdown}>
+                                <IconMode width={scale(16)} height={scale(16)} />
+                                <Text style={styles.textMode}>{isPrivate ? 'Private' : 'Public'}</Text>
+                                <IconArrow width={scale(16)} height={scale(16)} />
+                                {renderDropDown()}
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <TextInput
+                        style={styles.contentInput}
+                        value={content}
+                        onChangeText={setContent}
+                        placeholder="Type Here..."
+                        multiline={true}
+                        autoFocus={false}
+                    />
+                    <View style={styles.bottomView}>
+                        <View style={styles.bottomLeft}>{renderPostOption()}</View>
+                        <View style={styles.bottomRight}>
+                            <Button
+                                title={`Post`}
+                                onPress={() => {}}
+                                containerStyles={styles.loginBtn}
+                                titleStyles={styles.titleButton}
+                            />
+                        </View>
                     </View>
                 </View>
-                <TextInput
-                    style={styles.contentInput}
-                    value={content}
-                    onChangeText={setContent}
-                    placeholder="Type Here..."
-                    multiline={true}
-                    autoFocus={false}
-                />
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 };
 
@@ -127,6 +164,7 @@ const myStyles = (themeColors: IColors) => {
             alignItems: 'center',
             backgroundColor: themeColors.backgroundAlt,
             paddingHorizontal: scale(16),
+            paddingBottom: scale(130),
         },
         titleText: {
             color: themeColors.subText,
@@ -148,10 +186,11 @@ const myStyles = (themeColors: IColors) => {
             borderWidth: scale(1),
             borderColor: themeColors.blackOpacity10,
             width: '100%',
-            minHeight: scale(500),
+            height: '100%',
             borderRadius: scale(12),
             padding: scale(10),
             marginTop: scale(20),
+            justifyContent: 'space-between',
         },
         userInfor: {
             flexDirection: 'row',
@@ -188,6 +227,7 @@ const myStyles = (themeColors: IColors) => {
         },
         contentInput: {
             width: '100%',
+            flex: 1,
         },
         overlay: {
             width: '100%',
@@ -211,13 +251,38 @@ const myStyles = (themeColors: IColors) => {
         },
         dropdownIcon: {
             alignItems: 'center',
-            // backgroundColor: 'red',
             marginRight: scale(6),
         },
         dropdownText: {
             ...Fonts.poppins400,
             fontWeight: '400',
             fontSize: scale(12),
+        },
+        bottomView: {
+            width: '100%',
+            alignItems: 'center',
+            flexDirection: 'row',
+        },
+        titleButton: {
+            ...Fonts.poppins600,
+            fontWeight: '600',
+            color: themeColors.white,
+            fontSize: scale(14),
+        },
+        loginBtn: {
+            width: scale(120),
+            borderRadius: scale(8),
+            backgroundColor: themeColors.main,
+            height: scale(40),
+        },
+        bottomLeft: {
+            width: '45%',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+        },
+        bottomRight: {
+            width: '55%',
+            alignItems: 'flex-end',
         },
     });
 };

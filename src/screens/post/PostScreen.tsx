@@ -1,27 +1,17 @@
-import React, { ReactNode, useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 
-import {
-    FlatList,
-    KeyboardAvoidingView,
-    Modal,
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
-} from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+import DropDown from './components/DropDown';
+import Header from './components/Header';
 import { POST_OPTION } from './constant';
 
 import Svgs from 'assets/svgs';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { AppBar, Avatar, Button, IColors } from 'packages/uikit';
 
-import { HitSlop } from 'themes/dimensions';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
-import { goBack } from 'utils/navigationUtils';
 
 const PostScreen = () => {
     const colors = useThemeColors();
@@ -42,15 +32,7 @@ const PostScreen = () => {
     }, [visible]);
 
     const renderHeader = () => {
-        const IconBack = Svgs[`IcBack`];
-        return (
-            <View style={styles.header}>
-                <TouchableOpacity style={styles.backView} onPress={() => goBack()} hitSlop={HitSlop.default}>
-                    <IconBack width={scale(34)} height={scale(34)} />
-                </TouchableOpacity>
-                <Text style={styles.titleText}>Create Post</Text>
-            </View>
-        );
+        return <Header />;
     };
     const toggleDropdown = (): void => {
         visible ? setVisible(false) : openDropdown();
@@ -68,46 +50,23 @@ const PostScreen = () => {
         setVisible(true);
     };
 
-    const data = [
-        { label: 'Public', value: 0, icon: 'IcPublic' },
-        { label: 'Private', value: 1, icon: 'IcPrivate' },
-    ];
-
-    const renderItem = ({ item }) => {
-        const Icon = Svgs[item.icon];
-        return (
-            <TouchableOpacity style={styles.item} onPress={() => onPressItem(item.value)}>
-                <View style={styles.dropdownIcon}>
-                    <Icon width={scale(16)} height={scale(16)} />
-                </View>
-                <View>
-                    <Text style={styles.dropdownText}>{item.label}</Text>
-                </View>
-            </TouchableOpacity>
-        );
-    };
-
     const renderDropDown = () => {
         return (
-            <Modal visible={visible} transparent animationType="none">
-                <TouchableOpacity style={styles.overlay} onPress={() => setVisible(false)}>
-                    <View style={[styles.dropdown, { top: dropdownTop, left: dropdownLeft }]}>
-                        <FlatList
-                            data={data}
-                            renderItem={renderItem}
-                            keyExtractor={(item, index) => index.toString()}
-                        />
-                    </View>
-                </TouchableOpacity>
-            </Modal>
+            <DropDown
+                visible={visible}
+                onPressItem={onPressItem}
+                onBackdropPress={() => setVisible(false)}
+                dropdownTop={dropdownTop}
+                dropdownLeft={dropdownLeft}
+            />
         );
     };
 
     const renderPostOption = () => {
-        return POST_OPTION.map((item) => {
+        return POST_OPTION.map((item, index) => {
             const Icon = Svgs[item.icon];
             return (
-                <TouchableOpacity style={styles.dropdownIcon}>
+                <TouchableOpacity key={index}>
                     <Icon width={scale(25)} height={scale(25)} />
                 </TouchableOpacity>
             );
@@ -166,21 +125,8 @@ const myStyles = (themeColors: IColors) => {
             paddingHorizontal: scale(16),
             paddingBottom: scale(130),
         },
-        titleText: {
-            color: themeColors.subText,
-            ...Fonts.poppins700,
-            fontWeight: '700',
-            fontSize: scale(20),
-        },
-        backView: {
-            marginRight: scale(22),
-        },
         headerView: {
             paddingLeft: scale(1),
-        },
-        header: {
-            flexDirection: 'row',
-            alignItems: 'center',
         },
         content: {
             borderWidth: scale(1),
@@ -228,35 +174,6 @@ const myStyles = (themeColors: IColors) => {
         contentInput: {
             width: '100%',
             flex: 1,
-        },
-        overlay: {
-            width: '100%',
-            height: '100%',
-        },
-        dropdown: {
-            position: 'absolute',
-            backgroundColor: themeColors.backgroundAlt,
-            width: scale(88),
-            shadowColor: '#000000',
-            shadowRadius: 4,
-            shadowOffset: { height: 4, width: 0 },
-            shadowOpacity: 0.3,
-        },
-        item: {
-            height: scale(20),
-            width: scale(88),
-            flexDirection: 'row',
-            alignItems: 'center',
-            paddingHorizontal: scale(4),
-        },
-        dropdownIcon: {
-            alignItems: 'center',
-            marginRight: scale(6),
-        },
-        dropdownText: {
-            ...Fonts.poppins400,
-            fontWeight: '400',
-            fontSize: scale(12),
         },
         bottomView: {
             width: '100%',

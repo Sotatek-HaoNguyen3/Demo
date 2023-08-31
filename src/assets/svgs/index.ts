@@ -7,6 +7,7 @@ import IcProfile from './tabs/profile.svg';
 import IcProfileActive from './tabs/profile_active.svg';
 import IcSearch from './tabs/search.svg';
 import IcSearchActive from './tabs/search_active.svg';
+import IcSend from './icon_send.svg';
 import IcStar from './star.svg';
 
 const Svgs = {
@@ -19,6 +20,7 @@ const Svgs = {
     IcFavouriteActive,
     IcProfile,
     IcProfileActive,
+    IcSend,
     IcStar,
 };
 

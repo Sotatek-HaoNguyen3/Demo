@@ -23,7 +23,7 @@ const MyTabBar = (props: BottomTabBarProps) => {
                     }
                 };
                 const IconTab = Svgs[`Ic${route.name}${isFocused && route.name !== 'Post' ? 'Active' : ''}`];
-                const sizeIcon = scale(19);
+                const sizeIcon = scale(16);
                 return route.name !== 'Post' ? (
                     <TouchableOpacity key={index.toString()} style={styles.btnTab} onPress={onPress}>
                         <IconTab width={scale(sizeIcon)} height={scale(sizeIcon)} />
@@ -34,7 +34,7 @@ const MyTabBar = (props: BottomTabBarProps) => {
                         key={index.toString()}
                         style={styles.btnMiddleTab}
                         onPress={onPress}>
-                        <IconTab width={scale(100)} height={scale(100)} />
+                        <IconTab width={scale(80)} height={scale(80)} />
                     </TouchableOpacity>
                 );
             })}
@@ -46,7 +46,7 @@ const myStyles = (themeColors: IColors) =>
     StyleSheet.create({
         container: {
             flexDirection: 'row',
-            height: Sizes.bottomSpace + scale(50),
+            height: Sizes.bottomSpace !== 0 ? Sizes.bottomSpace + scale(36) : scale(45),
             paddingBottom: Sizes.bottomSpace !== 0 ? Sizes.bottomSpace : scale(10),
             backgroundColor: themeColors.backgroundAlt,
             shadowColor: '#000000',
@@ -64,12 +64,12 @@ const myStyles = (themeColors: IColors) =>
             flex: 1,
             alignItems: 'center',
             justifyContent: 'flex-end',
-            paddingBottom: scale(5),
+            paddingBottom: Sizes.bottomSpace !== 0 ? 0 : scale(5),
         },
         btnMiddleTab: {
             alignItems: 'center',
             justifyContent: 'center',
-            top: -scale(35),
+            top: Sizes.bottomSpace !== 0 ? -scale(40) : -scale(30),
             width: Sizes.bottomSpace + scale(80),
             height: Sizes.bottomSpace + scale(80),
         },

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useColorScheme as _useColorScheme, AppState } from 'react-native';
+import { useColorScheme as _useColorScheme, AppState, StatusBar } from 'react-native';
 import { useSyncExternalStore } from 'use-sync-external-store/shim';
 
 import { ColorMode, IColorModeContextProps, StorageManager } from './types';
@@ -80,6 +80,7 @@ export const useModeManager = (
             if (colorModeManager) {
                 await colorModeManager.set(val);
             }
+            StatusBar.setBarStyle(val ? `${val === 'dark' ? 'light' : 'dark'}-content` : 'default');
             setRawMode(val);
         },
         [colorModeManager]

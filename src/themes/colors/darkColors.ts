@@ -1,5 +1,5 @@
 export const darkColors = {
-    main: '  #7645D9',
+    main: '#7645D9',
     secondary: '#9A6AFF',
     secondary80: '#9A6AFF80',
     background: '#393948',
@@ -22,4 +22,6 @@ export const darkColors = {
     disabled: '#524B63',
     gray9: '#979797',
     gray10: '#878787',
+    label: '#C4C4C4',
+    subText: '#FFFFFF',
 };

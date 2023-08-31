@@ -2,17 +2,21 @@ import SearchScreen from './search';
 
 import FavouriteScreen from 'screens/favourite';
 import Home from 'screens/home';
-import Login from 'screens/login/LoginScreen';
+import IntroScreen from 'screens/intro';
+import LoginScreen from 'screens/login';
 import PostScreen from 'screens/post';
 import ProfileScreen from 'screens/profile';
+import RegisterScreen from 'screens/register';
 
 const Screens = {
-    Login,
+    LoginScreen,
     Home,
     PostScreen,
     ProfileScreen,
     FavouriteScreen,
     SearchScreen,
+    RegisterScreen,
+    IntroScreen,
 };
 
 export default Screens;

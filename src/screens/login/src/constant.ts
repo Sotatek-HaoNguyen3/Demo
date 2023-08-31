@@ -9,12 +9,14 @@ const loginDataForm = [
         type: 'input-text',
         placeholder: 'Email',
         label: 'Email',
+        icon: 'IcEmail',
     },
     {
         name: loginFieldName.password,
         type: 'input-text',
         placeholder: 'Password',
         label: 'Password',
+        icon: 'IcLock',
     },
 ];
 

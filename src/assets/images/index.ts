@@ -8,6 +8,7 @@ const Images = {
     INTRO_BACKGROUND: require('./intro_background.png'),
     RECOMMENDED: require('./recommended.png'),
     EXAMPLE_POST: require('./example_post.png'),
+    DEMO_HOME: require('./demo_home.png'),
 };
 
 export default Images;

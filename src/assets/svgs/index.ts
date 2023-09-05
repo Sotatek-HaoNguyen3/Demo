@@ -18,7 +18,6 @@ import IcCamera from './post/camera.svg';
 import IcImageLibrary from './post/image_lib.svg';
 import IcQuiz from './post/quiz.svg';
 import IcVideo from './post/video.svg';
-import IcStar from './star.svg';
 import IcFavourite from './tabs/heart.svg';
 import IcFavouriteActive from './tabs/heart_active.svg';
 import IcHome from './tabs/home.svg';
@@ -28,6 +27,10 @@ import IcProfile from './tabs/profile.svg';
 import IcProfileActive from './tabs/profile_active.svg';
 import IcSearch from './tabs/search.svg';
 import IcSearchActive from './tabs/search_active.svg';
+import IcStar from './star.svg';
+import IcLike from './like.svg';
+import IcFollow from './follow.svg';
+import IcSave from './save_icon.svg';
 
 const Svgs = {
     IcHome,
@@ -60,6 +63,9 @@ const Svgs = {
     IcImageLibrary,
     IcQuiz,
     IcVideo,
+    IcLike,
+    IcFollow,
+    IcSave,
 };
 
 export default Svgs;

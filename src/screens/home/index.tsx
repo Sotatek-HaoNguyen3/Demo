@@ -10,31 +10,72 @@ import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import Fonts from 'themes/fonts';
 import Svgs from 'assets/svgs';
+import PostItem from 'components/postItem';
 
 const data = [
-    {
-        id: '1',
-        username: 'Misty Shepherd',
-        caption: 'Bài viết số 1',
-        imageUrl: 'URL_hình_ảnh_1',
-    },
-    {
-        id: '2',
-        username: 'user2',
-        caption: 'Bài viết số 2',
-        imageUrl: 'URL_hình_ảnh_2',
-    },
+    // {
+    //     id: '1',
+    //     likes: 100,
+    //     videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    //     user: {
+    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png',
+    //         username: 'Kaza Uchiha',
+    //     },
+    //     song: {
+    //         name: 'Dead love',
+    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-green.png',
+    //     },
+    //     comments: '100',
+    //     shares: '200',
+    //     description: 'ldsj dsjdgksj sadgjsk sdga',
+    // },
+    // {
+    //     id: '2',
+    //     likes: 100,
+    //     videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+    //     user: {
+    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-happy.png',
+    //         username: 'Betha Uchiha',
+    //     },
+    //     song: {
+    //         name: 'Piva love',
+    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-cool.png',
+    //     },
+    //     comments: '100',
+    //     shares: '200',
+    //     description: 'ldsj dsjdgksj sadgjsk sdga',
+    // },
     {
         id: '3',
-        username: 'user2',
-        caption: 'Bài viết số 2',
-        imageUrl: 'URL_hình_ảnh_2',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leafers-seed.png',
+            username: 'Haza Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
     },
     {
         id: '4',
-        username: 'user2',
-        caption: 'Bài viết số 2',
-        imageUrl: 'URL_hình_ảnh_2',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
     },
     // Thêm các bài viết khác tương tự
 ];
@@ -58,39 +99,42 @@ const HomeScreen = () => {
         return i * Sizes.scrHeight;
     });
 
-    const renderItem = ({ item }) => {
-        return (
-            <View style={styles.postContainer}>
-                <Image source={Images.DEMO_HOME} style={styles.image} />
-                <View style={styles.captionContainer}>
-                    <Avatar size={36} source={Images.DEMO_HOME} />
-                    <View style={styles.ownProfile}>
-                        <View style={styles.nameView}>
-                            <Text style={styles.username}>{item.username}</Text>
-                            <View style={styles.dot} />
-                            <Text style={styles.liveText}>LIVE</Text>
-                        </View>
-                        <Text style={styles.caption}>{item.caption}</Text>
-                    </View>
-                </View>
-                <View style={styles.rightView}>
-                    <View style={styles.iconView}>
-                        <Svgs.IcLike />
-                    </View>
-                    <View style={styles.iconView}>
-                        <Svgs.IcFollow />
-                    </View>
-                    <View style={styles.iconView}>
-                        <Svgs.IcSave />
-                    </View>
-                </View>
-            </View>
-        );
-    };
+    // const renderItem = ({ item }) => {
+    //     return (
+    //         <View style={styles.postContainer}>
+    //             <Image source={Images.DEMO_HOME} style={styles.image} />
+    //             <View style={styles.captionContainer}>
+    //                 <Avatar size={36} source={Images.DEMO_HOME} />
+    //                 <View style={styles.ownProfile}>
+    //                     <View style={styles.nameView}>
+    //                         <Text style={styles.username}>{item.username}</Text>
+    //                         <View style={styles.dot} />
+    //                         <Text style={styles.liveText}>LIVE</Text>
+    //                     </View>
+    //                     <Text style={styles.caption}>{item.caption}</Text>
+    //                 </View>
+    //             </View>
+    //             <View style={styles.rightView}>
+    //                 <View style={styles.iconView}>
+    //                     <Svgs.IcLike />
+    //                 </View>
+    //                 <View style={styles.iconView}>
+    //                     <Svgs.IcFollow />
+    //                 </View>
+    //                 <View style={styles.iconView}>
+    //                     <Svgs.IcSave />
+    //                 </View>
+    //             </View>
+    //         </View>
+    //     );
+    // };
+
+    const renderItem = ({ item }) => <PostItem data={item} />;
 
     return (
         <View style={styles.container}>
             <FlatList
+                initialNumToRender={1}
                 ref={flatListRef}
                 data={data}
                 keyExtractor={(item) => item.id}

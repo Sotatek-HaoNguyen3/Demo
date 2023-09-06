@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
 
 import Images from 'assets/images';
+import Svgs from 'assets/svgs';
+import PostItem from 'components/postItem';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, IColors } from 'packages/uikit';
 
+import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
-import Fonts from 'themes/fonts';
-import Svgs from 'assets/svgs';
-import PostItem from 'components/postItem';
 
 const data = [
     // {
@@ -83,7 +83,7 @@ const data = [
 const HomeScreen = () => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
-
+    const [viewAbleItem, setViewAbleItem] = useState(data[0].id);
     const flatListRef = React.useRef<FlatList>();
 
     React.useEffect(() => {
@@ -128,8 +128,16 @@ const HomeScreen = () => {
     //         </View>
     //     );
     // };
+    const viewabilityConfig = { viewAreaCoveragePercentThreshold: 90 };
+    const onViewableItemsChanged = (info) => {
+        const { viewableItems } = info;
+        if (!!viewableItems[0]?.item) {
+            setViewAbleItem(viewableItems[0].item.id);
+        }
+    };
+    const viewabilityConfigCallbackPairs = useRef([{ viewabilityConfig, onViewableItemsChanged }]);
 
-    const renderItem = ({ item }) => <PostItem data={item} />;
+    const renderItem = ({ item }) => <PostItem viewableItem={viewAbleItem} data={item} />;
 
     return (
         <View style={styles.container}>
@@ -144,6 +152,7 @@ const HomeScreen = () => {
                 decelerationRate={0}
                 snapToOffsets={snapToOffsetsLikeGooglePlay}
                 snapToAlignment={'center'}
+                viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
             />
         </View>
     );

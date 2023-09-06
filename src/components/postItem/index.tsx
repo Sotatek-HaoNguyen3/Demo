@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
 import Video from 'react-native-video';
@@ -18,7 +18,9 @@ interface Song {
 }
 
 interface PostProps {
+    viewableItem: string;
     data: {
+        id: string;
         likes: number;
         videoUri: string;
         user: User;
@@ -30,10 +32,24 @@ interface PostProps {
 }
 
 const PostItem = (props: PostProps) => {
+    const { viewableItem } = props;
     const [post, setPost] = useState(props.data);
     const [isLiked, setIsLiked] = useState(false);
+    const [idViewAble, setIdViewAble] = useState('');
+    const [paused, setPaused] = useState(true);
+    useMemo(() => {
+        if (idViewAble !== viewableItem) {
+            setIdViewAble(viewableItem);
+        }
+    }, [viewableItem]);
 
-    const [paused, setPaused] = useState(false);
+    useMemo(() => {
+        if (post.id === idViewAble) {
+            setPaused(false);
+        } else if (!paused) {
+            setPaused(true);
+        }
+    }, [idViewAble]);
 
     const onPlayPausePress = () => {
         setPaused(!paused);

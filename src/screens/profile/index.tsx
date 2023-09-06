@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 
 import { FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native';
 
@@ -9,6 +9,7 @@ import { Avatar, IColors } from 'packages/uikit';
 import type { StickyHeaderFlashListProps } from 'react-native-sticky-parallax-header';
 import { useStickyHeaderFlashListScrollProps, withStickyHeaderFlashList } from 'react-native-sticky-parallax-header';
 import { FlashList } from '@shopify/flash-list';
+import Video from 'react-native-video';
 
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
@@ -148,10 +149,32 @@ const ProfileScreen = () => {
         );
     };
 
+    const refVideo = useRef<Video>();
+
+    const buffering = () => {
+        console.log('allo');
+    };
+    const errorVideo = () => {
+        console.log('Bllo');
+    };
+    const [paused, setPaused] = useState(false);
+
+    const onPlayPausePress = () => {
+        setPaused(!paused);
+    };
+
     const renderStickyHead = () => {
         return (
             <View style={{ flex: 1, marginLeft: scale(15), paddingBottom: scale(10) }}>
                 <Text style={styles.subTitle}>Live broadcasts</Text>
+                <Video
+                    source={{
+                        uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                    }}
+                    resizeMode={'cover'}
+                    repeat={true}
+                    paused={paused}
+                />
                 <FlatList
                     data={avatarData}
                     renderItem={renderAvatarItem}
@@ -320,6 +343,11 @@ const Styles = (themeColors: IColors) => {
 
         listPost: {
             marginLeft: scale(15),
+        },
+        backgroundVideo: {
+            width: scale(300),
+            height: scale(200),
+            // backgroundColor: 'red',
         },
     });
 };

@@ -49,6 +49,7 @@
 		<string>Poppins-Regular.ttf</string>
 		<string>Poppins-SemiBold.ttf</string>
 		<string>Poppins-Thin.ttf</string>
+		<string>MaterialIcons.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen.storyboard</string>
@@ -64,5 +65,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>  
+		<key>NSAllowsArbitraryLoads</key> 
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -9,6 +9,7 @@ import { Avatar, IColors } from 'packages/uikit';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import { useFocusEffect } from '@react-navigation/native';
 
 const data = [
     {
@@ -126,11 +127,21 @@ const HomeScreen = () => {
     //         </View>
     //     );
     // };
+
+    useFocusEffect(
+        React.useCallback(() => {
+            setViewAbleItem(data[0].id);
+            return () => {
+                setViewAbleItem('');
+                // Useful for cleanup functions
+            };
+        }, [])
+    );
+
     const viewabilityConfig = { viewAreaCoveragePercentThreshold: 90 };
 
     const onViewableItemsChanged = (info) => {
         const { viewableItems } = info;
-        console.log('viewableItems', viewableItems);
 
         if (!!viewableItems[0]?.item) {
             setViewAbleItem(viewableItems[0].item.id);

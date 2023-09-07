@@ -1,9 +1,7 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import Images from 'assets/images';
-import Svgs from 'assets/svgs';
 import PostItem from 'components/postItem';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, IColors } from 'packages/uikit';
@@ -13,38 +11,38 @@ import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 
 const data = [
-    // {
-    //     id: '1',
-    //     likes: 100,
-    //     videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    //     user: {
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png',
-    //         username: 'Kaza Uchiha',
-    //     },
-    //     song: {
-    //         name: 'Dead love',
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-green.png',
-    //     },
-    //     comments: '100',
-    //     shares: '200',
-    //     description: 'ldsj dsjdgksj sadgjsk sdga',
-    // },
-    // {
-    //     id: '2',
-    //     likes: 100,
-    //     videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-    //     user: {
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-happy.png',
-    //         username: 'Betha Uchiha',
-    //     },
-    //     song: {
-    //         name: 'Piva love',
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-cool.png',
-    //     },
-    //     comments: '100',
-    //     shares: '200',
-    //     description: 'ldsj dsjdgksj sadgjsk sdga',
-    // },
+    {
+        id: '1',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png',
+            username: 'Kaza Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-green.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '2',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-happy.png',
+            username: 'Betha Uchiha',
+        },
+        song: {
+            name: 'Piva love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-cool.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
     {
         id: '3',
         likes: 100,
@@ -129,15 +127,24 @@ const HomeScreen = () => {
     //     );
     // };
     const viewabilityConfig = { viewAreaCoveragePercentThreshold: 90 };
+
     const onViewableItemsChanged = (info) => {
         const { viewableItems } = info;
+        console.log('viewableItems', viewableItems);
+
         if (!!viewableItems[0]?.item) {
             setViewAbleItem(viewableItems[0].item.id);
         }
     };
     const viewabilityConfigCallbackPairs = useRef([{ viewabilityConfig, onViewableItemsChanged }]);
 
-    const renderItem = ({ item }) => <PostItem viewableItem={viewAbleItem} data={item} />;
+    const renderItem = useCallback(
+        ({ item }) => {
+            const isPause = viewAbleItem === item.id ? false : true;
+            return <PostItem isPause={isPause} data={item} />;
+        },
+        [viewAbleItem]
+    );
 
     return (
         <View style={styles.container}>
@@ -153,6 +160,9 @@ const HomeScreen = () => {
                 snapToOffsets={snapToOffsetsLikeGooglePlay}
                 snapToAlignment={'center'}
                 viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+                removeClippedSubviews
+                maxToRenderPerBatch={3}
+                windowSize={1}
             />
         </View>
     );

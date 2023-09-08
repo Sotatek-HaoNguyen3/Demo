@@ -25,6 +25,8 @@ function RootStacks() {
                     name="Post"
                     component={Screens.PostScreen}
                 />
+                <Stack.Screen name="WatchDetail" component={Screens.WatchDetailScreen} />
+                <Stack.Screen name="Detail" component={Screens.DetailScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

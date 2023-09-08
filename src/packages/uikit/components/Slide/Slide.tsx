@@ -13,7 +13,7 @@ interface SliderProps {
 }
 const SLIDER_DATA = [{ key: 0 }, { key: 1 }, { key: 2 }];
 
-const Slider = (props: SliderProps, ref: React.Ref<unknown>) => {
+const Slide = (props: SliderProps, ref: React.Ref<unknown>) => {
     const { customComponent } = props;
     const [sliderState, setSliderState] = useState({ currentPage: 0 });
     const refScroll = useRef(null);
@@ -95,7 +95,7 @@ const Slider = (props: SliderProps, ref: React.Ref<unknown>) => {
     );
 };
 
-export default React.forwardRef(Slider);
+export default React.forwardRef(Slide);
 
 const myStyles = (themeColors: IColors) =>
     StyleSheet.create({

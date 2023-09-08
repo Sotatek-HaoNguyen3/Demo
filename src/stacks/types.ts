@@ -6,4 +6,6 @@ export type RootParamList = {
     Intro: undefined;
     Post: undefined;
     Main: { screen?: string };
+    Detail: undefined;
+    WatchDetail: undefined;
 };

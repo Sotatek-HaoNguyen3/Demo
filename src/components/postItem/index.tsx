@@ -33,7 +33,7 @@ const PostItem = (props: PostProps) => {
     const [post, setPost] = useState(props.data);
     const [isLiked, setIsLiked] = useState(false);
 
-    const [paused, setPaused] = useState(false);
+    const [paused, setPaused] = useState(true);
 
     const onPlayPausePress = () => {
         setPaused(!paused);

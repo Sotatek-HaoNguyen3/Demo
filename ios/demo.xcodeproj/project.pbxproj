@@ -19,6 +19,9 @@
 		244849D02A93123B003A6C83 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */; };
 		244849D12A93123E003A6C83 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */; };
 		244849D22A931241003A6C83 /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
+		24643DB82AA7341B0023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DB72AA7341B0023407C /* libreact-native-video.a */; };
+		24643DBA2AA7342F0023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DB92AA7342F0023407C /* libreact-native-video.a */; };
+		24643DBC2AA734350023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DBB2AA734350023407C /* libreact-native-video.a */; };
 		2722CE39F46642628EC482EE /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
 		55596A870524469D9ECB5BE4 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
 		7885CEAA53DE21CC8A2FCD9E /* libPods-App-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3351A31CA32BCF99E81BF46 /* libPods-App-Demo.a */; };
@@ -68,6 +71,9 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = demo/main.m; sourceTree = "<group>"; };
 		1512B98380009333BF2383AD /* libPods-App-Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1929603E993047159575B486 /* SegoeUI-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SegoeUI-Bold.ttf"; path = "../src/assets/fonts/SegoeUI-Bold.ttf"; sourceTree = "<group>"; };
+		24643DB72AA7341B0023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24643DB92AA7342F0023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24643DBB2AA734350023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A45C7F1CAFF7441B3DFF18D /* Pods-App-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Demo.debug.xcconfig"; path = "Target Support Files/Pods-App-Demo/Pods-App-Demo.debug.xcconfig"; sourceTree = "<group>"; };
 		328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SegoeUI-SemiBold.ttf"; path = "../src/assets/fonts/SegoeUI-SemiBold.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.debug.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24643DBC2AA734350023407C /* libreact-native-video.a in Frameworks */,
 				7885CEAA53DE21CC8A2FCD9E /* libPods-App-Demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24643DBA2AA7342F0023407C /* libreact-native-video.a in Frameworks */,
 				ED9DD5A9EEA206198210A698 /* libPods-App-Staging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24643DB82AA7341B0023407C /* libreact-native-video.a in Frameworks */,
 				C820B418A03FCC5095CA7779 /* libPods-App-Dev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,6 +170,9 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24643DBB2AA734350023407C /* libreact-native-video.a */,
+				24643DB92AA7342F0023407C /* libreact-native-video.a */,
+				24643DB72AA7341B0023407C /* libreact-native-video.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				B99AA8AA73A344F54B2C15D8 /* libPods-demoCommonPods-DemoDev.a */,
 				946F2695FD307AFBC60B345F /* libPods-demoCommonPods-DemoStg.a */,

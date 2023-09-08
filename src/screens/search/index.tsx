@@ -7,6 +7,7 @@ import { useThemeColors } from 'packages/hooks/useTheme';
 import Sizes from 'themes/sizes';
 import Images from 'assets/images';
 import Svgs from 'assets/svgs';
+import { navigate } from 'utils/navigationUtils';
 
 const Data = [
     { tag: 'LISTEN', id: 0 },
@@ -43,7 +44,7 @@ const SearchScreen = () => {
 
     const renderPostItem = ({ item }) => {
         return (
-            <TouchableOpacity style={styles.itemView}>
+            <TouchableOpacity style={styles.itemView} onPress={() => navigate('WatchDetail')}>
                 <ImageBackground style={styles.imagePost} source={Images.RECOMMENDED}>
                     <View style={styles.levelView}>
                         <Text style={styles.textLevel}>{item.level}</Text>

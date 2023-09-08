@@ -18,7 +18,7 @@ const Header = () => {
     return (
         <View style={styles.header}>
             <TouchableOpacity style={styles.backView} onPress={() => goBack()} hitSlop={HitSlop.default}>
-                <IconBack width={scale(34)} height={scale(34)} />
+                <IconBack width={scale(24)} height={scale(24)} />
             </TouchableOpacity>
             <Text style={styles.titleText}>Create Post</Text>
         </View>
@@ -37,6 +37,14 @@ const myStyles = (themeColors: IColors) => {
         },
         backView: {
             marginRight: scale(22),
+            width: scale(34),
+            height: scale(34),
+            borderRadius: scale(17),
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: themeColors.white,
+            borderWidth: scale(1),
+            borderColor: themeColors.blackOpacity10,
         },
         header: {
             flexDirection: 'row',

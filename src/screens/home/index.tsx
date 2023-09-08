@@ -83,6 +83,7 @@ const HomeScreen = () => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const [viewAbleItem, setViewAbleItem] = useState(data[0].id);
+    const [pauseAll, setPauseAll] = useState(false);
     const flatListRef = React.useRef<FlatList>();
 
     React.useEffect(() => {
@@ -130,9 +131,9 @@ const HomeScreen = () => {
 
     useFocusEffect(
         React.useCallback(() => {
-            setViewAbleItem(data[0].id);
+            setPauseAll(false);
             return () => {
-                setViewAbleItem('');
+                setPauseAll(true);
                 // Useful for cleanup functions
             };
         }, [])
@@ -151,10 +152,14 @@ const HomeScreen = () => {
 
     const renderItem = useCallback(
         ({ item }) => {
-            const isPause = viewAbleItem === item.id ? false : true;
+            let isPause = viewAbleItem === item.id ? false : true;
+            if (pauseAll) {
+                isPause = true;
+            }
+
             return <PostItem isPause={isPause} data={item} />;
         },
-        [viewAbleItem]
+        [viewAbleItem, pauseAll]
     );
 
     return (

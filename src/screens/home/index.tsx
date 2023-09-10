@@ -1,50 +1,49 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-import Images from 'assets/images';
+import PostItem from 'components/postItem';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, IColors } from 'packages/uikit';
 
+import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
-import Fonts from 'themes/fonts';
-import Svgs from 'assets/svgs';
-import PostItem from 'components/postItem';
+import { useFocusEffect } from '@react-navigation/native';
 
 const data = [
-    // {
-    //     id: '1',
-    //     likes: 100,
-    //     videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-    //     user: {
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png',
-    //         username: 'Kaza Uchiha',
-    //     },
-    //     song: {
-    //         name: 'Dead love',
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-green.png',
-    //     },
-    //     comments: '100',
-    //     shares: '200',
-    //     description: 'ldsj dsjdgksj sadgjsk sdga',
-    // },
-    // {
-    //     id: '2',
-    //     likes: 100,
-    //     videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
-    //     user: {
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-happy.png',
-    //         username: 'Betha Uchiha',
-    //     },
-    //     song: {
-    //         name: 'Piva love',
-    //         imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-cool.png',
-    //     },
-    //     comments: '100',
-    //     shares: '200',
-    //     description: 'ldsj dsjdgksj sadgjsk sdga',
-    // },
+    {
+        id: '1',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png',
+            username: 'Kaza Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-green.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '2',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-happy.png',
+            username: 'Betha Uchiha',
+        },
+        song: {
+            name: 'Piva love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-cool.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
     {
         id: '3',
         likes: 100,
@@ -83,7 +82,8 @@ const data = [
 const HomeScreen = () => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
-
+    const [viewAbleItem, setViewAbleItem] = useState(data[0].id);
+    const [pauseAll, setPauseAll] = useState(false);
     const flatListRef = React.useRef<FlatList>();
 
     React.useEffect(() => {
@@ -129,7 +129,38 @@ const HomeScreen = () => {
     //     );
     // };
 
-    const renderItem = ({ item }) => <PostItem data={item} />;
+    useFocusEffect(
+        React.useCallback(() => {
+            setPauseAll(false);
+            return () => {
+                setPauseAll(true);
+                // Useful for cleanup functions
+            };
+        }, [])
+    );
+
+    const viewabilityConfig = { viewAreaCoveragePercentThreshold: 90 };
+
+    const onViewableItemsChanged = (info) => {
+        const { viewableItems } = info;
+
+        if (!!viewableItems[0]?.item) {
+            setViewAbleItem(viewableItems[0].item.id);
+        }
+    };
+    const viewabilityConfigCallbackPairs = useRef([{ viewabilityConfig, onViewableItemsChanged }]);
+
+    const renderItem = useCallback(
+        ({ item }) => {
+            let isPause = viewAbleItem === item.id ? false : true;
+            if (pauseAll) {
+                isPause = true;
+            }
+
+            return <PostItem isPause={isPause} data={item} />;
+        },
+        [viewAbleItem, pauseAll]
+    );
 
     return (
         <View style={styles.container}>
@@ -144,6 +175,10 @@ const HomeScreen = () => {
                 decelerationRate={0}
                 snapToOffsets={snapToOffsetsLikeGooglePlay}
                 snapToAlignment={'center'}
+                viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+                removeClippedSubviews
+                maxToRenderPerBatch={3}
+                windowSize={1}
             />
         </View>
     );

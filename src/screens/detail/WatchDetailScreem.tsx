@@ -30,7 +30,7 @@ const WatchDetailScreen = () => {
     const [pause, setPause] = useState(false);
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
-    const playerRef = useRef(null);
+    const playerRef = useRef<Video>(null);
     const fadeAnim = useRef(new Animated.Value(0)).current;
 
     const handleProgress = (prgs) => {

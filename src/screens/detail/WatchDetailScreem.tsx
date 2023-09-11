@@ -1,3 +1,4 @@
+import { useFocusEffect } from '@react-navigation/native';
 import React, { useMemo, useRef, useState } from 'react';
 
 import { Animated, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
@@ -94,6 +95,16 @@ const WatchDetailScreen = () => {
         );
     }, [pause]);
 
+    useFocusEffect(
+        React.useCallback(() => {
+            setPause(false);
+            return () => {
+                setPause(true);
+                // Useful for cleanup functions
+            };
+        }, [])
+    );
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -103,7 +114,7 @@ const WatchDetailScreen = () => {
                             uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
                         }}
                         style={styles.video}
-                        onError={(e) => console.log(e)}
+                        onError={videoError}
                         onLoad={handleLoad}
                         resizeMode={'contain'}
                         onProgress={handleProgress}

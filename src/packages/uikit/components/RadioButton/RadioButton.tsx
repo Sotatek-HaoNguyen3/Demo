@@ -121,7 +121,6 @@ export default RadioButton;
 const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
-        marginHorizontal: scale(10),
         marginVertical: scale(5),
     },
     border: {

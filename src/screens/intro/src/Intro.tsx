@@ -9,7 +9,7 @@ import Images from 'assets/images';
 import { useSetting } from 'contexts/SettingProvider';
 
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { Button, IColors, Slider } from 'packages/uikit';
+import { Button, IColors, Slide } from 'packages/uikit';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
@@ -72,7 +72,7 @@ const IntroScreen = (props) => {
         <View style={styles.container}>
             <StatusBar barStyle="light-content" />
             <ImageBackground style={styles.backgroundStyle} source={Images.INTRO_BACKGROUND} />
-            <Slider ref={sliderRef} renderItem={renderItem} onSlideChange={(index) => setCurrentPage(index)} />
+            <Slide ref={sliderRef} renderItem={renderItem} onSlideChange={(index) => setCurrentPage(index)} />
             {!isFinish && (
                 <View style={styles.skipView}>
                     <TouchableOpacity style={styles.skipBtn} onPress={() => navigate('Main')}>

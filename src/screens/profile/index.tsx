@@ -167,14 +167,6 @@ const ProfileScreen = () => {
         return (
             <View style={{ flex: 1, marginLeft: scale(15), paddingBottom: scale(10) }}>
                 <Text style={styles.subTitle}>Live broadcasts</Text>
-                <Video
-                    source={{
-                        uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                    }}
-                    resizeMode={'cover'}
-                    repeat={true}
-                    paused={paused}
-                />
                 <FlatList
                     data={avatarData}
                     renderItem={renderAvatarItem}

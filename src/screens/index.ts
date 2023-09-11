@@ -1,5 +1,6 @@
 import SearchScreen from './search';
 
+import { DetailScreen, WatchDetailScreen } from 'screens/detail';
 import FavouriteScreen from 'screens/favourite';
 import Home from 'screens/home';
 import IntroScreen from 'screens/intro';
@@ -17,6 +18,8 @@ const Screens = {
     SearchScreen,
     RegisterScreen,
     IntroScreen,
+    DetailScreen,
+    WatchDetailScreen,
 };
 
 export default Screens;

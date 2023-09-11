@@ -6,7 +6,7 @@ import { RadioGroupProps } from './types';
 
 const RadioGroup = (props: RadioGroupProps) => {
     const { containerStyle, layout = 'column', onPress, radioButtons, selectedId, testID, color } = props;
-    function handlePress(id: string) {
+    function handlePress(id: string | number) {
         if (id !== selectedId && onPress) {
             onPress(id);
         }

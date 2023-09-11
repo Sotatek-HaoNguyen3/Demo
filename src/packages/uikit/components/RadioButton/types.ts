@@ -8,16 +8,16 @@ export type RadioButtonProps = {
     description?: string;
     descriptionStyle?: StyleProp<TextStyle>;
     disabled?: boolean;
-    id: string;
-    key?: string;
+    id: string | number;
+    key?: string | number;
     label?: string;
     labelStyle?: StyleProp<TextStyle>;
     layout?: 'row' | 'column';
-    onPress?: (id: string) => void;
+    onPress?: (id: string | number) => void;
     selected?: boolean;
     size?: number;
     testID?: string;
-    value?: string;
+    value?: string | number;
     bounceEffectIn?: number;
     bounceEffectOut?: number;
     bounceVelocityIn?: number;
@@ -30,9 +30,9 @@ export type RadioButtonProps = {
 export type RadioGroupProps = {
     containerStyle?: StyleProp<ViewStyle>;
     layout?: 'row' | 'column';
-    onPress?: (selectedId: string) => void;
+    onPress?: (selectedId: string | number) => void;
     radioButtons: RadioButtonProps[];
-    selectedId?: string;
+    selectedId?: string | number;
     testID?: string;
     color?: string;
 };

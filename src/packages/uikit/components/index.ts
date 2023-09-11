@@ -9,7 +9,6 @@ import Loading from './Loading';
 import BaseModal from './Modal';
 import OTPInput from './OtpInput';
 import RadioGroup from './RadioButton';
-import { AirbnbRating, Rating } from './Rating';
 import SearchBar from './SearchBar';
 import Slide from './Slide';
 import { Slider } from './Slider';
@@ -32,8 +31,6 @@ export {
     BottomSheetInput,
     Slide,
     Slider,
-    Rating,
-    AirbnbRating,
 };
 
 export * from './Button';

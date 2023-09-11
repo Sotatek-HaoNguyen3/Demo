@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-nativ
 
 import Svgs from 'assets/svgs';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { AirbnbRating, Avatar, ButtonText, EmptyListView, IColors, ListView, Rating } from 'packages/uikit';
+import { Avatar, ButtonText, EmptyListView, IColors, ListView } from 'packages/uikit';
 
 import BottomSheetInput, { BottomSheetInputRefType } from 'packages/uikit/components/BottomSheet/BottomSheetInput';
 import RadioButtonsGroup from 'packages/uikit/components/RadioButton';
@@ -13,7 +13,6 @@ import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { goBack } from 'utils/navigationUtils';
-import TapRating from 'packages/uikit/components/Rating/TapRating';
 
 const POST_DATA = {
     title: 'Macaroni and Cheese',

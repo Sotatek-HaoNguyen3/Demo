@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import Svgs from 'assets/svgs';
+import { AirbnbRating } from 'components/Rating';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, ButtonText, EmptyListView, IColors, ListView } from 'packages/uikit';
 
@@ -52,24 +53,23 @@ const POST_DATA = {
             id: 1,
             name: 'Esme Kim',
             comment: 'Amazing study, thank you!!',
+            rate: 5,
         },
         {
             id: 2,
             name: 'Fergus Kim',
             comment: 'Amazing study, thank you!!',
+            rate: 3,
         },
         {
             id: 3,
             name: 'Misty Bloong',
             comment: 'Amazing study, thank you!!',
+            rate: 4,
         },
     ],
     description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua labore et dolore magna aliqua',
-};
-
-const videoError = (e) => {
-    console.log(e);
 };
 
 const DetailScreen = () => {
@@ -96,11 +96,21 @@ const DetailScreen = () => {
         return (
             <View style={[styles.itemView, { borderBottomWidth: isEnd ? 0 : scale(0.5) }]}>
                 <View style={styles.userInfor}>
-                    <Avatar size={scale(28)} />
-                    <View style={styles.rightInfo}>
-                        <Text style={styles.nameText}>{item?.name}</Text>
-                        <Text style={styles.textSave}>{item?.comment}</Text>
+                    <View style={styles.leftInfor}>
+                        <Avatar size={scale(28)} />
+                        <View style={styles.rightInfo}>
+                            <Text style={styles.nameText}>{item?.name}</Text>
+                            <Text style={styles.textSave}>{item?.comment}</Text>
+                        </View>
                     </View>
+                    <AirbnbRating
+                        onFinishRating={ratingCompleted}
+                        isDisabled
+                        showRating={false}
+                        count={5}
+                        defaultRating={item?.rate}
+                        size={scale(16)}
+                    />
                 </View>
             </View>
         );
@@ -195,6 +205,11 @@ const Styles = (themeColors: IColors) => {
             flexDirection: 'row',
             alignItems: 'center',
             height: scale(60),
+            justifyContent: 'space-between',
+        },
+        leftInfor: {
+            flexDirection: 'row',
+            alignItems: 'center',
         },
         nameText: {
             ...Fonts.poppins400,
@@ -212,7 +227,6 @@ const Styles = (themeColors: IColors) => {
         info: {
             flexDirection: 'row',
             alignItems: 'center',
-            // backgroundColor: 'red',
             marginTop: scale(8),
             marginBottom: scale(20),
         },

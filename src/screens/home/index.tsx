@@ -26,7 +26,7 @@ const data = [
         },
         comments: '100',
         shares: '200',
-        description: 'ldsj dsjdgksj sadgjsk sdga',
+        description: 'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself',
     },
     {
         id: '2',
@@ -75,6 +75,336 @@ const data = [
         comments: '100',
         shares: '200',
         description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '5',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '6',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '7',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender. With initial funding provided by 1000s of donations via the internet community, it has again proven to be a viable development model for both open 3D technology as for independent animation film.\nThis 15 minute film has been realized in the studio of the Amsterdam Blender Institute, by an international team of artists and developers. In addition to that, several crucial technical and creative targets have been realized online, by developers and artists and teams all over the world.\nwww.sintel.org',
+    },
+    {
+        id: '8',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'Smoking Tire takes the all-new Subaru Outback to the highest point we can find in hopes our customer-appreciation Balloon Launch will get some free T-shirts into the hands of our viewers.',
+    },
+    {
+        id: '9',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'Tears of Steel was realized with crowd-funding by users of the open source 3D creation tool Blender.',
+    },
+    {
+        id: '10',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'The Smoking Tire heads out to Adams Motorsports Park in Riverside, CA to test the most requested car of 2010,',
+    },
+    {
+        id: '11',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'The Smoking Tire is going on the 2010 Bullrun Live Rally in a 2011 Shelby GT500,',
+    },
+    {
+        id: '110',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'The Smoking Tire meets up with Chris and Jorge from CarsForAGrand.com to see just how far $1,000,',
+    },
+    {
+        id: '12',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-blue.png',
+            username: 'Kaza Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leaf-green.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself',
+    },
+    {
+        id: '13',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-happy.png',
+            username: 'Betha Uchiha',
+        },
+        song: {
+            name: 'Piva love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/cs-hopper-cool.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '14',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leafers-seed.png',
+            username: 'Haza Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '15',
+        likes: 100,
+        videoUri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '16',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '17',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'ldsj dsjdgksj sadgjsk sdga',
+    },
+    {
+        id: '18',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'Sintel is an independently produced short film, initiated by the Blender Foundation as a means to further improve and validate the free/open source 3D creation suite Blender. With initial funding provided by 1000s of donations via the internet community, it has again proven to be a viable development model for both open 3D technology as for independent animation film.\nThis 15 minute film has been realized in the studio of the Amsterdam Blender Institute, by an international team of artists and developers. In addition to that, several crucial technical and creative targets have been realized online, by developers and artists and teams all over the world.\nwww.sintel.org',
+    },
+    {
+        id: '19',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'Smoking Tire takes the all-new Subaru Outback to the highest point we can find in hopes our customer-appreciation Balloon Launch will get some free T-shirts into the hands of our viewers.',
+    },
+    {
+        id: '20',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'Tears of Steel was realized with crowd-funding by users of the open source 3D creation tool Blender.',
+    },
+    {
+        id: '21',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'The Smoking Tire heads out to Adams Motorsports Park in Riverside, CA to test the most requested car of 2010,',
+    },
+    {
+        id: '22',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description: 'The Smoking Tire is going on the 2010 Bullrun Live Rally in a 2011 Shelby GT500,',
+    },
+    {
+        id: '23',
+        likes: 100,
+        videoUri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4',
+        user: {
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus.png',
+            username: 'Zahata Uchiha',
+        },
+        song: {
+            name: 'Dead love',
+            imageUri: 'https://www.kasandbox.org/programming-images/avatars/marcimus-red.png',
+        },
+        comments: '100',
+        shares: '200',
+        description:
+            'The Smoking Tire meets up with Chris and Jorge from CarsForAGrand.com to see just how far $1,000,',
     },
     // Thêm các bài viết khác tương tự
 ];
@@ -165,20 +495,19 @@ const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <FlatList
-                initialNumToRender={1}
+                initialNumToRender={10}
                 ref={flatListRef}
                 data={data}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(e, i) => i.toString()}
                 renderItem={renderItem}
                 pagingEnabled={true}
                 showsVerticalScrollIndicator={false}
-                decelerationRate={0}
                 snapToOffsets={snapToOffsetsLikeGooglePlay}
-                snapToAlignment={'center'}
+                snapToInterval={Sizes.scrHeight - 130}
                 viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
-                removeClippedSubviews
-                maxToRenderPerBatch={3}
-                windowSize={1}
+                maxToRenderPerBatch={10}
+                snapToAlignment={'start'}
+                decelerationRate={'fast'}
             />
         </View>
     );

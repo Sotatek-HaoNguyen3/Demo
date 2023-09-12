@@ -1,23 +1,20 @@
 import { useFocusEffect } from '@react-navigation/native';
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
-import { Animated, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
 import Video from 'react-native-video';
 
 import Svgs from 'assets/svgs';
+import FadeView, { viewFade, viewFadeRef } from 'components/FadeView';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, Button, IColors, Slider } from 'packages/uikit';
 
-import { ProgressBar } from 'packages/uikit/components/Progress';
-import RadioButtonsGroup from 'packages/uikit/components/RadioButton';
-import { useTimeout } from 'packages/uikit/components/Toast/hooks';
 import { HitSlop } from 'themes/dimensions';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { goBack, navigate } from 'utils/navigationUtils';
-import { sleep } from 'utils/utils';
 
 const videoError = (e) => {
     console.log(e);
@@ -30,8 +27,7 @@ const WatchDetailScreen = () => {
     const [pause, setPause] = useState(false);
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
-    const playerRef = useRef(null);
-    const fadeAnim = useRef(new Animated.Value(0)).current;
+    const playerRef = useRef<Video>(null);
 
     const handleProgress = (prgs) => {
         const currentProgress = prgs.currentTime / duration;
@@ -53,47 +49,12 @@ const WatchDetailScreen = () => {
                 playerRef.current.seek(0);
             }
             setPause(false);
-            handleFade();
+            viewFade.fade();
         } else {
             setPause(true);
-            handleFade();
+            viewFade.fade();
         }
     };
-
-    const handleFade = async () => {
-        await fadeIn();
-        await sleep(500);
-        await fadeOut();
-    };
-
-    const fadeIn = async () => {
-        // Will change fadeAnim value to 1 in 5 seconds
-        Animated.timing(fadeAnim, {
-            toValue: 0.9,
-            duration: 500,
-            useNativeDriver: true,
-        }).start();
-    };
-
-    const fadeOut = async () => {
-        // Will change fadeAnim value to 0 in 3 seconds
-        Animated.timing(fadeAnim, {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: true,
-        }).start();
-    };
-
-    const renderFadeView = useMemo(() => {
-        const Icon = Svgs[`Ic${pause ? 'Play' : 'Pause'}`];
-        return (
-            <Animated.View style={{ opacity: fadeAnim }}>
-                <TouchableOpacity style={styles.fadingContainer} onPress={handlePause}>
-                    <Icon height={scale(80)} width={scale(80)} />
-                </TouchableOpacity>
-            </Animated.View>
-        );
-    }, [pause]);
 
     useFocusEffect(
         React.useCallback(() => {
@@ -127,7 +88,7 @@ const WatchDetailScreen = () => {
                         }}
                     />
                 </TouchableWithoutFeedback>
-                {renderFadeView}
+                <FadeView pause={pause} ref={viewFadeRef} onPressView={handlePause} />
             </View>
             <View style={styles.controlView}>
                 <View style={styles.sliderView}>
@@ -251,9 +212,6 @@ const Styles = (themeColors: IColors) => {
         },
         rightInfo: {
             marginLeft: scale(4),
-        },
-        fadingContainer: {
-            backgroundColor: themeColors.transparent,
         },
     });
 };

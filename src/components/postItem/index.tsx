@@ -4,8 +4,12 @@ import { Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, Vi
 import Video from 'react-native-video';
 
 import Svgs from 'assets/svgs';
-import Sizes from 'themes/sizes';
+import FadeView, { viewFade, viewFadeRef } from 'components/FadeView';
+import { useThemeColors } from 'packages/hooks/useTheme';
+import { IColors } from 'packages/uikit';
+import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
+import Sizes from 'themes/sizes';
 
 interface User {
     imageUri: string;
@@ -33,9 +37,12 @@ interface PostProps {
 
 const PostItem = (props: PostProps) => {
     const { isPause } = props;
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
     const [post, setPost] = useState(props.data);
     const [isLiked, setIsLiked] = useState(false);
     const [paused, setPaused] = useState(true);
+    const topSpace = Sizes.scrHeight * 0.5 - scale(40);
 
     useEffect(() => {
         if (isPause) {
@@ -49,6 +56,7 @@ const PostItem = (props: PostProps) => {
 
     const onPlayPausePress = () => {
         setPaused((prevState) => !prevState);
+        viewFade.fade();
     };
 
     const onLikePress = () => {
@@ -71,24 +79,29 @@ const PostItem = (props: PostProps) => {
                         resizeMode={'cover'}
                         repeat={true}
                         paused={paused}
+                        bufferConfig={{
+                            minBufferMs: 10000,
+                            maxBufferMs: 30000,
+                            bufferForPlaybackMs: 2500,
+                            bufferForPlaybackAfterRebufferMs: 5000,
+                        }}
                     />
-
                     <View style={styles.uiContainer}>
                         <View style={styles.rightContainer}>
                             <Image style={styles.profilePicture} source={{ uri: post.user.imageUri }} />
 
                             <TouchableOpacity style={styles.iconContainer} onPress={onLikePress}>
-                                <Svgs.IcLike />
+                                <Svgs.IcLike width={scale(18)} height={scale(18)} />
                                 <Text style={styles.statsLabel}>{post.likes}</Text>
                             </TouchableOpacity>
 
                             <View style={styles.iconContainer}>
-                                <Svgs.IcEye name={'commenting'} size={40} color="white" />
+                                <Svgs.IcFollow width={scale(18)} height={scale(18)} />
                                 <Text style={styles.statsLabel}>{post.comments}</Text>
                             </View>
 
                             <View style={styles.iconContainer}>
-                                <Svgs.IcArrowUp name={'share-a'} size={35} color="white" />
+                                <Svgs.IcSave width={scale(18)} height={scale(18)} />
                                 <Text style={styles.statsLabel}>{post.shares}</Text>
                             </View>
                         </View>
@@ -96,7 +109,9 @@ const PostItem = (props: PostProps) => {
                         <View style={styles.bottomContainer}>
                             <View>
                                 <Text style={styles.handle}>@{post.user.username}</Text>
-                                <Text style={styles.description}>{post.description}</Text>
+                                <Text style={styles.description} numberOfLines={3}>
+                                    {post.description}
+                                </Text>
 
                                 <View style={styles.songRow}>
                                     <Text style={styles.songName}>{post.song.name}</Text>
@@ -108,95 +123,107 @@ const PostItem = (props: PostProps) => {
                     </View>
                 </View>
             </TouchableWithoutFeedback>
+            <FadeView
+                containerStyle={[styles.fadingView, { top: topSpace }]}
+                pause={paused}
+                ref={viewFadeRef}
+                onPressView={onPlayPausePress}
+            />
         </View>
     );
 };
 
 export default React.memo(PostItem);
 
-const styles = StyleSheet.create({
-    container: {
-        width: '100%',
-        height: Sizes.scrHeight,
-    },
-    videPlayButton: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        zIndex: 100,
-    },
-    video: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-    },
-    uiContainer: {
-        height: '100%',
-        justifyContent: 'flex-end',
-    },
-    bottomContainer: {
-        padding: scale(10),
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        marginBottom: scale(70),
-    },
-    handle: {
-        color: '#fff',
-        fontSize: scale(16),
-        fontWeight: '700',
-        marginBottom: scale(10),
-    },
-    description: {
-        color: '#fff',
-        fontSize: scale(16),
-        fontWeight: '300',
-        marginBottom: scale(10),
-    },
-    songRow: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    songName: {
-        color: '#fff',
-        fontSize: scale(16),
-        marginLeft: scale(5),
-    },
+const myStyles = (themeColors: IColors) => {
+    return StyleSheet.create({
+        container: {
+            width: '100%',
+            height: Sizes.scrHeight,
+            backgroundColor: themeColors.black,
+        },
+        videPlayButton: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+        },
+        video: {
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+        },
+        uiContainer: {
+            height: '100%',
+            justifyContent: 'flex-end',
+        },
+        bottomContainer: {
+            padding: scale(10),
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            marginBottom: scale(70),
+        },
+        handle: {
+            color: themeColors.white,
+            fontSize: scale(16),
+            ...Fonts.poppins700,
+            marginBottom: scale(10),
+        },
+        description: {
+            color: themeColors.white,
+            fontSize: scale(16),
+            ...Fonts.poppins400,
+            marginBottom: scale(10),
+            maxWidth: scale(300),
+        },
+        songRow: {
+            flexDirection: 'row',
+            alignItems: 'center',
+        },
+        songName: {
+            color: themeColors.white,
+            fontSize: scale(16),
+            marginLeft: scale(5),
+        },
 
-    songImage: {
-        width: scale(50),
-        height: scale(50),
-        borderRadius: scale(25),
-        borderWidth: scale(5),
-        borderColor: '#4c4c4c',
-    },
+        songImage: {
+            width: scale(30),
+            height: scale(30),
+            borderRadius: scale(25),
+            borderWidth: scale(5),
+            borderColor: themeColors.gray,
+        },
 
-    //  right container
-    rightContainer: {
-        alignSelf: 'flex-end',
-        height: scale(300),
-        justifyContent: 'space-between',
-        marginRight: scale(5),
-    },
-    profilePicture: {
-        width: scale(50),
-        height: scale(50),
-        borderRadius: scale(25),
-        borderWidth: scale(2),
-        borderColor: '#fff',
-    },
+        rightContainer: {
+            alignSelf: 'flex-end',
+            height: scale(230),
+            justifyContent: 'space-between',
+            marginRight: scale(5),
+        },
+        profilePicture: {
+            width: scale(50),
+            height: scale(50),
+            borderRadius: scale(25),
+            borderWidth: scale(2),
+            borderColor: themeColors.white,
+        },
 
-    iconContainer: {
-        alignItems: 'center',
-    },
-    statsLabel: {
-        color: '#fff',
-        fontSize: scale(16),
-        fontWeight: '600',
-        marginTop: scale(5),
-    },
-});
+        iconContainer: {
+            alignItems: 'center',
+        },
+        statsLabel: {
+            color: themeColors.white,
+            fontSize: scale(16),
+            ...Fonts.poppins600,
+            marginTop: scale(5),
+        },
+        fadingView: {
+            position: 'absolute',
+            alignSelf: 'center',
+        },
+    });
+};

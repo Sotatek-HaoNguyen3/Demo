@@ -495,18 +495,19 @@ const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <FlatList
-                initialNumToRender={1}
+                initialNumToRender={10}
                 ref={flatListRef}
                 data={data}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(e, i) => i.toString()}
                 renderItem={renderItem}
                 pagingEnabled={true}
                 showsVerticalScrollIndicator={false}
-                decelerationRate={0}
                 snapToOffsets={snapToOffsetsLikeGooglePlay}
-                snapToAlignment={'center'}
+                snapToInterval={Sizes.scrHeight - 130}
                 viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
                 maxToRenderPerBatch={10}
+                snapToAlignment={'start'}
+                decelerationRate={'fast'}
             />
         </View>
     );

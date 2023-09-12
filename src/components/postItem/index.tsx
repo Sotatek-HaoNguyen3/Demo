@@ -4,11 +4,12 @@ import { Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, Vi
 import Video from 'react-native-video';
 
 import Svgs from 'assets/svgs';
-import Sizes from 'themes/sizes';
-import { scale } from 'themes/scales';
+import FadeView, { viewFade, viewFadeRef } from 'components/FadeView';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit';
 import Fonts from 'themes/fonts';
+import { scale } from 'themes/scales';
+import Sizes from 'themes/sizes';
 
 interface User {
     imageUri: string;
@@ -41,6 +42,7 @@ const PostItem = (props: PostProps) => {
     const [post, setPost] = useState(props.data);
     const [isLiked, setIsLiked] = useState(false);
     const [paused, setPaused] = useState(true);
+    const topSpace = Sizes.scrHeight * 0.5 - scale(40);
 
     useEffect(() => {
         if (isPause) {
@@ -54,6 +56,7 @@ const PostItem = (props: PostProps) => {
 
     const onPlayPausePress = () => {
         setPaused((prevState) => !prevState);
+        viewFade.fade();
     };
 
     const onLikePress = () => {
@@ -83,7 +86,6 @@ const PostItem = (props: PostProps) => {
                             bufferForPlaybackAfterRebufferMs: 5000,
                         }}
                     />
-
                     <View style={styles.uiContainer}>
                         <View style={styles.rightContainer}>
                             <Image style={styles.profilePicture} source={{ uri: post.user.imageUri }} />
@@ -121,6 +123,12 @@ const PostItem = (props: PostProps) => {
                     </View>
                 </View>
             </TouchableWithoutFeedback>
+            <FadeView
+                containerStyle={[styles.fadingView, { top: topSpace }]}
+                pause={paused}
+                ref={viewFadeRef}
+                onPressView={onPlayPausePress}
+            />
         </View>
     );
 };
@@ -140,7 +148,6 @@ const myStyles = (themeColors: IColors) => {
             left: 0,
             bottom: 0,
             right: 0,
-            zIndex: 100,
         },
         video: {
             position: 'absolute',
@@ -191,7 +198,6 @@ const myStyles = (themeColors: IColors) => {
             borderColor: themeColors.gray,
         },
 
-        //  right container
         rightContainer: {
             alignSelf: 'flex-end',
             height: scale(230),
@@ -214,6 +220,10 @@ const myStyles = (themeColors: IColors) => {
             fontSize: scale(16),
             ...Fonts.poppins600,
             marginTop: scale(5),
+        },
+        fadingView: {
+            position: 'absolute',
+            alignSelf: 'center',
         },
     });
 };

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
-import Video from 'react-native-video';
-
 import Svgs from 'assets/svgs';
 import FadeView, { viewFade, viewFadeRef } from 'components/FadeView';
+import VideoPlayer from 'components/VideoPlayer';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit';
 import Fonts from 'themes/fonts';
@@ -47,16 +46,20 @@ const PostItem = (props: PostProps) => {
     useEffect(() => {
         if (isPause) {
             if (paused !== true) {
-                onPlayPausePress();
+                handlePause();
             }
         } else {
             setPaused((prevState) => !prevState);
         }
     }, [isPause]);
 
-    const onPlayPausePress = () => {
+    const handlePause = () => {
         setPaused((prevState) => !prevState);
+    };
+
+    const onPlayPausePress = () => {
         viewFade.fade();
+        handlePause();
     };
 
     const onLikePress = () => {
@@ -72,7 +75,7 @@ const PostItem = (props: PostProps) => {
         <View style={styles.container}>
             <TouchableWithoutFeedback onPress={onPlayPausePress}>
                 <View>
-                    <Video
+                    <VideoPlayer
                         source={{ uri: props.data.videoUri }}
                         style={styles.video}
                         onError={(e) => console.log(e)}

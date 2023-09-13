@@ -7,6 +7,7 @@ import Video from 'react-native-video';
 
 import Svgs from 'assets/svgs';
 import FadeView, { viewFade, viewFadeRef } from 'components/FadeView';
+import VideoPlayer from 'components/VideoPlayer';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, Button, IColors, Slider } from 'packages/uikit';
 
@@ -70,7 +71,7 @@ const WatchDetailScreen = () => {
         <View style={styles.container}>
             <View style={styles.content}>
                 <TouchableWithoutFeedback onPress={handlePause}>
-                    <Video
+                    <VideoPlayer
                         source={{
                             uri: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4',
                         }}

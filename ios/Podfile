@@ -53,12 +53,12 @@ abstract_target 'App' do
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
   end
 
-  target 'Dev' do
+  target 'SotaEng Dev' do
   end
  
-  target 'Staging' do
+  target 'SotaEng Stg' do
   end
  
-  target 'Demo' do
+  target 'SotaEng' do
   end
 end

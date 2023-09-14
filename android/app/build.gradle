@@ -101,38 +101,39 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     flavorDimensions "default"
     productFlavors {
+        development {
+            applicationIdSuffix ".development"
+            minSdkVersion rootProject.ext.minSdkVersion
+            targetSdkVersion rootProject.ext.targetSdkVersion
+            resValue "string", "app_name", "SotaEng Dev"
+            resValue "string", "build_config_package", "com.sotaeng"
+            matchingFallbacks = ['debug', 'release']
+        }
         production {
             applicationIdSuffix ".production"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "app_name", env.get("APP_NAME")
-
+            resValue "string", "app_name", "SotaEng"
+            resValue "string", "build_config_package", "com.sotaeng"
+            matchingFallbacks = ['debug', 'release']
         }
         staging {
             applicationIdSuffix ".staging"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "app_name", env.get("APP_NAME")
-            resValue "string", "build_config_package", "com.demo"
-            matchingFallbacks = ['debug', 'release']
-        }
-        development {
-            applicationIdSuffix ".development"
-            minSdkVersion rootProject.ext.minSdkVersion
-            targetSdkVersion rootProject.ext.targetSdkVersion
-            resValue "string", "app_name", env.get("APP_NAME")
-            resValue "string", "build_config_package", "com.demo"
+            resValue "string", "app_name", "SotaEng Stg"
+            resValue "string", "build_config_package", "com.sotaeng"
             matchingFallbacks = ['debug', 'release']
         }
     }
-    namespace "com.demo"
+    namespace "com.sotaeng"
     defaultConfig {
         applicationId env.get("ANDROID_APP_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode Integer.valueOf(env.get("ANDROID_APP_VERSION_CODE"))
-        versionName env.get("ANDROID_APP_VERSION_NAME")
-        resValue "string", "build_config_package", "com.demo"
+        versionCode Integer.valueOf(1)
+        versionName "1.0.0"
+        resValue "string", "build_config_package", "com.sotaeng"
     }
 
     splits {
@@ -176,7 +177,7 @@ android {
         release {
             // Caution! In production, you need to generate your own keystore file.
             // see https://reactnative.dev/docs/signed-apk-android.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.development
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

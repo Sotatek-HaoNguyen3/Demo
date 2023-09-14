@@ -49,7 +49,7 @@ const myTheme = extendTheme({
 
 type MyThemeType = typeof myTheme;
 // NOTE: The module name in package.json
-declare module 'demo-react-native' {
+declare module 'SotaEng' {
     interface ICustomTheme extends MyThemeType {}
     interface ICustomColors extends MyColorsType {}
 }

@@ -24,7 +24,6 @@
 		24643DBC2AA734350023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DBB2AA734350023407C /* libreact-native-video.a */; };
 		2722CE39F46642628EC482EE /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
 		55596A870524469D9ECB5BE4 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
-		7885CEAA53DE21CC8A2FCD9E /* libPods-App-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B3351A31CA32BCF99E81BF46 /* libPods-App-Demo.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8321ABD9EACC45F8B4019980 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */; };
 		841956162A42A88C001C453E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
@@ -48,62 +47,69 @@
 		8419563A2A42AA9C001C453E /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
 		8419563B2A42AA9C001C453E /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
 		8F169959FB6E42A98A54ABFE /* SegoeUI-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */; };
+		96BB463F3ABE6158703A71A3 /* libPods-App-SotaEng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C03E98A9559930EC5C8F8D /* libPods-App-SotaEng.a */; };
 		A53263900F8D428EA2036C10 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */; };
 		BB2A7560D4CE4A32BDA60958 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */; };
 		BE709D61D27242E2AA5D9653 /* SegoeUI-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1929603E993047159575B486 /* SegoeUI-Bold.ttf */; };
-		C820B418A03FCC5095CA7779 /* libPods-App-Dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F756A8C58A526BE7434FC1D /* libPods-App-Dev.a */; };
+		D55F6DC33AC7694C7754D833 /* libPods-App-SotaEng Dev.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 557E6754861E284C7E60A469 /* libPods-App-SotaEng Dev.a */; };
 		D9DA292EBAD64E64B46849F9 /* SegoeUI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */; };
-		ED9DD5A9EEA206198210A698 /* libPods-App-Staging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1512B98380009333BF2383AD /* libPods-App-Staging.a */; };
+		DA2F9797909871845C178EBB /* libPods-App-SotaEng Stg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32E95E32DC36F996E1FE73D9 /* libPods-App-SotaEng Stg.a */; };
 		F819E9D891A54B02942A3B3D /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = demoTests.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* sotaengTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sotaengTests.m; sourceTree = "<group>"; };
 		09541D8852164812B2A8DFB6 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Regular.ttf"; path = "../src/assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		0FDC7473A2F84AF190526BBF /* SegoeUI.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SegoeUI.ttf; path = ../src/assets/fonts/SegoeUI.ttf; sourceTree = "<group>"; };
-		13707217E8F0559FDE37BBF3 /* Pods-demoCommonPods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-demo.debug.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo.debug.xcconfig"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = demo/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = demo/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = demo/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = demo/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = demo/main.m; sourceTree = "<group>"; };
-		1512B98380009333BF2383AD /* libPods-App-Staging.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-Staging.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13707217E8F0559FDE37BBF3 /* Pods-sotaengCommonPods-sotaeng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaengCommonPods-sotaeng.debug.xcconfig"; path = "Target Support Files/Pods-sotaengCommonPods-sotaeng/Pods-sotaengCommonPods-sotaeng.debug.xcconfig"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* SotaEng.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SotaEng.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = sotaeng/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = sotaeng/AppDelegate.mm; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = sotaeng/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = sotaeng/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = sotaeng/main.m; sourceTree = "<group>"; };
 		1929603E993047159575B486 /* SegoeUI-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SegoeUI-Bold.ttf"; path = "../src/assets/fonts/SegoeUI-Bold.ttf"; sourceTree = "<group>"; };
 		24643DB72AA7341B0023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24643DB92AA7342F0023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24643DBB2AA734350023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A45C7F1CAFF7441B3DFF18D /* Pods-App-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Demo.debug.xcconfig"; path = "Target Support Files/Pods-App-Demo/Pods-App-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		2A45C7F1CAFF7441B3DFF18D /* Pods-App-SotaEng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng.debug.xcconfig"; path = "Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng.debug.xcconfig"; sourceTree = "<group>"; };
 		328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SegoeUI-SemiBold.ttf"; path = "../src/assets/fonts/SegoeUI-SemiBold.ttf"; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.debug.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.debug.xcconfig"; sourceTree = "<group>"; };
-		3F756A8C58A526BE7434FC1D /* libPods-App-Dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-Dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32D8A9F726D164085980D8AC /* Pods-App-SotaEng Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng Dev.debug.xcconfig"; path = "Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev.debug.xcconfig"; sourceTree = "<group>"; };
+		32E95E32DC36F996E1FE73D9 /* libPods-App-SotaEng Stg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-SotaEng Stg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B4392A12AC88292D35C810B /* Pods-sotaeng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaeng.debug.xcconfig"; path = "Target Support Files/Pods-sotaeng/Pods-sotaeng.debug.xcconfig"; sourceTree = "<group>"; };
 		4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
 		4F3A6C453534637FDACB3D6A /* Pods-App-Staging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Staging.release.xcconfig"; path = "Target Support Files/Pods-App-Staging/Pods-App-Staging.release.xcconfig"; sourceTree = "<group>"; };
-		56715A8389FD20DF8123C546 /* Pods-demoCommonPods-DemoDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoDev.debug.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoDev/Pods-demoCommonPods-DemoDev.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.release.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.release.xcconfig"; sourceTree = "<group>"; };
+		557E6754861E284C7E60A469 /* libPods-App-SotaEng Dev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-SotaEng Dev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		56715A8389FD20DF8123C546 /* Pods-sotaengCommonPods-SotaEngDev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaengCommonPods-SotaEngDev.debug.xcconfig"; path = "Target Support Files/Pods-sotaengCommonPods-SotaEngDev/Pods-sotaengCommonPods-SotaEngDev.debug.xcconfig"; sourceTree = "<group>"; };
+		5709B34CF0A7D63546082F79 /* Pods-sotaeng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaeng.release.xcconfig"; path = "Target Support Files/Pods-sotaeng/Pods-sotaeng.release.xcconfig"; sourceTree = "<group>"; };
 		5E74058F1F504C3EBF8E12C4 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Bold.ttf"; path = "../src/assets/fonts/Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-Thin.ttf"; path = "../src/assets/fonts/Poppins-Thin.ttf"; sourceTree = "<group>"; };
-		7B4FCE4E7C5EC9C8358CC3E4 /* Pods-demoCommonPods-DemoStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoStg.release.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoStg/Pods-demoCommonPods-DemoStg.release.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = demo/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		841956292A42A88C001C453E /* Staging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Staging.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8419562A2A42A88C001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/admin/Code/Company/demo/ios/Info.plist; sourceTree = "<absolute>"; };
-		841956422A42AA9C001C453E /* Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dev.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		841956432A42AA9D001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = /Users/admin/Code/Company/demo/ios/Info.plist; sourceTree = "<absolute>"; };
-		9374C447BF40EF4859EF7DB0 /* Pods-App-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Demo.release.xcconfig"; path = "Target Support Files/Pods-App-Demo/Pods-App-Demo.release.xcconfig"; sourceTree = "<group>"; };
-		946F2695FD307AFBC60B345F /* libPods-demoCommonPods-DemoStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B4FCE4E7C5EC9C8358CC3E4 /* Pods-sotaengCommonPods-SotaEngStg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaengCommonPods-SotaEngStg.release.xcconfig"; path = "Target Support Files/Pods-sotaengCommonPods-SotaEngStg/Pods-sotaengCommonPods-SotaEngStg.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = sotaeng/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		841956292A42A88C001C453E /* SotaEng Stg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SotaEng Stg.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8419562A2A42A88C001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/admin/Code/Company/sotaeng/ios/Info.plist; sourceTree = "<absolute>"; };
+		841956422A42AA9C001C453E /* SotaEng Dev.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SotaEng Dev.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		841956432A42AA9D001C453E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = Info.plist; path = /Users/admin/Code/Company/sotaeng/ios/Info.plist; sourceTree = "<absolute>"; };
+		9374C447BF40EF4859EF7DB0 /* Pods-App-SotaEng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng.release.xcconfig"; path = "Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng.release.xcconfig"; sourceTree = "<group>"; };
+		946F2695FD307AFBC60B345F /* libPods-sotaengCommonPods-SotaEngStg.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sotaengCommonPods-SotaEngStg.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A29A25332487D285D9AF03C /* Pods-App-Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Dev.release.xcconfig"; path = "Target Support Files/Pods-App-Dev/Pods-App-Dev.release.xcconfig"; sourceTree = "<group>"; };
 		AA3803271B8E4A5FA29DDDB3 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-SemiBold.ttf"; path = "../src/assets/fonts/Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		B3351A31CA32BCF99E81BF46 /* libPods-App-Demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-Demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B088B388929137526232B116 /* Pods-App-SotaEng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng.release.xcconfig"; path = "Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng.release.xcconfig"; sourceTree = "<group>"; };
 		B54234FEB7929AAA5106BCB7 /* Pods-App-Staging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Staging.debug.xcconfig"; path = "Target Support Files/Pods-App-Staging/Pods-App-Staging.debug.xcconfig"; sourceTree = "<group>"; };
 		B855DC055A73482E90F969C1 /* Inter-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-SemiBold.ttf"; path = "../src/assets/fonts/Inter-SemiBold.ttf"; sourceTree = "<group>"; };
-		B99AA8AA73A344F54B2C15D8 /* libPods-demoCommonPods-DemoDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demoCommonPods-DemoDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B99AA8AA73A344F54B2C15D8 /* libPods-sotaengCommonPods-SotaEngDev.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-sotaengCommonPods-SotaEngDev.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BABA4445829069818F61992C /* Pods-App-Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Dev.debug.xcconfig"; path = "Target Support Files/Pods-App-Dev/Pods-App-Dev.debug.xcconfig"; sourceTree = "<group>"; };
-		CD1F85CE5E3DBA4C9DFB41BC /* Pods-demoCommonPods-DemoDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoDev.release.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoDev/Pods-demoCommonPods-DemoDev.release.xcconfig"; sourceTree = "<group>"; };
+		C0F7FED27F70FBB1D0CC5E45 /* Pods-App-SotaEng Stg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng Stg.debug.xcconfig"; path = "Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg.debug.xcconfig"; sourceTree = "<group>"; };
+		C198BB6A4221EF8423367396 /* Pods-App-SotaEng Stg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng Stg.release.xcconfig"; path = "Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg.release.xcconfig"; sourceTree = "<group>"; };
+		C54702ABEE29FB56E21819A8 /* Pods-App-SotaEng Dev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng Dev.release.xcconfig"; path = "Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev.release.xcconfig"; sourceTree = "<group>"; };
+		C7C03E98A9559930EC5C8F8D /* libPods-App-SotaEng.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-App-SotaEng.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD1F85CE5E3DBA4C9DFB41BC /* Pods-sotaengCommonPods-SotaEngDev.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaengCommonPods-SotaEngDev.release.xcconfig"; path = "Target Support Files/Pods-sotaengCommonPods-SotaEngDev/Pods-sotaengCommonPods-SotaEngDev.release.xcconfig"; sourceTree = "<group>"; };
 		D1815E926AEA43639C2153B7 /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
-		DCDE36F1C31779AA02278D84 /* Pods-demoCommonPods-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-demo.release.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-demo/Pods-demoCommonPods-demo.release.xcconfig"; sourceTree = "<group>"; };
+		D29DD051FFE5EBDD28E7D15D /* Pods-App-SotaEng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng.debug.xcconfig"; path = "Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng.debug.xcconfig"; sourceTree = "<group>"; };
+		DCDE36F1C31779AA02278D84 /* Pods-sotaengCommonPods-sotaeng.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaengCommonPods-sotaeng.release.xcconfig"; path = "Target Support Files/Pods-sotaengCommonPods-sotaeng/Pods-sotaengCommonPods-sotaeng.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F330E7352FCA8CF8272F0303 /* Pods-demoCommonPods-DemoStg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoCommonPods-DemoStg.debug.xcconfig"; path = "Target Support Files/Pods-demoCommonPods-DemoStg/Pods-demoCommonPods-DemoStg.debug.xcconfig"; sourceTree = "<group>"; };
+		F330E7352FCA8CF8272F0303 /* Pods-sotaengCommonPods-SotaEngStg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sotaengCommonPods-SotaEngStg.debug.xcconfig"; path = "Target Support Files/Pods-sotaengCommonPods-SotaEngStg/Pods-sotaengCommonPods-SotaEngStg.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,7 +118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24643DBC2AA734350023407C /* libreact-native-video.a in Frameworks */,
-				7885CEAA53DE21CC8A2FCD9E /* libPods-App-Demo.a in Frameworks */,
+				96BB463F3ABE6158703A71A3 /* libPods-App-SotaEng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24643DBA2AA7342F0023407C /* libreact-native-video.a in Frameworks */,
-				ED9DD5A9EEA206198210A698 /* libPods-App-Staging.a in Frameworks */,
+				DA2F9797909871845C178EBB /* libPods-App-SotaEng Stg.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,20 +136,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				24643DB82AA7341B0023407C /* libreact-native-video.a in Frameworks */,
-				C820B418A03FCC5095CA7779 /* libPods-App-Dev.a in Frameworks */,
+				D55F6DC33AC7694C7754D833 /* libPods-App-SotaEng Dev.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* demoTests */ = {
+		00E356EF1AD99517003FC87E /* sotaengTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* demoTests.m */,
+				00E356F21AD99517003FC87E /* sotaengTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = demoTests;
+			path = sotaengTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -154,7 +160,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* demo */ = {
+		13B07FAE1A68108700A75B9A /* sotaeng */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -164,7 +170,7 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = demo;
+			name = sotaeng;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -174,11 +180,11 @@
 				24643DB92AA7342F0023407C /* libreact-native-video.a */,
 				24643DB72AA7341B0023407C /* libreact-native-video.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				B99AA8AA73A344F54B2C15D8 /* libPods-demoCommonPods-DemoDev.a */,
-				946F2695FD307AFBC60B345F /* libPods-demoCommonPods-DemoStg.a */,
-				B3351A31CA32BCF99E81BF46 /* libPods-App-Demo.a */,
-				3F756A8C58A526BE7434FC1D /* libPods-App-Dev.a */,
-				1512B98380009333BF2383AD /* libPods-App-Staging.a */,
+				B99AA8AA73A344F54B2C15D8 /* libPods-sotaengCommonPods-SotaEngDev.a */,
+				946F2695FD307AFBC60B345F /* libPods-sotaengCommonPods-SotaEngStg.a */,
+				C7C03E98A9559930EC5C8F8D /* libPods-App-SotaEng.a */,
+				557E6754861E284C7E60A469 /* libPods-App-SotaEng Dev.a */,
+				32E95E32DC36F996E1FE73D9 /* libPods-App-SotaEng Stg.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -211,9 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				841956452A42ACA9001C453E /* ConfigEnv */,
-				13B07FAE1A68108700A75B9A /* demo */,
+				13B07FAE1A68108700A75B9A /* sotaeng */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* demoTests */,
+				00E356EF1AD99517003FC87E /* sotaengTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -227,9 +233,9 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* demo.app */,
-				841956292A42A88C001C453E /* Staging.app */,
-				841956422A42AA9C001C453E /* Dev.app */,
+				13B07F961A680F5B00A75B9A /* SotaEng.app */,
+				841956292A42A88C001C453E /* SotaEng Stg.app */,
+				841956422A42AA9C001C453E /* SotaEng Dev.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,20 +270,26 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-demo.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-demo.release.xcconfig */,
-				56715A8389FD20DF8123C546 /* Pods-demoCommonPods-DemoDev.debug.xcconfig */,
-				CD1F85CE5E3DBA4C9DFB41BC /* Pods-demoCommonPods-DemoDev.release.xcconfig */,
-				F330E7352FCA8CF8272F0303 /* Pods-demoCommonPods-DemoStg.debug.xcconfig */,
-				7B4FCE4E7C5EC9C8358CC3E4 /* Pods-demoCommonPods-DemoStg.release.xcconfig */,
-				13707217E8F0559FDE37BBF3 /* Pods-demoCommonPods-demo.debug.xcconfig */,
-				DCDE36F1C31779AA02278D84 /* Pods-demoCommonPods-demo.release.xcconfig */,
-				2A45C7F1CAFF7441B3DFF18D /* Pods-App-Demo.debug.xcconfig */,
-				9374C447BF40EF4859EF7DB0 /* Pods-App-Demo.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-sotaeng.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-sotaeng.release.xcconfig */,
+				56715A8389FD20DF8123C546 /* Pods-sotaengCommonPods-SotaEngDev.debug.xcconfig */,
+				CD1F85CE5E3DBA4C9DFB41BC /* Pods-sotaengCommonPods-SotaEngDev.release.xcconfig */,
+				F330E7352FCA8CF8272F0303 /* Pods-sotaengCommonPods-SotaEngStg.debug.xcconfig */,
+				7B4FCE4E7C5EC9C8358CC3E4 /* Pods-sotaengCommonPods-SotaEngStg.release.xcconfig */,
+				13707217E8F0559FDE37BBF3 /* Pods-sotaengCommonPods-sotaeng.debug.xcconfig */,
+				DCDE36F1C31779AA02278D84 /* Pods-sotaengCommonPods-sotaeng.release.xcconfig */,
+				2A45C7F1CAFF7441B3DFF18D /* Pods-App-SotaEng.debug.xcconfig */,
+				9374C447BF40EF4859EF7DB0 /* Pods-App-SotaEng.release.xcconfig */,
 				BABA4445829069818F61992C /* Pods-App-Dev.debug.xcconfig */,
 				9A29A25332487D285D9AF03C /* Pods-App-Dev.release.xcconfig */,
 				B54234FEB7929AAA5106BCB7 /* Pods-App-Staging.debug.xcconfig */,
 				4F3A6C453534637FDACB3D6A /* Pods-App-Staging.release.xcconfig */,
+				D29DD051FFE5EBDD28E7D15D /* Pods-App-SotaEng.debug.xcconfig */,
+				B088B388929137526232B116 /* Pods-App-SotaEng.release.xcconfig */,
+				32D8A9F726D164085980D8AC /* Pods-App-SotaEng Dev.debug.xcconfig */,
+				C54702ABEE29FB56E21819A8 /* Pods-App-SotaEng Dev.release.xcconfig */,
+				C0F7FED27F70FBB1D0CC5E45 /* Pods-App-SotaEng Stg.debug.xcconfig */,
+				C198BB6A4221EF8423367396 /* Pods-App-SotaEng Stg.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -285,9 +297,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* Demo */ = {
+		13B07F861A680F5B00A75B9A /* SotaEng */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SotaEng" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -302,14 +314,14 @@
 			);
 			dependencies = (
 			);
-			name = Demo;
-			productName = demo;
-			productReference = 13B07F961A680F5B00A75B9A /* demo.app */;
+			name = SotaEng;
+			productName = sotaeng;
+			productReference = 13B07F961A680F5B00A75B9A /* SotaEng.app */;
 			productType = "com.apple.product-type.application";
 		};
-		841956122A42A88C001C453E /* Staging */ = {
+		841956122A42A88C001C453E /* SotaEng Stg */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 841956262A42A88C001C453E /* Build configuration list for PBXNativeTarget "Staging" */;
+			buildConfigurationList = 841956262A42A88C001C453E /* Build configuration list for PBXNativeTarget "SotaEng Stg" */;
 			buildPhases = (
 				841956132A42A88C001C453E /* [CP] Check Pods Manifest.lock */,
 				841956142A42A88C001C453E /* Start Packager */,
@@ -324,14 +336,14 @@
 			);
 			dependencies = (
 			);
-			name = Staging;
-			productName = demo;
-			productReference = 841956292A42A88C001C453E /* Staging.app */;
+			name = "SotaEng Stg";
+			productName = sotaeng;
+			productReference = 841956292A42A88C001C453E /* SotaEng Stg.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8419562B2A42AA9C001C453E /* Dev */ = {
+		8419562B2A42AA9C001C453E /* SotaEng Dev */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8419563F2A42AA9C001C453E /* Build configuration list for PBXNativeTarget "Dev" */;
+			buildConfigurationList = 8419563F2A42AA9C001C453E /* Build configuration list for PBXNativeTarget "SotaEng Dev" */;
 			buildPhases = (
 				8419562C2A42AA9C001C453E /* [CP] Check Pods Manifest.lock */,
 				8419562D2A42AA9C001C453E /* Start Packager */,
@@ -346,9 +358,9 @@
 			);
 			dependencies = (
 			);
-			name = Dev;
-			productName = demo;
-			productReference = 841956422A42AA9C001C453E /* Dev.app */;
+			name = "SotaEng Dev";
+			productName = sotaeng;
+			productReference = 841956422A42AA9C001C453E /* SotaEng Dev.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -364,7 +376,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "demo" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SotaEng" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -377,9 +389,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Demo */,
-				841956122A42A88C001C453E /* Staging */,
-				8419562B2A42AA9C001C453E /* Dev */,
+				13B07F861A680F5B00A75B9A /* SotaEng */,
+				841956122A42A88C001C453E /* SotaEng Stg */,
+				8419562B2A42AA9C001C453E /* SotaEng Dev */,
 			);
 		};
 /* End PBXProject section */
@@ -467,15 +479,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Demo/Pods-App-Demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Demo/Pods-App-Demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Demo/Pods-App-Demo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		841956132A42A88C001C453E /* [CP] Check Pods Manifest.lock */ = {
@@ -493,7 +505,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-App-Staging-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-App-SotaEng Stg-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -541,15 +553,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Staging/Pods-App-Staging-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Staging/Pods-App-Staging-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Staging/Pods-App-Staging-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		841956252A42A88C001C453E /* [CP] Copy Pods Resources */ = {
@@ -558,15 +570,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Staging/Pods-App-Staging-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Staging/Pods-App-Staging-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Staging/Pods-App-Staging-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Stg/Pods-App-SotaEng Stg-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8419562C2A42AA9C001C453E /* [CP] Check Pods Manifest.lock */ = {
@@ -584,7 +596,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-App-Dev-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-App-SotaEng Dev-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -632,15 +644,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Dev/Pods-App-Dev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Dev/Pods-App-Dev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Dev/Pods-App-Dev-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8419563E2A42AA9C001C453E /* [CP] Copy Pods Resources */ = {
@@ -649,15 +661,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Dev/Pods-App-Dev-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Dev/Pods-App-Dev-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Dev/Pods-App-Dev-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
@@ -675,7 +687,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-App-Demo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-App-SotaEng-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -688,15 +700,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Demo/Pods-App-Demo-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-App-Demo/Pods-App-Demo-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-Demo/Pods-App-Demo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -753,15 +765,15 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2A45C7F1CAFF7441B3DFF18D /* Pods-App-Demo.debug.xcconfig */;
+			baseConfigurationReference = D29DD051FFE5EBDD28E7D15D /* Pods-App-SotaEng.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KXJUN9HR33;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = demo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Demo;
+				INFOPLIST_FILE = sotaeng/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SotaEng;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -772,8 +784,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.production;
-				PRODUCT_NAME = demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sotaeng.production;
+				PRODUCT_NAME = SotaEng;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -782,14 +794,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9374C447BF40EF4859EF7DB0 /* Pods-App-Demo.release.xcconfig */;
+			baseConfigurationReference = B088B388929137526232B116 /* Pods-App-SotaEng.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KXJUN9HR33;
-				INFOPLIST_FILE = demo/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Demo;
+				INFOPLIST_FILE = sotaeng/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SotaEng;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -800,8 +812,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.production;
-				PRODUCT_NAME = demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sotaeng.production;
+				PRODUCT_NAME = SotaEng;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -946,7 +958,7 @@
 		};
 		841956272A42A88C001C453E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B54234FEB7929AAA5106BCB7 /* Pods-App-Staging.debug.xcconfig */;
+			baseConfigurationReference = C0F7FED27F70FBB1D0CC5E45 /* Pods-App-SotaEng Stg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -954,7 +966,7 @@
 				DEVELOPMENT_TEAM = KXJUN9HR33;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ConfigEnv/Staging/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Staging;
+				INFOPLIST_KEY_CFBundleDisplayName = "SotaEng Stg";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -965,7 +977,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sotaeng.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -975,14 +987,14 @@
 		};
 		841956282A42A88C001C453E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F3A6C453534637FDACB3D6A /* Pods-App-Staging.release.xcconfig */;
+			baseConfigurationReference = C198BB6A4221EF8423367396 /* Pods-App-SotaEng Stg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KXJUN9HR33;
 				INFOPLIST_FILE = ConfigEnv/Staging/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Staging;
+				INFOPLIST_KEY_CFBundleDisplayName = "SotaEng Stg";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -993,7 +1005,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.staging;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sotaeng.staging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1002,7 +1014,7 @@
 		};
 		841956402A42AA9C001C453E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BABA4445829069818F61992C /* Pods-App-Dev.debug.xcconfig */;
+			baseConfigurationReference = 32D8A9F726D164085980D8AC /* Pods-App-SotaEng Dev.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1010,7 +1022,7 @@
 				DEVELOPMENT_TEAM = KXJUN9HR33;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ConfigEnv/Dev/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Dev;
+				INFOPLIST_KEY_CFBundleDisplayName = "SotaEng Dev";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1021,7 +1033,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sotaeng.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1031,14 +1043,14 @@
 		};
 		841956412A42AA9C001C453E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A29A25332487D285D9AF03C /* Pods-App-Dev.release.xcconfig */;
+			baseConfigurationReference = C54702ABEE29FB56E21819A8 /* Pods-App-SotaEng Dev.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KXJUN9HR33;
 				INFOPLIST_FILE = ConfigEnv/Dev/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Dev;
+				INFOPLIST_KEY_CFBundleDisplayName = "SotaEng Dev";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1049,7 +1061,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.demo.development;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sotaeng.development;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1059,7 +1071,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Demo" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "SotaEng" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1068,7 +1080,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "demo" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "SotaEng" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
@@ -1077,7 +1089,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		841956262A42A88C001C453E /* Build configuration list for PBXNativeTarget "Staging" */ = {
+		841956262A42A88C001C453E /* Build configuration list for PBXNativeTarget "SotaEng Stg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				841956272A42A88C001C453E /* Debug */,
@@ -1086,7 +1098,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8419563F2A42AA9C001C453E /* Build configuration list for PBXNativeTarget "Dev" */ = {
+		8419563F2A42AA9C001C453E /* Build configuration list for PBXNativeTarget "SotaEng Dev" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				841956402A42AA9C001C453E /* Debug */,

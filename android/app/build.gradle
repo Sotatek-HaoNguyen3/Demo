@@ -1,5 +1,6 @@
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
+apply plugin: 'com.google.gms.google-services'
 
 import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
@@ -102,7 +103,7 @@ android {
     flavorDimensions "default"
     productFlavors {
         development {
-            applicationIdSuffix ".development"
+            applicationId "com.sotaeng"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "app_name", "SotaEng Dev"
@@ -110,7 +111,7 @@ android {
             matchingFallbacks = ['debug', 'release']
         }
         production {
-            applicationIdSuffix ".production"
+            applicationId "com.sotaeng"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "app_name", "SotaEng"
@@ -118,7 +119,7 @@ android {
             matchingFallbacks = ['debug', 'release']
         }
         staging {
-            applicationIdSuffix ".staging"
+            applicationId "com.sotaeng"
             minSdkVersion rootProject.ext.minSdkVersion
             targetSdkVersion rootProject.ext.targetSdkVersion
             resValue "string", "app_name", "SotaEng Stg"

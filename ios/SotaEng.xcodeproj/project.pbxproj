@@ -22,6 +22,9 @@
 		24643DB82AA7341B0023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DB72AA7341B0023407C /* libreact-native-video.a */; };
 		24643DBA2AA7342F0023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DB92AA7342F0023407C /* libreact-native-video.a */; };
 		24643DBC2AA734350023407C /* libreact-native-video.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24643DBB2AA734350023407C /* libreact-native-video.a */; };
+		24EF08092AB43C7D007B7955 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24EF08082AB43C7D007B7955 /* GoogleService-Info.plist */; };
+		24EF080A2AB43C7D007B7955 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24EF08082AB43C7D007B7955 /* GoogleService-Info.plist */; };
+		24EF080B2AB43C7D007B7955 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24EF08082AB43C7D007B7955 /* GoogleService-Info.plist */; };
 		2722CE39F46642628EC482EE /* Poppins-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 799DA2BCE6144042A6494D1E /* Poppins-Thin.ttf */; };
 		55596A870524469D9ECB5BE4 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A61AEEB296942A599D38F66 /* Inter-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -73,6 +76,7 @@
 		24643DB72AA7341B0023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24643DB92AA7342F0023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		24643DBB2AA734350023407C /* libreact-native-video.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-video.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		24EF08082AB43C7D007B7955 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A45C7F1CAFF7441B3DFF18D /* Pods-App-SotaEng.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng.debug.xcconfig"; path = "Target Support Files/Pods-App-SotaEng/Pods-App-SotaEng.debug.xcconfig"; sourceTree = "<group>"; };
 		328D0B682DD44BD39A4DA542 /* SegoeUI-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "SegoeUI-SemiBold.ttf"; path = "../src/assets/fonts/SegoeUI-SemiBold.ttf"; sourceTree = "<group>"; };
 		32D8A9F726D164085980D8AC /* Pods-App-SotaEng Dev.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-SotaEng Dev.debug.xcconfig"; path = "Target Support Files/Pods-App-SotaEng Dev/Pods-App-SotaEng Dev.debug.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				24EF08082AB43C7D007B7955 /* GoogleService-Info.plist */,
 				841956452A42ACA9001C453E /* ConfigEnv */,
 				13B07FAE1A68108700A75B9A /* sotaeng */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -401,6 +406,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EF08092AB43C7D007B7955 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				A53263900F8D428EA2036C10 /* Inter-Bold.ttf in Resources */,
@@ -420,6 +426,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EF080A2AB43C7D007B7955 /* GoogleService-Info.plist in Resources */,
 				244849D22A931241003A6C83 /* Poppins-Thin.ttf in Resources */,
 				244849D12A93123E003A6C83 /* Poppins-SemiBold.ttf in Resources */,
 				244849D02A93123B003A6C83 /* Poppins-Regular.ttf in Resources */,
@@ -439,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EF080B2AB43C7D007B7955 /* GoogleService-Info.plist in Resources */,
 				244849CE2A931232003A6C83 /* Poppins-Thin.ttf in Resources */,
 				244849CD2A93122E003A6C83 /* Poppins-SemiBold.ttf in Resources */,
 				244849CC2A93122A003A6C83 /* Poppins-Regular.ttf in Resources */,

@@ -1,8 +1,8 @@
 const registerFieldName = {
-    email: 'Email',
-    username: 'Username',
-    password: 'Password',
-    confirmPassword: 'ConfirmPassword',
+    email: 'email',
+    username: 'username',
+    password: 'password',
+    confirmPassword: 'confirmPassword',
 };
 
 const registerDataForm = [

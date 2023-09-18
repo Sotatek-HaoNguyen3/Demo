@@ -199,7 +199,7 @@ const myStyles = (themeColors: IColors) => {
             borderWidth: scale(1),
             borderColor: themeColors.blackOpacity10,
             height: scale(45),
-            marginTop: scale(20),
+            marginTop: scale(24),
             paddingHorizontal: scale(10),
             alignItems: 'center',
         },

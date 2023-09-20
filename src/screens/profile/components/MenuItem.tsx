@@ -1,14 +1,15 @@
 import React, { ReactElement, ReactNode } from 'react';
-import { StyleProp, StyleSheet, Text, TextStyle, View, ViewProps, ViewStyle } from 'react-native';
+import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
 
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
+import Icon from 'components/Icon';
 
 interface MenuItemProps {
     title?: string;
-    iconLeft?: ReactNode;
+    iconLeft?: string;
     left?: ReactElement<ViewProps>;
     right?: ReactElement<ViewProps>;
     onPress?: () => void;
@@ -19,17 +20,17 @@ interface MenuItemProps {
 }
 
 const MenuItem = (props: MenuItemProps) => {
-    const { iconLeft, right, title } = props;
+    const { iconLeft, left, right, title, onPress } = props;
     const colors = useThemeColors();
     const styles = Styles(colors);
     return (
-        <View style={styles.menuContainer}>
+        <TouchableOpacity onPress={onPress} style={styles.menuContainer}>
             <View style={styles.leftMenu}>
-                {iconLeft}
+                {left ? left : <Icon name={iconLeft} size={scale(20)} />}
                 <Text style={styles.menuText}>{title}</Text>
             </View>
-            <View style={styles.rightMenu}>{right}</View>
-        </View>
+            <View style={styles.rightMenu}>{right ? right : <Icon name={'ArrowRight'} size={scale(20)} />}</View>
+        </TouchableOpacity>
     );
 };
 

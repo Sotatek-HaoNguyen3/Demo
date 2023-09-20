@@ -1,5 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext, useEffect, useState } from 'react';
+import auth from '@react-native-firebase/auth';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
@@ -7,7 +8,7 @@ import { loginDataForm, loginFieldName } from './constant';
 import loginSchema from './schema';
 
 import Images from 'assets/images';
-import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { useSetting } from 'contexts/SettingProvider';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
@@ -18,9 +19,6 @@ import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
-import auth from '@react-native-firebase/auth';
-import Storages, { KeyStorage } from 'utils/storages';
-import Icon from 'components/Icon';
 
 const LoginScreen = () => {
     const {

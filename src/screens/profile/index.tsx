@@ -1,10 +1,10 @@
+import auth from '@react-native-firebase/auth';
 import React, { useContext, useMemo } from 'react';
 
 import { StyleSheet, Text, View } from 'react-native';
 
 import MenuItem from './components/MenuItem';
 
-import Icon from 'components/Icon';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, IColors, Switch } from 'packages/uikit';
@@ -12,6 +12,7 @@ import { Avatar, IColors, Switch } from 'packages/uikit';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import { resetStack } from 'utils/navigationUtils';
 
 const ProfileScreen = () => {
     const colors = useThemeColors();
@@ -23,6 +24,15 @@ const ProfileScreen = () => {
         return name;
     }, [mode]);
 
+    const handleLogout = async () => {
+        auth()
+            .signOut()
+            .then(() => {
+                resetStack('Login');
+                console.log('User signed out!');
+            });
+    };
+
     return (
         <View style={styles.container}>
             <View style={styles.inforContainer}>
@@ -31,7 +41,7 @@ const ProfileScreen = () => {
                 <Text>JosePhonie123@gmail.com</Text>
             </View>
             <MenuItem
-                iconLeft={<Icon name={IconMode} size={scale(24)} />}
+                iconLeft={IconMode}
                 title={`${mode === 'dark' ? 'Light' : 'Dark'} Mode`}
                 right={
                     <Switch
@@ -46,6 +56,7 @@ const ProfileScreen = () => {
                     />
                 }
             />
+            <MenuItem onPress={handleLogout} iconLeft={'LogOut'} title={`Log Out`} />
         </View>
     );
 };

@@ -9,6 +9,7 @@ import IcTick from './auth/tick.svg';
 import IcUsername from './auth/user.svg';
 import IcZoom from './auth/zoom.svg';
 import IcBack from './common/back_btn.svg';
+import IcArrowRight from './common/chervon_right.svg';
 import IcArrowDown from './common/chevron-down.svg';
 import IcArrowUp from './common/chevron-up.svg';
 import IcPublic from './common/earth.svg';
@@ -65,6 +66,7 @@ const Svgs = {
     IcPrivate,
     IcArrowDown,
     IcArrowUp,
+    IcArrowRight,
     IcCamera,
     IcImageLibrary,
     IcQuiz,
@@ -77,6 +79,7 @@ const Svgs = {
     IcSendColor,
     IcDarkMode,
     IcLightMode,
+    IcLogOut,
 };
 
 export default Svgs;

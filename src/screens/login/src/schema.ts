@@ -8,17 +8,7 @@ const loginSchema = yup.object({
         .required('This Field is required.')
         .email('Email is invalid.')
         .matches(VALID_EMAIL, 'Email is invalid.'),
-    password: yup
-        .string()
-        .required('This Field is required.')
-        .matches(
-            VALID_PASSWORD,
-            'Passwords must contain at least 8 characters, capital letters, lowercase letters, numbers, no space and must match the duplicate password box.'
-        )
-        .matches(
-            NO_WHITE_SPACE,
-            'Passwords must contain at least 8 characters, capital letters, lowercase letters, numbers, no space and must match the duplicate password box.'
-        ),
+    password: yup.string().required('This Field is required.'),
 });
 
 export default loginSchema;

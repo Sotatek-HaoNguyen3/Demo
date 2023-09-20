@@ -1,8 +1,8 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import auth from '@react-native-firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 
 import { registerDataForm, registerFieldName } from './constant';
 import registerSchema from './schema';
@@ -12,13 +12,15 @@ import Svgs from 'assets/svgs';
 import { useSetting } from 'contexts/SettingProvider';
 import { HybridContext } from 'packages/core/hybrid-overlay';
 import { useThemeColors } from 'packages/hooks/useTheme';
-import { Button, ButtonText, FormInput } from 'packages/uikit';
+import { Button, ButtonText, FormInput, Toast } from 'packages/uikit';
 import Text from 'packages/uikit/components/Text';
 import { IColors } from 'packages/uikit/theme';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
+import { useKeyboard } from 'packages/hooks';
+import Icon from 'components/Icon';
 
 const INITIAL_VALUES = {
     email: '',
@@ -34,20 +36,62 @@ const RegisterScreen = () => {
         register,
         getValues,
         handleSubmit,
+        reset,
     } = useForm({
         mode: 'all',
         defaultValues: INITIAL_VALUES,
         resolver: yupResolver(registerSchema),
     });
+    const { willKeyboardSHow, keyboardShown, keyboardHeight } = useKeyboard();
+    const { t } = useSetting();
+    const colors = useThemeColors();
+    const styles = myStyles(colors);
+    const { colorMode } = useContext(HybridContext);
+    const { mode } = colorMode;
+    const fadeImage = mode === 'dark' ? Images.BACKGROUND_FADE_DARK : Images.BACKGROUND_FADE;
+    const [hidePassword, setHidePassword] = useState<boolean>(true);
+    const [hideRePassword, setHideRePassword] = useState<boolean>(true);
+    const isPassword = (name: string) => {
+        return name.toLowerCase().includes(registerFieldName.password);
+    };
 
-    console.log('err', errors, touchedFields, isValid);
+    const keyboardShow = useMemo(() => {
+        if (Platform.OS === 'ios') {
+            return willKeyboardSHow;
+        } else {
+            return keyboardShown;
+        }
+    }, [keyboardShown, willKeyboardSHow]);
+
+    const isShowRight = (name: string) => {
+        const value = getValues();
+        if (isPassword(name)) {
+            return true;
+        }
+        if (name === registerFieldName.email) {
+            return !!value.email && !errors[`${registerFieldName.email}`];
+        }
+        return false;
+    };
+
+    const showToastSuccess = () => {
+        Toast.show({
+            text1: 'Login',
+            text2: 'Back to login to continue',
+            type: 'success',
+            props: {
+                text1: 'Register Success',
+                text1Style: styles.text1,
+            },
+        });
+    };
 
     const onSubmit = async (data) => {
-        console.log(data);
         auth()
             .createUserWithEmailAndPassword(data.email, data.password)
             .then(() => {
                 console.log('User account created & signed in!');
+                showToastSuccess();
             })
             .catch((error) => {
                 if (error.code === 'auth/email-already-in-use') {
@@ -59,32 +103,10 @@ const RegisterScreen = () => {
                 }
 
                 console.error(error);
+            })
+            .finally(() => {
+                reset();
             });
-        // handleSubmit();
-        // navigate('Main');
-    };
-    const { t } = useSetting();
-    const colors = useThemeColors();
-    const styles = myStyles(colors);
-    const { colorMode } = useContext(HybridContext);
-    const { mode } = colorMode;
-    const fadeImage = mode === 'dark' ? Images.BACKGROUND_FADE_DARK : Images.BACKGROUND_FADE;
-    const [hidePassword, setHidePassword] = useState<boolean>(true);
-    const [hideRePassword, setHideRePassword] = useState<boolean>(true);
-
-    const isPassword = (name: string) => {
-        return name.toLowerCase().includes(registerFieldName.password);
-    };
-
-    const isShowRight = (name: string) => {
-        const value = getValues();
-        if (isPassword(name)) {
-            return true;
-        }
-        if (name === registerFieldName.email) {
-            return !!value.email && !errors[`${registerFieldName.email}`];
-        }
-        return false;
     };
 
     const handleHidePassword = (isConfirm = false) => {
@@ -110,16 +132,15 @@ const RegisterScreen = () => {
     };
 
     const renderLeftInput = (icon: string) => {
-        const Icon = Svgs[`${icon}`];
         return (
             <View style={styles.leftIcon}>
-                <Icon width={scale(16)} height={scale(16)} />
+                <Icon name={icon} size={scale(16)} />
             </View>
         );
     };
 
     const renderRightInput = (name) => {
-        const Icon = Svgs[isPassword(name) ? `Ic${handleSecure(name) ? 'EyeHide' : 'Eye'}` : `IcCheck`];
+        const IconName = isPassword(name) ? `${handleSecure(name) ? 'EyeHide' : 'Eye'}` : `Check`;
         const sizeIcon = isPassword(name) ? (handleSecure(name) ? 20 : 17) : 16;
         const padding = handleSecure(name) || !isPassword(name) ? 0 : scale(2);
         return (
@@ -127,7 +148,7 @@ const RegisterScreen = () => {
                 disabled={!isPassword(name)}
                 onPress={() => handleHidePassword(name !== registerFieldName.password)}
                 style={[styles.rightIcon, { paddingRight: padding }]}>
-                <Icon width={scale(sizeIcon)} height={scale(sizeIcon)} />
+                <Icon name={IconName} size={scale(sizeIcon)} />
             </TouchableOpacity>
         );
     };
@@ -158,7 +179,7 @@ const RegisterScreen = () => {
         <ImageBackground style={styles.background} source={Images.BACKGROUND}>
             <View style={styles.container}>
                 <ImageBackground style={styles.backgroundFade} source={fadeImage} />
-                <View style={styles.content}>
+                <View style={[styles.content, { top: keyboardShow ? scale(130) : scale(210) }]}>
                     <View>
                         <Text style={styles.welcome}>{t('auth.welcome')}</Text>
                         <Text style={styles.subTitle}>{t('auth.welcomeSignUp')}</Text>
@@ -175,7 +196,7 @@ const RegisterScreen = () => {
                         />
                     </View>
                 </View>
-                <View style={styles.bottomSignUp}>
+                <View style={[styles.bottomSignUp, { zIndex: keyboardShow ? -1 : 0 }]}>
                     <Text style={styles.dontHaveAccount}>{t('auth.haveAccount')}</Text>
                     <ButtonText
                         title={t('auth.signIn')}
@@ -210,7 +231,6 @@ const myStyles = (themeColors: IColors) => {
         content: {
             position: 'absolute',
             width: Sizes.scrWidth,
-            top: scale(210),
             paddingHorizontal: scale(16),
         },
         btn: {
@@ -224,7 +244,10 @@ const myStyles = (themeColors: IColors) => {
             borderRadius: scale(5),
         },
         text1: {
-            fontSize: scale(30),
+            ...Fonts.poppins700,
+            fontWeight: '700',
+            fontSize: scale(20),
+            color: themeColors.subText,
         },
         welcome: {
             ...Fonts.poppins700,

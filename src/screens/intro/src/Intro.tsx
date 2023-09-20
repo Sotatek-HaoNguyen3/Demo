@@ -34,19 +34,19 @@ const IntroScreen = (props) => {
         {
             title: t('intro.titleIntro1'),
             messageText: t('intro.massageIntro1'),
-            imgMain: 'IcHeadphone',
+            imgMain: 'Headphone',
             nextAction: null,
         },
         {
             title: t('intro.titleIntro2'),
             messageText: t('intro.massageIntro2'),
-            imgMain: 'IcBookmark',
+            imgMain: 'Bookmark',
             nextAction: null,
         },
         {
             title: t('intro.titleIntro3'),
             messageText: t('intro.massageIntro3'),
-            imgMain: 'IcZoom',
+            imgMain: 'Zoom',
             nextAction: handleLogin,
         },
     ];
@@ -75,7 +75,7 @@ const IntroScreen = (props) => {
             <Slide ref={sliderRef} renderItem={renderItem} onSlideChange={(index) => setCurrentPage(index)} />
             {!isFinish && (
                 <View style={styles.skipView}>
-                    <TouchableOpacity style={styles.skipBtn} onPress={() => navigate('Main')}>
+                    <TouchableOpacity style={styles.skipBtn} onPress={() => navigate('Login')}>
                         <Text style={styles.skipText}>{t('intro.skip')}</Text>
                     </TouchableOpacity>
                 </View>
@@ -84,7 +84,7 @@ const IntroScreen = (props) => {
                 title={`${isFinish ? t('intro.done') : t('intro.next')}`}
                 onPress={() => {
                     if (isFinish) {
-                        navigate('Main');
+                        navigate('Login');
                     } else {
                         sliderRef?.current?.onNext();
                     }

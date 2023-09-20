@@ -7,6 +7,7 @@ import Header from './components/Header';
 import { POST_OPTION } from './constant';
 
 import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { AppBar, Avatar, Button, IColors } from 'packages/uikit';
 
@@ -23,12 +24,12 @@ const PostScreen = () => {
     const [dropdownTop, setDropdownTop] = useState(0);
     const [dropdownLeft, setDropdownLeft] = useState(0);
     const IconMode = useMemo(() => {
-        const Icon = Svgs[`Ic${isPrivate ? 'Private' : 'Public'}`];
-        return Icon;
+        const name = `${isPrivate ? 'Private' : 'Public'}`;
+        return name;
     }, [isPrivate]);
     const IconArrow = useMemo(() => {
-        const Icon = Svgs[`Ic${visible ? 'ArrowUp' : 'ArrowDown'}`];
-        return Icon;
+        const name = `${visible ? 'ArrowUp' : 'ArrowDown'}`;
+        return name;
     }, [visible]);
 
     const renderHeader = () => {
@@ -64,10 +65,9 @@ const PostScreen = () => {
 
     const renderPostOption = () => {
         return POST_OPTION.map((item, index) => {
-            const Icon = Svgs[item.icon];
             return (
                 <TouchableOpacity key={index}>
-                    <Icon width={scale(25)} height={scale(25)} />
+                    <Icon name={item.icon} size={scale(25)} />
                 </TouchableOpacity>
             );
         });
@@ -82,9 +82,9 @@ const PostScreen = () => {
                         <View style={styles.rightInfo}>
                             <Text style={styles.nameText}>Maxwell Kim</Text>
                             <TouchableOpacity ref={dropdownButtonRef} style={styles.postMode} onPress={toggleDropdown}>
-                                <IconMode width={scale(16)} height={scale(16)} />
+                                <Icon name={IconMode} size={scale(16)} />
                                 <Text style={styles.textMode}>{isPrivate ? 'Private' : 'Public'}</Text>
-                                <IconArrow width={scale(16)} height={scale(16)} />
+                                <Icon name={IconArrow} size={scale(16)} />
                                 {renderDropDown()}
                             </TouchableOpacity>
                         </View>

@@ -3,7 +3,7 @@ import React from 'react';
 
 import { StyleSheet, View } from 'react-native';
 
-import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors, Text } from 'packages/uikit';
 import Fonts from 'themes/fonts';
@@ -18,10 +18,9 @@ const IntroStep = ({ onSwipe, imgMain, title, messageText, nextAction }) => {
     const renderMessage = () => <Text style={styles.messageText}>{messageText}</Text>;
 
     const renderContent = () => {
-        const Icon = Svgs[imgMain];
         return (
             <View style={styles.content}>
-                <Icon height={scale(350)} width={scale(350)} />
+                <Icon name={imgMain} size={scale(350)} />
                 {renderTitle()}
                 {renderMessage()}
                 {/* {!_.isNil(loginAction) && renderLogin()} */}

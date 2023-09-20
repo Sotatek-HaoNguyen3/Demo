@@ -2,11 +2,10 @@ import React from 'react';
 
 import { FlatList, Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit';
 
-import { HitSlop } from 'themes/dimensions';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 
@@ -23,15 +22,15 @@ const DropDown = (props: IDropDownProps) => {
     const colors = useThemeColors();
     const styles = myStyles(colors);
     const data = [
-        { label: 'Public', value: 0, icon: 'IcPublic' },
-        { label: 'Private', value: 1, icon: 'IcPrivate' },
+        { label: 'Public', value: 0, icon: 'Public' },
+        { label: 'Private', value: 1, icon: 'Private' },
     ];
     const renderItem = ({ item }) => {
-        const Icon = Svgs[item.icon];
+        const IconName = item.icon;
         return (
             <TouchableOpacity style={styles.item} onPress={() => onPressItem(item.value)}>
                 <View style={styles.dropdownIcon}>
-                    <Icon width={scale(16)} height={scale(16)} />
+                    <Icon name={IconName} size={scale(16)} />
                 </View>
                 <View>
                     <Text style={styles.dropdownText}>{item.label}</Text>

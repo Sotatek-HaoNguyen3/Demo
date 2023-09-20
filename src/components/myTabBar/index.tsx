@@ -7,6 +7,7 @@ import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
+import Icon from 'components/Icon';
 
 const MyTabBar = (props: BottomTabBarProps) => {
     const colors = useThemeColors();
@@ -22,11 +23,11 @@ const MyTabBar = (props: BottomTabBarProps) => {
                         navigation.navigate({ name: route.name, params: {}, merge: true }); // The `merge: true` option makes sure that the params inside the tab screen are preserved
                     }
                 };
-                const IconTab = Svgs[`Ic${route.name}${isFocused && route.name !== 'Post' ? 'Active' : ''}`];
+                const IconName = `${route.name}${isFocused && route.name !== 'Post' ? 'Active' : ''}`;
                 const sizeIcon = scale(16);
                 return route.name !== 'Post' ? (
                     <TouchableOpacity key={index.toString()} style={styles.btnTab} onPress={onPress}>
-                        <IconTab width={scale(sizeIcon)} height={scale(sizeIcon)} />
+                        <Icon name={IconName} size={scale(sizeIcon)} />
                     </TouchableOpacity>
                 ) : (
                     <TouchableOpacity
@@ -34,7 +35,7 @@ const MyTabBar = (props: BottomTabBarProps) => {
                         key={index.toString()}
                         style={styles.btnMiddleTab}
                         onPress={onPress}>
-                        <IconTab width={scale(80)} height={scale(80)} />
+                        <Icon name={IconName} size={scale(80)} />
                     </TouchableOpacity>
                 );
             })}

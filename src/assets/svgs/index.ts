@@ -23,6 +23,9 @@ import IcCamera from './post/camera.svg';
 import IcImageLibrary from './post/image_lib.svg';
 import IcQuiz from './post/quiz.svg';
 import IcVideo from './post/video.svg';
+import IcDarkMode from './profile/dark_mode.svg';
+import IcLightMode from './profile/light_mode.svg';
+import IcLogOut from './profile/logout.svg';
 import IcSave from './save_icon.svg';
 import IcStar from './star.svg';
 import IcFavourite from './tabs/heart.svg';
@@ -72,6 +75,8 @@ const Svgs = {
     IcPause,
     IcPlay,
     IcSendColor,
+    IcDarkMode,
+    IcLightMode,
 };
 
 export default Svgs;

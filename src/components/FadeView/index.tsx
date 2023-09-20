@@ -2,7 +2,7 @@ import { isEqual } from 'lodash';
 import React, { useImperativeHandle, useRef } from 'react';
 import { Animated, StyleProp, StyleSheet, TouchableOpacity, ViewStyle } from 'react-native';
 
-import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
@@ -64,12 +64,12 @@ const FadeView = React.forwardRef((props: IFadeViewProps, ref) => {
         }).start();
     };
 
-    const Icon = Svgs[`Ic${pause ? 'Play' : 'Pause'}`];
+    const IconName = `${pause ? 'Play' : 'Pause'}`;
 
     return (
         <Animated.View ref={fadeViewRef} style={[{ opacity: fadeAnim }, containerStyle]}>
             <TouchableOpacity style={styles.fadingContainer} onPress={onPressView}>
-                <Icon height={size} width={size} />
+                <Icon name={IconName} size={size} />
             </TouchableOpacity>
         </Animated.View>
     );

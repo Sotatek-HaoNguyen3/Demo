@@ -5,8 +5,8 @@ import { StyleSheet, Text, TouchableOpacity, TouchableWithoutFeedback, View } fr
 
 import Video from 'react-native-video';
 
-import Svgs from 'assets/svgs';
 import FadeView, { viewFade, viewFadeRef } from 'components/FadeView';
+import Icon from 'components/Icon';
 import VideoPlayer from 'components/VideoPlayer';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, Button, IColors, Slider } from 'packages/uikit';
@@ -24,7 +24,6 @@ const videoError = (e) => {
 const WatchDetailScreen = () => {
     const colors = useThemeColors();
     const styles = Styles(colors);
-    const IconBack = Svgs[`IcBack`];
     const [pause, setPause] = useState(false);
     const [progress, setProgress] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -120,10 +119,10 @@ const WatchDetailScreen = () => {
             </View>
 
             <TouchableOpacity style={styles.iconView} onPress={() => goBack()} hitSlop={HitSlop.default}>
-                <IconBack width={scale(24)} height={scale(24)} />
+                <Icon name={'Back'} size={scale(24)} />
             </TouchableOpacity>
             <TouchableOpacity style={styles.iconViewRight} onPress={() => {}} hitSlop={HitSlop.default}>
-                <Svgs.IcSave width={scale(20)} height={scale(20)} />
+                <Icon name={'Save'} size={scale(20)} />
             </TouchableOpacity>
         </View>
     );

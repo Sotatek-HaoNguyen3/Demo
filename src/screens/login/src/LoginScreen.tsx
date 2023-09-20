@@ -1,5 +1,5 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
@@ -18,21 +18,22 @@ import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
+import auth from '@react-native-firebase/auth';
+import Storages, { KeyStorage } from 'utils/storages';
+import Icon from 'components/Icon';
 
 const LoginScreen = () => {
     const {
         control,
         formState: { errors },
         register,
+        handleSubmit,
     } = useForm({
         mode: 'all',
         defaultValues: { email: '', password: '' },
         resolver: yupResolver(loginSchema),
     });
 
-    const onSubmit = async () => {
-        navigate('Intro');
-    };
     const { t } = useSetting();
     const colors = useThemeColors();
     const styles = myStyles(colors);
@@ -50,16 +51,26 @@ const LoginScreen = () => {
     };
 
     const renderLeftInput = (icon: string) => {
-        const Icon = Svgs[`${icon}`];
         return (
             <View style={styles.leftIcon}>
-                <Icon width={scale(16)} height={scale(16)} />
+                <Icon name={icon} size={scale(16)} />
             </View>
         );
     };
 
+    const onSubmit = async (data) => {
+        auth()
+            .signInWithEmailAndPassword(data.email, data.password)
+            .then((res) => {
+                console.log(res);
+                console.log('User logged-in successfully!');
+                navigate('Main');
+            })
+            .catch((error) => console.log(error));
+    };
+
     const renderRightInput = (name) => {
-        const Icon = Svgs[isPassword(name) ? `Ic${hidePassword ? 'EyeHide' : 'Eye'}` : `IcCheck`];
+        const IconName = isPassword(name) ? `${hidePassword ? 'EyeHide' : 'Eye'}` : `Check`;
         const sizeIcon = isPassword(name) ? (hidePassword ? 20 : 17) : 16;
         const padding = hidePassword || !isPassword(name) ? 0 : scale(2);
         return (
@@ -67,14 +78,35 @@ const LoginScreen = () => {
                 disabled={name !== loginFieldName.password}
                 onPress={handleHidePassword}
                 style={[styles.rightIcon, { paddingRight: padding }]}>
-                <Icon width={scale(sizeIcon)} height={scale(sizeIcon)} />
+                <Icon name={IconName} size={scale(sizeIcon)} />
             </TouchableOpacity>
         );
     };
 
     const renderCheckboxIcon = () => {
-        const Icon = Svgs[`IcTick`];
-        return isCheck ? <Icon width={scale(12)} height={scale(12)} /> : null;
+        return isCheck ? <Icon name={'Tick'} size={scale(12)} /> : null;
+    };
+
+    const renderInput = (data, index) => {
+        const error = errors[`${data.name}`];
+        const inputStyle = error && error?.message ? styles.errorInput : styles.input;
+        return (
+            <FormInput
+                key={`input_${index}`}
+                control={control}
+                name={data.name}
+                error={error}
+                placeholder={t('auth.' + data.placeholder.toLowerCase())}
+                register={register}
+                styleInput={inputStyle}
+                styleTextInput={styles.textInput}
+                placeholderTextColor={colors.label}
+                errorTextStyle={styles.errorText}
+                leftComponent={renderLeftInput(data.icon)}
+                secure={isPassword(data.name) ? hidePassword : false}
+                rightComponent={isPassword(data.name) && renderRightInput(data.name)}
+            />
+        );
     };
 
     return (
@@ -88,26 +120,11 @@ const LoginScreen = () => {
                     </View>
                     <View style={styles.formRegister}>
                         {loginDataForm.map((data, index) => {
-                            return (
-                                <FormInput
-                                    key={`input_${index}`}
-                                    control={control}
-                                    name={data.name}
-                                    error={errors[`${data.name}`]}
-                                    placeholder={t('auth.' + data.placeholder.toLowerCase())}
-                                    register={register}
-                                    styleInput={styles.input}
-                                    styleTextInput={styles.textInput}
-                                    placeholderTextColor={colors.label}
-                                    leftComponent={renderLeftInput(data.icon)}
-                                    secure={isPassword(data.name) ? hidePassword : false}
-                                    rightComponent={renderRightInput(data.name)}
-                                />
-                            );
+                            return renderInput(data, index);
                         })}
                         <Button
                             title={t('auth.signIn')}
-                            onPress={onSubmit}
+                            onPress={handleSubmit(onSubmit)}
                             containerStyles={styles.loginBtn}
                             titleStyles={styles.titleButton}
                         />
@@ -202,6 +219,25 @@ const myStyles = (themeColors: IColors) => {
             marginTop: scale(24),
             paddingHorizontal: scale(10),
             alignItems: 'center',
+        },
+        errorInput: {
+            backgroundColor: themeColors.backgroundAlt,
+            borderRadius: scale(8),
+            borderWidth: scale(1),
+            height: scale(45),
+            marginTop: scale(24),
+            paddingHorizontal: scale(10),
+            alignItems: 'center',
+            borderColor: themeColors.red[500],
+        },
+        errorText: {
+            fontWeight: '400',
+            fontSize: scale(10),
+            marginLeft: scale(10),
+            ...Fonts.poppins400,
+            color: themeColors.red[500],
+            position: 'absolute',
+            bottom: -scale(16),
         },
         textInput: {
             fontWeight: '400',

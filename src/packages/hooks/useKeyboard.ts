@@ -14,6 +14,7 @@ const initialValue = {
 
 export function useKeyboard() {
     const [shown, setShown] = useState(false);
+    const [willShow, setWillShow] = useState(false);
     const [coordinates, setCoordinates] = useState<{
         start: undefined | KeyboardMetrics;
         end: KeyboardMetrics;
@@ -21,6 +22,7 @@ export function useKeyboard() {
     const [keyboardHeight, setKeyboardHeight] = useState<number>(0);
 
     const handleKeyboardWillShow: KeyboardEventListener = (e) => {
+        setWillShow(true);
         setCoordinates({ start: e.startCoordinates, end: e.endCoordinates });
     };
     const handleKeyboardDidShow: KeyboardEventListener = (e) => {
@@ -29,6 +31,7 @@ export function useKeyboard() {
         setKeyboardHeight(e.endCoordinates.height);
     };
     const handleKeyboardWillHide: KeyboardEventListener = (e) => {
+        setWillShow(false);
         setCoordinates({ start: e.startCoordinates, end: e.endCoordinates });
     };
     const handleKeyboardDidHide: KeyboardEventListener = (e) => {
@@ -55,6 +58,7 @@ export function useKeyboard() {
     }, []);
 
     return {
+        willKeyboardSHow: willShow,
         keyboardShown: shown,
         coordinates,
         keyboardHeight,

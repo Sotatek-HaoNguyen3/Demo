@@ -1,8 +1,8 @@
 const POST_OPTION = [
-    { icon: 'IcCamera', name: 'camera' },
-    { icon: 'IcVideo', name: 'video' },
-    { icon: 'IcImageLibrary', name: 'image' },
-    { icon: 'IcQuiz', name: 'quiz' },
+    { icon: 'Camera', name: 'camera' },
+    { icon: 'Video', name: 'video' },
+    { icon: 'ImageLibrary', name: 'image' },
+    { icon: 'Quiz', name: 'quiz' },
 ];
 
 export { POST_OPTION };

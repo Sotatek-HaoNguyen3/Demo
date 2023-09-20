@@ -83,7 +83,6 @@ const myStyles = (themeColors: IColors) => {
         container: {
             paddingTop: Sizes.statusBarHeight,
             width: '100%',
-            backgroundColor: themeColors.backgroundAlt,
         },
         viewHeader: {
             height: scale(50),

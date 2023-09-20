@@ -1,6 +1,6 @@
 const loginFieldName = {
-    email: 'Email',
-    password: 'Password',
+    email: 'email',
+    password: 'password',
 };
 
 const loginDataForm = [
@@ -9,14 +9,14 @@ const loginDataForm = [
         type: 'input-text',
         placeholder: 'Email',
         label: 'Email',
-        icon: 'IcEmail',
+        icon: 'Email',
     },
     {
         name: loginFieldName.password,
         type: 'input-text',
         placeholder: 'Password',
         label: 'Password',
-        icon: 'IcLock',
+        icon: 'Lock',
     },
 ];
 

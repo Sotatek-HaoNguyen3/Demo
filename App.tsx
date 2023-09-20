@@ -17,6 +17,7 @@ import { globalLoadingRef } from 'packages/uikit/components/Loading';
 import { onSwipeRight } from 'packages/utils/gestureHandle';
 import store, { persistor } from 'stores';
 import { myColors, MyColorsType } from 'themes/colors';
+import { scale } from 'themes/scales';
 
 const myTheme = extendTheme({
     colors: myColors,
@@ -91,7 +92,7 @@ function App() {
                         <RootStacks />
                     </PersistGate>
                     <Loading ref={globalLoadingRef} />
-                    <Toast />
+                    <Toast topOffset={scale(45)} />
                 </Provider>
                 {/* </GestureRecognizer> */}
             </SettingProvider>

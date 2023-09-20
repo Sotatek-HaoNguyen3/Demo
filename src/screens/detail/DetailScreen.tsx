@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 
 import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { AirbnbRating } from 'components/Rating';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Avatar, ButtonText, EmptyListView, IColors, ListView } from 'packages/uikit';
@@ -75,7 +75,6 @@ const POST_DATA = {
 const DetailScreen = () => {
     const colors = useThemeColors();
     const styles = Styles(colors);
-    const IconBack = Svgs[`IcBack`];
     const data = POST_DATA;
     const [selectedId, setSelectedId] = useState(null);
     const bottomSheetRef = useRef<BottomSheetInputRefType>(null);
@@ -120,10 +119,10 @@ const DetailScreen = () => {
         <View style={styles.container}>
             <View style={styles.topView}>
                 <TouchableOpacity style={styles.iconView} onPress={() => goBack()} hitSlop={HitSlop.default}>
-                    <IconBack width={scale(24)} height={scale(24)} />
+                    <Icon name="Back" size={scale(24)} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.iconView} onPress={() => {}} hitSlop={HitSlop.default}>
-                    <Svgs.IcSave width={scale(20)} height={scale(20)} />
+                    <Icon name="Save" size={scale(20)} />
                 </TouchableOpacity>
             </View>
             <View style={styles.content}>
@@ -136,7 +135,7 @@ const DetailScreen = () => {
                 <View>
                     <Text style={styles.titleText}>{data.title}</Text>
                     <View style={styles.info}>
-                        <Svgs.IcStar width={scale(16)} height={scale(16)} />
+                        <Icon name="Star" size={scale(16)} />
                         <Text style={styles.textStar}>{data.rate}</Text>
                         <Text style={styles.textSave}>{`(${data.number_of_review}+)`}</Text>
                         <ButtonText title={'123'} titleStyles={styles.underline} onPress={showBottomSheet} />
@@ -164,7 +163,7 @@ const DetailScreen = () => {
                     <View style={styles.bottomInput}>
                         <TextInput placeholder="Write your own review" style={styles.inputReview} />
                         <TouchableOpacity style={styles.iconSendView} onPress={() => {}} hitSlop={HitSlop.default}>
-                            <Svgs.IcSendColor width={scale(40)} height={scale(40)} />
+                            <Icon name="SendColor" size={scale(40)} />
                         </TouchableOpacity>
                     </View>
                 </View>

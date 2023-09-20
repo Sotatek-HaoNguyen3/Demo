@@ -10,25 +10,25 @@ const registerDataForm = [
         name: registerFieldName.email,
         type: 'input-text',
         placeholder: 'Email',
-        on: 'Email',
+        icon: 'Email',
     },
     {
         name: registerFieldName.username,
         type: 'input-text',
         placeholder: 'Username',
-        on: 'Username',
+        icon: 'Username',
     },
     {
         name: registerFieldName.password,
         type: 'input-text',
         placeholder: 'Password',
-        on: 'Lock',
+        icon: 'Lock',
     },
     {
         name: registerFieldName.confirmPassword,
         type: 'input-text',
         placeholder: 'confirmPassword',
-        on: 'Lock',
+        icon: 'Lock',
     },
 ];
 

@@ -1,11 +1,11 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { StyleProp, StyleSheet, Text, TextStyle, TouchableOpacity, View, ViewProps, ViewStyle } from 'react-native';
 
+import Icon from 'components/Icon';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
-import Icon from 'components/Icon';
 
 interface MenuItemProps {
     title?: string;

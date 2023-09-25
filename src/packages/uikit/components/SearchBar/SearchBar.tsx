@@ -4,11 +4,12 @@ import { Image, StyleSheet, TextInput, TextInputProps, TouchableOpacity, View } 
 
 import { ISearchBarProps } from './types';
 
+import Text from '../Text';
+
+import { useDebounce } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors, theme } from 'packages/uikit/theme';
 import { scale } from 'themes/scales';
-import { useDebounce } from 'packages/hooks';
-import Text from '../Text';
 
 const SearchBar = (props: ISearchBarProps & TextInputProps) => {
     const colors = useThemeColors();

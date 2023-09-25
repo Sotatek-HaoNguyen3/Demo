@@ -4,8 +4,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import RootStacks from 'stacks';
-
 import SettingProvider from 'contexts/SettingProvider';
 import { BaseProvider, ColorMode, IBaseConfig, StorageManager } from 'packages/core';
 import { extendTheme } from 'packages/core/extendTheme';
@@ -15,6 +13,7 @@ import { globalDrawerRef } from 'packages/uikit/components/Drawer';
 import GestureRecognizer from 'packages/uikit/components/Drawer/GestureRecognizer';
 import { globalLoadingRef } from 'packages/uikit/components/Loading';
 import { onSwipeRight } from 'packages/utils/gestureHandle';
+import RootStacks from 'stacks';
 import store, { persistor } from 'stores';
 import { myColors, MyColorsType } from 'themes/colors';
 import { scale } from 'themes/scales';

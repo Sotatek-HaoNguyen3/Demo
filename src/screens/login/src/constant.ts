@@ -20,4 +20,15 @@ const loginDataForm = [
     },
 ];
 
-export { loginFieldName, loginDataForm };
+const FORM_ERROR = [
+    {
+        field: 'email',
+        message: 'Email or password is incorrect',
+    },
+    {
+        field: 'password',
+        message: 'Email or password is incorrect',
+    },
+];
+
+export { loginFieldName, loginDataForm, FORM_ERROR };

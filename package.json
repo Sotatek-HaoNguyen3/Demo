@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "android": "react-native run-android",
-        "ios:dev": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"SotaEng Dev\" --simulator=\"iPhone 14 Pro Max\"",
+        "ios:dev": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"SotaEng Dev\" --simulator=\"iPhone 15 Pro Max\"",
         "ios:stg": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"SotaEng Stg\" --simulator=\"iPhone 14 Pro Max\"",
         "ios:prod": "ENVFILE=.env.development react-native run-ios --configuration Debug --scheme \"SotaEng\" --simulator=\"iPhone 14 Pro Max\"",
         "android:staging": "react-native run-android --mode=stagingDebug --appIdSuffix staging",
@@ -53,6 +53,7 @@
         "react-native-config": "^1.5.1",
         "react-native-fast-image": "^8.6.3",
         "react-native-gesture-handler": "^2.12.0",
+        "react-native-image-crop-picker": "^0.40.0",
         "react-native-keyboard-aware-scroll-view": "^0.9.5",
         "react-native-linear-gradient": "^2.8.2",
         "react-native-reanimated": "2.14.4",

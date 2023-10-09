@@ -48,6 +48,7 @@ const Styles = (themeColors: IColors) => {
             flexDirection: 'row',
             width: '100%',
             alignItems: 'center',
+            marginTop: scale(16),
         },
         leftMenu: {
             flexDirection: 'row',

@@ -1,13 +1,19 @@
 import React, { useImperativeHandle, useRef, useState } from 'react';
 import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
+import { Animation, CustomAnimation } from 'react-native-animatable';
+
+import { useSelector } from 'react-redux';
+
 import { MaterialIndicator } from '../Indicators';
 import { IndicatorProps } from '../Indicators/indicator/BaseIndicator';
 import BaseModal from '../Modal';
 import { BaseModalProps } from '../Modal/modal';
+
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { IColors } from 'packages/uikit/theme';
-import { Animation, CustomAnimation } from 'react-native-animatable';
+
+import { rootSelector } from 'stores/root/rootSlice';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const globalLoadingRef = React.createRef<any>();
@@ -30,6 +36,7 @@ export interface ILoadingProps {
     modalProps?: BaseModalProps;
     indicatorProps?: IndicatorProps;
     animationDuration?: number;
+    useRedux?: boolean;
 }
 
 const Loading = React.forwardRef((props: ILoadingProps, ref) => {
@@ -44,9 +51,11 @@ const Loading = React.forwardRef((props: ILoadingProps, ref) => {
         animationOut = 'fadeOut',
         modalProps,
         indicatorProps,
+        useRedux = false,
     } = props;
     const loadingRef = useRef(null);
     const [visible, setVisible] = useState<boolean>(false);
+    const isLoading = useSelector(rootSelector);
 
     useImperativeHandle(ref, () => {
         return { show, hide };
@@ -67,7 +76,7 @@ const Loading = React.forwardRef((props: ILoadingProps, ref) => {
             ref={loadingRef}
             animationOut={animationOut}
             animationIn={animationIn}
-            isVisible={visible}>
+            isVisible={useRedux ? isLoading : visible}>
             <View style={[styles.loadingBg, backgroundStyle]}>
                 <MaterialIndicator
                     {...indicatorProps}

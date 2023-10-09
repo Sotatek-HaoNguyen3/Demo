@@ -9,22 +9,22 @@ import registerSchema from './schema';
 
 import Images from 'assets/images';
 import Svgs from 'assets/svgs';
+import Icon from 'components/Icon';
 import { useSetting } from 'contexts/SettingProvider';
 import { HybridContext } from 'packages/core/hybrid-overlay';
+import { useKeyboard } from 'packages/hooks';
 import { useThemeColors } from 'packages/hooks/useTheme';
 import { Button, ButtonText, FormInput, Toast } from 'packages/uikit';
 import Text from 'packages/uikit/components/Text';
 import { IColors } from 'packages/uikit/theme';
+import { SignUp } from 'services/firebase';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
 import { navigate } from 'utils/navigationUtils';
-import { useKeyboard } from 'packages/hooks';
-import Icon from 'components/Icon';
 
 const INITIAL_VALUES = {
     email: '',
-    username: '',
     password: '',
     confirmPassword: '',
 };
@@ -87,26 +87,10 @@ const RegisterScreen = () => {
     };
 
     const onSubmit = async (data) => {
-        auth()
-            .createUserWithEmailAndPassword(data.email, data.password)
-            .then(() => {
-                console.log('User account created & signed in!');
-                showToastSuccess();
-            })
-            .catch((error) => {
-                if (error.code === 'auth/email-already-in-use') {
-                    console.log('That email address is already in use!');
-                }
-
-                if (error.code === 'auth/invalid-email') {
-                    console.log('That email address is invalid!');
-                }
-
-                console.error(error);
-            })
-            .finally(() => {
-                reset();
-            });
+        SignUp(data.email, data.password, () => {
+            showToastSuccess();
+            reset();
+        });
     };
 
     const handleHidePassword = (isConfirm = false) => {

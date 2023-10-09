@@ -1,6 +1,5 @@
 const registerFieldName = {
     email: 'email',
-    username: 'username',
     password: 'password',
     confirmPassword: 'confirmPassword',
 };
@@ -11,12 +10,6 @@ const registerDataForm = [
         type: 'input-text',
         placeholder: 'Email',
         icon: 'Email',
-    },
-    {
-        name: registerFieldName.username,
-        type: 'input-text',
-        placeholder: 'Username',
-        icon: 'Username',
     },
     {
         name: registerFieldName.password,

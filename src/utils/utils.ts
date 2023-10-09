@@ -1,9 +1,18 @@
-import { RootParamList } from 'stacks/types';
 import Storages, { KeyStorage } from './storages';
+
+import { globalLoading } from 'packages/uikit/components/Loading';
+import { RootParamList } from 'stacks/types';
 
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
+
+const Loading = async (isLoad = true) => {
+    if (isLoad) {
+        return globalLoading.show();
+    }
+    return globalLoading.hide();
+};
 
 const getInitRoute = async (user) => {
     let screenName: keyof RootParamList = 'Intro';
@@ -17,4 +26,4 @@ const getInitRoute = async (user) => {
     }
     return screenName;
 };
-export { sleep, getInitRoute };
+export { sleep, getInitRoute, Loading };

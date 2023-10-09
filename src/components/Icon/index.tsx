@@ -3,13 +3,14 @@ import React from 'react';
 import { StyleProp, View, ViewStyle } from 'react-native';
 
 import Svgs from 'assets/svgs';
+import { SvgProps } from 'react-native-svg';
 
 interface IconProps {
     name: string;
     size?: number;
     containerStyle?: StyleProp<ViewStyle>;
 }
-const Icon = (props: IconProps) => {
+const Icon = (props: IconProps & SvgProps) => {
     const { name, size, containerStyle, ...rest } = props;
     const IconSvg = Svgs[`Ic${name}`];
     return (

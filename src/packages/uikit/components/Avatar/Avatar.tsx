@@ -1,3 +1,4 @@
+import Icon from 'components/Icon';
 import React, { memo } from 'react';
 import { Image, ImageSourcePropType, ImageStyle, StyleProp, TouchableOpacity, View } from 'react-native';
 
@@ -37,10 +38,13 @@ const Avatar = (props: AvatarProps) => {
                             borderRadius: isCircle ? scale(size / 2 || 40) : 0,
                             backgroundColor: 'black',
                             opacity: 0.1,
+                            justifyContent: 'center',
+                            alignItems: 'center',
                         },
                         imageStyles,
-                    ]}
-                />
+                    ]}>
+                    <Icon fill={'#ffffff'} name={'Camera'} size={scale(25)} />
+                </View>
             )}
         </TouchableOpacity>
     );

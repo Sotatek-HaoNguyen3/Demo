@@ -4,7 +4,9 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { ImageBackground, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { loginDataForm, loginFieldName } from './constant';
+import { useDispatch } from 'react-redux';
+
+import { FORM_ERROR, loginDataForm, loginFieldName } from './constant';
 import loginSchema from './schema';
 
 import Images from 'assets/images';
@@ -15,6 +17,8 @@ import { useThemeColors } from 'packages/hooks/useTheme';
 import { Button, ButtonText, CheckBox, FormInput } from 'packages/uikit';
 import Text from 'packages/uikit/components/Text';
 import { IColors } from 'packages/uikit/theme';
+import { SignIn } from 'services/firebase';
+import { userActions } from 'stores/user';
 import Fonts from 'themes/fonts';
 import { scale } from 'themes/scales';
 import Sizes from 'themes/sizes';
@@ -25,13 +29,14 @@ const LoginScreen = () => {
         control,
         formState: { errors },
         register,
+        setError,
         handleSubmit,
     } = useForm({
         mode: 'all',
         defaultValues: { email: '', password: '' },
         resolver: yupResolver(loginSchema),
     });
-
+    const dispatch = useDispatch();
     const { t } = useSetting();
     const colors = useThemeColors();
     const styles = myStyles(colors);
@@ -57,14 +62,26 @@ const LoginScreen = () => {
     };
 
     const onSubmit = async (data) => {
-        auth()
-            .signInWithEmailAndPassword(data.email, data.password)
-            .then((res) => {
-                console.log(res);
-                console.log('User logged-in successfully!');
+        await SignIn(data.email, data.password, (user) => {
+            if (user) {
+                console.log(user);
+
+                dispatch(userActions.loginSuccess(user));
                 navigate('Main');
-            })
-            .catch((error) => console.log(error));
+            } else {
+                FORM_ERROR.map((e) => {
+                    setError(e.field, { message: e.message });
+                });
+            }
+        });
+        // auth()
+        //     .signInWithEmailAndPassword(data.email, data.password)
+        //     .then((res) => {
+        //         console.log(res);
+        //         console.log('User logged-in successfully!');
+        //         navigate('Main');
+        //     })
+        //     .catch((error) => console.log(error));
     };
 
     const renderRightInput = (name) => {

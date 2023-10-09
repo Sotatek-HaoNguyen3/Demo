@@ -25,6 +25,7 @@ import IcImageLibrary from './post/image_lib.svg';
 import IcQuiz from './post/quiz.svg';
 import IcVideo from './post/video.svg';
 import IcDarkMode from './profile/dark_mode.svg';
+import IcEdit from './profile/edit.svg';
 import IcLightMode from './profile/light_mode.svg';
 import IcLogOut from './profile/logout.svg';
 import IcSave from './save_icon.svg';
@@ -80,6 +81,7 @@ const Svgs = {
     IcDarkMode,
     IcLightMode,
     IcLogOut,
+    IcEdit,
 };
 
 export default Svgs;

@@ -4,19 +4,21 @@ import { createLogger } from 'redux-logger';
 import { FLUSH, PAUSE, PERSIST, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import createSagaMiddleware from 'redux-saga';
 
-import usersReducer from './user';
+import rootReducer from './root/rootSlice';
+import userReducer from './user';
 
 import rootSaga from 'sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const logger = createLogger();
 
-const rootReducer = combineReducers({
-    users: usersReducer,
+const reducers = combineReducers({
+    user: userReducer,
+    root: rootReducer,
 });
 
 export const store = configureStore({
-    reducer: rootReducer,
+    reducer: reducers,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
